@@ -25,7 +25,16 @@ This workspace is dedicated to computational research, psychological dynamical m
 
 ## Project-Internal Memory (`memory/`)
 - [`memory/conversation-summary.md`](memory/conversation-summary.md) — Comprehensive log and synthesis of research dialogues, paradigm shifts, and cross-disciplinary models.
-- [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, 4-Axis Game Engine).
+- [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, Two-Tier 6D Engine, Dynamical Nemesis).
+
+---
+
+## Council of Expert Agents (`agents/`)
+- [`agents/README.md`](agents/README.md) — Registry and invocation protocols for the Expert Council.
+- **TS. Alex Vance:** [`agents/alex-vance/AGENT.md`](agents/alex-vance/AGENT.md) | Memory: [`agents/alex-vance/memory.md`](agents/alex-vance/memory.md) (Dynamical Systems, SDE, Topology).
+- **TS. Elena Rostova:** [`agents/elena-rostova/AGENT.md`](agents/elena-rostova/AGENT.md) | Memory: [`agents/elena-rostova/memory.md`](agents/elena-rostova/memory.md) (Neurobiology, Polyvagal, CB5T).
+- **Kai Sorenson:** [`agents/kai-sorenson/AGENT.md`](agents/kai-sorenson/AGENT.md) | Memory: [`agents/kai-sorenson/memory.md`](agents/kai-sorenson/memory.md) (Game Architecture, 10Hz/1Hz Loop, Nemesis System).
+- **GS. Marcus Thorne:** [`agents/marcus-thorne/AGENT.md`](agents/marcus-thorne/AGENT.md) | Memory: [`agents/marcus-thorne/memory.md`](agents/marcus-thorne/memory.md) (Empirical Psychology, 5 Stress-Test Scenarios).
 
 ---
 

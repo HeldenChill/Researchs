@@ -67,17 +67,44 @@ $$\begin{cases}
 
 ---
 
-## 5. The 4-Axis Emergent Game Mechanics Engine
+## 5. The Two-Tier Emergent Engine (Plan B - Fiber Bundle Formulation)
 
-$$\vec{S}_{\text{game}} = \big(A, V, C, S\big)$$
+The architecture upgraded from the flat 4-axis model to a **Two-Tier Fiber Bundle** ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$) to guarantee mathematical non-degeneracy, full Big Five (OCEAN) cybernetic mapping (CB5T), and dual-rate computational optimization:
 
-1. **Arousal ($A \in [-1, 1]$):** Dorsal shutdown ($-1$) to Window of Tolerance ($0$) to Sympathetic overdrive ($+1$).
-2. **Safety / Valence ($V \in [0, 1]$):** Neuroception of existential security.
-3. **Cognitive Bandwidth ($C \in [0, 1]$):** 
-   $$C(t) = C_{\text{base}} \times \max\left(0, 1 - \left(\frac{A}{A_{\text{thresh}}}\right)^2\right) \times V(t)$$
-4. **Attachment ($S \in [-1, 1]$):** Hostile isolation ($-1$) to secure social trust ($+1$).
+$$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (Fast 10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (Slow 1 Hz)}} \Big)$$
 
-### Event-to-Force Two-Gear Abstraction:
-$$\vec{I}_{\text{perceived}} = \mathbf{M}_{\text{filter}}(\vec{S}, \text{Trauma\_Scars}) \times \vec{I}_{\text{raw}}$$
-* $\vec{I}_{\text{raw}} = (\Delta A, \Delta V, \Delta C, \Delta S)$.
-* $\mathbf{M}_{\text{filter}}$ modulates amplitude: attenuation ($\approx 0.1\times$) for healthy baselines, amplification ($\ge 5.0\times$) for active trauma scars (e.g., Toxic Shame).
+### 5.1. State Variable Definitions:
+1. **$A_{\text{phys}} \in [0.0, 1.0]$ (Physiological Arousal):** Metabolic activation, sympathetic catecholamine release, heart rate.
+2. **$V_{\text{bio}} \in [-1.0, +1.0]$ (Biological Neuroception / Valence):** Subcortical existential threat evaluation ($-1.0$ extinction alarm, $+1.0$ absolute physical sanctuary).
+3. **$C \in [0.0, 1.0]$ (Cognitive Clarity & Executive Bandwidth):** Governed by an independent differential equation with ego depletion and metabolic recovery:
+   $$\frac{dC}{dt} = \frac{C_{\text{target}}(A_{\text{phys}}, V_{\text{bio}}) - C(t)}{\tau_{\text{recovery}}} - \text{Drain}_{\text{task}}(t)$$
+4. **$W \in [-1.0, +1.0]$ (Social Warmth / Affiliation):** Horizontal axis of the Interpersonal Circumplex (Altruistic empathy vs Machiavellian hostility).
+5. **$D \in [-1.0, +1.0]$ (Dominance / Agency):** Vertical axis of the Interpersonal Circumplex (Assertive leadership vs Submissive obedience).
+6. **$E_x \in [0.0, 1.0]$ (Epistemic Drive / Exploration):** Panksepp SEEKING system, curiosity and dopaminergic reward-seeking.
+
+### 5.2. Cybernetic Big Five Mapping (CB5T):
+* **Neuroticism ($N$):** Sensitivity and gradient of Tier 1 ($A_{\text{phys}}, V_{\text{bio}}$).
+* **Extraversion ($E$):** Composite of $D > 0$, $E_x > 0$, and $W > 0$.
+* **Openness ($O$):** Epistemic exploration axis $E_x$.
+* **Agreeableness ($A$):** Warmth axis $W$ under condition $V_{\text{bio}} > 0$.
+* **Conscientiousness ($C$):** Executive bandwidth maintenance $C$ + Volitional override weight $\vec{F}_{\text{will}}$.
+
+### 5.3. Event-to-Force Two-Gear Abstraction (6D):
+$$\vec{I}_{\text{perceived}} = \mathbf{M}_{\text{filter}}(\vec{S}, \text{Trauma\_Scars}, \text{Nemesis\_Weights}) \times \vec{I}_{\text{raw}}$$
+* $\vec{I}_{\text{raw}} = (\Delta A_{\text{phys}}, \Delta V_{\text{bio}} \mid \Delta C, \Delta W, \Delta D, \Delta E_x)$ with `target_id`.
+* $\mathbf{M}_{\text{filter}}$ modulates amplitudes: attenuation ($\approx 0.1\times$) for resilient personalities, amplification ($\ge 5.0\times$) for active trauma basins.
+
+---
+
+## 6. Dynamical Nemesis System Formulations
+
+### 6.1. Saddle-Node Bifurcation of Relational Potential
+A catastrophic humiliation/defeat event exceeding injury threshold ($\text{Loss} > \theta$) triggers a structural bifurcation in the relational potential landscape $U_{ij}(\vec{S}_{\text{rel}})$:
+$$\frac{dU_{ij}}{dt} = \mu_{\text{trauma}} - S_{\text{rel}}^2$$
+* For $\mu_{\text{trauma}} > 0$, a new stable fixed point (Obsession / Nemesis Attractor) and an unstable saddle point emerge, permanently trapping character $i$'s relational dynamics toward target $j$.
+
+### 6.2. Coupled Forced Oscillations (Hostile Resonance)
+Proximity $d(i, \text{Nemesis})$ injects a periodic driving force into $A_{\text{phys}, i}$:
+$$\frac{d^2 A_{\text{phys}, i}}{dt^2} + \gamma \frac{dA_{\text{phys}, i}}{dt} + \omega_0^2 A_{\text{phys}, i} = F_0 \cdot \exp\big(-k \cdot d(i, \text{Nemesis})\big) \cdot \cos(\Omega t)$$
+* This resonant excitation locks the target in high arousal, collapsing Tier 2 executive bandwidth and precluding ventral vagal social co-regulation.
+

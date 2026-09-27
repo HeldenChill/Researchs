@@ -92,6 +92,17 @@ To eliminate high-barrier jargon, mechanical analogies were established:
   * *Top-Down (Downward Causality):* Willpower creates Ideals $\to$ Reshapes collective consciousness $\to$ Collective human action physically alters the planet, splits atoms, builds civilizations, and explores space.
   * *Ultimate Implication:* Through 13.8 billion years of evolution, the universe produced consciousness as a means to **know and reshape itself**.
 
+### Stage 9: The Council of Experts Debate, Two-Tier Architecture (Plan B) & Dynamical Nemesis System
+* **Context:** The User convened an Expert Council debate to rigorously scrutinize the orthogonality, biological fidelity, and game engine viability of the state space axes.
+* **The Four Expert Personas:**
+  1. *Dr. Alex Vance (Dynamical Systems & Topology):* Discovered that treating $C$ as an instantaneous algebraic scalar $C = f(A, V)$ collapsed system rank to 3, requiring an independent ODE with ego depletion and recovery inertia $\tau_{\text{recovery}}$. Supported the Fiber Bundle formulation $\mathcal{E} \xrightarrow{\pi} \mathcal{B}$.
+  2. *Dr. Elena Rostova (Neurobiology & Cybernetic Big Five):* Argued based on Polyvagal Theory that Arousal cannot be a 1D scalar $[-1, 1]$ merging Dorsal Vagal Freeze and Sympathetic Flight, establishing the split between Metabolic Arousal $A_{\text{phys}} \in [0, 1]$ and Neuroception $V_{\text{bio}} \in [-1, 1]$. Mapped the Big Five (OCEAN) into dynamical parameters without static meters.
+  3. *Kai Sorenson (Lead Game Systems Architect):* Protected the 10Hz/1Hz frame budget and gameplay feel, formulating Plan B (Two-Tier Layered Architecture) and proposing the Dynamical Nemesis System inspired by *Shadow of Mordor*.
+  4. *Prof. Marcus Thorne (Empirical Psychology & Stress-Testing):* Subjected the system to 5 extreme clinical/field edge cases (PTSD flash, Stockholm fawn trap, Firefighter ego depletion, Toxic shame Machiavellian drift, and Goran's Nemesis bifurcation), confirming flawless emergent psychological fidelity.
+* **The Breakthrough: Plan B Two-Tier Architecture:**
+  $$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (1 Hz)}} \Big)$$
+* **Official Approval:** The Project Director formally approved Plan B, authorized the update of [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), ratified the PDF export, and ordered the permanent institutionalization of the 4 Experts as dedicated Agents with isolated memory systems under `agents/`.
+
 ---
 
 ## 3. Related Artifacts & Repository Files
@@ -100,5 +111,9 @@ To eliminate high-barrier jargon, mechanical analogies were established:
 * [`Nghien-Cuu-Sinh-Hoc-Tien-Hoa-Va-Noi-So-Cai-Chet.md`](../Nghien-Cuu-Sinh-Hoc-Tien-Hoa-Va-Noi-So-Cai-Chet.md) — Evolutionary Biology & The Fear of Entropy.
 * [`Nghien-Cuu-Sang-Chan-Nhan-Tao-Con-Nguoi-Va-AI.md`](../Nghien-Cuu-Sang-Chan-Nhan-Tao-Con-Nguoi-Va-AI.md) — Computational Trauma & Human-AI Isomorphism.
 * [`Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md`](../Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md) — Willpower, The Dao & Cosmic Strange Loop.
-* [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Game Design Document for Emergent Psychological Simulation.
+* [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](../Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md) — Empirical Foundations & Cybernetic Big Five Theory (CB5T).
+* [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Game Design Document for Emergent Psychological Simulation (`Project Anima`, Two-Tier 6D Engine).
+* [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md) — Minutes of the Four-Pillar Expert Council Debate & 5 Stress-Test Scenarios.
+* [`agents/README.md`](../agents/README.md) — Registry of the 4 Expert Agents with dedicated persona and memory files.
 * [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](../Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive Web Chat transcript with KaTeX & zoomable Mermaid rendering.
+
