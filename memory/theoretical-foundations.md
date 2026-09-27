@@ -108,3 +108,80 @@ Proximity $d(i, \text{Nemesis})$ injects a periodic driving force into $A_{\text
 $$\frac{d^2 A_{\text{phys}, i}}{dt^2} + \gamma \frac{dA_{\text{phys}, i}}{dt} + \omega_0^2 A_{\text{phys}, i} = F_0 \cdot \exp\big(-k \cdot d(i, \text{Nemesis})\big) \cdot \cos(\Omega t)$$
 * This resonant excitation locks the target in high arousal, collapsing Tier 2 executive bandwidth and precluding ventral vagal social co-regulation.
 
+---
+
+## 7. The Master 6-Space Unified Architecture
+
+Ratified by the Project Director on September 28, 2026, *Project Anima* elevates the two-tier agent engine into a **Master 6-Space Unified Architecture**. This structure strictly delineates between objective physical reality, biological hardware, psychological phase dynamics, existential worldview priors, distributed social topology, and transcendent meta-volition:
+
+```
+[ LEVEL 0: META-VOLITION ]
+       𝒲 (Second-Order Lie Deformation Operator)
+         |
+         +-------------------+-------------------+-------------------+
+         | (Warps Potential) | (Gates Pain)      | (Crushes Hatred)  | (Breaks Dogma)
+         v                   v                   v                   v
+[ LEVEL 1: DYNAMICAL SPACES (Mutually Linearly Independent) ]
+  Ɛ (Event Space)   ==>  ℋ (Somatic)  ==>  ℳ (Psychological) <== ℘ (Belief)
+  (Exogenous World)      (Bio-Hardware)    (Two-Tier Phase)      (Priors / Values)
+                                                  ^
+                                                  | (Coupling Edges)
+                                           ℛ (Relational Graph)
+```
+
+### 7.1. Space Taxonomies & Ontological Roles:
+1. **$\mathcal{W}$ (Meta-Volitional Dimension — Rank 0 Operator):**
+   * An endogenous second-order deformation operator $\hat{\mathcal{W}}$ capable of restructuring the geometry of adjacent manifolds.
+2. **$\mathcal{E}$ (Global Exogenous Event Space):**
+   * The universe of environmental, contextual, and physical triggers outside the organism's Markov Blanket. Decomposed into Visceral shocks and Semantic payloads.
+3. **$\mathcal{H}$ (Internal Somatic Homeostasis Space):**
+   * The objective biochemical/thermodynamic configuration space inside the Markov Blanket:
+     $$\vec{H}(t) = \big( \text{Energy}_{\text{glucose}}, \text{Hydration}, \text{CoreTemp}, \text{TissueIntegrity}_{\text{HP}}, \text{Toxin}, \text{Fatigue} \big) \in \mathbb{R}^6$$
+4. **$\mathcal{M}$ (Psychological Two-Tier Phase Space):**
+   * The subjective regulatory phase manifold structured as a Fiber Bundle $\mathcal{E} \xrightarrow{\pi} \mathcal{B}$:
+     $$\vec{S}(t) = \big( A_{\text{phys}}, V_{\text{bio}} \;\big|\; C, W, D, E_x \big) \in \mathbb{R}^2 \times \mathbb{R}^4$$
+5. **$\mathcal{P}$ (Moral & Belief Parameter Manifold):**
+   * The generative predictive prior space (Haidt's Moral Foundations & Existential Meaning):
+     $$\vec{\theta}_{\text{belief}} = \big( \theta_{\text{care}}, \theta_{\text{hierarchy}}, \theta_{\text{loyalty}}, \theta_{\text{sanctity}}, \theta_{\text{existential}} \dots \big) \in [-1, 1]^K$$
+   * Operates as parameter coefficients directly shaping potential landscape wells: $V(\vec{S}; \boldsymbol{\theta})$.
+6. **$\mathcal{R}$ (Distributed Interpersonal Relational Topology):**
+   * An asynchronous directed graph of pairwise interaction vectors between agents $i$ and $j$:
+     $$\mathbf{R}_{ij} = \big( \text{Affinity}_{ij}, \text{Trust}_{ij}, \text{PowerDynamic}_{ij}, \text{Debt}_{ij}, \text{NemesisAttractor}_{ij} \big) \in \mathbb{R}^5$$
+
+---
+
+## 8. Meta-Volitional Lie Deformation Operator ($\hat{\mathcal{W}}$)
+
+Willpower is formalized not as an algebraic state variable, but as an active **Manifold Deformation Operator**:
+
+### 8.1. Mathematical Formulation:
+$$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}(\vec{S})$$
+
+* $\mathcal{W} \in [0, 1]$: Amplitude of volitional activation.
+* $\vec{\Phi}_{\text{intent}}$: Intentional vector field anchored in core beliefs ($\vec{\theta} \in \mathcal{P}$).
+* **Annihilation of Fear Barriers:**
+  $$\lim_{\mathcal{W} \to 1} \Delta E_{\text{escape}}(\text{Trauma Basin}) = 0$$
+  As $\mathcal{W}$ reaches critical threshold $\theta_{\text{transcendent}}$, the potential well barrier around panic/trauma collapses to zero, freeing the state trajectory from instinctive 4F entrapment.
+
+### 8.2. Cross-Space Warping:
+* **Somatic Gating ($\hat{\mathcal{W}} \circ \mathcal{H}$):** aMCC-driven GABAergic inhibition of nociceptive signals and forced mobilization of peripheral glycogen.
+* **Relational Override ($\hat{\mathcal{W}} \circ \mathcal{R}$):** Transient suspension of the Nemesis Attractor ($\text{NemesisAttractor}_{ij} \to 0$) enabling self-transcendent alliances.
+* **Belief Restructuring ($\hat{\mathcal{W}} \circ \mathcal{P}$):** Metacognitive re-parameterization of priors (Nietzschean self-overcoming).
+
+---
+
+## 9. Interoception & Dual-Stream Event Propagation
+
+### 9.1. Interoceptive Inference Mapping ($\mathcal{H} \to \mathcal{M}$):
+Physical damage in $\mathcal{H}$ translates to subjective neuroception in $\mathcal{M}$ via sensory projection:
+$$V_{\text{bio}}(t) = \tanh\left( \mathbf{W}_{\text{intero}} \cdot \vec{H}(t) + b_{\text{neuroception}} \right)$$
+* Explains clinical divergence: under anesthesia ($\mathbf{W}_{\text{intero}} \to 0$), severe tissue trauma ($\text{HP} \to 0$) does not trigger psychological panic ($V_{\text{bio}} \approx 0$).
+
+### 9.2. Event Pipeline Equations:
+An exogenous event $\mathbf{E} \in \mathcal{E}$ splits into dual propagation streams:
+$$\mathbf{E} \Longrightarrow \begin{cases}
+\vec{I}_{\text{visceral}} \xrightarrow{\Delta t \le 100\text{ms}} \Delta \vec{H} + \Delta (A_{\text{phys}}, V_{\text{bio}}) & \text{(Bypasses Cortical Appraisal)} \\
+\vec{I}_{\text{semantic}} \xrightarrow{\text{Appraisal Filter}} \Delta (C, W, D, E_x) & \text{(Conditioned on } \vec{\theta}, \mathbf{R}_{ij}\text{)}
+\end{cases}$$
+
+
