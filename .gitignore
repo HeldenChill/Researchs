@@ -12,3 +12,4 @@ ehthumbs.db
 # Logs and temporary files
 *.log
 *.tmp
+.superpowers/
