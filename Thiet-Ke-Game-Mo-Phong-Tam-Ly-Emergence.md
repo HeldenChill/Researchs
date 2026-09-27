@@ -75,23 +75,86 @@ graph TD
   * **Chữa lành (Healing Entrainment):** Một nhân vật hoảng loạn ($A_i = +0.9$) nếu được ngồi cạnh một nhân vật kiên định, giàu lòng trắc ẩn ($A_j = 0.0, S_j = +0.8$) sẽ dần được kéo nhịp tim và nhịp thở về mức cân bằng.
   * **Lây lan hoảng loạn (Panic Contagion):** Nếu một nhóm sinh tồn gồm 4 người đều có chỉ số $S$ mong manh, một tiếng súng nổ khiến một người hoảng loạn bỏ chạy sẽ tạo ra phản ứng dây chuyền, kéo cả đội sụp đổ tập thể (Mass Hysteria).
 
+### 3.4. Cơ Chế 4: Ý Chí — "Bàn Tay Viết Lại Địa Hình" & Hành Vi Anh Hùng Nổi Sinh (Willpower as Gradient Override Operator)
+Ý chí trong game không phải là một thanh "Mana/Energy" thụ động, mà là một **Toán Tử Ghi Đè Động Lực Học (Gradient Override Operator)**:
+* **Ghi đè phản xạ 4F sinh học:** Khi nhân vật rơi vào nguy cơ sinh tử ($V \to 0, |A| \to 1$), thay vì bị ép cứng vào 4 phản xạ sinh tồn (Fight/Flight/Freeze/Fawn), nhân vật có điểm Ý chí cao ($W > W_{\text{threshold}}$) có thể kích hoạt lực nội sinh:
+  $$\vec{F}_{\text{will}} = -k_w \cdot \nabla V(\vec{S}) + \vec{P}_{\text{purpose}}$$
+* **Hành vi Anh hùng / Thánh nhân nổi sinh (Emergent Heroism):**
+  * Nếu nhân vật có liên kết gắn bó cực đại ($Attachment > +0.8$) hoặc sở hữu Giá trị Cốt lõi (Moral Core), họ có thể **chủ động san phẳng hố sợ hãi**, lao vào đám cháy hoặc chắn đạn cứu đồng đội mà không hề do dự.
+* **Hào quang Lan tỏa Ý chí (Willpower Resonance):** 
+  * Nhân vật có Ý chí sắt đá đóng vai trò như một **Bộ neo địa hình di động**. Sự hiện diện của họ phát ra trường bảo vệ, tăng ngưỡng sụp đổ số chiều cho tất cả đồng đội xung quanh, giúp cả nhóm đứng vững giữa cơn hoảng loạn.
+
 ---
 
-## 4. Vòng Lặp Trò Chơi (Core Game Loop)
+## 4. Tầng Giao Tiếp Thế Giới: Biến Lời Nói & Biến Cố Thành Xung Lực Toán Học (Event-to-Force Abstraction)
+
+Để hệ thống vận hành nhẹ nhàng mà không cần mô phỏng vật lý lượng tử hay mạng nơ-ron phức tạp, trò chơi sử dụng một **Tầng Trừu Tượng Hóa Hai Bánh Răng (Two-Gear Abstraction Layer)**:
 
 ```mermaid
 flowchart LR
-    A["Môi Trường Khắc Nghiệt<br/>(Thiếu thốn, Nguy hiểm, Xung đột)"] --> B["Tác Động Lên Vector S(t)<br/>(Arousal, Safety, Bandwidth, Attachment)"]
-    B --> C["Hành Vi Nổi Sinh Tự Động<br/>(Hợp tác, Hy sinh, Phòng vệ, Phản bội, Fawn)"]
-    C --> D["Thay Đổi Động Lực Nhóm<br/>(Liên kết bền chặt hoặc Đổ vỡ lòng tin)"]
+    Event["Biến Cố / Lời Nói / Hành Động<br/>(Event Emitter)"] --> Raw["Bánh Răng 1: Vector Xung Lực Gốc<br/>I_raw = (ΔA, ΔV, ΔC, ΔS)"]
+    Raw --> Filter{"Bánh Răng 2: Bộ Lọc Nhận Thức Chủ Quan<br/>Filter(S_hientai, Trauma_Basins)"}
+    Filter --> Final["Xung Lực Thực Nhận (I_perceived)<br/>Nạp vào phương trình vi phân dS/dt"]
+```
+
+### 4.1. Bánh Răng 1: Đóng Gói Sự Kiện Thành Vector Xung Lực Gốc ($\vec{I}_{\text{raw}}$)
+
+Mọi tương tác trong game (vật lý, âm thanh, lời thoại) đều được quy chuẩn thành một cấu trúc 4 chiều delta:
+
+```python
+# Cấu trúc xung lực của một sự kiện trong Game Engine
+class ImpactVector:
+    delta_A: float  # Tác động lên Mức kích hoạt thần kinh (Arousal)
+    delta_V: float  # Tác động lên Cảm giác an toàn (Safety)
+    delta_C: float  # Tác động lên Băng thông nhận thức (Bandwidth)
+    delta_S: float  # Tác động lên Gắn kết xã hội (Attachment)
+```
+
+* **Sự kiện vật lý khách quan:** *Tiếng sấm sét vang trời giữa đêm tối*
+  * $\vec{I}_{\text{raw}} = (\Delta A = +0.5, \Delta V = -0.3, \Delta C = -0.1, \Delta S = 0.0)$
+* **Lời nói chữa lành:** *"Đừng sợ, có tôi ở đây bảo vệ bạn rồi."*
+  * $\vec{I}_{\text{raw}} = (\Delta A = -0.4, \Delta V = +0.5, \Delta C = +0.2, \Delta S = +0.6)$
+* **Lời nói bạo hành:** *"Mày là đồ vô dụng, không làm được tích sự gì hết!"*
+  * $\vec{I}_{\text{raw}} = (\Delta A = +0.6, \Delta V = -0.6, \Delta C = -0.3, \Delta S = -0.5)$
+
+### 4.2. Bánh Răng 2: Bộ Lọc Nhận Thức Chủ Quan (The Subjective Appraisal Filter)
+
+Điểm cốt tử tạo nên **tính người** trong game là: **Cùng một câu nói, mỗi nhân vật sẽ tiếp nhận với một cường độ hoàn toàn khác nhau**, phụ thuộc vào tọa độ hiện tại và các hố sang chấn trong quá khứ:
+
+$$\vec{I}_{\text{thực\_nhận}} = \mathbf{M}_{\text{filter}}(\vec{S}, \text{Trauma\_Scars}) \times \vec{I}_{\text{raw}}$$
+
+#### Minh họa qua câu nói đùa: *"Dạo này nhìn bạn có vẻ chậm chạp thế?"*
+* **Trường hợp Nhân vật Khỏe mạnh ($Safety = 0.9$, không có hố tự ti):**
+  * Não bộ kích hoạt cơ chế giảm chấn: Hệ số bộ lọc $\approx 0.1$.
+  * $\vec{I}_{\text{thực\_nhận}} = 0.1 \times \vec{I}_{\text{raw}}$ (tác động không đáng kể). Nhân vật chỉ cười xòa và tiếp tục làm việc.
+* **Trường hợp Nhân vật có Tiền sử Bạo hành Lời nói (Hố Toxic Shame sâu hoắm):**
+  * Tần số của câu nói trùng khớp với hố cộng hưởng sang chấn.
+  * Bộ lọc **khuếch đại xung lực lên gấp 5 lần ($5.0 \times \vec{I}_{\text{raw}}$)**!
+  * Trục $Arousal$ vọt lên đỉnh, $Safety$ sụp về 0, $Bandwidth$ tan rã. Nhân vật lập tức co rúm lại bật khóc (Freeze) hoặc quát tháo dữ dội (Fight).
+
+### 4.3. Giải Pháp Kỹ Thuật Siêu Nhẹ Cho Game Indie
+
+Thay vì phải chạy các mô hình ngôn ngữ lớn (LLM) nặng nề ngốn tài nguyên máy:
+1. **Dialogue Tagging System:** Mỗi câu thoại trong kịch bản được gắn sẵn metadata `ImpactVector`.
+2. **Small Semantic Projection (Tùy chọn nâng cao):** Sử dụng ma trận chiếu nhỏ để chuyển đổi các hành động tự do của người chơi thành vector $(\Delta A, \Delta V, \Delta C, \Delta S)$ với chi phí tính toán $< 0.1 \text{ ms}$ trên CPU.
+
+---
+
+## 5. Vòng Lặp Trò Chơi (Core Game Loop)
+
+```mermaid
+flowchart LR
+    A["Môi Trường & Tương Tác Xã Hội<br/>(Phát ra Event / Speech Payload)"] --> B["Bộ Lọc Nhận Thức Chủ Quan<br/>(Khuếch đại hoặc Giảm chấn)"]
+    B --> C["Cập Nhật Vector S(t)<br/>(Euler Integration 10 Hz)"]
+    C --> D["Hành Vi Nổi Sinh Tự Động<br/>(Fight, Flight, Freeze, Fawn, Co-regulation)"]
     D --> A
 ```
 
 ---
 
-## 5. Ví Dụ Về Những Câu Chuyện Nổi Sinh Chưa Từng Có (Emergent Stories)
+## 6. Ví Dụ Về Những Câu Chuyện Nổi Sinh Chưa Từng Có (Emergent Stories)
 
-Nhờ động cơ phi tuyến, game không cần kịch bản viết sẵn mà câu chuyện tự nảy mầm từ toán học:
+Nhờ động cơ phi tuyến kết hợp bộ lọc nhận thức, game không cần kịch bản viết sẵn mà câu chuyện tự nảy mầm từ toán học:
 
 ### Kịch bản 1: "Sự Phản Bội Không Phải Do Độc Ác Mà Do Sụp Đổ Nhận Thức"
 * Nhân vật Eric là một người trung thành, luôn bảo vệ nhóm.
@@ -104,21 +167,28 @@ Nhờ động cơ phi tuyến, game không cần kịch bản viết sẵn mà c
 * Nhưng khi người chơi cho đứa trẻ tiếp xúc với một chú chó cứu hộ (vốn có $Arousal$ ổn định và phát ra tín hiệu an toàn $V = 1.0$), trục $Attachment$ của đứa trẻ bắt đầu từ từ tan băng.
 * Nhờ cơ chế ghép đôi đồng điều hòa với chú chó, hệ thần kinh của đứa trẻ lần đầu tiên quay lại Vùng Dung Sai, mở khóa lại các tùy chọn giao tiếp với những người xung quanh.
 
+### Kịch bản 3: "Sự Hy Sinh Anh Hùng Vượt Qua Bản Năng Sinh Tồn"
+* Nhóm sinh tồn bị bao vây bởi quái vật trong đường hầm sập. Chỉ số $Safety$ của cả nhóm tụt về $0$, mọi nhân vật đều đang rơi vào trạng thái tê liệt (Freeze) hoặc hỗn loạn (Flight).
+* Nhân vật Sarah — người có chỉ số $Attachment = +0.95$ với đồng đội và một Giá trị Cốt lõi vững chắc — kích hoạt **Toán tử Ý chí (Gradient Override Operator)**.
+* Thay vì trôi dốc vào phản xạ sinh tồn cá nhân, $\vec{F}_{\text{will}}$ của Sarah san phẳng toàn bộ hố sợ hãi sinh học. Cô tự nguyện ở lại giữ cửa hầm để chặn quái vật cho đồng đội rút lui. 
+* Trước khi hy sinh, sự kiên định của Sarah phát ra một trường đồng điều hòa cực mạnh ($Willpower Resonance$), kéo toàn bộ đồng đội thoát khỏi cơn hoảng loạn để chạy thoát thành công.
+
 ---
 
-## 6. Lộ Trình Hiện Thực Hóa Kỹ Thuật
+## 7. Lộ Trình Hiện Thực Hóa Kỹ Thuật
 
 1. **Giai đoạn 1 (Engine toán học độc lập):**
    * Viết class `PsychologyAgent` bằng Python/C# mô phỏng hệ phương trình vi phân Euler 4 biến chạy ở tần số $10 \text{ Hz}$.
+   * Tích hợp `ImpactVector` và bộ lọc `SubjectiveAppraisalFilter`.
    * Kiểm thử các hiện tượng: Sụp đổ số chiều, Hysteresis, và Đồng điều hòa 2 agent.
 2. **Giai đoạn 2 (Prototype AI hành vi - Text/2D Sandbox):**
    * Xây dựng sa bàn 3-5 nhân vật với các nhu cầu cơ bản (thức ăn, giấc ngủ, an toàn).
-   * Quan sát các mẫu hình xã hội nổi sinh khi đưa các sự kiện biến cố vào.
+   * Thử nghiệm đưa các câu thoại và sự kiện vào để quan sát phản ứng phân hóa giữa nhân vật lành mạnh và nhân vật có hố sang chấn.
 3. **Giai đoạn 3 (Tích hợp Game Engine - Unity / Godot):**
    * Đưa vào engine game với giao diện biểu đạt cảm xúc tinh tế: âm thanh nhịp tim, màn hình mờ tối khi sụp đổ nhận thức, hiệu ứng góc nhìn đường hầm (tunnel vision).
 
 ---
 
-## 7. Kết Luận
+## 8. Kết Luận
 
-Ý tưởng trò chơi này biến nghiên cứu lý thuyết trừu tượng về không gian trạng thái thành một **trải nghiệm nghệ thuật và giải trí sâu sắc**. Nó cho phép người chơi không chỉ "chơi game", mà thực sự thấu cảm được sự mong manh, phức tạp và vẻ đẹp kiên cường của tâm lý con người trước nghịch cảnh.
+Ý tưởng trò chơi này biến nghiên cứu lý thuyết trừu tượng về không gian trạng thái thành một **trải nghiệm nghệ thuật và giải trí sâu sắc**. Bằng cách trừu tượng hóa lời nói và sự kiện thành các vector xung lực thông qua bộ lọc nhận thức chủ quan, chúng ta giải quyết trọn vẹn bài toán kỹ thuật mà không cần phải mô phỏng lại các hạt cơ bản hay mạng nơ-ron phức tạp của thế giới thực.

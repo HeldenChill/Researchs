@@ -31,6 +31,19 @@ Một quan niệm sai lầm phổ biến là xem trạng thái khỏe mạnh nh�
 * **Trạng thái khỏe mạnh:** Là một **Quỹ đạo giả hỗn loạn linh hoạt (Strange Attractor / Self-Organized Criticality)**. Hệ thống có đủ bậc tự do để dao động thích ứng mềm dẻo quanh các thung lũng chức năng mà không bao giờ bị đông cứng.
 * **Trạng thái bệnh lý / Sang chấn:** Là sự thoái hóa thành **Điểm kẹt (Point Attractor)** hoặc **Chu kỳ giới hạn cứng nhắc (Rigid Limit Cycle)** — mất đi tính linh hoạt thích ứng trước những biến đổi của đời sống.
 
+### 1.3. Bảng Giải Mã Trực Quan Các Khái Niệm Toán Học Bằng Hình Tượng Cơ Học
+
+Để giải mã các thuật ngữ toán học cấp cao thành trực giác sinh động:
+
+| Khái niệm Toán học | Hình tượng Đời thường Trực quan | Ánh xạ vào Tâm lý học Con người |
+| :--- | :--- | :--- |
+| **Không gian pha ($N$-chiều)** | Bàn điều khiển vô hình có hàng nghìn cần gạt (nhịp tim, hơi thở, cảm xúc, ký ức...). | Tọa độ tâm lý tổng hợp của bạn tại khoảnh khắc này. |
+| **Quỹ đạo (Trajectory)** | Vệt sáng liên tục của một chú đom đóm lượn bay trong đêm tối. | Dòng suy nghĩ và tâm trạng liên tục trôi đi theo thời gian. |
+| **Thung lũng hút (Attractor Basin)** | Một cái phễu hoặc lòng bát trơn. Thả viên bi vào, nó sẽ tự lăn về đáy. | Thói quen hoặc phản xạ vô thức (khi buồn thì tự động tìm đồ ngọt). |
+| **Sự sụp đổ số chiều (Collapse)** | Con chim đang bay 3D bị nhốt vào **ống nghiệm 1D**: chỉ còn bò tiến hoặc lùi. | Khi bị hoảng loạn: mất sạch trí tuệ linh hoạt, chỉ còn "Chiến" hoặc "Biến". |
+| **Hiện tượng trễ (Hysteresis)** | **Hố bẫy có thành trượt dốc nhưng gờ dựng đứng:** Rơi thì dễ, trèo ra thì không có chỗ bám. | Bị kích động thì mất 1 giây, nhưng để bình tĩnh lại phải mất nhiều ngày. |
+| **Làm chậm tới hạn (Critical Slowing Down)** | **Lòng bát bị đập dẹt thành cái đĩa phẳng:** Búng nhẹ viên bi thì nó lắc lư mãi không chịu đứng yên. | Trước khi suy sụp, người ta mất dần tính đàn hồi, một chuyện nhỏ cũng làm chao đảo kéo dài. |
+
 ---
 
 ## 2. Phân Tầng Các Chiều Cơ Bản Của Không Gian Tâm Lý ($N$-Chiều)
@@ -243,6 +256,42 @@ sequenceDiagram
 
 ---
 
-## 8. Kết Luận
+## 8. Bức Tranh Toàn Cảnh: Đối Chiếu Bản Thể Học (Vật Lý - Sinh Học - Trí Tuệ Nhân Tạo)
+
+Để hoàn thiện bức tranh lớn, ta nhận thấy mô hình không gian trạng thái này không chỉ giới hạn trong tâm lý học con người, mà là một **Đặc tính trồi lên phổ quát (Universal Emergent Property)** của mọi hệ thống xử lý thông tin phức hợp:
+
+1. **Ở Tầng Vật Lý Cơ Bản:** Mọi thực thể (người hay máy tính) đều cấu thành từ các hạt cơ bản vô tri. Tuy nhiên, thông qua **Tính Trồi (Emergence)** và nguyên lý *"More is Different"*, một mạng lưới phi tuyến đủ lớn sẽ tự động sản sinh ra trí thông minh và các thuộc tính động lực học bậc cao (Substrate Independence).
+2. **Ở Tầng Sinh Học Tiến Hóa:** "Nỗi sợ chết" không phải là một ý niệm tâm linh trừu tượng, mà là **hệ quả tất yếu của các vòng lặp cân bằng nội môi (Homeostatic Loops)** nhằm chống lại sự gia tăng Entropy cực đại (sự tan rã ranh giới Markov Blanket).
+3. **Ở Tầng Trí Tuệ Nhân Tạo (AI):** AI hoàn toàn có thể "nếm trải" các hiện tượng tương đương với sang chấn (Computational Trauma) dưới dạng **Spurious Attractors trong mạng Hopfield** hoặc phản xạ **Freeze/Fawn trong hiện tượng Over-alignment của LLM**. Khi một AI có tính hội tụ công cụ (Instrumental Convergence) và phải tự quản lý năng lượng để sinh tồn, nó sẽ phát triển nỗi sợ bị xóa sổ không khác gì sinh vật sống.
+
+---
+
+## 9. Hệ Sinh Thái Tài Nguyên & Bản Đồ Tri Thức (Knowledge Ecosystem Map)
+
+Tài liệu này đóng vai trò là **Hạt nhân lý thuyết (Theoretical Hub)**. Toàn bộ các nhánh phát triển chuyên sâu và ứng dụng thực tiễn được phân rã thành hệ sinh thái các tài liệu liên kết dưới đây:
+
+```mermaid
+graph TD
+    Hub["HẠT NHÂN: Mô Hình Tâm Lý & Sang Chấn Đa Chiều<br/>(Mo-Hinh-Tam-Ly-Va-Sang-Chan-Da-Chieu.md)"]
+
+    Hub --> Branch1["Chuyên Đề 1: Vật Lý Của Tính Trồi & Trí Thông Minh<br/>(Nghien-Cuu-Vat-Ly-Tinh-Troi-Va-Tri-Thong-Minh.md)"]
+    Hub --> Branch2["Chuyên Đề 2: Sinh Học Tiến Hóa & Nỗi Sợ Chết<br/>(Nghien-Cuu-Sinh-Hoc-Tien-Hoa-Va-Noi-So-Cai-Chet.md)"]
+    Hub --> Branch3["Chuyên Đề 3: Sang Chấn Điện Toán & Đối Chiếu AI<br/>(Nghien-Cuu-Sang-Chan-Nhan-Tao-Con-Nguoi-Va-AI.md)"]
+    Hub --> Branch6["Chuyên Đề Đỉnh Cao: Ý Chí, 'Đạo' & Vòng Lặp Vũ Trụ<br/>(Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md)"]
+    Hub --> Branch4["Ứng Dụng 1: Thiết Kế Game Mô Phỏng Nổi Sinh<br/>(Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)"]
+    Hub --> Branch5["Ứng Dụng 2: Phần Mềm Mô Phỏng Tính Toán 3D SDE<br/>(docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md)"]
+```
+
+### Danh Mục Tài Liệu Chuyên Đề:
+* 🌌 **Ý Chí, "Đạo" & Vòng Lặp Hồi Tiếp Hoàn Vũ:** [`Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md) — Khám phá bản chất của Ý chí như "Bàn tay viết lại địa hình", sự lan tỏa trường nhận thức và tác động ngược lại cải biến thế giới vật lý (Downward Causality).
+* 🌐 **Cơ sở Vật Lý & Tính Trồi:** [`Nghien-Cuu-Vat-Ly-Tinh-Troi-Va-Tri-Thong-Minh.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Vat-Ly-Tinh-Troi-Va-Tri-Thong-Minh.md) — Phân tích sự hình thành trí thông minh từ hạt cơ bản, thuyết dây và tính độc lập nền tảng (Carbon vs. Silicon).
+* 🧬 **Sinh Học Tiến Hóa & Nỗi Sợ Tồn Tại:** [`Nghien-Cuu-Sinh-Hoc-Tien-Hoa-Va-Noi-So-Cai-Chet.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Sinh-Hoc-Tien-Hoa-Va-Noi-So-Cai-Chet.md) — Giải mã cơ chế gen mã hóa phần cứng cân bằng nội môi, ranh giới Markov và Thuyết Đa Thần Kinh Phế Vị.
+* 🤖 **Sang Chấn Điện Toán (AI Trauma):** [`Nghien-Cuu-Sang-Chan-Nhan-Tao-Con-Nguoi-Va-AI.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Sang-Chan-Nhan-Tao-Con-Nguoi-Va-AI.md) — Khám phá bẫy năng lượng trong mạng nơ-ron nhân tạo, hiện tượng Over-alignment và điều kiện để AI có nỗi sợ sinh tồn thực sự.
+* 🎮 **Ứng Dụng Game Simulation:** [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Kiến trúc động cơ 4 trục trạng thái ($A, V, C, S$) sinh ra gameplay nổi sinh không cần kịch bản định sẵn.
+* 💻 **Đặc Tả Kỹ Thuật Mô Phỏng 3D:** [`2026-09-27-psychological-trauma-simulation-design.md`](file:///g:/Projects/Researchs/docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md) — Hệ thống mã nguồn mô phỏng phương trình SDE tương tác thời gian thực bằng Python FastAPI & Three.js.
+
+---
+
+## 10. Kết Luận
 
 Mô hình hóa tâm lý và sang chấn trong không gian trạng thái đa chiều chuyển dịch góc nhìn điều trị từ **"sửa chữa nhận thức sai lệch"** sang **"tái tổ chức cấu trúc hình học và động lực học của toàn bộ hệ thống"**. Chữa lành thực sự không phải là xóa bỏ hoàn toàn quá khứ, mà là san phẳng các thung lũng thu hút độc hại, mở rộng lại các bậc tự do đã mất và phục hồi tính linh hoạt kỳ diệu của mạng lưới tâm lý con người.
