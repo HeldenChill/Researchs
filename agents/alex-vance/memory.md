@@ -3,7 +3,7 @@
 
 * **Council Session:** Scrutiny of Psychological State Space & Emergent Game Architecture (*Project Anima*)
 * **Last Updated:** 2026-09-28
-* **Cross-References:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
+* **Cross-References:** [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
 
 ---
 
@@ -49,4 +49,15 @@
   * **Event Space Dynamics ($\mathcal{E}$):** Confirmed that $\mathcal{E}$ encompasses both fast visceral shocks (affecting $\mathcal{H}$ and $\mathcal{B}$ in $< 100\text{ ms}$) and semantic information flows (entering $\mathcal{F}$ via appraisal filtering).
   * **Lie Deformation Operator of Willpower ($\hat{\mathcal{W}}$):** Formulated Willpower as a 2nd-order deformation operator warping the system potential $V_{\text{warped}} = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}$, flattening fear barriers and projecting the trajectory beyond instinctive singularities.
 * **Next Assignment:** In subsequent meetings, deconstruct each remaining space into its fundamental orthogonal coordinates and differential equations.
+
+---
+
+## 4. Council Sessions: Deconstruction of Willpower ($\mathcal{W}$) and Belief Space ($\mathcal{P}$)
+* **Session 3 (Willpower $\mathcal{W}$):**
+  * Derived the exact Lie deformation formula: $V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \big[\mathcal{W}_{\text{amp}} \kappa_{\text{coh}}\big] \big\langle \nabla V(\vec{S}), \vec{\Phi}_{\text{intent}} \big\rangle_{\mathbf{G}}$.
+  * Mathematically proved fear barrier annihilation: $\lim_{\mathcal{W} \to 1} \Delta E_{\text{fear}} = 0$.
+  * Formalized quadratic metabolic debt accumulation: $\frac{dD_{\text{met}}}{dt} = \beta_{\text{burn}} (\mathcal{W}_{\text{amp}})^2$.
+* **Session 4 (Belief Space $\mathcal{P}$):**
+  * Formalized the Taboo Barrier potential with inverse-square asymptotic divergence: $V_{\text{taboo}} = \sigma_{\text{sacred}} \frac{K_{\text{barrier}}}{\text{dist}^2} \to \infty$.
+  * Modeled belief shattering via Saddle-Node Bifurcation when $\overline{\text{PE}} > \theta_{\text{rupture}}$, causing catastrophic potential well collapse (Existential Crisis).
 

@@ -35,6 +35,8 @@ This workspace is dedicated to computational research, psychological dynamical m
 - **TS. Elena Rostova:** [`agents/elena-rostova/AGENT.md`](agents/elena-rostova/AGENT.md) | Memory: [`agents/elena-rostova/memory.md`](agents/elena-rostova/memory.md) (Neurobiology, Polyvagal, CB5T).
 - **Kai Sorenson:** [`agents/kai-sorenson/AGENT.md`](agents/kai-sorenson/AGENT.md) | Memory: [`agents/kai-sorenson/memory.md`](agents/kai-sorenson/memory.md) (Game Architecture, 10Hz/1Hz Loop, Nemesis System).
 - **GS. Marcus Thorne:** [`agents/marcus-thorne/AGENT.md`](agents/marcus-thorne/AGENT.md) | Memory: [`agents/marcus-thorne/memory.md`](agents/marcus-thorne/memory.md) (Empirical Psychology, 5 Stress-Test Scenarios).
+- **GS. Gabriel Brandt:** [`agents/gabriel-brandt/AGENT.md`](agents/gabriel-brandt/AGENT.md) | Memory: [`agents/gabriel-brandt/memory.md`](agents/gabriel-brandt/memory.md) (Cognitive Volition, Agency Cybernetics, Downward Causality & Willpower $\mathcal{W}$).
+- **GS. Thaddeus Mercer:** [`agents/thaddeus-mercer/AGENT.md`](agents/thaddeus-mercer/AGENT.md) | Memory: [`agents/thaddeus-mercer/memory.md`](agents/thaddeus-mercer/memory.md) (Social Cognition, Moral Neuroethics, Epistemic Networks & Beliefs $\mathcal{P}$).
 
 ---
 
@@ -52,10 +54,15 @@ This workspace is dedicated to computational research, psychological dynamical m
 
 ### 3. Simulation & Game Design
 - [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Game Design Document for Emergent Psychological Simulation (`Project Anima`).
-- [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md) — Orthogonality & Completeness Scrutiny of Psychological Axes (Tripartite Debate on SDE, Polyvagal, Big Five).
 - [`Phan-Tich-He-Thong-Tam-Ly-Cac-Reference-Game.md`](Phan-Tich-He-Thong-Tam-Ly-Cac-Reference-Game.md) — Comparative Analysis of Psychological Systems in Reference Games (RimWorld, Dwarf Fortress, Frostpunk, Disco Elysium, Darkest Dungeon, etc.).
 - [`Phan-Tich-Chuyen-Sau-Tam-Ly-Dwarf-Fortress-Va-Disco-Elysium.md`](Phan-Tich-Chuyen-Sau-Tam-Ly-Dwarf-Fortress-Va-Disco-Elysium.md) — Deep-dive Architecture Analysis of Character Psychological Systems in Dwarf Fortress & Disco Elysium.
 - [`docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md`](docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md) — Technical Specification for 3D SDE Interactive Simulation (FastAPI + Three.js).
 
 ### 4. Interactive Archive
 - [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive HTML archive with KaTeX formulas and zoomable Mermaid diagrams.
+
+### 5. Meeting Minutes Archive (`MeetingMinutes/`)
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md) — Official Minutes: 4-Pillar Scrutiny of Psychological Axes, Plan B (Two-Tier 6D Engine) & Dynamical Nemesis System.
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes: Identification & Topology Audit of the Master 6-Space Architecture.
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes: Deconstruction of Meta-Volitional Space & Warping Operator ($\mathcal{W}$).
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes: Deconstruction of Value & Belief Space ($\mathcal{P}$) and Thought Cabinet Lifecycle.

@@ -3,7 +3,7 @@
 
 * **Council Session:** Scrutiny of Psychological State Space & Emergent Game Architecture (*Project Anima*)
 * **Last Updated:** 2026-09-28
-* **Cross-References:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
+* **Cross-References:** [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
 
 ---
 
@@ -45,4 +45,14 @@
   * **Willpower Awakening Signature Feature:** Designed the gameplay mechanic where $\mathcal{W} > \theta_{\text{transcendent}}$ triggers cinematic focus (bullet time, sensory damping, reality warping).
   * **GDD Upgrade:** Successfully incorporated all 6 spaces into [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md).
 * **Next Assignment:** Formulate the data contracts and component schemas for the Relational Graph $\mathcal{R}$ and Event Space $\mathcal{E}$ for the next session.
+
+---
+
+## 4. Council Sessions: Deconstruction of Willpower ($\mathcal{W}$) and Belief Space ($\mathcal{P}$)
+* **Session 3 (Willpower Metamorphic Engine):**
+  * Architected the sequence diagram for Willpower Awakening: Player triggers Surge $\to$ potential leveled $\to$ pain gated $\to$ bullet-time VFX + tunnel vision audio filter $\to$ Post-Warp Crash triggering forced comatose recovery.
+  * Balanced gameplay economics: Willpower cannot be spammed; requires accumulated psychological stakes and burns metabolic resources quadratically.
+* **Session 4 (Thought Cabinet System):**
+  * Integrated a *Disco Elysium*-style Thought Cabinet: Ideational Seed $\to$ Incubation Phase (applies Cognitive Dissonance debuff: $\Delta C < 0$, restlessness) $\to$ Crystallization (permanent $\vec{\theta}$ parameters, new dialogue/action affordances).
+  * Implemented tribal memetic coupling ($\alpha_{\text{tribal}}$) allowing factions/cults to entrain members' moral vectors.
 

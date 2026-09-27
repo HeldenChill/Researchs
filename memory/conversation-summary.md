@@ -139,35 +139,52 @@ To eliminate high-barrier jargon, mechanical analogies were established:
 * [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](../Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md) — Empirical Foundations & Cybernetic Big Five Theory (CB5T).
 * [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Game Design Document for Emergent Psychological Simulation (`Project Anima`, Two-Tier 6D Engine).
 * [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.pdf`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.pdf) — Exported Publication-Quality PDF of the Game Design Document.
-* [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md) — Minutes of the Four-Pillar Expert Council Debate & 5 Stress-Test Scenarios.
-* [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.pdf`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.pdf) — Exported Publication-Quality PDF of the Expert Council Debate.
+* [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md) — Minutes of the Four-Pillar Expert Council Debate & 5 Stress-Test Scenarios.
+* [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.pdf`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.pdf) — Exported Publication-Quality PDF of the Expert Council Debate.
 * [`assets/diagram-twotier-architecture.svg`](../assets/diagram-twotier-architecture.svg) — High-Definition Vector Architecture Diagram for Two-Tier Engine.
-* [`agents/README.md`](../agents/README.md) — Registry of the 4 Expert Agents with dedicated persona and memory files.
+* [`agents/README.md`](../agents/README.md) — Registry of the 6 Senior Expert Agents with dedicated persona and memory files.
 * [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](../Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive Web Chat transcript with KaTeX & zoomable Mermaid rendering.
 
 ### Stage 12: Ratification of the Master 6-Space Unified Architecture
 * **Date:** 2026-09-28
-* **Context:** The Project Director ordered a complete halt to code implementation to resolve theoretical space completeness first, chairing a specialized scientific council meeting recorded in [`Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md).
+* **Context:** The Project Director ordered a complete halt to code implementation to resolve theoretical space completeness first, chairing a specialized scientific council meeting recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md).
 * **Key Theoretical Breakthroughs:**
   1. **Global Exogenous Event Space ($\mathcal{E}$):** Confirmed by the Council to encompass both Somatic/Tier 1 (visceral shock: fire, blast, poison hitting $A_{\text{phys}}, V_{\text{bio}}$ in 50-100ms) and Semantic/Tier 2 (dialogue, social context filtered through appraisal).
   2. **Willpower Reclaimed as Second-Order Deformation Operator ($\hat{\mathcal{W}}$):** Rejected the mechanistic reduction of willpower to glycogen/axis $C$. Formulated Willpower as a Meta-Operator warping the manifold potential $V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}$, flattening fear/trauma barriers ($\Delta E_{\text{fear}} \to 0$), gating pain in Somatic space, crushing hatred in Relational space, and restructuring core Beliefs.
   3. **Linear Independence & Non-Subsumption of Adjacent Spaces:** Proved that Somatic ($\mathcal{H}$), Belief ($\mathcal{P}$), and Relation ($\mathcal{R}$) are mutually orthogonal and cannot be subsumed into one another, nor into the 6D psychological space $\mathcal{M}$.
 * **Official Action:** The Director formally adjourned the meeting, ratified all 6 spaces into [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), and set the agenda for subsequent meetings: *Deconstructing the remaining spaces into their fundamental dimensions.*
 
+### Stage 13: Deconstruction of the Meta-Volitional Space (Willpower $\mathcal{W}$)
+* **Date:** 2026-09-28
+* **Context:** The Project Director appointed **Prof. Gabriel Brandt** (Cognitive Volition & Agency Cybernetics) to lead a specialized session deconstructing Willpower into its fundamental dimensions, recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md).
+* **Key Breakthroughs:**
+  1. Formalized the 5 orthogonal dimensions of $\mathcal{W}$: $\mathcal{W}_{\text{amp}}$ (Tenacity Amplitude via aMCC firing), $\vec{\Phi}_{\text{intent}}$ (Intentional Goal Vector via FPN/DLPFC), $\kappa_{\text{coh}}$ (Phase Coherence / Dissonance Elimination), $\tau_{\text{tenacity}}$ (Metabolic Resilience Half-life), and $\theta_{\text{transcend}}$ (Phase Transition Threshold).
+  2. Mathematical formulation of the Deformation Operator $\hat{\mathcal{W}}$, Pain Gating, and the Post-Warp Crash dynamic enforcing biological conservation of energy.
+
+### Stage 14: Deconstruction of the Value & Belief Space ($\mathcal{P}$)
+* **Date:** 2026-09-28
+* **Context:** The Project Director appointed **Prof. Thaddeus Mercer** (Social Cognition & Moral Neuroethics) to deconstruct the Belief Space into its fundamental dimensions, recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md).
+* **Key Breakthroughs:**
+  1. Formalized the 5 orthogonal dimensions of $\mathcal{P}$: $\vec{\theta}_{\text{moral}}$ (6 Haidt Moral Foundations), $\delta_{\text{dogma}}$ (Epistemic Calcification / Bayesian Prior Precision), $\sigma_{\text{sacred}}$ (Sacred Barrier creating infinite potential walls $V \to \infty$), $\lambda_{\text{locus}}$ (Existential Locus of Control), and $\alpha_{\text{tribal}}$ (In-Group Memetic Coupling).
+  2. Architectural design of the "Thought Cabinet" lifecycle (Seed $\to$ Dissonant Incubation $\to$ Crystallization $\to$ Crisis Bifurcation).
+
 ---
 
 ## 3. Related Artifacts & Repository Files
-* [`Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes of the Council Meeting on 6 Logical Spaces.
+* **Meeting Minutes Archive (`MeetingMinutes/`):**
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md) — Official Minutes: 4-Pillar Scrutiny of Psychological Axes, Plan B (Two-Tier 6D Engine) & Dynamical Nemesis System.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes of the Council Meeting on Master 6-Space Architecture.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes of the Willpower Space Deconstruction Meeting.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes of the Belief Space Deconstruction Meeting.
 * [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Upgraded Game Design Document with the Master 6-Space Architecture.
-* [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md) — Minutes of the Four-Pillar Expert Council Debate & 5 Stress-Test Scenarios.
 * [`assets/diagram-twotier-architecture.svg`](../assets/diagram-twotier-architecture.svg) — High-Definition Vector Architecture Diagram for Two-Tier Engine.
-* [`agents/README.md`](../agents/README.md) — Registry of the 4 Expert Agents with dedicated persona and memory files.
+* [`agents/README.md`](../agents/README.md) — Registry of the 6 Senior Expert Agents with dedicated persona and memory files.
 
 ---
 
 ## 4. Current State of the Codebase for the Next Session
-* **Core Theoretical Status:** The Master 6-Space Unified Architecture ($\mathcal{W}, \mathcal{E}, \mathcal{H}, \mathcal{M}, \mathcal{P}, \mathcal{R}$) is officially adopted and committed to the GDD.
-* **Next Agenda (Per Director's Order):** Convene subsequent sessions to mathematically and biologically deconstruct the remaining spaces (Somatic $\mathcal{H}$, Belief $\mathcal{P}$, Relation $\mathcal{R}$, Event $\mathcal{E}$, Willpower $\mathcal{W}$) into their fundamental orthogonal dimensions and differential equations.
+* **Core Theoretical Status:** Master 6-Space Unified Architecture established. Willpower ($\mathcal{W}$) and Belief ($\mathcal{P}$) spaces fully deconstructed into 5D orthogonal vectors and dynamic ODEs.
+* **Next Agenda (Per Director's Order):** Deconstruct the remaining spaces: Somatic Homeostasis ($\mathcal{H}$), Relational Graph Topology ($\mathcal{R}$), and Global Exogenous Event Space ($\mathcal{E}$).
 
 
 

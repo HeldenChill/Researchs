@@ -30,6 +30,8 @@ graph TD
 | **Dr. Elena Rostova** | Autonomic Neurobiology, Polyvagal Theory, CB5T, Neural Metabolism | [`agents/elena-rostova/AGENT.md`](file:///g:/Projects/Researchs/agents/elena-rostova/AGENT.md) | [`agents/elena-rostova/memory.md`](file:///g:/Projects/Researchs/agents/elena-rostova/memory.md) |
 | **Kai Sorenson** | Game Engine Architecture, Emergent Simulation, Dynamical Nemesis | [`agents/kai-sorenson/AGENT.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/AGENT.md) | [`agents/kai-sorenson/memory.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/memory.md) |
 | **Prof. Marcus Thorne** | Clinical & Empirical Psychology, Stress-Testing, Boundary Auditing | [`agents/marcus-thorne/AGENT.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/AGENT.md) | [`agents/marcus-thorne/memory.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/memory.md) |
+| **Prof. Gabriel Brandt** | Neuro-Volition, Agency Cybernetics, Downward Causality & Willpower ($\mathcal{W}$) | [`agents/gabriel-brandt/AGENT.md`](file:///g:/Projects/Researchs/agents/gabriel-brandt/AGENT.md) | [`agents/gabriel-brandt/memory.md`](file:///g:/Projects/Researchs/agents/gabriel-brandt/memory.md) |
+| **Prof. Thaddeus Mercer** | Social Cognition, Moral Neuroethics, Epistemic Networks & Beliefs ($\mathcal{P}$) | [`agents/thaddeus-mercer/AGENT.md`](file:///g:/Projects/Researchs/agents/thaddeus-mercer/AGENT.md) | [`agents/thaddeus-mercer/memory.md`](file:///g:/Projects/Researchs/agents/thaddeus-mercer/memory.md) |
 
 ---
 
@@ -43,9 +45,17 @@ When the Project Director or any subagent needs to consult an expert or adopt th
 ---
 
 ## 3. Historic Council Milestones
-* **Session Date: September 27–28, 2026:**
-  * Rigorous audit of the original 4-axis model; discovery of algebraic rank deficiency on cognitive bandwidth ($C$).
-  * Formulation and unanimous adoption of **Plan B (Two-Tier Layered Architecture)** structured as a Fiber Bundle ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$).
-  * Architectural design of the **Dynamical Nemesis System** via Saddle-Node Bifurcations and Resonant Hostility Coupling.
-  * Successful trial across Prof. Marcus Thorne's 5 Extreme Stress-Test Scenarios.
-  * Formal Director approval and publication of the updated GDD and high-fidelity vector diagrams.
+* **Session 1 (September 27, 2026): Initial 4-Axis Scrutiny & Plan B (Psychological Space)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md).
+  * Discovered algebraic rank deficiency on cognitive bandwidth ($C$).
+  * Formulated and adopted **Plan B (Two-Tier Layered Architecture)** structured as a Fiber Bundle ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$).
+  * Designed the **Dynamical Nemesis System** via Saddle-Node Bifurcations and Resonant Hostility Coupling.
+* **Session 2 (September 28, 2026): Ratification of Master 6-Space Architecture**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md).
+  * Formally established the 6 autonomous, non-subsumed spaces: $\mathcal{W}, \mathcal{E}, \mathcal{H}, \mathcal{M}, \mathcal{P}, \mathcal{R}$.
+* **Session 3 (September 28, 2026): Deconstruction of Meta-Volitional Space ($\mathcal{W}$)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md).
+  * Appointed **Prof. Gabriel Brandt**; formalized 5 orthogonal dimensions ($\mathcal{W}_{\text{amp}}, \vec{\Phi}_{\text{intent}}, \kappa_{\text{coh}}, \tau_{\text{tenacity}}, \theta_{\text{transcend}}$) and the Deformation Operator $\hat{\mathcal{W}}$.
+* **Session 4 (September 28, 2026): Deconstruction of Value & Belief Space ($\mathcal{P}$)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md).
+  * Appointed **Prof. Thaddeus Mercer**; formalized 5 orthogonal dimensions ($\vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}}$) and the Thought Cabinet Lifecycle.

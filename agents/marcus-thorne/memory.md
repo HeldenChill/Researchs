@@ -3,7 +3,7 @@
 
 * **Council Session:** Scrutiny of Psychological State Space & Emergent Game Architecture (*Project Anima*)
 * **Last Updated:** 2026-09-28
-* **Cross-References:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
+* **Cross-References:** [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
 
 ---
 
@@ -76,4 +76,13 @@ At the conclusion of the evaluation, I addressed the Chair:
   * **Empirical Independence of Belief ($\mathcal{P}$):** Proved clinically that ideological / moral foundations (Haidt's framework) are orthogonal to immediate interpersonal relations ($\mathcal{R}$) and physical hunger/pain ($\mathcal{H}$).
   * **Frankl's Will to Meaning:** Championed the Director's insight on Willpower ($\mathcal{W}$) as the transcendent meta-operator. When all somatic and psychological support structures collapse, human beings endure solely through an unwavering will to meaning.
 * **Next Assignment:** Formulate clinical edge-case scenarios to evaluate the basic dimensions of the Belief Space $\mathcal{P}$ and Somatic Space $\mathcal{H}$ in subsequent sessions.
+
+---
+
+## 5. Council Sessions: Deconstruction of Willpower ($\mathcal{W}$) and Belief Space ($\mathcal{P}$)
+* **Session 3 (Willpower Stress-Test):**
+  * Evaluated the Extreme Rescuer dilemma: Firefighter experiencing 3rd-degree burns and impending building collapse.
+  * Verified that the 5D Willpower model accurately replicates clinical reality: $\theta_{\text{duty}} = 1.0 \implies \mathcal{W}_{\text{amp}} = 0.95 \implies$ pain gated and fear leveled $\implies$ beam lifted $\implies$ instant Post-Warp Crash (comatose prostration) upon $\tau_{\text{tenacity}}$ expiry.
+* **Session 4 (Belief Shattering & Moral Injury):**
+  * Validated the clinical dynamics of Moral Injury: When a core belief ($\sigma_{\text{sacred}} \approx 1.0$) is shattered by irrefutable contradiction ($\text{PE} > \theta_{\text{rupture}}$), the subject experiences catastrophic existential anomie and CSD before psychological re-crystallization.
 

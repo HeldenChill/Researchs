@@ -3,7 +3,7 @@
 
 * **Council Session:** Scrutiny of Psychological State Space & Emergent Game Architecture (*Project Anima*)
 * **Last Updated:** 2026-09-28
-* **Cross-References:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md)
+* **Cross-References:** [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md)
 
 ---
 
@@ -49,4 +49,14 @@
   * **Somatic Space ($\mathcal{H}$) vs. Neuroception ($V_{\text{bio}}$):** Proved the ontological distinction between objective physical hardware damage (bleeding, glycogen depletion, hypothermia) and subjective interoceptive perception (proven via surgical anesthesia and unprovoked panic attacks).
   * **Neurobiology of Transcendent Willpower ($\mathcal{W}$):** Validated the anterior Mid-Cingulate Cortex (aMCC) as the tenacity and will-to-live hub capable of overriding severe nociception and Amygdala alarms via GABAergic gating.
 * **Next Assignment:** Prepare the exact biological variables and metabolic decay rates for deconstructing the Somatic Space $\mathcal{H}$ in the next session.
+
+---
+
+## 4. Council Sessions: Deconstruction of Willpower ($\mathcal{W}$) and Belief Space ($\mathcal{P}$)
+* **Session 3 (Willpower $\mathcal{W}$):**
+  * Validated Parvizi's aMCC electrical stimulation data: aMCC firing induces an acute sense of a challenge to overcome with direct GABAergic inhibition of the Amygdala.
+  * Mapped $\tau_{\text{tenacity}}$ to astrocytic glycogen reserves and noradrenergic receptor desensitization; modeled the biological Post-Warp Crash (prostration/hypoglycemia).
+* **Session 4 (Belief Space $\mathcal{P}$):**
+  * Mapped Belief representation to the Ventromedial Prefrontal Cortex (vmPFC); confirmed that ideological violations trigger physical pain circuitry (anterior insula).
+  * Validated Berns' fMRI findings on Sacred Values ($\sigma_{\text{sacred}}$): sacred imperatives completely deactivate utilitarian DLPFC cost-benefit computation.
 

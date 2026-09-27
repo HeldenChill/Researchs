@@ -150,23 +150,27 @@ Ratified by the Project Director on September 28, 2026, *Project Anima* elevates
 
 ---
 
-## 8. Meta-Volitional Lie Deformation Operator ($\hat{\mathcal{W}}$)
+## 8. Meta-Volitional Space ($\mathcal{W}$) & Lie Deformation Operator ($\hat{\mathcal{W}}$)
 
-Willpower is formalized not as an algebraic state variable, but as an active **Manifold Deformation Operator**:
+Ratified in Session 3 (Prof. Gabriel Brandt), Willpower is formalized as a **5-Dimensional State Space** driving a **Second-Order Lie Deformation Operator**:
 
-### 8.1. Mathematical Formulation:
-$$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}(\vec{S})$$
+$$\mathbf{W}(t) = \Big( \mathcal{W}_{\text{amp}}(t), \vec{\Phi}_{\text{intent}}(t), \kappa_{\text{coh}}(t), \tau_{\text{tenacity}}(t), \theta_{\text{transcend}} \Big) \in [0, 1] \times \mathbb{S}^{K-1} \times [0, 1] \times \mathbb{R}^+ \times [0, 1]$$
 
-* $\mathcal{W} \in [0, 1]$: Amplitude of volitional activation.
-* $\vec{\Phi}_{\text{intent}}$: Intentional vector field anchored in core beliefs ($\vec{\theta} \in \mathcal{P}$).
-* **Annihilation of Fear Barriers:**
-  $$\lim_{\mathcal{W} \to 1} \Delta E_{\text{escape}}(\text{Trauma Basin}) = 0$$
-  As $\mathcal{W}$ reaches critical threshold $\theta_{\text{transcendent}}$, the potential well barrier around panic/trauma collapses to zero, freeing the state trajectory from instinctive 4F entrapment.
+### 8.1. The 5 Orthogonal Dimensions of $\mathcal{W}$:
+1. **$\mathcal{W}_{\text{amp}} \in [0, 1]$ (Tenacity Amplitude):** Firing rate of the anterior Mid-Cingulate Cortex (**aMCC**), dictating anti-gradient strength.
+2. **$\vec{\Phi}_{\text{intent}} \in \mathbb{S}^{K-1}$ (Intentional Direction Vector, $\|\vec{\Phi}\| = 1$):** Frontoparietal Network (**FPN**) and **DLPFC** goal allocation targeting survival, altruistic sacrifice, or ideological fidelity.
+3. **$\kappa_{\text{coh}} \in [0, 1]$ (Phase Coherence / Dissonance Veto):** Gamma-band ($40-80\text{Hz}$) phase synchronization between DLPFC, Striatum, and aMCC. $\kappa \to 1.0$: total internal alignment; $\kappa \to 0$: cognitive ambivalence.
+4. **$\tau_{\text{tenacity}} \in \mathbb{R}^+$ (Metabolic Half-Life):** Astrocytic glycogen reservoir and noradrenergic receptor sensitivity defining maximum sustainable duration.
+5. **$\theta_{\text{transcend}} \in [0, 1]$ (Transcendence Threshold):** Phase transition boundary between standard executive effort ($< \theta$) and reality-warping transcendent surge ($\ge \theta$).
 
-### 8.2. Cross-Space Warping:
-* **Somatic Gating ($\hat{\mathcal{W}} \circ \mathcal{H}$):** aMCC-driven GABAergic inhibition of nociceptive signals and forced mobilization of peripheral glycogen.
-* **Relational Override ($\hat{\mathcal{W}} \circ \mathcal{R}$):** Transient suspension of the Nemesis Attractor ($\text{NemesisAttractor}_{ij} \to 0$) enabling self-transcendent alliances.
-* **Belief Restructuring ($\hat{\mathcal{W}} \circ \mathcal{P}$):** Metacognitive re-parameterization of priors (Nietzschean self-overcoming).
+### 8.2. Manifold Potential Warping Equation:
+$$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \Big[ \mathcal{W}_{\text{amp}} \cdot \kappa_{\text{coh}} \Big] \cdot \Big\langle \nabla V(\vec{S}), \vec{\Phi}_{\text{intent}} \Big\rangle_{\mathbf{G}}$$
+* When an organism faces lethal panic ($V_{\text{bio}} \to -1$) but volitional intent opposes it, the compensatory term cancels the potential slope: $\lim_{\mathcal{W} \to 1} \Delta E_{\text{fear}} = 0$. The trauma/panic basin is leveled in real time.
+
+### 8.3. Cross-Space Warping & Post-Warp Crash Dynamics:
+* **Somatic Gating & Boost:** $\text{Nociception}_{\text{perceived}} = \text{Nociception}_{\text{tissue}} \cdot (1 - \mathcal{W}_{\text{amp}}\kappa_{\text{coh}})$; $\text{Power}_{\text{muscle}} = \text{BasePower} \cdot (1 + \alpha_{\text{boost}}\mathcal{W}_{\text{amp}})$.
+* **Metabolic Debt Accumulation:** $\frac{dD_{\text{met}}}{dt} = \beta_{\text{burn}} \cdot (\mathcal{W}_{\text{amp}})^2$.
+* **The Crash Dynamic:** Once $\tau_{\text{tenacity}}$ expires or intent is achieved, $\mathcal{W} \to 0$, triggering acute somatic exhaustion: $\vec{H}_{\text{energy}} \to 0, C \to 0, A_{\text{phys}} \to 0$ (Comatose recovery phase).
 
 ---
 
@@ -183,5 +187,29 @@ $$\mathbf{E} \Longrightarrow \begin{cases}
 \vec{I}_{\text{visceral}} \xrightarrow{\Delta t \le 100\text{ms}} \Delta \vec{H} + \Delta (A_{\text{phys}}, V_{\text{bio}}) & \text{(Bypasses Cortical Appraisal)} \\
 \vec{I}_{\text{semantic}} \xrightarrow{\text{Appraisal Filter}} \Delta (C, W, D, E_x) & \text{(Conditioned on } \vec{\theta}, \mathbf{R}_{ij}\text{)}
 \end{cases}$$
+
+---
+
+## 10. Value & Belief Parameter Space ($\mathcal{P}$) & Thought Cabinet
+
+Ratified in Session 4 (Prof. Thaddeus Mercer), Beliefs operate as the **Landscape Parameter Manifold** $\mathcal{P}$ governing potential geometry $V(\vec{S}; \boldsymbol{\theta})$:
+
+$$\vec{\theta} = \Big( \vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}} \Big) \in [-1, 1]^6 \times [0, 1] \times [0, 1] \times [-1, 1] \times [0, 1]$$
+
+### 10.1. The 5 Orthogonal Dimensions of $\mathcal{P}$:
+1. **$\vec{\theta}_{\text{moral}} \in [-1, 1]^6$ (Haidt's Moral Foundations):** Care/Harm, Fairness/Cheating, Loyalty/Betrayal, Authority/Subversion, Sanctity/Degradation, Liberty/Oppression. Shapes behavioral attractor basins: $V_{\text{moral}} = -\sum_{k=1}^6 \theta_k \Psi_k(\vec{S})$.
+2. **$\delta_{\text{dogma}} \in [0, 1]$ (Epistemic Calcification / Bayesian Dogmatism):** Defines the precision of prior beliefs: $\Pi_{\text{prior}} = \frac{1}{1.001 - \delta_{\text{dogma}}}$. When $\delta \to 1.0$, sensory prediction errors are zeroed out (Confirmation Bias / Fanaticism).
+3. **$\sigma_{\text{sacred}} \in [0, 1]$ (Sacred Value Barrier):** Deontological cut-off switch disabling utilitarian cost-benefit circuitry (DLPFC). Creates an infinite repulsive potential wall:
+   $$V_{\text{taboo}}(\vec{S}) = \sigma_{\text{sacred}} \cdot \frac{K_{\text{barrier}}}{\big(\text{DistanceToTaboo}(\vec{S})\big)^2} \xrightarrow{\text{taboo} \to 0} \infty$$
+4. **$\lambda_{\text{locus}} \in [-1, 1]$ (Existential Locus of Control):** $+1.0$ Internal Agency (Master of Fate) vs. $-1.0$ External Fatalism (Helpless Pawn of Destiny).
+5. **$\alpha_{\text{tribal}} \in [0, 1]$ (Tribal Memetic Coupling):** Entrainment rate of individual belief parameters to collective group narratives.
+
+### 10.2. Belief Evolution & Crisis Bifurcation (Shattering):
+Beliefs evolve under slow timescale $\tau_{\text{belief}}$ driven by cumulative Prediction Errors ($\overline{\text{PE}}$):
+$$\frac{d\vec{\theta}}{dt} = \frac{1}{\tau_{\text{belief}}} (1.0 - \delta_{\text{dogma}}) \cdot \mathbf{J}_{\text{evidence}} \cdot \overline{\text{PE}}(t) + \hat{\mathcal{W}}(\vec{\theta})$$
+* **Catastrophic Rupture:** When evidence overwhelms dogmatic shielding ($\overline{\text{PE}} > \theta_{\text{rupture}}$), a Saddle-Node Bifurcation annihilates the prior potential wells, inducing an **Existential Crisis** (Acute CSD: $C \to 0, A_{\text{phys}} \to 1.0, V_{\text{bio}} \to -1.0$) leading to psychotic breakdown or metamorphic re-birth.
+
+### 10.3. Thought Cabinet Lifecycle Engine:
+$$\text{Ideational Seed} \xrightarrow{\text{Incubation: } \text{Cognitive Dissonance penalty} (\Delta C < 0)} \text{Crystallized Thought} \big(\Delta \vec{\theta}_{\text{permanent}}\big)$$
 
 
