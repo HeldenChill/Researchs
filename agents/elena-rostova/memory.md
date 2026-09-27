@@ -1,47 +1,50 @@
-# Ký Ức & Nhật Ký Phản Biện: TS. Elena Rostova
-### (Agent Memory Log - Neurobiology & Cybernetic Psychology)
+# Agent Memory Log: Dr. Elena Rostova
+### (Domain: Evolutionary Neurobiology & Cybernetic Psychology)
 
-* **Phiên họp:** Thẩm Định Hệ Trục Không Gian Tâm Lý & Mô Phỏng Nổi Sinh (*Project Anima*)
-* **Ngày cập nhật:** 2026-09-28
-* **Vị trí tài liệu liên quan:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md)
-
----
-
-## 1. Nhật Ký Diễn Biến & Đóng Góp Của Elena Rostova Trong Phiên Họp
-
-### Vòng 1: Giải mã bản chất sinh học của Trục $C$ (Clarity / Bandwidth)
-* **Phản biện của tôi đối với toán học:** Khi Alex Vance chỉ ra lỗi suy biến hạng của $C$, tôi hoàn toàn tán thành về mặt cơ chế. Trong sinh học thần kinh, vỏ não trước trán (DLPFC) điều hành ý chí và băng thông nhận thức phụ thuộc trực tiếp vào mức dự trữ Glucose, Oxy và sự cân bằng các chất dẫn truyền Dopamine / Acetylcholine.
-* **Định nghĩa độc lập:** Hiện tượng "Kiệt quệ nhận thức" (Ego Depletion) diễn ra bất kể bạn có sợ hãi hay không. Một người làm việc căng thẳng suốt đêm dù ngồi trong căn phòng an toàn tuyệt đối ($V_{\text{bio}} = 1.0, A_{\text{phys}} = 0.2$) thì chỉ số $C$ vẫn sụt giảm về $0$. Do đó, việc gán cho $C$ một phương trình tiêu hao năng lượng nội tại là hoàn toàn chuẩn xác về mặt sinh lý học.
-
-### Vòng 2: Phá vỡ bế tắc về trục Arousal và Hệ Thống Xã Hội
-* **Vấn đề của mô hình cũ:** Mô hình 4 trục cũ coi $A \in [-1, +1]$ với $-1$ là Freeze và $+1$ là Fight/Flight. Tôi đã chỉ ra rằng việc này **vi phạm thuyết Polyvagal**:
-  * Freeze không phải là "Arousal âm"; Freeze là phản ứng ức chế phế vị lưng (Dorsal Vagal Shutdown) khi hệ giao cảm vẫn đang bị kích động tột độ bên dưới (giống như vừa đạp ga kịch sàn vừa kéo phanh tay).
-  * Trục Xã hội $S \in [-1, +1]$ gộp chung cả tính Vị tha/Gắn bó (Warmth) lẫn tính Thống trị/Phục tùng (Dominance) khiến không thể mô phỏng các trạng thái tâm lý phức tạp như Stockholm (Fawn), độc tài lạnh lùng (High Dominance, Low Warmth) hay người phục tùng nhút nhát.
-* **Đề xuất của tôi:** Bẻ tách $A$ thành Mức kích hoạt thể lý $A_{\text{phys}} \in [0, 1]$ và Đánh giá an toàn vô thức $V_{\text{bio}} \in [-1, +1]$. Đưa Vòng tròn Tương tác Xã hội (Interpersonal Circumplex) gồm $W$ (Warmth) và $D$ (Dominance) vào hệ thống.
-
-### Vòng 3 & 4: Bảo vệ Kiến Trúc Hai Tầng & Hoàn Thiện Ánh Xạ Big Five (CB5T)
-* **Tại sao cấu trúc 2 tầng là chân lý sinh học?**
-  * Não người được tiến hóa theo từng tầng xếp chồng (Triune Brain / Hierarchical Layering): Thân não và hệ viền (Limbic System) vận hành trước ở tầng $10\text{ Hz}$ để duy trì sự sống; Vỏ não mới (Neocortex) vận hành ở tầng $1\text{ Hz}$ để tư duy và giao tiếp xã hội.
-  * **Ánh xạ trọn vẹn Big Five (OCEAN):**
-    1. **Neuroticism (N):** Phản ánh trực tiếp độ dốc và độ nhạy cảm của Tầng 1 ($A_{\text{phys}}, V_{\text{bio}}$). Người có $N$ cao có ngưỡng kích hoạt báo động cực thấp.
-    2. **Extraversion (E):** Tổ hợp giữa Dominance ($D$), Exploration ($E_x$) và Warmth ($W$).
-    3. **Openness (O):** Trục Exploration ($E_x$) tại Tầng 2 (mạch SEEKING của Panksepp).
-    4. **Agreeableness (A):** Trục Social Warmth ($W$) khi hệ thần kinh ở trạng thái an toàn ($V_{\text{bio}} > 0$).
-    5. **Conscientiousness (C):** Khả năng duy trì trục Clarity ($C$) và thời gian trôi ý chí $\tau_{\text{drain}}$ cực dài.
+* **Council Session:** Scrutiny of Psychological State Space & Emergent Game Architecture (*Project Anima*)
+* **Last Updated:** 2026-09-28
+* **Cross-References:** [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](file:///g:/Projects/Researchs/Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md), [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md)
 
 ---
 
-## 2. Đánh Giá Của Elena Rostova Về 5 Kịch Bản Stress-Test Của GS. Marcus Thorne
+## 1. Meeting Transcript & Intellectual Contributions
 
-* **Kịch bản 1 (Sĩ quan pháo binh - PTSD):** Phản ứng kích hoạt hạch hạnh nhân (Amygdala Hijack) trong vòng $0.2\text{s}$ tái hiện hoàn hảo cơ chế Neuroception vô thức. Bộ não không dùng lý trí để phân tích tiếng sấm sét; nó phản ứng bằng thần kinh tự chủ trước khi vỏ não kịp nhận thức.
-* **Kịch bản 2 (Con tin Stockholm - Fawn Trapping):** Điểm sáng tạo xuất sắc nhất của hệ thống 2 tầng. Con tin hạ Dominance xuống đáy ($D \to -1$) và tăng Warmth ($W \to +0.7$) để tìm kiếm sự an toàn từ kẻ bắt cóc. Đây là phản xạ Fawn sinh học thuần túy, minh chứng cho việc $W$ và $D$ phải là hai trục độc lập.
-* **Kịch bản 3 (Lính cứu hỏa - Ego Depletion):** Mô tả chuẩn xác sự kiệt quệ đường huyết và chất dẫn truyền thần kinh sau nhiều giờ kích hoạt ý chí tối đa. Khi $C \to 0$, người lính rơi vào trạng thái đờ đẫn dù môi trường xung quanh đã an toàn.
-* **Kịch bản 4 (Bắt nạt & Machiavellian Drift):** Minh họa cơ chế thích nghi phòng vệ sinh học: Để không bao giờ bị rơi vào hố Hổ Thẹn Độc Hại (Toxic Shame), hệ thần kinh tự cấu trúc lại để nâng Dominance ($D$) lên tối đa và triệt tiêu Warmth ($W$), biến đứa trẻ thành kẻ thao túng tàn nhẫn.
-* **Kịch bản 5 (Nemesis Goran):** Thù hận biến thành một xung lực sinh học thường trực. Việc nhìn thấy kẻ thù gây giải phóng Adrenaline và Cortisol tức thì, vô hiệu hóa hoàn toàn nhánh Phế vị bụng (Ventral Vagal).
+### Round 1: Neurobiological Basis of Cognitive Bandwidth ($C$)
+* **Biological Clarification:** When Dr. Vance challenged the mathematical rank collapse of $C$, I provided the physiological explanation. Dorsolateral prefrontal cortex (DLPFC) functioning depends on cellular glucose availability and monoaminergic tone (Dopamine/Norepinephrine).
+* **Ego Depletion:** Cognitive fatigue occurs even in absolute safety ($V_{\text{bio}} = 1.0, A_{\text{phys}} = 0.2$). Sustained mental calculation or emotional regulation drains prefrontal resources over time. Defining an independent recovery time constant $\tau_{\text{recovery}}$ and a task drain parameter $\text{Drain}_{\text{task}}(t)$ aligns the engine with empirical neuroscience.
+
+### Round 2: Polyvagal Decoupling of Arousal and Social Attachment
+* **Deficiencies in Legacy 4-Axis Model:**
+  1. *Arousal ($A \in [-1, 1]$):* Conflating Freeze ($-1$) with Fight/Flight ($+1$) violates Polyvagal Theory. Dorsal vagal shutdown (Freeze) involves profound parasympathetic inhibition while sympathetic alarm remains trapped underneath.
+  2. *Social Axis ($S \in [-1, 1]$):* Conflating affiliation and hierarchy made it impossible to simulate authoritarian dominance, submissive appeasement, or Stockholm syndrome.
+* **The Neurobiological Split:**
+  * Separated somatic activation into Metabolic Arousal $A_{\text{phys}} \in [0, 1]$ and Neuroception $V_{\text{bio}} \in [-1, +1]$.
+  * Decomposed social interaction into the Interpersonal Circumplex: Social Warmth $W \in [-1, +1]$ and Dominance $D \in [-1, +1]$.
+
+### Round 3 & 4: Biological Foundations of Two Tiers & Cybernetic Big Five
+* **Phylogenetic Layering (Triune Brain):** The Two-Tier structure mirrors vertebrate brain architecture:
+  * Tier 1 (Base Space $\mathcal{B}$ at $10\text{ Hz}$): Brainstem and limbic circuits governing raw autonomic survival.
+  * Tier 2 (Fiber Space $\mathcal{F}$ at $1\text{ Hz}$): Neocortical structures governing executive planning, language, and social hierarchy.
+* **Full Cybernetic Big Five Mapping (CB5T):**
+  * *Neuroticism ($N$):* Basal threat sensitivity and steepness of Tier 1 attractor slopes.
+  * *Extraversion ($E$):* Composite of high Dominance ($D$), positive Exploration ($E_x$), and Warmth ($W$).
+  * *Openness ($O$):* Pure Epistemic Drive ($E_x$) supported by the dopaminergic SEEKING system.
+  * *Agreeableness ($A$):* High Warmth ($W$) under neuroceptive safety ($V_{\text{bio}} > 0$).
+  * *Conscientiousness ($C$):* Robust maintenance of executive bandwidth $C$ with a prolonged depletion decay rate $\tau_{\text{drain}}$.
 
 ---
 
-## 3. Các Nhiệm Vụ & Lưu Ý Kỹ Thuật Tiếp Theo Của Elena Rostova
-1. Chuẩn hóa các hệ số sinh học trong ma trận bộ lọc nhận thức `SubjectiveAppraisalFilter` để đảm bảo nhân vật có các phản ứng sinh lý phù hợp với độ tuổi và tiền sử bệnh lý.
-2. Kiểm tra tính ổn định của cơ chế đồng điều hòa xã hội (Social Co-Regulation): Đảm bảo rằng việc tiếp xúc với người bình an ($V_{\text{bio}} = 1.0, W = +0.8$) thực sự kéo được nhịp tim của nạn nhân sang chấn về Vùng Dung Sai (Window of Tolerance).
-3. Hỗ trợ Kai thiết kế hệ thống phản hồi giác quan (âm thanh nhịp tim, nhịp thở dồn dập, đồng tử co giãn) tương ứng với tọa độ Tầng 1.
+## 2. Assessment of Prof. Marcus Thorne's 5 Stress-Test Scenarios
+
+* **Scenario 1 (Artillery Officer PTSD):** Modeled Amygdala Hijack within $0.2\text{s}$. The autonomic nervous system acts prior to conscious cortical interpretation, triggering sympathetic spike and dorsal panic.
+* **Scenario 2 (Stockholm Bank Hostage):** Outstanding validation. When death threat peaks ($V_{\text{bio}} \to -1$), the subject drives Dominance to minimum ($D \to -1$) while elevating Warmth ($W \to +0.7$) to trigger caregiver instincts in the captor (Fawn survival reflex).
+* **Scenario 3 (Firefighter Cognitive Stupor):** True-to-life representation of prefrontal glycogen depletion. The firefighter remains safe but is temporarily cognitively unresponsive.
+* **Scenario 4 (Bullying to Machiavellian Drift):** Beautiful demonstration of neuroplastic adaptation. To eliminate the excruciating pain of the Toxic Shame basin, the nervous system hardens itself by suppressing Warmth ($W \to -0.85$) and inflating Dominance ($D \to +0.8$).
+* **Scenario 5 (Nemesis Goran):** Demonstrates sustained neurochemical sensitization. Encountering the Nemesis immediately blocks the ventral vagal brake, releasing a flood of cortisol and catecholamines.
+
+---
+
+## 3. Rostova's Technical Action Items for Upcoming Sprints
+1. Calibrate biologically realistic damping coefficients in the `SubjectiveAppraisalFilter` matrix.
+2. Verify social co-regulation entrainment thresholds: Ensure that a regulated leader ($V_{\text{bio}} = 1.0, W = +0.8$) can reliably pull traumatized agents back into their Window of Tolerance.
+3. Assist Kai Sorenson in mapping internal state coordinates to somatic audio/visual cues (heartbeat frequency, pupil dilation, tunnel vision).

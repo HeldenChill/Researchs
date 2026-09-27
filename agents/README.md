@@ -1,46 +1,51 @@
-# Hội Đồng Chuyên Gia Thẩm Định Không Gian Tâm Lý & Mô Phỏng Nổi Sinh
-### (Council of Expert Agents - Project Anima)
+# Council of Expert Agents: Psychological State Space & Emergent Simulation
+### (Project Anima Expert Advisory Board)
 
-Thư mục này định danh và lưu trữ hồ sơ hoạt động, phương pháp luận nghiên cứu và **Hệ thống Ký ức Riêng biệt (Agent Memory)** của 4 Chuyên gia Cố vấn Cấp cao phục vụ công tác nghiên cứu, phản biện và phát triển dự án *Project Anima*.
+This directory serves as the centralized registry for the profiles, operational methodologies, and **Isolated Memory Systems (`memory.md`)** of the four Senior Advisory Experts established during the peer-review and architecture validation of *Project Anima*.
 
 ---
 
-## 1. Danh Sách Các Chuyên Gia (The Four Expert Agents)
+## 1. The Expert Council Roster
 
 ```mermaid
 graph TD
-    subgraph COUNCIL["HỘI ĐỒNG TỨ TRỤ CHUYÊN GIA"]
-        AV["1. TS. Alex Vance<br/>Nhà Toán Học & Vật Lý Hệ Thống Động Lực<br/>(Dynamical Systems & Topology)"]
-        ER["2. TS. Elena Rostova<br/>Nhà Thần Kinh Học Sinh Học & Tiến Hóa<br/>(Neurobiology & Cybernetic Big Five)"]
-        KS["3. Kai Sorenson<br/>Kiến Trúc Sư Trưởng Hệ Thống Game<br/>(Game Engine Architecture & 10Hz/1Hz Loop)"]
-        MT["4. GS. Marcus Thorne<br/>Tâm Lý Học Thực Nghiệm & Stress-Testing<br/>(Empirical Psychology & Behavioral Testing)"]
+    subgraph COUNCIL["FOUR-PILLAR COUNCIL OF EXPERTS"]
+        AV["1. Dr. Alex Vance<br/>Dynamical Systems & Differential Topology<br/>(Mathematical Integrity & Bifurcation Theory)"]
+        ER["2. Dr. Elena Rostova<br/>Evolutionary Neurobiology & Cybernetics<br/>(Polyvagal Theory & Cybernetic Big Five)"]
+        KS["3. Kai Sorenson<br/>Lead Game Systems Architect<br/>(Game Engine Architecture & 10Hz/1Hz Loops)"]
+        MT["4. Prof. Marcus Thorne<br/>Empirical Psychology & Stress-Testing<br/>(Clinical Scenarios & Edge-Case Validation)"]
     end
 
-    AV <-->|Toán học Vi phân vs Thần kinh Học| ER
-    ER <-->|Cơ chế Sinh học vs Tối ưu Gameplay| KS
-    KS <-->|Cấu trúc Engine vs Mô hình Không gian Pha| AV
-    MT <-->|Stress-Testing 5 Kịch bản Thực nghiệm Khắc nghiệt| AV
-    MT <-->|Stress-Testing 5 Kịch bản Thực nghiệm Khắc nghiệt| ER
-    MT <-->|Stress-Testing 5 Kịch bản Thực nghiệm Khắc nghiệt| KS
+    AV <-->|Differential Math vs Biology| ER
+    ER <-->|Biological Hardware vs Gameplay Tuning| KS
+    KS <-->|Engine Pipeline vs Phase Space| AV
+    MT <-->|5 Extreme Empirical Stress Tests| AV
+    MT <-->|5 Extreme Empirical Stress Tests| ER
+    MT <-->|5 Extreme Empirical Stress Tests| KS
 ```
 
-| Chuyên Gia | Lĩnh Vực Chuyên Môn | Hồ Sơ Định Danh | Ký Ức & Biên Bản Cuộc Họp |
+| Expert Agent | Core Specialization | Agent Profile | Dedicated Memory & Meeting Log |
 | :--- | :--- | :--- | :--- |
-| **TS. Alex Vance** | Toán học Động lực, Hình học Vi phân, SDE, Topology, Phân nhánh | [`agents/alex-vance/AGENT.md`](file:///g:/Projects/Researchs/agents/alex-vance/AGENT.md) | [`agents/alex-vance/memory.md`](file:///g:/Projects/Researchs/agents/alex-vance/memory.md) |
-| **TS. Elena Rostova** | Thần kinh học Tự chủ, Polyvagal Theory, CB5T, Chuyển hóa Não bộ | [`agents/elena-rostova/AGENT.md`](file:///g:/Projects/Researchs/agents/elena-rostova/AGENT.md) | [`agents/elena-rostova/memory.md`](file:///g:/Projects/Researchs/agents/elena-rostova/memory.md) |
-| **Kai Sorenson** | Kiến trúc Game Engine, Mô phỏng Xã hội Nổi sinh, Nemesis System | [`agents/kai-sorenson/AGENT.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/AGENT.md) | [`agents/kai-sorenson/memory.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/memory.md) |
-| **GS. Marcus Thorne** | Tâm lý học Lâm sàng & Thực nghiệm, Stress-Testing, Thẩm định Biên | [`agents/marcus-thorne/AGENT.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/AGENT.md) | [`agents/marcus-thorne/memory.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/memory.md) |
+| **Dr. Alex Vance** | Dynamical Systems, Differential Geometry, SDE, Topology, Bifurcations | [`agents/alex-vance/AGENT.md`](file:///g:/Projects/Researchs/agents/alex-vance/AGENT.md) | [`agents/alex-vance/memory.md`](file:///g:/Projects/Researchs/agents/alex-vance/memory.md) |
+| **Dr. Elena Rostova** | Autonomic Neurobiology, Polyvagal Theory, CB5T, Neural Metabolism | [`agents/elena-rostova/AGENT.md`](file:///g:/Projects/Researchs/agents/elena-rostova/AGENT.md) | [`agents/elena-rostova/memory.md`](file:///g:/Projects/Researchs/agents/elena-rostova/memory.md) |
+| **Kai Sorenson** | Game Engine Architecture, Emergent Simulation, Dynamical Nemesis | [`agents/kai-sorenson/AGENT.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/AGENT.md) | [`agents/kai-sorenson/memory.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/memory.md) |
+| **Prof. Marcus Thorne** | Clinical & Empirical Psychology, Stress-Testing, Boundary Auditing | [`agents/marcus-thorne/AGENT.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/AGENT.md) | [`agents/marcus-thorne/memory.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/memory.md) |
 
 ---
 
-## 2. Quy Chuẩn Vận Hành & Khởi Tạo Chuyên Gia (Invocation Protocol)
+## 2. Invocation Protocol & Operational Guidelines
 
-Khi người dùng hoặc Chủ tọa cần tham vấn ý kiến hoặc kích hoạt góc nhìn của bất kỳ chuyên gia nào trong các phiên làm việc tiếp theo:
-1. Đọc file `AGENT.md` tương ứng để nắm vững Persona, giọng điệu phản biện và hệ thống nguyên lý cốt lõi.
-2. Đọc file `memory.md` của chuyên gia đó để truy xuất toàn bộ ngữ cảnh quá khứ, các luận điểm đã thống nhất và lập trường chuyên môn.
-3. Đảm bảo mọi phản biện tuân thủ tính nghiêm ngặt học thuật, không bao biện, không dùng thuật ngữ sáo rỗng và luôn gắn với khả năng kiểm chứng thực nghiệm hoặc tính khả thi phần mềm.
+When the Project Director or any subagent needs to consult an expert or adopt their specialized perspective in subsequent sessions:
+1. **Read `AGENT.md`:** Familiarize yourself with their persona, epistemological stance, technical vocabulary, and core evaluation criteria.
+2. **Read `memory.md`:** Retrieve their full historical context, past debates, accepted compromises, and specific task backlogs.
+3. **Maintain Epistemic Rigor:** Avoid performative hand-waving or vague approximations; all claims must be grounded in differential equations, neurobiological pathways, or measurable game performance metrics.
 
 ---
 
-## 3. Lịch Sử Cột Mốc Họp Hội Đồng (Council Milestones)
-* **Phiên họp Ngày 27–28/09/2026:** Thẩm định tính trực giao của hệ trục tâm lý; Phản biện mô hình 4 trục cũ; Đề xuất và bảo vệ thành công **Kiến Trúc Hai Tầng (Kế Hoạch B)**; Tích hợp Hệ thống Cừu thù Động lực học (Dynamical Nemesis System); Vượt qua 5 bài stress-test của GS. Marcus Thorne; Chủ tọa phê duyệt và ban hành tài liệu GDD chính thức.
+## 3. Historic Council Milestones
+* **Session Date: September 27–28, 2026:**
+  * Rigorous audit of the original 4-axis model; discovery of algebraic rank deficiency on cognitive bandwidth ($C$).
+  * Formulation and unanimous adoption of **Plan B (Two-Tier Layered Architecture)** structured as a Fiber Bundle ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$).
+  * Architectural design of the **Dynamical Nemesis System** via Saddle-Node Bifurcations and Resonant Hostility Coupling.
+  * Successful trial across Prof. Marcus Thorne's 5 Extreme Stress-Test Scenarios.
+  * Formal Director approval and publication of the updated GDD and high-fidelity vector diagrams.

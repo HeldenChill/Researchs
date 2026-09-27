@@ -103,6 +103,31 @@ To eliminate high-barrier jargon, mechanical analogies were established:
   $$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (1 Hz)}} \Big)$$
 * **Official Approval:** The Project Director formally approved Plan B, authorized the update of [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md), ratified the PDF export, and ordered the permanent institutionalization of the 4 Experts as dedicated Agents with isolated memory systems under `agents/`.
 
+### Stage 10: Technical Breakthrough — Autonomous Preview-Identical PDF Export Pipeline
+* **Problem Encountered:** Standard Markdown PDF export tools distorted Mermaid diagram typography (rendering text abnormally large) and failed to preserve exact CSS styling seen in VS Code Markdown Preview Enhanced (MPE).
+* **Investigation & Solution:**
+  * Analyzed Crossnote / MPE core architecture. MPE renders preview markdown via a local Node notebook engine utilizing KaTeX and bundled preview themes (`atom-light.css`, `vscode.css`).
+  * Engineered a standalone, reproducible headless export pipeline (`export_preview_identical_pdf.mjs`):
+    1. Crossnote Notebook compiles Markdown into unified standalone HTML with full embedded CSS and scripts.
+    2. Headless Chrome is launched with remote debugging port (`Page.printToPDF`).
+    3. The script attaches via WebSocket DevTools Protocol, actively listens for DOM mutation until all Mermaid SVG diagrams are completely rendered (`document.querySelectorAll("div.mermaid svg")`).
+    4. Issues `Page.printToPDF` with precise margins, CSS background printing, and dynamic page numbering.
+  * Successfully exported both `Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.pdf` (33 pages) and `Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.pdf` with zero text truncation, zero watermark, and pristine vector graphics.
+
+### Stage 11: Council Formalization & Next Session Execution Directives
+* **Artifacts Created & Committed:**
+  * All 4 experts institutionalized into `agents/` with dedicated `AGENT.md` (Persona, Methodology, Principles) and `memory.md` (Complete chronological memories, stress-test transcripts, and individual research tasks).
+  * High-definition vector architecture diagram created: [`assets/diagram-twotier-architecture.svg`](../assets/diagram-twotier-architecture.svg).
+  * Game Design Document fully upgraded to Plan B: [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md).
+* **Directives for the Next Session:**
+  1. **Sprint 1 — Standalone SDE Math Engine:**
+     * Implement `TwoTierAgent` in Python/C# with numerical Runge-Kutta / Euler-Maruyama integration.
+     * Implement the 6D `ImpactVector` and `SubjectiveAppraisalFilter` matrix.
+     * Code the Saddle-Node Bifurcation detector for the Dynamical Nemesis System.
+     * Run automated unit tests validating Hysteresis, CSD, and 4F coordinates under high stress.
+  2. **Sprint 2 — Interactive Sandbox Demo:**
+     * Connect to the planned FastAPI + Three.js visualizer ([`docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md`](../docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md)) or Unity/Godot simulation sandbox.
+
 ---
 
 ## 3. Related Artifacts & Repository Files
@@ -113,7 +138,18 @@ To eliminate high-barrier jargon, mechanical analogies were established:
 * [`Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md`](../Nghien-Cuu-Y-Chi-Dao-Va-Vong-Lap-Hoi-Tiep-Vu-Tru.md) — Willpower, The Dao & Cosmic Strange Loop.
 * [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](../Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md) — Empirical Foundations & Cybernetic Big Five Theory (CB5T).
 * [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Game Design Document for Emergent Psychological Simulation (`Project Anima`, Two-Tier 6D Engine).
+* [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.pdf`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.pdf) — Exported Publication-Quality PDF of the Game Design Document.
 * [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.md) — Minutes of the Four-Pillar Expert Council Debate & 5 Stress-Test Scenarios.
+* [`Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.pdf`](../Khao-Sat-Kiem-Dinh-Cac-Truc-Khong-Gian-Tam-Ly.pdf) — Exported Publication-Quality PDF of the Expert Council Debate.
+* [`assets/diagram-twotier-architecture.svg`](../assets/diagram-twotier-architecture.svg) — High-Definition Vector Architecture Diagram for Two-Tier Engine.
 * [`agents/README.md`](../agents/README.md) — Registry of the 4 Expert Agents with dedicated persona and memory files.
 * [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](../Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive Web Chat transcript with KaTeX & zoomable Mermaid rendering.
+
+---
+
+## 4. Current State of the Codebase for the Next Session
+* **Git Status:** Clean, all commits synced with detailed conventional commit messages.
+* **Core Theoretical Status:** Plan B (Two-Tier 6D Model: Base Space $\mathcal{B} = (A_{\text{phys}}, V_{\text{bio}})$ at 10Hz; Fiber Space $\mathcal{F} = (C, W, D, E_x)$ at 1Hz) is fully validated, mathematically formalized, stress-tested, and officially adopted by the Project Director.
+* **Council Status:** 4 Expert Agents ready to be invoked for specialized algorithmic or behavioral questions.
+
 
