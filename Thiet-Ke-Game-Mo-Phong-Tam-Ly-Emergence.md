@@ -32,6 +32,9 @@ graph TD
     S <-->|Đồng điều hòa giữa các cá thể| A
 ```
 
+![Kiến Trúc Động Cơ Tâm Lý 4 Trục Nổi Sinh](assets/diagram-4axis-architecture.svg)
+*Hình 0: Sơ đồ kiến trúc động cơ tâm lý 4 trục nổi sinh $\vec{S} = (A, V, C, S)$ và mạng lưới ghép nối động lực học phi tuyến.*
+
 ### Chi tiết các trục trạng thái:
 1. **$A$ - Arousal (Mức kích hoạt thần kinh tự chủ):**
    * $[-0.4, +0.4]$: Vùng Dung Sai (Window of Tolerance). Nhân vật bình tĩnh, sáng suốt.
@@ -61,6 +64,9 @@ graph TD
       * **Freeze ($A < 0, S < 0$):** Ngồi bệt xuống đất, co ro, mất khả năng di chuyển.
       * **Fawn ($A < 0, S > 0$):** Quỳ lạy, van xin, chấp nhận làm theo mọi yêu cầu của kẻ đe dọa để được sống sót.
 
+![Sự Sụp Đổ Số Chiều và Hệ Tọa Độ 4 Phản Xạ Sinh Tồn](assets/diagram-dimensionality-collapse-4f.svg)
+*Hình 1: Mô hình sụp đổ không gian trạng thái từ đa chiều về 4 góc phản xạ sinh tồn (Fight, Flight, Freeze, Fawn) khi băng thông nhận thức $C(t) \to 0$.*
+
 ### 3.2. Cơ Chế 2: Bẫy Sang Chấn & Vết Sẹo Ký Ức (Trauma Basins & Hysteresis)
 * Khi một nhân vật trải qua biến cố cực đoan ($V \approx 0$ và $|A| \approx 1$ kéo dài), địa hình tâm lý của nhân vật bị **biến dạng vĩnh viễn**: Một **Hố Sang Chấn (Trauma Basin)** được khắc sâu.
 * **Hiện tượng Trễ (Hysteresis):**
@@ -68,12 +74,18 @@ graph TD
   * Nhưng chỉ cần một kích thích rất nhỏ mang nhãn tương tự (tiếng gầm, bóng tối, tiếng kim loại va chạm), nhân vật lập tức rơi tự do vào đáy hố sang chấn chỉ sau $0.5$ giây.
   * Sau khi mối đe dọa biến mất, nhân vật **không thể tự thoát khỏi hố**. Họ sẽ khóc nức nở, co giật hoặc nghi ngờ đồng đội trong nhiều giờ liền nếu không có ai giúp đỡ.
 
+![Địa Hình Bẫy Sang Chấn và Hiện Tượng Trễ Hysteresis](assets/diagram-trauma-basin-hysteresis.svg)
+*Hình 2: Mặt cắt địa hình thế năng $V(S)$ mô tả sự bất đối xứng Hysteresis: trượt dốc vào hố sang chấn tức thì ($\Delta E_{\text{fall}}$), nhưng leo thoát ra ngoài đòi hỏi năng lượng vượt rào $\Delta E_{\text{escape}} \gg \Delta E_{\text{fall}}$.*
+
 ### 3.3. Cơ Chế 3: Đồng Điều Hòa Xã Hội (Social Co-Regulation & Contagion)
 * Con người là sinh vật bầy đàn. Khi hai nhân vật $i$ và $j$ ở gần nhau trong bán kính tương tác:
   $$\frac{dA_i}{dt} = \dots + K_{ij} \cdot S_i \cdot (A_j - A_i)$$
 * **Hai mặt của tính trồi xã hội:**
   * **Chữa lành (Healing Entrainment):** Một nhân vật hoảng loạn ($A_i = +0.9$) nếu được ngồi cạnh một nhân vật kiên định, giàu lòng trắc ẩn ($A_j = 0.0, S_j = +0.8$) sẽ dần được kéo nhịp tim và nhịp thở về mức cân bằng.
   * **Lây lan hoảng loạn (Panic Contagion):** Nếu một nhóm sinh tồn gồm 4 người đều có chỉ số $S$ mong manh, một tiếng súng nổ khiến một người hoảng loạn bỏ chạy sẽ tạo ra phản ứng dây chuyền, kéo cả đội sụp đổ tập thể (Mass Hysteria).
+
+![Đồng Điều Hòa Xã Hội và Lây Lan Tâm Lý](assets/diagram-co-regulation-contagion.svg)
+*Hình 3: Động lực học ghép đôi dao động thần kinh xã hội: So sánh giữa Đồng nhịp chữa lành (Healing Entrainment) và Phản ứng dây chuyền lây lan hoảng loạn (Panic Contagion).*
 
 ### 3.4. Cơ Chế 4: Ý Chí — "Bàn Tay Viết Lại Địa Hình" & Hành Vi Anh Hùng Nổi Sinh (Willpower as Gradient Override Operator)
 Ý chí trong game không phải là một thanh "Mana/Energy" thụ động, mà là một **Toán Tử Ghi Đè Động Lực Học (Gradient Override Operator)**:
@@ -83,6 +95,9 @@ graph TD
   * Nếu nhân vật có liên kết gắn bó cực đại ($Attachment > +0.8$) hoặc sở hữu Giá trị Cốt lõi (Moral Core), họ có thể **chủ động san phẳng hố sợ hãi**, lao vào đám cháy hoặc chắn đạn cứu đồng đội mà không hề do dự.
 * **Hào quang Lan tỏa Ý chí (Willpower Resonance):** 
   * Nhân vật có Ý chí sắt đá đóng vai trò như một **Bộ neo địa hình di động**. Sự hiện diện của họ phát ra trường bảo vệ, tăng ngưỡng sụp đổ số chiều cho tất cả đồng đội xung quanh, giúp cả nhóm đứng vững giữa cơn hoảng loạn.
+
+![Toán Tử Ý Chí và Hào Quang Lan Tỏa](assets/diagram-willpower-override.svg)
+*Hình 4: Toán tử Ý chí ghi đè dốc địa hình sinh học ($\vec{F}_{\text{will}}$) hướng về mục đích cao thượng ($\vec{P}_{\text{purpose}}$) và Hào quang lan tỏa nâng đỡ đồng đội xung quanh.*
 
 ---
 

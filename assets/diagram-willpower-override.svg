@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="100%" height="auto">
+  <defs>
+    <!-- Embedded Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Fira+Code:wght@500;600;700&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .title { font-size: 17px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #64748b; font-weight: 500; }
+      
+      .formula-box { font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 700; fill: #312e81; }
+      .formula-sub { font-size: 11px; fill: #4338ca; font-weight: 600; }
+
+      .box-title { font-size: 13px; font-weight: 800; letter-spacing: 0.3px; }
+      .box-sub { font-size: 11px; font-weight: 600; }
+      .body-txt { font-size: 11px; fill: #334155; }
+      .body-strong { font-size: 11px; font-weight: 700; }
+      .badge-txt { font-size: 9.5px; font-weight: 800; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.5px; }
+      .math-tag { font-family: 'Fira Code', monospace; font-size: 10px; font-weight: 600; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="willFormulaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdf4ff"/>
+      <stop offset="100%" stop-color="#fae8ff"/>
+    </linearGradient>
+    <linearGradient id="willCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="resoCardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    
+    <!-- Aura Radial Gradient -->
+    <radialGradient id="auraGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c7d2fe" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Markers -->
+    <marker id="arrPurple4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrGold4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrBlue4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+
+    <!-- Shadow -->
+    <filter id="shadow4" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Frame -->
+  <rect x="3" y="3" width="954" height="624" rx="14" fill="url(#bgGrad4)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header Banner -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">CƠ CHẾ 4: Ý CHÍ — TOÁN TỬ GHI ĐÈ GRADIENT &amp; HÀO QUANG CỘNG HƯỞNG</text>
+    <text class="subtitle" x="0" y="20">Ý chí là lực nội sinh kháng trọng trường địa hình ("Bàn tay viết lại cảnh quan"), biến sợ hãi thành hành vi anh hùng</text>
+  </g>
+
+  <!-- Top Formula Card -->
+  <g transform="translate(35, 68)">
+    <rect x="0" y="0" width="890" height="58" rx="10" fill="url(#willFormulaGrad)" stroke="#e9d5ff" stroke-width="1.5" filter="url(#shadow4)"/>
+    <text class="formula-box" x="25" y="35" fill="#581c87">F_will = -k_w × ∇V(S) + P_purpose</text>
+    <line x1="390" y1="12" x2="390" y2="46" stroke="#d8b4fe" stroke-width="1.5"/>
+    <text class="formula-sub" x="410" y="26" fill="#6b21a8">• -k_w ∇V(S): Lực nội sinh đẩy ngược dốc sợ hãi (Anti-Gradient)</text>
+    <text class="formula-sub" x="410" y="44" fill="#6b21a8">• P_purpose: Vector sứ mệnh tối hậu (Giá trị đạo đức, lòng vị tha cao cả)</text>
+  </g>
+
+  <!-- ==================== LEFT BOX: THE HAND THAT FLATTENS THE LANDSCAPE ==================== -->
+  <!-- Bounds: x=35, y=140, width=440, height=465 -->
+  <g transform="translate(35, 140)">
+    <rect x="0" y="0" width="440" height="465" rx="12" fill="url(#willCardGrad)" stroke="#d8b4fe" stroke-width="1.5" filter="url(#shadow4)"/>
+
+    <!-- Header -->
+    <rect x="16" y="16" width="200" height="26" rx="6" fill="#7c3aed"/>
+    <text class="badge-txt" x="116" y="33" text-anchor="middle">1. SAN PHẲNG HỐ SỢ HÃI</text>
+    <text class="box-title" x="16" y="66" fill="#581c87">Bàn Tay Viết Lại Địa Hình (Landscape Override)</text>
+    <text class="box-sub" x="16" y="84" fill="#7c3aed">Ghi đè phản xạ 4F sinh học để kích hoạt Hành Vi Anh Hùng</text>
+
+    <!-- Visual Diagram: Landscape Reshaping (Y=95 to Y=230) -->
+    <g transform="translate(16, 95)">
+      <rect x="0" y="0" width="408" height="135" rx="8" fill="#ffffff" stroke="#e9d5ff" stroke-width="1"/>
+
+      <!-- Original Deep Fear Pit (Red Dashed Line) -->
+      <path d="M 20 48 Q 80 48 110 105 Q 140 130 180 130 Q 220 130 250 105 Q 280 48 380 48" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="4,3"/>
+      <text class="math-tag" x="180" y="122" text-anchor="middle" fill="#dc2626">Hố sợ hãi sinh học (Bẫy 4F)</text>
+
+      <!-- Flattened / Ascending Landscape by Willpower (Solid Purple Line) -->
+      <path d="M 20 48 Q 100 48 180 38 Q 260 28 380 18" fill="none" stroke="#7c3aed" stroke-width="3"/>
+      
+      <!-- Anti-gradient Arrow pushing upward -->
+      <path d="M 180 115 L 180 46" stroke="#d97706" stroke-width="3" marker-end="url(#arrGold4)"/>
+      <rect x="195" y="68" width="135" height="24" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+      <text class="math-tag" x="262" y="84" text-anchor="middle" fill="#b45309">F_will Đẩy Ngược Dốc</text>
+
+      <!-- Heroic Marble moving straight to Purpose -->
+      <circle cx="280" cy="26" r="12" fill="#7c3aed" stroke="#4c1d95" stroke-width="2"/>
+      <text class="badge-txt" x="280" y="30" text-anchor="middle" font-size="9px">HERO</text>
+
+      <!-- Target Purpose Goal -->
+      <circle cx="370" cy="18" r="8" fill="#d97706"/>
+      <text class="math-tag" x="370" y="10" text-anchor="middle" fill="#b45309">P_purpose</text>
+    </g>
+
+    <!-- Mechanics Description Wrapped (Y=240 to Y=330) -->
+    <g transform="translate(16, 240)">
+      <rect x="0" y="0" width="408" height="90" rx="8" fill="#fdf4ff" stroke="#f0abfc" stroke-width="1"/>
+      <text class="body-strong" x="12" y="18" fill="#701a75">Cơ chế vận hành trong Game Engine:</text>
+      <text class="body-txt" x="12" y="36">• Cận kề cái chết (V → 0, |A| → 1), điểm Ý chí cao (W &gt; W_thresh)</text>
+      <text class="body-txt" x="20" y="52">kích hoạt lực nội sinh F_will kháng lại lực rơi tự do.</text>
+      <text class="body-txt" x="12" y="70">• San phẳng hố sợ hãi, mở khóa hành vi tự nguyện:</text>
+      <text class="body-txt" x="20" y="86">Chắn đạn, giữ cửa hầm sập, lao vào biển lửa cứu đồng đội.</text>
+    </g>
+
+    <!-- Explanation Box Wrapped (Y=338 to Y=455) -->
+    <g transform="translate(16, 338)">
+      <text class="body-strong" x="0" y="14" fill="#581c87">• Bản chất của đức hy sinh (Self-Transcendence):</text>
+      <text class="body-txt" x="0" y="32">• Ranh giới bản ngã mở rộng: Sự an nguy của đồng đội</text>
+      <text class="body-txt" x="10" y="48">trở thành ưu tiên sinh học tối hậu, vượt trên cái chết thể xác.</text>
+      <text class="body-txt" x="0" y="68">• Nhất quán pha (Phase Coherence) triệt tiêu 100% xung đột nội</text>
+      <text class="body-txt" x="10" y="84">tâm, giải phóng toàn bộ năng lượng sinh tồn vào một hành động.</text>
+      <rect x="0" y="98" width="408" height="24" rx="4" fill="#faf5ff" stroke="#c084fc" stroke-width="1"/>
+      <text class="body-strong" x="204" y="114" text-anchor="middle" fill="#6b21a8">Ý chí là cánh tay thứ hai nhào nặn lại cảnh quan tâm trí</text>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT BOX: WILLPOWER RESONANCE (AURA) ==================== -->
+  <!-- Bounds: x=495, y=140, width=435, height=465 -->
+  <g transform="translate(495, 140)">
+    <rect x="0" y="0" width="435" height="465" rx="12" fill="url(#resoCardGrad)" stroke="#bfdbfe" stroke-width="1.5" filter="url(#shadow4)"/>
+
+    <!-- Header -->
+    <rect x="16" y="16" width="200" height="26" rx="6" fill="#2563eb"/>
+    <text class="badge-txt" x="116" y="33" text-anchor="middle">2. HÀO QUANG CỘNG HƯỞNG</text>
+    <text class="box-title" x="16" y="66" fill="#1e3a8a">Willpower Resonance (Mobile Anchor)</text>
+    <text class="box-sub" x="16" y="84" fill="#2563eb">Bộ neo địa hình di động nâng ngưỡng chịu đựng cho toàn đội</text>
+
+    <!-- Visual Diagram: Resonance Field Radius (Y=95 to Y=230) -->
+    <g transform="translate(16, 95)">
+      <rect x="0" y="0" width="403" height="135" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
+
+      <!-- Aura Circle -->
+      <circle cx="140" cy="68" r="58" fill="url(#auraGrad)" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text class="math-tag" x="140" y="22" text-anchor="middle" fill="#4338ca">Trường Bảo Vệ (Bán Kính R)</text>
+
+      <!-- Center Hero Anchor -->
+      <circle cx="140" cy="68" r="15" fill="#312e81" stroke="#4f46e5" stroke-width="2"/>
+      <text class="badge-txt" x="140" y="72" text-anchor="middle" font-size="8px">ANCHOR</text>
+
+      <!-- Surrounding Squad Members protected by Aura -->
+      <!-- Member 1 -->
+      <circle cx="105" cy="48" r="9" fill="#10b981"/>
+      <text class="math-tag" x="105" y="40" text-anchor="middle" fill="#047857" font-size="9px">Ally 1</text>
+
+      <!-- Member 2 -->
+      <circle cx="175" cy="52" r="9" fill="#10b981"/>
+      <text class="math-tag" x="175" y="44" text-anchor="middle" fill="#047857" font-size="9px">Ally 2</text>
+
+      <!-- Member 3 -->
+      <circle cx="130" cy="100" r="9" fill="#10b981"/>
+      <text class="math-tag" x="130" y="118" text-anchor="middle" fill="#047857" font-size="9px">Ally 3</text>
+
+      <!-- Metrics Indicator Card on Right Side -->
+      <g transform="translate(230, 16)">
+        <rect x="0" y="0" width="160" height="102" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+        <text class="body-strong" x="10" y="18" fill="#1e40af">Hiệu Ứng Vùng (Buff):</text>
+        <text class="math-tag" x="10" y="38" fill="#2563eb">▲ A_ngưỡng: +50%</text>
+        <text class="math-tag" x="10" y="56" fill="#2563eb">▲ Safety V: +0.3</text>
+        <text class="math-tag" x="10" y="74" fill="#059669">■ Chống Sụp Đổ 4F</text>
+        <text class="body-txt" x="10" y="92" font-size="9.5px" fill="#475569">Cả đội đứng vững trước shock</text>
+      </g>
+    </g>
+
+    <!-- Mechanics Description Wrapped (Y=240 to Y=330) -->
+    <g transform="translate(16, 240)">
+      <rect x="0" y="0" width="403" height="90" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+      <text class="body-strong" x="12" y="18" fill="#1e40af">Hiệu ứng lan tỏa trong Gameplay:</text>
+      <text class="body-txt" x="12" y="36">• Nhân vật có ý chí sắt đá đóng vai trò như Cột thu lôi cảm xúc.</text>
+      <text class="body-txt" x="12" y="54">• Sự hiện diện kiên định phát ra trường bảo vệ tỏa tròn,</text>
+      <text class="body-txt" x="20" y="70">làm chậm tốc độ hoảng sợ của mọi đồng đội xung quanh.</text>
+      <text class="body-txt" x="12" y="86">• Giúp cả nhóm không bị lôi kéo vào phản xạ tháo chạy tập thể.</text>
+    </g>
+
+    <!-- Explanation Box Wrapped (Y=338 to Y=455) -->
+    <g transform="translate(16, 338)">
+      <text class="body-strong" x="0" y="14" fill="#1e3a8a">• Tính trồi của thủ lĩnh (Emergent Leadership):</text>
+      <text class="body-txt" x="0" y="32">• Game không cần gán nhãn "Leader" nhân tạo; một người bình</text>
+      <text class="body-txt" x="10" y="48">thường khi kích hoạt ý chí sẽ tự động trở thành chỗ dựa.</text>
+      <text class="body-txt" x="0" y="68">• Khi thủ lĩnh ngã xuống, trường hào quang tan rã, thử thách</text>
+      <text class="body-txt" x="10" y="84">lòng can đảm độc lập của những người ở lại.</text>
+      <rect x="0" y="98" width="403" height="24" rx="4" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+      <text class="body-strong" x="201" y="114" text-anchor="middle" fill="#1d4ed8">Sự dũng cảm có tính truyền nhiễm như chính sự sợ hãi</text>
+    </g>
+  </g>
+
+</svg>

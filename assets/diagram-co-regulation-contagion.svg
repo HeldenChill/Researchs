@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 630" width="100%" height="auto">
+  <defs>
+    <!-- Embedded Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Fira+Code:wght@500;600;700&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .title { font-size: 17px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #64748b; font-weight: 500; }
+      
+      .formula-box { font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 700; fill: #312e81; }
+      .formula-sub { font-size: 11px; fill: #4338ca; font-weight: 600; }
+
+      .col-header { font-size: 13.5px; font-weight: 800; letter-spacing: 0.3px; }
+      .col-sub { font-size: 11px; font-weight: 600; }
+
+      .char-title { font-size: 12px; font-weight: 800; }
+      .char-stat { font-family: 'Fira Code', monospace; font-size: 10.5px; font-weight: 600; }
+      .char-desc { font-size: 10.5px; fill: #475569; }
+
+      .body-txt { font-size: 11px; fill: #334155; }
+      .body-strong { font-size: 11px; font-weight: 700; }
+      .badge-txt { font-size: 9.5px; font-weight: 800; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.5px; }
+      .flow-lbl { font-size: 10px; font-weight: 700; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="formulaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+
+    <!-- Left Box: Healing (Green/Emerald) -->
+    <linearGradient id="healColGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Right Box: Contagion (Red/Amber) -->
+    <linearGradient id="panicColGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff1f2"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Markers -->
+    <marker id="arrGreen3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arrRed3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626"/>
+    </marker>
+
+    <!-- Shadow -->
+    <filter id="shadow3" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Canvas Frame -->
+  <rect x="3" y="3" width="954" height="624" rx="14" fill="url(#bgGrad3)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header Banner -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">CƠ CHẾ 3: ĐỒNG ĐIỀU HÒA XÃ HỘI &amp; LÂY LAN TÂM LÝ (CO-REGULATION &amp; CONTAGION)</text>
+    <text class="subtitle" x="0" y="20">Mô hình dao động ghép đôi (Coupled Oscillators): Trường thần kinh của cá thể này điều chỉnh nhịp sinh học của cá thể khác</text>
+  </g>
+
+  <!-- Top Formula Card -->
+  <g transform="translate(35, 68)">
+    <rect x="0" y="0" width="890" height="58" rx="10" fill="url(#formulaGrad)" stroke="#c7d2fe" stroke-width="1.5" filter="url(#shadow3)"/>
+    <text class="formula-box" x="25" y="35">dA_i / dt = ... + K_ij × S_i × (A_j - A_i)</text>
+    <line x1="380" y1="12" x2="380" y2="46" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text class="formula-sub" x="400" y="26">• K_ij: Hệ số khoảng cách  •  S_i: Độ gắn kết xã hội</text>
+    <text class="formula-sub" x="400" y="44">• (A_j - A_i): Chênh lệch kích hoạt thể lý → Tạo lực kéo đồng pha</text>
+  </g>
+
+  <!-- ==================== COLUMN 1: HEALING ENTRAINMENT (LEFT) ==================== -->
+  <!-- Bounds: x=35, y=140, width=435, height=465 -->
+  <g transform="translate(35, 140)">
+    <rect x="0" y="0" width="435" height="465" rx="12" fill="url(#healColGrad)" stroke="#a7f3d0" stroke-width="1.5" filter="url(#shadow3)"/>
+    
+    <!-- Header -->
+    <rect x="16" y="16" width="180" height="26" rx="6" fill="#059669"/>
+    <text class="badge-txt" x="106" y="33" text-anchor="middle">1. ĐỒNG NHỊP CHỮA LÀNH</text>
+    <text class="col-header" x="16" y="66" fill="#065f46">Healing Entrainment (Attractor Anchor)</text>
+    <text class="col-sub" x="16" y="84" fill="#047857">Một tâm trí an định đóng vai trò "Mỏ neo" kéo người hoảng loạn</text>
+
+    <!-- Character Cards Container (Y=100 to Y=210) -->
+    <!-- Anchor Character (Kiên định) -->
+    <g transform="translate(16, 100)">
+      <rect x="0" y="0" width="185" height="110" rx="8" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.2"/>
+      <circle cx="24" cy="24" r="10" fill="#10b981"/>
+      <text class="char-title" x="42" y="28" fill="#047857">Nhân vật J (Mỏ Neo)</text>
+      <text class="char-stat" x="14" y="52" fill="#059669">A_j = 0.0 (Cân Bằng)</text>
+      <text class="char-stat" x="14" y="70" fill="#059669">S_j = +0.8 (Gắn Kết Cao)</text>
+      <text class="char-desc" x="14" y="92">Điềm tĩnh, giàu lòng trắc ẩn</text>
+    </g>
+
+    <!-- Transfer Pull Arrow -->
+    <path d="M 205 155 L 230 155" stroke="#059669" stroke-width="3" marker-end="url(#arrGreen3)"/>
+    <text class="flow-lbl" x="218" y="145" text-anchor="middle" fill="#047857">Kéo về</text>
+
+    <!-- Traumatized Character (Hoảng loạn) -->
+    <g transform="translate(235, 100)">
+      <rect x="0" y="0" width="185" height="110" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2"/>
+      <circle cx="24" cy="24" r="10" fill="#ef4444"/>
+      <text class="char-title" x="42" y="28" fill="#b91c1c">Nhân vật I (Hoảng Sợ)</text>
+      <text class="char-stat" x="14" y="52" fill="#dc2626">A_i = +0.9 (Cực Đại)</text>
+      <text class="char-stat" x="14" y="70" fill="#ea580c">S_i = +0.6 (Muốn Dựa)</text>
+      <text class="char-desc" x="14" y="92">Tim đập loạn, thở dốc</text>
+    </g>
+
+    <!-- Physiological Wave Synchronization Diagram (Y=220 to Y=315) -->
+    <g transform="translate(16, 220)">
+      <rect x="0" y="0" width="403" height="92" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <text class="char-stat" x="14" y="18" fill="#334155">Đồng Bộ Sóng Sinh Học Thần Kinh (Entrainment):</text>
+      
+      <!-- Red chaotic wave decaying -->
+      <path d="M 20 42 Q 35 22 50 42 T 80 42 T 110 42 Q 130 28 150 42 Q 180 32 210 42 L 385 42" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,2"/>
+      <text class="char-desc" x="25" y="58" fill="#dc2626">Nhịp tim I (140 bpm → 75 bpm dịu dần)</text>
+
+      <!-- Green steady sine wave -->
+      <path d="M 20 72 Q 40 58 60 72 T 100 72 T 140 72 T 180 72 T 220 72 T 260 72 T 300 72 T 340 72 T 380 72" fill="none" stroke="#10b981" stroke-width="2"/>
+      <text class="char-desc" x="25" y="87" fill="#047857">Nhịp tim J (Đều đặn 70 bpm an định)</text>
+    </g>
+
+    <!-- Explanation Box Wrapped Cleanly (Y=325 to Y=452) -->
+    <g transform="translate(16, 325)">
+      <text class="body-strong" x="0" y="14" fill="#065f46">• Lực kéo pha: F_pull = K_ij × S_i × (0.0 - 0.9) &lt; 0</text>
+      
+      <text class="body-txt" x="0" y="32">• Ngồi cạnh nhau trong bán kính tương tác, nhịp thở sâu</text>
+      <text class="body-txt" x="12" y="48">và giọng trầm của J phát tín hiệu an toàn sinh học.</text>
+      
+      <text class="body-txt" x="0" y="68">• Nhịp tim I chậm lại, Arousal hạ từ +0.9 về vùng dung sai</text>
+      <text class="body-txt" x="12" y="84">[-0.4, +0.4], khôi phục băng thông C và cứu I khỏi bẫy 4F.</text>
+      
+      <rect x="0" y="98" width="403" height="24" rx="4" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+      <text class="body-strong" x="201" y="114" text-anchor="middle" fill="#047857">Kết quả: Trị liệu tự nhiên nảy sinh từ động lực học</text>
+    </g>
+  </g>
+
+  <!-- ==================== COLUMN 2: PANIC CONTAGION (RIGHT) ==================== -->
+  <!-- Bounds: x=490, y=140, width=435, height=465 -->
+  <g transform="translate(490, 140)">
+    <rect x="0" y="0" width="435" height="465" rx="12" fill="url(#panicColGrad)" stroke="#fecdd3" stroke-width="1.5" filter="url(#shadow3)"/>
+    
+    <!-- Header -->
+    <rect x="16" y="16" width="180" height="26" rx="6" fill="#dc2626"/>
+    <text class="badge-txt" x="106" y="33" text-anchor="middle">2. LÂY LAN HOẢNG LOẠN</text>
+    <text class="col-header" x="16" y="66" fill="#991b1b">Panic Contagion (Mass Hysteria)</text>
+    <text class="col-sub" x="16" y="84" fill="#b91c1c">Phản ứng dây chuyền kéo cả đội ngũ sụp đổ số chiều tập thể</text>
+
+    <!-- Cascade Failure Network Diagram (Y=100 to Y=210) -->
+    <g transform="translate(16, 100)">
+      <rect x="0" y="0" width="403" height="110" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1.2"/>
+      
+      <!-- Node 1: Origin (Triggered) -->
+      <circle cx="50" cy="55" r="20" fill="#ef4444" stroke="#991b1b" stroke-width="1.5"/>
+      <text class="badge-txt" x="50" y="53" text-anchor="middle" font-size="8.5px">AGENT 1</text>
+      <text class="char-stat" x="50" y="65" text-anchor="middle" fill="#fff" font-size="8.5px">A=+1.0</text>
+      <text class="char-stat" x="50" y="89" text-anchor="middle" fill="#dc2626" font-size="9.5px">Phát nổ</text>
+
+      <!-- Cascade Arrows -->
+      <path d="M 72 45 L 138 32" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrRed3)"/>
+      <path d="M 72 65 L 138 78" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrRed3)"/>
+
+      <!-- Node 2 (Upper) -->
+      <circle cx="160" cy="32" r="17" fill="#ea580c"/>
+      <text class="badge-txt" x="160" y="35" text-anchor="middle" font-size="8px">AGENT 2</text>
+      <text class="char-stat" x="160" y="60" text-anchor="middle" fill="#ea580c" font-size="9.5px">A: 0.2→0.8</text>
+
+      <!-- Node 3 (Lower) -->
+      <circle cx="160" cy="78" r="17" fill="#ea580c"/>
+      <text class="badge-txt" x="160" y="81" text-anchor="middle" font-size="8px">AGENT 3</text>
+      <text class="char-stat" x="160" y="104" text-anchor="middle" fill="#ea580c" font-size="9.5px">A: 0.1→0.9</text>
+
+      <!-- Cascade Arrows to Node 4 -->
+      <path d="M 180 32 L 255 48" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrRed3)"/>
+      <path d="M 180 78 L 255 62" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrRed3)"/>
+
+      <!-- Node 4: Collapse -->
+      <circle cx="280" cy="55" r="20" fill="#7f1d1d" stroke="#450a0a" stroke-width="1.5"/>
+      <text class="badge-txt" x="280" y="53" text-anchor="middle" font-size="8.5px">AGENT 4</text>
+      <text class="char-stat" x="280" y="65" text-anchor="middle" fill="#fff" font-size="8.5px">C → 0</text>
+      <text class="char-stat" x="280" y="89" text-anchor="middle" fill="#7f1d1d" font-size="9.5px">Vỡ trận</text>
+
+      <!-- Callout badge -->
+      <rect x="315" y="40" width="75" height="30" rx="4" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+      <text class="char-stat" x="352" y="53" text-anchor="middle" fill="#991b1b" font-size="9px">Hysteria</text>
+      <text class="char-stat" x="352" y="64" text-anchor="middle" fill="#b91c1c" font-size="8px">Tập Thể</text>
+    </g>
+
+    <!-- Dynamics Description Wrapped (Y=220 to Y=315) -->
+    <g transform="translate(16, 220)">
+      <rect x="0" y="0" width="403" height="92" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <text class="char-stat" x="14" y="18" fill="#334155">Khuếch Đại Phản Hồi Dương (Positive Feedback):</text>
+      <text class="body-txt" x="14" y="36">• Chỉ số gắn kết S mong manh (S ≈ -0.2 ... 0.0, nghi ngờ nhau).</text>
+      <text class="body-txt" x="14" y="54">• Khi 1 người hét tháo chạy, tiếng hét là xung lực shock I_raw</text>
+      <text class="body-txt" x="24" y="70">khiến cảm giác an toàn (V → 0) của cả đội sụp đổ lập tức.</text>
+      <text class="body-txt" x="14" y="86">• Chênh lệch (A_j - A_i) dương cực lớn giật phăng hệ thần kinh.</text>
+    </g>
+
+    <!-- Explanation Box Wrapped (Y=325 to Y=452) -->
+    <g transform="translate(16, 325)">
+      <text class="body-strong" x="0" y="14" fill="#991b1b">• Hiệu ứng domino: Sự hoảng sợ tự nuôi sống chính nó.</text>
+      
+      <text class="body-txt" x="0" y="32">• Người chơi hoàn toàn mất quyền điều khiển toàn đội:</text>
+      <text class="body-txt" x="12" y="48">Người thì bỏ chạy (Flight), người tê liệt (Freeze), người xả súng (Fight).</text>
+      
+      <text class="body-txt" x="0" y="68">• Không cần lập trình sẵn kịch bản; phương trình Euler tự</text>
+      <text class="body-txt" x="12" y="84">động tạo ra bi kịch sinh tồn tập thể chân thực và cảm xúc.</text>
+      
+      <rect x="0" y="98" width="403" height="24" rx="4" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+      <text class="body-strong" x="201" y="114" text-anchor="middle" fill="#991b1b">Hậu quả: Bi kịch xã hội nổi sinh không cần kịch bản</text>
+    </g>
+  </g>
+
+</svg>

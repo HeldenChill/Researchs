@@ -1,0 +1,11 @@
+{
+    "markdown-preview-enhanced.previewTheme": "atom-light.css",
+    "markdown-preview-enhanced.codeBlockTheme": "vscode.css",
+    "markdown-preview-enhanced.puppeteerWaitForTimeout": 4000,
+    "markdown-preview-enhanced.printBackground": true,
+    "markdown-preview-enhanced.puppeteerArgs": [
+        "--no-sandbox",
+        "--disable-gpu",
+        "--allow-file-access-from-files"
+    ]
+}

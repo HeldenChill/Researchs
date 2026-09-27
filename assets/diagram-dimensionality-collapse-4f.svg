@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="100%" height="auto">
+  <defs>
+    <!-- Embedded Google Fonts for Flawless Vietnamese Rendering -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Fira+Code:wght@500;600&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .title { font-size: 17px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #64748b; font-weight: 500; }
+      .axis-title { font-size: 12px; font-weight: 700; fill: #334155; }
+      .axis-sub { font-size: 10.5px; fill: #64748b; font-weight: 600; }
+      .quad-badge { font-size: 13px; font-weight: 800; letter-spacing: 0.5px; fill: #ffffff; }
+      .quad-coord { font-family: 'Fira Code', Consolas, monospace; font-size: 11px; font-weight: 600; }
+      .quad-headline { font-size: 12px; font-weight: 700; }
+      .quad-item { font-size: 11.5px; fill: #475569; }
+      .center-title { font-size: 13px; font-weight: 800; fill: #065f46; letter-spacing: 0.3px; }
+      .center-sub { font-size: 11px; fill: #047857; font-weight: 600; }
+      .center-stat { font-family: 'Fira Code', monospace; font-size: 10.5px; fill: #059669; font-weight: 600; }
+      .agency-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.5px; }
+      .arrow-lbl { font-size: 10px; font-weight: 700; fill: #dc2626; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="wotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="fightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1f2"/>
+      <stop offset="100%" stop-color="#ffe4e6"/>
+    </linearGradient>
+    <linearGradient id="flightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+    <linearGradient id="freezeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="fawnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+
+    <!-- Marker Arrows -->
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#e11d48"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#9333ea"/>
+    </marker>
+
+    <!-- Soft Card Shadow -->
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Border Container -->
+  <rect x="3" y="3" width="954" height="634" rx="14" fill="url(#bgGrad)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header Section -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">CƠ CHẾ 1: SỰ SỤP ĐỔ SỐ CHIỀU &amp; HỆ TỌA ĐỘ 4 PHẢN XẠ SINH TỒN (4F REFLEX MAP)</text>
+    <text class="subtitle" x="0" y="20">Khi Băng thông nhận thức C(t) → 0 do Hoảng loạn (|A| → 1) hoặc Đe dọa sinh tử (V → 0), nhân vật bị khóa vào 4 phản xạ sinh học</text>
+  </g>
+
+  <!-- ==================== MAIN COORDINATE SYSTEM ==================== -->
+  <!-- Center intersection point: X = 480, Y = 360 -->
+
+  <!-- Background Quadrants Separator Axes -->
+  <g id="axes">
+    <!-- Horizontal Axis: Attachment S -->
+    <line x1="25" y1="360" x2="935" y2="360" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4" />
+    <path d="M 28 356 L 20 360 L 28 364" fill="#64748b" />
+    <path d="M 932 356 L 940 360 L 932 364" fill="#64748b" />
+
+    <!-- Vertical Axis: Arousal A -->
+    <line x1="480" y1="65" x2="480" y2="615" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4" />
+    <path d="M 476 73 L 480 65 L 484 73" fill="#64748b" />
+    <path d="M 476 607 L 480 615 L 484 607" fill="#64748b" />
+
+    <!-- Axis Peak Labels -->
+    <!-- Top: Arousal +1.0 -->
+    <rect x="370" y="65" width="220" height="24" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text class="axis-title" x="480" y="81" text-anchor="middle">▲ Arousal: +1.0 (Giao Cảm / Kích Động)</text>
+
+    <!-- Bottom: Arousal -1.0 -->
+    <rect x="360" y="600" width="240" height="24" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    <text class="axis-title" x="480" y="616" text-anchor="middle">▼ Arousal: -1.0 (Phế Vị Lưng / Tê Liệt)</text>
+
+    <!-- Left: Attachment -1.0 -->
+    <text class="axis-sub" x="35" y="348" text-anchor="start">◀ S: -1.0 (Thù Địch / Phòng Vệ / Cô Lập)</text>
+
+    <!-- Right: Attachment +1.0 -->
+    <text class="axis-sub" x="925" y="348" text-anchor="end">S: +1.0 (Tin Cậy / Gắn Kết / Tìm Che Chở) ▶</text>
+  </g>
+
+  <!-- ==================== 4 QUADRANT CARDS (NO OVERLAP) ==================== -->
+  
+  <!-- 1. TOP-LEFT: FIGHT (A > 0, S < 0) -->
+  <!-- Card bounds: x=35, y=98, width=345, height=230 -->
+  <g transform="translate(35, 98)">
+    <rect x="0" y="0" width="345" height="230" rx="10" fill="url(#fightGrad)" stroke="#fecdd3" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Title Badge & Coordinate -->
+    <rect x="16" y="16" width="90" height="26" rx="5" fill="#e11d48"/>
+    <text class="quad-badge" x="61" y="34" text-anchor="middle">⚔ FIGHT</text>
+    <text class="quad-coord" x="116" y="34" fill="#be123c">A &gt; 0, S &lt; 0</text>
+
+    <!-- Agency Lock Status Badge -->
+    <rect x="205" y="16" width="124" height="26" rx="5" fill="#fff" stroke="#f43f5e" stroke-width="1"/>
+    <circle cx="218" cy="29" r="4" fill="#e11d48"/>
+    <text class="agency-badge" x="272" y="33" text-anchor="middle" fill="#be123c">Agency: Khóa Cứng</text>
+
+    <!-- Description Content -->
+    <text class="quad-headline" x="16" y="68" fill="#9f1239">Tấn công mù quáng &amp; Bạo lực tự vệ</text>
+    <text class="quad-item" x="16" y="93">• Băng thông C(t) sụp về 0: Mất quyền điều khiển</text>
+    <text class="quad-item" x="16" y="117">• Nhận định vô thức: Mọi kẻ xung quanh đều đe dọa sinh tử</text>
+    <text class="quad-item" x="16" y="141">• Gào thét, cuồng nộ, sẵn sàng tấn công cả đồng đội</text>
+    <text class="quad-item" x="16" y="165">• Hành vi: Phá cửa, xé rào, cắn xé bất kỳ ai tiếp cận</text>
+
+    <!-- Bottom Indicator -->
+    <line x1="16" y1="185" x2="329" y2="185" stroke="#fecdd3" stroke-width="1"/>
+    <text class="axis-sub" x="16" y="206" fill="#be123c">Trạng thái: Giao cảm cực hạn + Xã hội âm tính</text>
+  </g>
+
+  <!-- 2. TOP-RIGHT: FLIGHT (A > 0, S >= 0) -->
+  <!-- Card bounds: x=580, y=98, width=345, height=230 -->
+  <g transform="translate(580, 98)">
+    <rect x="0" y="0" width="345" height="230" rx="10" fill="url(#flightGrad)" stroke="#fed7aa" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Title Badge & Coordinate -->
+    <rect x="16" y="16" width="95" height="26" rx="5" fill="#ea580c"/>
+    <text class="quad-badge" x="63" y="34" text-anchor="middle">⚡ FLIGHT</text>
+    <text class="quad-coord" x="121" y="34" fill="#c2410c">A &gt; 0, S ≥ 0</text>
+
+    <!-- Agency Lock Status Badge -->
+    <rect x="205" y="16" width="124" height="26" rx="5" fill="#fff" stroke="#f97316" stroke-width="1"/>
+    <circle cx="218" cy="29" r="4" fill="#ea580c"/>
+    <text class="agency-badge" x="272" y="33" text-anchor="middle" fill="#c2410c">Agency: Khóa Cứng</text>
+
+    <!-- Description Content -->
+    <text class="quad-headline" x="16" y="68" fill="#9a3412">Tháo chạy hoảng loạn &amp; Vứt bỏ trang bị</text>
+    <text class="quad-item" x="16" y="93">• Băng thông C(t) sụp về 0: Không nhận lệnh chế tạo/sửa chữa</text>
+    <text class="quad-item" x="16" y="117">• Chạy thục mạng về hướng ánh sáng hoặc đám đông</text>
+    <text class="quad-item" x="16" y="141">• Vứt bỏ súng đạn, trang bị nặng, thức ăn để chạy nhanh hơn</text>
+    <text class="quad-item" x="16" y="165">• Dễ giẫm đạp và xô ngã các đồng đội khác trên đường tháo chạy</text>
+
+    <!-- Bottom Indicator -->
+    <line x1="16" y1="185" x2="329" y2="185" stroke="#fed7aa" stroke-width="1"/>
+    <text class="axis-sub" x="16" y="206" fill="#c2410c">Trạng thái: Giao cảm cực hạn + Hướng về bầy đàn</text>
+  </g>
+
+  <!-- 3. BOTTOM-LEFT: FREEZE (A < 0, S < 0) -->
+  <!-- Card bounds: x=35, y=390, width=345, height=230 -->
+  <g transform="translate(35, 390)">
+    <rect x="0" y="0" width="345" height="230" rx="10" fill="url(#freezeGrad)" stroke="#cbd5e1" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Title Badge & Coordinate -->
+    <rect x="16" y="16" width="98" height="26" rx="5" fill="#475569"/>
+    <text class="quad-badge" x="65" y="34" text-anchor="middle">❄ FREEZE</text>
+    <text class="quad-coord" x="124" y="34" fill="#334155">A &lt; 0, S &lt; 0</text>
+
+    <!-- Agency Lock Status Badge -->
+    <rect x="205" y="16" width="124" height="26" rx="5" fill="#fff" stroke="#64748b" stroke-width="1"/>
+    <circle cx="218" cy="29" r="4" fill="#475569"/>
+    <text class="agency-badge" x="272" y="33" text-anchor="middle" fill="#334155">Agency: Khóa Cứng</text>
+
+    <!-- Description Content -->
+    <text class="quad-headline" x="16" y="68" fill="#1e293b">Tê liệt phế vị lưng &amp; Mất tri giác sinh học</text>
+    <text class="quad-item" x="16" y="93">• Toàn thân ngã quỵ xuống đất, co ro, mất cử động</text>
+    <text class="quad-item" x="16" y="117">• Mất cảm giác đau (Dissociation / Giả chết nguyên thủy)</text>
+    <text class="quad-item" x="16" y="141">• Mắt mở to vô hồn, không phản hồi tiếng gọi của đồng đội</text>
+    <text class="quad-item" x="16" y="165">• Hạ nhịp tim, hạ thân nhiệt, sẵn sàng chấp nhận cái chết</text>
+
+    <!-- Bottom Indicator -->
+    <line x1="16" y1="185" x2="329" y2="185" stroke="#cbd5e1" stroke-width="1"/>
+    <text class="axis-sub" x="16" y="206" fill="#334155">Trạng thái: Dorsal Vagal Shutdown + Cách ly xã hội</text>
+  </g>
+
+  <!-- 4. BOTTOM-RIGHT: FAWN (A < 0, S > 0) -->
+  <!-- Card bounds: x=580, y=390, width=345, height=230 -->
+  <g transform="translate(580, 390)">
+    <rect x="0" y="0" width="345" height="230" rx="10" fill="url(#fawnGrad)" stroke="#e9d5ff" stroke-width="1.5" filter="url(#cardShadow)"/>
+    
+    <!-- Title Badge & Coordinate -->
+    <rect x="16" y="16" width="90" height="26" rx="5" fill="#9333ea"/>
+    <text class="quad-badge" x="61" y="34" text-anchor="middle">🤝 FAWN</text>
+    <text class="quad-coord" x="116" y="34" fill="#7e22ce">A &lt; 0, S &gt; 0</text>
+
+    <!-- Agency Lock Status Badge -->
+    <rect x="205" y="16" width="124" height="26" rx="5" fill="#fff" stroke="#a855f7" stroke-width="1"/>
+    <circle cx="218" cy="29" r="4" fill="#9333ea"/>
+    <text class="agency-badge" x="272" y="33" text-anchor="middle" fill="#6b21a8">Agency: Khóa Cứng</text>
+
+    <!-- Description Content -->
+    <text class="quad-headline" x="16" y="68" fill="#581c87">Quỳ lạy, xu nịnh &amp; Đầu hàng sinh tồn</text>
+    <text class="quad-item" x="16" y="93">• Quỳ gối van xin, tuyệt đối nghe lời kẻ đe dọa</text>
+    <text class="quad-item" x="16" y="117">• Tự động khai kho lương, vị trí bạn bè trong tiếng nấc</text>
+    <text class="quad-item" x="16" y="141">• Cơ chế sống sót: Bán đứng tự trọng để đổi lấy mạng sống</text>
+    <text class="quad-item" x="16" y="165">• Hậu quả: Khắc sâu Hố Hổ Thẹn Độc Hại (Toxic Shame Basin)</text>
+
+    <!-- Bottom Indicator -->
+    <line x1="16" y1="185" x2="329" y2="185" stroke="#e9d5ff" stroke-width="1"/>
+    <text class="axis-sub" x="16" y="206" fill="#7e22ce">Trạng thái: Dorsal Vagal + Bám chấp lấy lòng kẻ mạnh</text>
+  </g>
+
+  <!-- ==================== CENTER BOX: WINDOW OF TOLERANCE ==================== -->
+  <!-- Center: x=390, y=295, width=180, height=130 (Centered exactly at X=480, Y=360) -->
+  <g transform="translate(390, 295)">
+    <rect x="0" y="0" width="180" height="130" rx="12" fill="url(#wotGrad)" stroke="#10b981" stroke-width="2.5" filter="url(#cardShadow)"/>
+    <circle cx="90" cy="26" r="14" fill="#10b981" opacity="0.2"/>
+    <text class="center-title" x="90" y="31" text-anchor="middle">VÙNG DUNG SAI</text>
+    <text class="center-sub" x="90" y="52" text-anchor="middle">(Window of Tolerance)</text>
+    <text class="center-stat" x="90" y="74" text-anchor="middle">|A| ≤ 0.4 • V &gt; 0.6</text>
+    <rect x="15" y="86" width="150" height="26" rx="13" fill="#059669"/>
+    <text class="agency-badge" x="90" y="103" text-anchor="middle">AGENCY: 100% TỰ CHỦ</text>
+  </g>
+
+  <!-- ==================== DIVERGENCE FLOW ARROWS (CLEAN PATHWAYS) ==================== -->
+  <!-- Arrows start from center box edge and point outward into clear gaps between cards -->
+  
+  <!-- To FIGHT (Top-Left): Starts at (390, 310) -> ends at (380, 230) -->
+  <path d="M 390 310 Q 370 260 380 230" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrowRed)"/>
+  
+  <!-- To FLIGHT (Top-Right): Starts at (570, 310) -> ends at (580, 230) -->
+  <path d="M 570 310 Q 590 260 580 230" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrowOrange)"/>
+
+  <!-- To FREEZE (Bottom-Left): Starts at (390, 410) -> ends at (380, 490) -->
+  <path d="M 390 410 Q 370 460 380 490" fill="none" stroke="#475569" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrowSlate)"/>
+
+  <!-- To FAWN (Bottom-Right): Starts at (570, 410) -> ends at (580, 490) -->
+  <path d="M 570 410 Q 590 460 580 490" fill="none" stroke="#9333ea" stroke-width="2.5" stroke-dasharray="4,4" marker-end="url(#arrowPurple)"/>
+
+</svg>

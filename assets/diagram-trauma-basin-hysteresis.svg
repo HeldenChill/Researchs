@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="auto">
+  <defs>
+    <!-- Embedded Google Fonts for Flawless Vietnamese Typography -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Fira+Code:wght@500;600&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .title { font-size: 17px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #64748b; font-weight: 500; }
+      .axis-label { font-size: 11px; fill: #64748b; font-weight: 700; }
+      .ref-line-lbl { font-size: 10px; fill: #94a3b8; font-weight: 600; font-style: italic; }
+      
+      .basin-title { font-size: 13.5px; font-weight: 800; }
+      .basin-desc { font-size: 11px; fill: #475569; }
+      .basin-desc-strong { font-size: 11px; font-weight: 700; }
+      
+      .card-title { font-size: 11.5px; font-weight: 800; letter-spacing: 0.3px; }
+      .card-sub { font-size: 10px; font-weight: 600; }
+      .math-code { font-family: 'Fira Code', Consolas, monospace; font-size: 11px; font-weight: 600; }
+      .badge-txt { font-size: 9.5px; font-weight: 800; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.5px; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="landscapeFill2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="traumaAbyssGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fee2e2" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#fca5a5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#991b1b" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="healthyFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ecfdf5" stop-opacity="0.2"/>
+    </linearGradient>
+
+    <radialGradient id="marbleRed" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fca5a5"/>
+      <stop offset="60%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </radialGradient>
+    <radialGradient id="marbleGreen" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#a7f3d0"/>
+      <stop offset="60%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </radialGradient>
+
+    <!-- Markers -->
+    <marker id="arrRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+
+    <!-- Card Shadow -->
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Outer Frame -->
+  <rect x="3" y="3" width="954" height="614" rx="14" fill="url(#bgGrad2)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header Banner -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">CƠ CHẾ 2: ĐỊA HÌNH BẪY SANG CHẤN &amp; HIỆN TƯỢNG TRỄ (TRAUMA BASIN &amp; HYSTERESIS)</text>
+    <text class="subtitle" x="0" y="20">Sự tương phản địa hình: Lòng chảo lành mạnh rất nông &amp; mở rộng, trong khi Hố sang chấn là một vực sâu hun hút với thành dốc thẳng đứng</text>
+  </g>
+
+  <!-- ==================== MAIN LANDSCAPE AREA ==================== -->
+  <g id="landscape" transform="translate(60, 60)">
+
+    <!-- Y-Axis: Potential Energy V(S) -->
+    <line x1="10" y1="500" x2="10" y2="40" stroke="#94a3b8" stroke-width="1.5" />
+    <path d="M 6 46 L 10 38 L 14 46" fill="#94a3b8" />
+    <text class="axis-label" x="4" y="26">Thế Năng V(S) ▲</text>
+
+    <!-- X-Axis: Psychological Coordinates S -->
+    <line x1="10" y1="500" x2="840" y2="500" stroke="#94a3b8" stroke-width="1.5" />
+    <path d="M 834 496 L 842 500 L 834 504" fill="#94a3b8" />
+    <text class="axis-label" x="840" y="520" text-anchor="end">Trục Tọa Độ Tâm Lý S ▶</text>
+
+    <!-- REFERENCE LEVEL: Horizontal Flat Baseline (Y = 220) -->
+    <line x1="10" y1="220" x2="830" y2="220" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4" />
+    <text class="ref-line-lbl" x="20" y="212">Mặt phẳng nền tham chiếu (Trạng thái cân bằng nội môi)</text>
+
+    <!-- ==================== POTENTIAL ENERGY SURFACE CURVE ==================== -->
+    <!--
+      Coordinates:
+      - Starts at (20, 220) flat baseline
+      - Gentle Healthy Depression: Valley floor around Y = 248 (only 28px deep!) from X=80 to X=340
+      - Small Energy Barrier Peak at X = 430, Y = 185 (only 35px above baseline!)
+      - Massive Trauma Abyss: Plummeting to X = 620, Y = 470 (Over 285px deep abyss!)
+      - Right Wall climbs steeply to X = 780, Y = 160
+    -->
+
+    <!-- Filled polygon underneath entire landscape -->
+    <path d="M 20 220
+             C 70 220, 110 248, 200 248
+             C 290 248, 360 185, 430 185
+             C 490 185, 520 470, 620 470
+             C 700 470, 730 160, 780 160
+             L 780 500 L 20 500 Z"
+          fill="url(#landscapeFill2)" />
+
+    <!-- Healthy Basin Subtle Tint -->
+    <path d="M 20 220
+             C 70 220, 110 248, 200 248
+             C 290 248, 360 185, 430 185
+             L 430 500 L 20 500 Z"
+          fill="url(#healthyFillGrad)" />
+
+    <!-- Trauma Pit Deep Glow Tint -->
+    <path d="M 430 185
+             C 490 185, 520 470, 620 470
+             C 700 470, 730 160, 780 160
+             L 780 500 L 430 500 Z"
+          fill="url(#traumaAbyssGrad)" />
+
+    <!-- Main Solid Contour Stroke -->
+    <path d="M 20 220
+             C 70 220, 110 248, 200 248
+             C 290 248, 360 185, 430 185
+             C 490 185, 520 470, 620 470
+             C 700 470, 730 160, 780 160"
+          fill="none" stroke="#1e293b" stroke-width="3.5" />
+
+    <!-- ==================== HEALTHY BASIN SECTION (LEFT) ==================== -->
+    <!-- Healthy Marble -->
+    <circle cx="170" cy="235" r="13" fill="url(#marbleGreen)" stroke="#047857" stroke-width="2" />
+    <text class="math-code" x="170" y="239" text-anchor="middle" fill="#ffffff" font-size="10px">S_0</text>
+
+    <!-- Healthy Basin Depth Indicator Bar (Shows how shallow it is) -->
+    <line x1="200" y1="220" x2="200" y2="248" stroke="#059669" stroke-width="2" stroke-dasharray="2,2" />
+    <rect x="208" y="224" width="130" height="20" rx="4" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+    <text class="card-sub" x="273" y="238" text-anchor="middle" fill="#047857">Độ sâu nông (~28px)</text>
+
+    <!-- Healthy Basin Dedicated Information Card (Cleanly placed below, Y=290 to Y=430) -->
+    <g transform="translate(45, 290)">
+      <rect x="0" y="0" width="310" height="150" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5" filter="url(#shadow2)"/>
+      <rect x="14" y="14" width="165" height="24" rx="5" fill="#059669"/>
+      <text class="badge-txt" x="96" y="30" text-anchor="middle">VÙNG LÀNH MẠNH (HEALTHY)</text>
+      
+      <text class="basin-desc-strong" x="14" y="60" fill="#065f46">Lòng chảo nông • Linh hoạt thích ứng cao</text>
+      <text class="basin-desc" x="14" y="80">• Độ dốc nhỏ, địa hình mở rộng tự do</text>
+      <text class="basin-desc" x="14" y="100">• Băng thông nhận thức C ≈ 1.0 (Giữ trọn quyền kiểm soát)</text>
+      <text class="basin-desc" x="14" y="120">• Gặp kích thích: Trạng thái S lắc lư nhẹ rồi tự cân bằng</text>
+      <text class="card-sub" x="14" y="138" fill="#059669">Đặc tính: Strange Attractor / Self-Organized Criticality</text>
+    </g>
+
+    <!-- ==================== ENERGY BARRIER / TIPPING POINT (CENTER) ==================== -->
+    <!-- Peak at X = 430, Y = 185 -->
+    <g transform="translate(430, 185)">
+      <!-- Barrier Vertical Guideline -->
+      <line x1="0" y1="0" x2="0" y2="315" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3,3" />
+
+      <!-- Barrier Card (Cleanly placed above peak, Y = -125 to Y = -25) -->
+      <g transform="translate(-110, -115)">
+        <rect x="0" y="0" width="220" height="85" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1.5" filter="url(#shadow2)"/>
+        <rect x="12" y="10" width="196" height="22" rx="4" fill="#dc2626"/>
+        <text class="badge-txt" x="110" y="25" text-anchor="middle">GỜ CẢN THẾ NĂNG ΔE (RẤT THẤP)</text>
+        <text class="card-title" x="110" y="48" text-anchor="middle" fill="#991b1b">Ngưỡng Kích Hoạt Nhỏ (I_trigger)</text>
+        <text class="card-sub" x="110" y="64" text-anchor="middle" fill="#7f1d1d">Chỉ cần va chạm/tiếng động là đủ xô qua gờ</text>
+        <text class="card-sub" x="110" y="78" text-anchor="middle" fill="#b91c1c" font-weight="700">ΔE_fall cực kỳ nhỏ → Trượt dốc tức thì</text>
+      </g>
+
+      <!-- Trigger Impulse Arrow -->
+      <path d="M -45 5 Q -10 -25 25 15" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arrRed)" />
+    </g>
+
+    <!-- ==================== TRAUMA ABYSS (DEEP CHASM ON RIGHT) ==================== -->
+    <!-- Abyss Bottom at X = 620, Y = 470 -->
+
+    <!-- Trapped State Marble -->
+    <circle cx="620" cy="454" r="16" fill="url(#marbleRed)" stroke="#7f1d1d" stroke-width="2.5" />
+    <text class="math-code" x="620" y="459" text-anchor="middle" fill="#ffffff" font-size="11px">S(t)</text>
+
+    <!-- Depth Comparison Line (Shows enormous depth of Trauma Basin) -->
+    <line x1="620" y1="220" x2="620" y2="435" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="3,3" />
+    <rect x="628" y="275" width="130" height="22" rx="4" fill="#fef2f2" stroke="#f87171" stroke-width="1"/>
+    <text class="card-sub" x="693" y="290" text-anchor="middle" fill="#dc2626" font-weight="700">Độ sâu: ~285px (Gấp 10×)</text>
+
+    <!-- HYSTERESIS DYNAMICS CARDS (CAREFULLY POSITIONED, NO OVERLAP) -->
+    
+    <!-- 1. FALL SLIDE CARD: Top-Right of Slope (X = 460, Y = 110) -->
+    <g transform="translate(470, 75)">
+      <rect x="0" y="0" width="190" height="60" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.5" filter="url(#shadow2)"/>
+      <text class="card-title" x="12" y="22" fill="#be123c">▼ CHIỀU RƠI: 0.5 GIÂY</text>
+      <text class="basin-desc" x="12" y="38">• Trượt tự do với gia tốc cực đại</text>
+      <text class="basin-desc" x="12" y="52">• Rơi thẳng xuống đáy bẫy sang chấn</text>
+    </g>
+    <!-- Arrow for falling -->
+    <path d="M 450 195 C 485 240, 520 340, 595 440" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="5,4" marker-end="url(#arrRed)" />
+
+    <!-- 2. IMPOSSIBLE ESCAPE CARD: Far Right Cliff (X = 670, Y = 220) -->
+    <g transform="translate(680, 205)">
+      <rect x="0" y="0" width="190" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow2)"/>
+      <text class="card-title" x="12" y="22" fill="#334155">▲ CHIỀU LEO RA: BẤT KHẢ THI</text>
+      <text class="basin-desc" x="12" y="40">• Vách dốc đứng &gt; 80° hiểm trở</text>
+      <text class="basin-desc-strong" x="12" y="56" fill="#b91c1c">• ΔE_escape &gt;&gt; ΔE_fall (Bất đối xứng)</text>
+      <text class="basin-desc" x="12" y="72">• Tự leo: Cạn kiệt năng lượng C(t)=0</text>
+    </g>
+
+    <!-- 3. SOLUTION CARD: EXTERNAL HOIST (Co-Regulation & Willpower) (X = 410, Y = 360) -->
+    <g transform="translate(385, 360)">
+      <rect x="0" y="0" width="215" height="85" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1.5" filter="url(#shadow2)"/>
+      <text class="card-title" x="12" y="22" fill="#047857">★ CẦN CẨU CỨU THOÁT</text>
+      <text class="card-sub" x="12" y="38" fill="#065f46" font-weight="700">Lực Ngoại Sinh hoặc Ý Chí Nội Lực</text>
+      <text class="basin-desc" x="12" y="56">• Đồng Điều Hòa (K_ij): Bạn kéo ra khỏi hố</text>
+      <text class="basin-desc" x="12" y="74">• Toán Tử Ý Chí (F_will): San phẳng miệng hố</text>
+    </g>
+    <!-- Arrow for rescue hoist -->
+    <path d="M 605 450 C 530 400, 480 300, 435 200" fill="none" stroke="#059669" stroke-width="3" marker-end="url(#arrGreen)" />
+
+    <!-- Trauma Basin Bottom Label -->
+    <g transform="translate(620, 520)">
+      <rect x="-140" y="-30" width="280" height="42" rx="6" fill="#7f1d1d"/>
+      <text class="badge-txt" x="0" y="-12" text-anchor="middle" font-size="11px">HỐ SANG CHẤN SÂU HOẮM (TRAUMA BASIN)</text>
+      <text class="card-sub" x="0" y="4" text-anchor="middle" fill="#fca5a5">Kẹt cứng trong vòng lặp 4F • C(t) sụp đổ về 0</text>
+    </g>
+
+  </g>
+</svg>

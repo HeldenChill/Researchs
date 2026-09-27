@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="auto">
+  <defs>
+    <!-- Embedded Fonts for Crisp Vietnamese Typography -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;family=Fira+Code:wght@500;600;700&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      }
+      .title { font-size: 17px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #64748b; font-weight: 500; }
+      
+      .axis-card-title { font-size: 13px; font-weight: 800; letter-spacing: 0.3px; }
+      .axis-range { font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 700; }
+      .axis-lead { font-size: 11.5px; font-weight: 700; }
+      .axis-item { font-size: 11px; fill: #475569; }
+      .axis-item-strong { font-size: 11px; font-weight: 700; }
+
+      .core-title { font-size: 13.5px; font-weight: 800; fill: #0f172a; letter-spacing: 0.5px; }
+      .core-math { font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 700; fill: #4338ca; }
+      .core-desc { font-size: 10.5px; fill: #475569; font-weight: 600; }
+
+      .flow-label { font-size: 10.5px; font-weight: 700; fill: #334155; }
+      .flow-math { font-family: 'Fira Code', monospace; font-size: 10px; font-weight: 600; fill: #64748b; }
+      .badge-txt { font-size: 9.5px; font-weight: 800; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.5px; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#c7d2fe"/>
+    </linearGradient>
+
+    <!-- 4 Module Gradients -->
+    <linearGradient id="arousalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+    <linearGradient id="safetyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="bandwidthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="attachmentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+
+    <!-- Markers -->
+    <marker id="arrIndigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f46e5"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrEmerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arrSky" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/>
+    </marker>
+
+    <!-- Shadow -->
+    <filter id="boxShadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Canvas Frame -->
+  <rect x="3" y="3" width="954" height="614" rx="14" fill="url(#bgGrad)" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Header Banner -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">TRỌNG TÂM KIẾN TRÚC: ĐỘNG CƠ TÂM LÝ 4 TRỤC NỔI SINH (THE 4-AXIS EMERGENCE ENGINE)</text>
+    <text class="subtitle" x="0" y="20">Mọi trạng thái tâm lý nhân vật được xác định bởi vector 4 chiều S = (A, V, C, S) vận hành liên tục qua hệ ghép nối phi tuyến</text>
+  </g>
+
+  <!-- ==================== CENTRAL VECTOR CORE ==================== -->
+  <!-- Centered at X = 480, Y = 340 -->
+  <g transform="translate(370, 260)">
+    <rect x="0" y="0" width="220" height="150" rx="16" fill="url(#coreGrad)" stroke="#6366f1" stroke-width="2.5" filter="url(#boxShadow)"/>
+    <circle cx="110" cy="30" r="16" fill="#4f46e5" opacity="0.15"/>
+    <text class="core-title" x="110" y="35" text-anchor="middle">LÕI VECTOR TRẠNG THÁI</text>
+    <text class="core-math" x="110" y="62" text-anchor="middle">S(t) = (A, V, C, S)</text>
+    <line x1="25" y1="78" x2="195" y2="78" stroke="#a5b4fc" stroke-width="1.2"/>
+    <text class="core-desc" x="110" y="98" text-anchor="middle">Euler Integration (10 Hz)</text>
+    <text class="core-desc" x="110" y="116" text-anchor="middle">Khắc Sẹo • Hysteresis • Lan Tỏa</text>
+    <rect x="30" y="124" width="160" height="18" rx="9" fill="#4338ca"/>
+    <text class="badge-txt" x="110" y="136" text-anchor="middle">DÒNG CHẢY LIÊN TỤC</text>
+  </g>
+
+  <!-- ==================== 4 AXIS MODULE CARDS ==================== -->
+
+  <!-- 1. TOP-LEFT: A - AROUSAL (Mức Kích Hoạt Thần Kinh Tự Chủ) -->
+  <!-- Bounds: x=35, y=75, width=325, height=210 -->
+  <g transform="translate(35, 75)">
+    <rect x="0" y="0" width="325" height="210" rx="12" fill="url(#arousalGrad)" stroke="#fed7aa" stroke-width="1.5" filter="url(#boxShadow)"/>
+    
+    <!-- Title Badge -->
+    <rect x="14" y="14" width="135" height="26" rx="6" fill="#ea580c"/>
+    <text class="badge-txt" x="81" y="31" text-anchor="middle">1. AROUSAL (A)</text>
+    <text class="axis-range" x="160" y="32" fill="#c2410c">[-1.0, +1.0]</text>
+
+    <!-- Content -->
+    <text class="axis-lead" x="14" y="65" fill="#9a3412">Trục Thể Lý &amp; Thần Kinh Tự Chủ (Polyvagal)</text>
+    
+    <text class="axis-item-strong" x="14" y="90" fill="#ea580c">▲ &gt; +0.4 (Giao Cảm):</text>
+    <text class="axis-item" x="145" y="90">Tim đập nhanh, thở gấp, bồn chồn</text>
+
+    <text class="axis-item-strong" x="14" y="114" fill="#059669">■ [-0.4, +0.4]:</text>
+    <text class="axis-item" x="105" y="114">Vùng Dung Sai — Tỉnh táo, cân bằng</text>
+
+    <text class="axis-item-strong" x="14" y="138" fill="#475569">▼ &lt; -0.4 (Phế Vị Lưng):</text>
+    <text class="axis-item" x="155" y="138">Shutdown, tê liệt, mất cảm giác</text>
+
+    <!-- Indicator -->
+    <line x1="14" y1="158" x2="311" y2="158" stroke="#fed7aa" stroke-width="1"/>
+    <text class="flow-math" x="14" y="178" fill="#c2410c">d A/dt = Homeostasis + Shocks + Co-regulation</text>
+    <text class="axis-item" x="14" y="196" font-style="italic">→ Quyết định nhịp sinh học và năng lượng cơ thể</text>
+  </g>
+
+  <!-- 2. TOP-RIGHT: V - SAFETY / VALENCE (Cảm Giác An Toàn Sinh Học) -->
+  <!-- Bounds: x=600, y=75, width=325, height=210 -->
+  <g transform="translate(600, 75)">
+    <rect x="0" y="0" width="325" height="210" rx="12" fill="url(#safetyGrad)" stroke="#a7f3d0" stroke-width="1.5" filter="url(#boxShadow)"/>
+    
+    <!-- Title Badge -->
+    <rect x="14" y="14" width="135" height="26" rx="6" fill="#059669"/>
+    <text class="badge-txt" x="81" y="31" text-anchor="middle">2. SAFETY / VALENCE (V)</text>
+    <text class="axis-range" x="160" y="32" fill="#047857">[0.0, 1.0]</text>
+
+    <!-- Content -->
+    <text class="axis-lead" x="14" y="65" fill="#065f46">Cảm Nhận An Toàn Vô Thức (Neuroception)</text>
+
+    <text class="axis-item-strong" x="14" y="90" fill="#059669">■ 1.0 (An Tâm Trọn Vẹn):</text>
+    <text class="axis-item" x="155" y="90">Môi trường bảo bọc, ấm áp</text>
+
+    <text class="axis-item-strong" x="14" y="114" fill="#0284c7">■ 0.5 (Cảnh Giác Nhẹ):</text>
+    <text class="axis-item" x="145" y="114">Thận trọng quan sát động tĩnh</text>
+
+    <text class="axis-item-strong" x="14" y="138" fill="#dc2626">■ 0.0 (Nguy Cơ Sinh Tử):</text>
+    <text class="axis-item" x="155" y="138">Đe dọa mạng sống, hoảng sợ tột độ</text>
+
+    <!-- Indicator -->
+    <line x1="14" y1="158" x2="311" y2="158" stroke="#a7f3d0" stroke-width="1"/>
+    <text class="flow-math" x="14" y="178" fill="#047857">Neuroception: Radar sinh học quét hiểm nguy</text>
+    <text class="axis-item" x="14" y="196" font-style="italic">→ Công tắc kích hoạt sụp đổ số chiều khi V → 0</text>
+  </g>
+
+  <!-- 3. BOTTOM-LEFT: C - COGNITIVE BANDWIDTH (Băng Thông Nhận Thức) -->
+  <!-- Bounds: x=35, y=380, width=325, height=210 -->
+  <g transform="translate(35, 380)">
+    <rect x="0" y="0" width="325" height="210" rx="12" fill="url(#bandwidthGrad)" stroke="#bae6fd" stroke-width="1.5" filter="url(#boxShadow)"/>
+    
+    <!-- Title Badge -->
+    <rect x="14" y="14" width="145" height="26" rx="6" fill="#0284c7"/>
+    <text class="badge-txt" x="86" y="31" text-anchor="middle">3. BANDWIDTH (C)</text>
+    <text class="axis-range" x="170" y="32" fill="#0369a1">[0.0, 1.0]</text>
+
+    <!-- Content -->
+    <text class="axis-lead" x="14" y="65" fill="#075985">Dung Lượng Thùy Trán &amp; Quyền Tự Chủ (Agency)</text>
+
+    <text class="axis-item-strong" x="14" y="90" fill="#0284c7">■ C ≈ 1.0 (Agency Tối Đa):</text>
+    <text class="axis-item" x="160" y="90">Lập kế hoạch dài hạn, nhẫn nại</text>
+
+    <text class="axis-item-strong" x="14" y="114" fill="#6366f1">■ C Giảm Dần:</text>
+    <text class="axis-item" x="105" y="114">Mất dần khả năng làm việc phức tạp</text>
+
+    <text class="axis-item-strong" x="14" y="138" fill="#e11d48">■ C = 0 (Mất Kiểm Soát):</text>
+    <text class="axis-item" x="155" y="138">Khóa cứng vào 4 phản xạ sinh tồn (4F)</text>
+
+    <!-- Indicator -->
+    <line x1="14" y1="158" x2="311" y2="158" stroke="#bae6fd" stroke-width="1"/>
+    <text class="flow-math" x="14" y="178" fill="#0369a1">C(t) = C_base × max(0, 1 - (A/A_th)^2) × V(t)</text>
+    <text class="axis-item" x="14" y="196" font-style="italic">→ Thước đo trực tiếp quyền can thiệp của người chơi</text>
+  </g>
+
+  <!-- 4. BOTTOM-RIGHT: S - ATTACHMENT (Trục Xã Hội & Gắn Kết) -->
+  <!-- Bounds: x=600, y=380, width=325, height=210 -->
+  <g transform="translate(600, 380)">
+    <rect x="0" y="0" width="325" height="210" rx="12" fill="url(#attachmentGrad)" stroke="#e9d5ff" stroke-width="1.5" filter="url(#boxShadow)"/>
+    
+    <!-- Title Badge -->
+    <rect x="14" y="14" width="145" height="26" rx="6" fill="#7c3aed"/>
+    <text class="badge-txt" x="86" y="31" text-anchor="middle">4. ATTACHMENT (S)</text>
+    <text class="axis-range" x="170" y="32" fill="#6b21a8">[-1.0, +1.0]</text>
+
+    <!-- Content -->
+    <text class="axis-lead" x="14" y="65" fill="#581c87">Trục Xã Hội &amp; Xu Hướng Đối Với Đồng Loại</text>
+
+    <text class="axis-item-strong" x="14" y="90" fill="#7c3aed">▲ +1.0 (Gắn Kết):</text>
+    <text class="axis-item" x="125" y="90">Tin cậy, tìm kiếm sự bảo bọc, yêu thương</text>
+
+    <text class="axis-item-strong" x="14" y="114" fill="#64748b">■ 0.0 (Độc Lập):</text>
+    <text class="axis-item" x="110" y="114">Trung lập, tự lực cánh sinh, không ỷ lại</text>
+
+    <text class="axis-item-strong" x="14" y="138" fill="#dc2626">▼ -1.0 (Thù Địch):</text>
+    <text class="axis-item" x="125" y="138">Nghi ngờ, xa lánh, xem bầy đàn là kẻ thù</text>
+
+    <!-- Indicator -->
+    <line x1="14" y1="158" x2="311" y2="158" stroke="#e9d5ff" stroke-width="1"/>
+    <text class="flow-math" x="14" y="178" fill="#6b21a8">dA_i/dt = ... + K_ij × S_i × (A_j - A_i)</text>
+    <text class="axis-item" x="14" y="196" font-style="italic">→ Cầu nối truyền tải đồng điều hòa hoặc lây lan hoảng loạn</text>
+  </g>
+
+  <!-- ==================== CROSS-COUPLING INTERACTION DYNAMICS ==================== -->
+  
+  <!-- Flow 1: Top Coupling A <-> V (Ghép nối 2 chiều Arousal - Safety) -->
+  <g transform="translate(370, 145)">
+    <path d="M 0 15 L 220 15" stroke="#4f46e5" stroke-width="2.5" marker-start="url(#arrIndigo)" marker-end="url(#arrIndigo)" />
+    <rect x="25" y="0" width="170" height="28" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.2" filter="url(#boxShadow)"/>
+    <text class="flow-label" x="110" y="18" text-anchor="middle" fill="#4338ca">Ghép Nối 2 Chiều Trực Tiếp</text>
+  </g>
+
+  <!-- Flow 2: Left Vertical Coupling A -> C (Ức chế phi tuyến Arousal lên Bandwidth) -->
+  <g transform="translate(195, 290)">
+    <path d="M 0 0 L 0 80" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrAmber)" />
+    <rect x="-85" y="26" width="170" height="28" rx="6" fill="#ffffff" stroke="#fed7aa" stroke-width="1.2" filter="url(#boxShadow)"/>
+    <text class="flow-label" x="0" y="44" text-anchor="middle" fill="#c2410c">Ức Chế Phi Tuyến: C(A)</text>
+  </g>
+
+  <!-- Flow 3: Right Vertical Coupling V -> S (Định hình mục tiêu gắn kết xã hội) -->
+  <g transform="translate(765, 290)">
+    <path d="M 0 0 L 0 80" stroke="#059669" stroke-width="2.5" marker-end="url(#arrEmerald)" />
+    <rect x="-80" y="26" width="160" height="28" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2" filter="url(#boxShadow)"/>
+    <text class="flow-label" x="0" y="44" text-anchor="middle" fill="#047857">Định Hình Mục Tiêu: S(V)</text>
+  </g>
+
+  <!-- Flow 4: Bottom Coupling C <-> S (Tương tác xã hội & Quyền tự chủ) -->
+  <g transform="translate(370, 500)">
+    <path d="M 0 15 L 220 15" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,4" marker-start="url(#arrPurple)" marker-end="url(#arrPurple)" />
+    <rect x="25" y="0" width="170" height="28" rx="6" fill="#ffffff" stroke="#e9d5ff" stroke-width="1.2" filter="url(#boxShadow)"/>
+    <text class="flow-label" x="110" y="18" text-anchor="middle" fill="#6b21a8">Đồng Điều Hòa Xã Hội: K_ij</text>
+  </g>
+
+</svg>
