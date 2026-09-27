@@ -260,13 +260,150 @@ graph TD
 
 ---
 
-## 5. Kết Luận Chung & Khuyến Nghị Hành Động
+## 5. Kết Luận Chung & Phê Chuẩn Của Chủ Tọa
 
 Cuộc thẩm định tam giác đã mang lại một kết quả mang tính bước ngoặt:
 1. **Khẳng định tính đúng đắn của phương pháp luận:** Việc kiểm định tính trực giao toán học đã cứu dự án khỏi một lỗi kiến trúc nghiêm trọng (suy biến bậc tự do của trục $C$).
-2. **Khuyến nghị lựa chọn:**
-   * Nếu ưu tiên **tính tối giản tuyệt đối, dễ hiện thực hóa ngay trên engine 3D**: Chọn **Phương Án A (5 Trục Cốt Lõi: $A, V, C, S, E_x$)**. Trục thứ 5 ($E_x$ - Exploration) sẽ là chìa khóa vàng mở khóa hành vi tò mò, khám phá thế giới và học hỏi của NPC.
-   * Nếu ưu tiên **độ sâu mô phỏng tâm lý xã hội tối thượng (chuẩn khoa học thần kinh & Big Five toàn diện)**: Chọn **Phương Án B (Phân Tầng 2 Lớp: Nội Mô Sinh Thể + Nhận Thức Xã Hội)**.
+2. **Quyết định phê chuẩn của Chủ tọa (Project Director):** 
+   * **CHÍNH THỨC THÔNG QUA PHƯƠNG ÁN B (Kiến Trúc Phân Tầng Hai Lớp: Nội Mô Sinh Thể + Nhận Thức Xã Hội)** làm nền tảng động lực học cốt lõi cho dự án `Project Anima`.
+   * **Bãi bỏ hoàn toàn giới hạn hiển thị đồ họa 3D:** Hệ trục tâm lý là động cơ vật lý ngầm (Under-the-hood Simulation Engine). Mọi trạng thái tâm lý được biểu đạt qua hành vi nổi sinh, biểu cảm, hội thoại và hành động chiến thuật thay vì vẽ đồ thị trực quan cho người chơi.
+
+---
+
+## 6. Nghị Quyết & Đào Sâu Chuyên Đề: Bản Chất 2 Tầng, Trị Liệu Sang Chấn & Hệ Thống Nemesis Động Lực
+
+```mermaid
+graph TD
+    subgraph EXTENDED_SESSION["PHIÊN BẢN HỘI NGHỊ MỞ RỘNG THEO CHỈ ĐẠO CỦA CHỦ TỌA"]
+        D1["1. Bản chất Tô-pô: Fast-Slow Systems vs 6 Trục Phẳng"]
+        D2["2. Giải phóng Ràng buộc Đồ họa: Emergence thay vì Biểu đồ"]
+        D3["3. Động lực học Tái thích nghi khi A tái đấu Quái B"]
+        D4["4. Nâng cấp Hệ thống Nemesis của Monolith lên Không gian Pha"]
+    end
+```
+
+---
+
+### 6.1. Tại Sao Lại Là Mô Hình 2 Tầng (Lồng Ghép) Thay Vì 6 Trục Phẳng Thông Thường?
+
+**TS. Alex Vance (Toán học & Vật lý Động lực):**
+> *"Nếu chúng ta sử dụng một không gian vector 6 chiều phẳng thông thường $\vec{S} = (x_1, x_2, \dots, x_6) \in \mathbb{R}^6$, ta đang áp đặt một tiên đề vật lý sai lầm: **Cả 6 biến đều cùng tiến hóa trên một thang thời gian đồng nhất (Single Timescale) $\tau_1 \approx \tau_2 \dots \approx \tau_6$**.*
+> 
+> *Trong giải tích phi tuyến và vật lý hệ phức hợp, mô hình 2 tầng là một **Hệ Động Lực Nhanh - Chậm (Fast-Slow Dynamical System / Singularly Perturbed System)**. Về mặt hình học vi phân, nó là một **Không gian Thớ (Fiber Bundle)** $\mathcal{M} = \mathcal{B} \times \mathcal{F}$:*
+> * **Tầng 1 - Không gian Đáy (Base Manifold $\mathcal{B}$):** Là phần cứng sinh học $(A_{\text{phys}}, \text{Neuroception})$. Đây là hệ động lực **Cực Nhanh ($\tau_{\text{fast}} \approx 100\text{ ms} \leftrightarrow 10\text{ Hz}$)**.
+> * **Tầng 2 - Không gian Thớ (Fiber Manifold $\mathcal{F}$):** Là không gian tâm trí và xã hội $(D, W, E_x, C)$. Đây là hệ động lực **Chậm ($\tau_{\text{slow}} \approx 1\text{ s} - 3600\text{ s} \leftrightarrow 1\text{ Hz}$ trở xuống)**.
+> 
+> *Sự khác biệt hình học mang tính quyết định nằm ở **Nguyên lý Nô lệ hóa (Slaving Principle của Hermann Haken trong Synergetics)**: Khi biến nhanh của Tầng 1 rơi vào điểm kỳ dị sinh tử ($\text{Neuroception} \to -1$), nó ngay lập tức bẻ cong toàn bộ bề mặt thế năng $U(\vec{S}_{\text{tier2}})$ và **CƯỠNG BỨC SỤP ĐỔ SỐ CHIỀU (Dimensionality Collapse)**. 4 bậc tự do của Tầng 2 bị 'nô lệ hóa' và sụp xuống 0: nhân vật mất toàn bộ sự sáng tạo ($E_x = 0$), mất tính vị tha xã hội ($W = 0$), mất ý chí tự do ($C = 0$).*
+> 
+> *Nếu chỉ dùng 6 trục phẳng ngang hàng, bạn sẽ phải viết hàng chục ma trận ghép chéo hỗn loạn để ép chúng sụp cùng lúc. Với cấu trúc phân tầng, sự sụp đổ số chiều xảy ra tự nhiên như một định luật hình học!"*
+
+**TS. Elena Rostova (Thần kinh Sinh học):**
+> *"Dưới góc độ tiến hóa sinh học, cấu trúc phân tầng này phản ánh chính xác cấu tạo não bộ:
+> * **Tầng 1 (Thân não & Hệ viền cổ đại):** Kiểm soát nhịp tim, trương lực cơ, ngưỡng sinh tử. Mục tiêu duy nhất: Bảo toàn nội mô và phản xạ 4F.
+> * **Tầng 2 (Vỏ não trước trán Neocortex):** Mới tiến hóa ở động vật linh trưởng bậc cao. Chịu trách nhiệm lập kế hoạch, tự giác ngộ, thấu cảm và khám phá.
+> 
+> Khi cơ thể rơi vào tình trạng đe dọa sinh tử, hạch hạnh nhân (Amygdala) lập tức 'cúp cầu dao điện' của vỏ não trước trán (hiện tượng **Hypofrontality**). Tầng 2 hoàn toàn ký sinh và phụ thuộc vào sự ổn định năng lượng của Tầng 1."*
+
+**Kai Sorenson (Kiến trúc sư Game Hệ thống):**
+> *"Về mặt tối ưu hóa engine game: **Cấu trúc 2 Tầng là chìa khóa giải cứu CPU!***
+> * Nếu là 6 trục phẳng chạy ở $10\text{ Hz}$ cho 500 NPC $\rightarrow$ $500 \times 6 \times 10 = 30.000$ phép tính tích phân vi phân mỗi giây kèm ma trận tương tác 6x6.
+> * Với mô hình 2 tầng: Tầng 1 (2 biến thể lý) chạy mượt mà ở $10\text{ Hz}$. Tầng 2 (4 biến nhận thức) chỉ cần tick ở $1\text{ Hz}$ hoặc chỉ khi có sự kiện hội thoại/ra quyết định. Chi phí xử lý AI giảm ngay **70%** mà hành vi nhân vật vẫn mượt mà không độ trễ!"*
+
+---
+
+### 6.2. Phá Bỏ Ảo Tưởng Đồ Họa: Trải Nghiệm Tâm Lý Nổi Sinh (Emergent Narrative) Thay Vì Biểu Đồ 3D
+
+**Kai Sorenson (Đính chính & Thống nhất với Chủ tọa):**
+> *"Tôi hoàn toàn đồng tình và cảm ơn Chủ tọa đã chỉ ra điểm mù tư duy của tôi!*
+> 
+> *Trước đây, tôi lầm tưởng rằng game cần phải trực quan hóa các trục tâm lý thành một khối cầu hay địa hình 3D trên màn hình người chơi (như trong bản demo Three.js). Nhưng bản chất của dự án chúng ta là **Mô Phỏng Xã Hội Nổi Sinh (Emergent Simulation)** giống như Dwarf Fortress, RimWorld hay Disco Elysium:*
+> * Trong *Dwarf Fortress*, không có một biểu đồ 3D nào hiển thị cho người chơi. Người chơi cảm nhận tâm lý của chú lùn qua những dòng nhật ký, hành động bỏ ăn, đập vỡ chiếc bình gốm hay ngồi thẫn thờ bên bờ suối.
+> * Trong *Disco Elysium*, 24 chỉ số tâm lý ẩn sau những cuộc tranh luận của các giọng nói nội tâm trong đầu thám tử.
+> 
+> *Khi Chủ tọa khẳng định **không cần trực quan hóa các trục số cho người chơi**, toàn bộ giới hạn 'phải giữ ít trục để dễ vẽ hình' bị xóa bỏ hoàn toàn! Chúng ta có toàn quyền thiết lập một không gian động lực học sâu sắc và chân thực nhất dưới mui xe (Under-the-hood Engine)."*
+
+---
+
+### 6.3. Động Lực Học Khắc Phục Sang Chấn Khi Nhân Vật A Tái Đấu Quái B
+
+**TS. Alex Vance (Toán học Động lực):**
+> *"Khi A bị B đánh bại, trong bộ nhớ tình tiết của A hình thành một **Vết trễ Sang chấn (Traumatic Hysteresis Basin)** gán chặt với mã nhận dạng `Target_ID = B`. Khi vector cảm giác quét thấy tín hiệu của B, trường thế năng của A bị biến dạng đột ngột, hút vector trạng thái $\vec{S}$ của A tụt thẳng vào hố sâu hoảng loạn ($V_{\text{bio}} \to -1, A_{\text{phys}} \to 1$).*
+> 
+> *Phương trình vi phân của trường thế năng thích nghi được mô hình hóa như sau:*
+> $$U(\vec{S}; t) = U_0(\vec{S}) + \sum_{k} W_k(t) \cdot \exp\left(-\frac{\|\vec{S} - \vec{S}_{\text{trauma}, k}\|^2}{2\sigma^2}\right)$$
+> *Trong đó $W_k(t)$ là độ sâu của hố sang chấn đối với đối tượng $k$. Để cải thiện và đảo ngược phản ứng của A, chúng ta phải làm suy giảm trọng số $W_k(t) \to 0$ hoặc tạo ra một điểm hút năng lực mới (Mastery Attractor)."*
+
+```mermaid
+graph LR
+    subgraph REHAB_PIPELINE["4 CON ĐƯỜNG TRỊ LIỆU VÀ TÁI THÍCH NGHI ĐỘNG LỰC"]
+        T_INIT["Hố Sang Chấn Ban Đầu<br/>(Trauma Attractor:<br/>V tụt, Freeze/Panic)"]
+        
+        P1["1. Phơi nhiễm An toàn<br/>(Exposure Therapy / Prediction Error)"]
+        P2["2. Vũ khí & Kỹ năng Khắc chế<br/>(Mastery Vector F_mastery)"]
+        P3["3. Chỗ dựa Bầy đàn<br/>(Social Buffering F_social)"]
+        P4["4. Tái đóng khung Nhận thức<br/>(Cognitive Reframing / Slayer Trait)"]
+        
+        T_FINAL["Trạng thái Mới:<br/>Điềm tĩnh Quan sát /<br/>Điểm hút Diệt Thù (Slayer Attractor)"]
+    end
+
+    T_INIT --> P1 --> T_FINAL
+    T_INIT --> P2 --> T_FINAL
+    T_INIT --> P3 --> T_FINAL
+    T_INIT --> P4 --> T_FINAL
+```
+
+**TS. Elena Rostova & Kai Sorenson (Hiện thực hóa Sinh học & Gameplay):**
+> *1. **Liệu pháp Phơi nhiễm Gián đoạn (Extinction Learning):** Nếu A gặp lại B từ khoảng cách an toàn (trên đài quan sát, hoặc B đang bị nhốt trong cũi sắt), não bộ A ghi nhận: có kích thích B nhưng không có sát thương xảy ra. Sai số dự đoán (Prediction Error) $\delta = V_{\text{thực tế}} - V_{\text{dự đoán}}$ sẽ kích hoạt tính mềm dẻo của synap, làm phẳng dần chiếc hố sâu sang chấn sau vài lần quan sát.*
+> 
+> *2. **Lực Tự Chủ & Khắc Chế Chiến Thuật ($\vec{F}_{\text{mastery}}$):** Khi A được trang bị vũ khí khắc chế B (ví dụ: cung tên lửa khắc chế quái hệ băng) hoặc hoàn thành khóa huấn luyện chiến đấu, một lực chủ động $\vec{F}_{\text{mastery}}$ được bơm thẳng vào trục Dominance ($D$) và Clarity ($C$). Lực này kéo điểm cân bằng của A vượt qua đỉnh yên ngựa (Saddle Point), ngăn A rơi vào trạng thái tê liệt.*
+> 
+> *3. **Đồng điều hòa Xã hội (Social Buffering / Co-regulation):** Nếu A đi săn một mình, A hoảng loạn. Nhưng nếu A đi cùng một người chỉ huy có chỉ số **Dominance ($D$) cao và Warmth ($W$) cao**, trường tâm lý của người chỉ huy phát ra lực kéo $\vec{F}_{\text{social}}$ giữ chặt Tầng 1 của A ở vùng an toàn sinh học ($V_{\text{bio}} > 0$).*
+> 
+> *4. **Khoảnh khắc Vỡ òa Sang chấn (Catharsis Breakthrough):** Khi A lần đầu tiên đánh trúng một đòn chí mạng hạ gục B, một bước nhảy rẽ nhánh thảm họa ngược (Reverse Catastrophe Jump) xảy ra: Toàn bộ hố sâu sợ hãi bị xóa sổ, thay thế bằng điểm hút vĩnh viễn **'Kẻ Diệt Quái B' (Slayer Trait)**, tăng vĩnh viễn chỉ số $D$ và giảm độ nhạy Arousal khi đối đầu với đồng loại của B.*
+
+---
+
+### 6.4. Giải Mã Hệ Thống Nemesis Của Monolith: Nâng Cấp Lên Không Gian Pha Động Lực SDE
+
+**Kai Sorenson (Phân tích Gameplay Nemesis):**
+> *"Hệ thống **Nemesis System** của Monolith trong *Middle-earth: Shadow of Mordor / War* là tượng đài về AI tạo sinh câu chuyện. Hệ thống này bao gồm 4 cơ chế cốt lõi:*
+> 1. *Bộ nhớ tình tiết cá nhân hóa (nhớ mặt, nhớ vết chém, nhớ cách đối đầu).*
+> 2. *Tập tính cách động: Fears (nỗi sợ biến thành tháo chạy), Enrages (sự phẫn nộ biến thành cuồng sát), Hates (thù ghét cá nhân).*
+> 3. *Cơ chế thích nghi chiến thuật (Adaptation: thích nghi với nhảy qua đầu, miễn nhiễm tên bắn).*
+> 4. *Hệ thống thứ bậc xã hội (Social Hierarchy): Tranh giành quyền lực, ám sát, kết nghĩa Huynh Đệ (Blood Brothers) và phản bội.*
+
+```mermaid
+graph TD
+    subgraph NEMESIS_COMPARISON["SO SÁNH: NEMESIS MONOLITH vs. ANIMA DYNAMICAL SDE"]
+        subgraph MONOLITH_SYS["Monolith's Nemesis (Hệ Thống Rời Rạc / Finite State Machine)"]
+            M1["State: Bảng cờ nhị phân Boolean<br/>HasFearOfFire = true<br/>EnragedByPain = true"]
+            M2["Transition: Cây điều kiện If-Else<br/>IF Fire THEN Trigger_Panic()"]
+        end
+        
+        subgraph ANIMA_SYS["ANIMA (Hệ Thống Động Lực Liên Tục SDE)"]
+            A1["State: Tọa độ liên tục trong Không gian 2 Tầng S = (Tier1, Tier2)"]
+            A2["Transition: Rẽ nhánh Yên ngựa (Saddle-Node Bifurcation)<br/>dF/dt = -grad(U) + F_social + Noise"]
+        end
+    end
+```
+
+**TS. Alex Vance & TS. Elena Rostova (Nâng cấp Toán học & Sinh lý):**
+> *"Hệ thống Nemesis của Monolith thực chất là **một phiên bản rời rạc hóa ở mức thô sơ** của chính mô hình không gian pha mà chúng ta đang xây dựng! Chúng ta nâng cấp nó lên tầm cao mới:*
+> 
+> 1. **Fears & Enrages là các Điểm Rẽ Nhánh Yên Ngựa (Saddle-Node Bifurcations):**
+>    * Trong Monolith, một Orc hoặc là sợ lửa (`FearOfFire = true`), hoặc là không.
+>    * Trong mô hình của chúng ta, ngọn lửa đẩy tọa độ sinh lý Tầng 1 phóng vọt lên $A_{\text{phys}} \to 1, \text{Neuroception} \to -1$. Tại đây xuất hiện một điểm rẽ nhánh:
+>      * Nếu trục Dominance của Orc $D < 0 \rightarrow$ Trạng thái sụp đổ vào **PANIC / FLEE** (Sợ hãi tháo chạy).
+>      * Nếu trục Dominance của Orc $D > 0.5 \rightarrow$ Trạng thái rẽ nhánh sang **BERSERKER RAGE** (Thịnh nộ cuồng sát, chuyển hóa sợ hãi thành bạo lực không thể ngăn cản).
+> 
+> 2. **Cơ chế Huynh Đệ (Blood Brothers) là Dao Động Kép Ghép Nối (Coupled Oscillators):**
+>    * Hai NPC kết nghĩa huynh đệ có vector trạng thái bị trói chặt bởi lực đàn hồi xã hội:
+>    $$\vec{F}_{\text{couple}} = -k_{\text{brother}} \cdot (\vec{S}_{\text{NPC1}} - \vec{S}_{\text{NPC2}})$$
+>    * Khi NPC 1 bị sát hại, lực liên kết này đứt gãy đột ngột, giải phóng một xung thế năng khổng lồ đẩy NPC 2 vào hố thù hận tột độ (Vengeful Attractor), tự động phát động nhiệm vụ báo thù mà không cần một dòng script cứng nhắc nào.
+> 
+> 3. **Tiến hóa Tính cách Hữu cơ (Organic Evolution):**
+>    * Không cần các cờ Boolean nhân tạo. Một NPC ban đầu nhút nhát ($D < 0, W > 0$), sau nhiều lần bị tấn công nhưng may mắn sống sót, sẽ tích lũy sang chấn qua ma trận độ trễ (Hysteresis Matrix).
+>    * Trục Warmth sụt vĩnh viễn ($W \to -1$), trục Dominance tăng vọt ($D \to +1$). NPC nhút nhát ban đầu tự động 'tiến hóa' thành một **Bạo Chúa Lạnh Lùng (Sadistic Tyrant)** hoàn toàn xuất phát từ quy luật thích nghi sinh học!"*
 
 ---
 
@@ -275,3 +412,4 @@ Cuộc thẩm định tam giác đã mang lại một kết quả mang tính bư
 > * Bản thiết kế kiến trúc gốc: [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](file:///g:/Projects/Researchs/Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)
 > * Nghiên cứu chuyên sâu Big Five & CB5T: [`Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md`](file:///g:/Projects/Researchs/Nghien-Cuu-Chuyen-Sau-Mo-Hinh-Tinh-Cach-Big-Five.md)
 > * Nền tảng phương trình động lực học vi phân SDE: [`memory/theoretical-foundations.md`](file:///g:/Projects/Researchs/memory/theoretical-foundations.md)
+
