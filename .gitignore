@@ -1,0 +1,14 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# Environment & local credentials
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
