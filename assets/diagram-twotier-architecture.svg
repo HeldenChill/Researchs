@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 720" width="100%" height="auto">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;family=Fira+Code:wght@500;600;700&amp;display=swap');
+
+      * {
+        font-family: 'Be Vietnam Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      }
+      .title { font-size: 18px; font-weight: 800; fill: #0f172a; letter-spacing: -0.2px; }
+      .subtitle { font-size: 12px; fill: #475569; font-weight: 500; }
+      
+      .tier-header { font-size: 13.5px; font-weight: 800; letter-spacing: 0.5px; }
+      .tier-freq { font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 700; }
+      .tier-desc { font-size: 11px; fill: #475569; font-weight: 500; }
+
+      .card-title { font-size: 12.5px; font-weight: 800; }
+      .card-math { font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 700; }
+      .card-desc { font-size: 10.5px; fill: #334155; line-height: 1.4; }
+      .card-sub { font-size: 10px; fill: #64748b; }
+      
+      .badge-txt { font-size: 9px; font-weight: 800; text-transform: uppercase; fill: #ffffff; letter-spacing: 0.4px; }
+      .inter-label { font-size: 11px; font-weight: 800; }
+      .inter-desc { font-size: 9.5px; fill: #64748b; font-weight: 500; }
+      .legend-title { font-size: 12px; font-weight: 800; fill: #0f172a; }
+      .legend-txt { font-size: 10.5px; fill: #334155; }
+    </style>
+
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+
+    <!-- Tier 2 Grad (Cognitive / Blue-Purple) -->
+    <linearGradient id="tier2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8faff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+
+    <!-- Tier 1 Grad (Physiological / Amber-Rose) -->
+    <linearGradient id="tier1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf5"/>
+      <stop offset="100%" stop-color="#fff1f2"/>
+    </linearGradient>
+
+    <!-- Module Gradients -->
+    <linearGradient id="cardClarity" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f9ff"/>
+    </linearGradient>
+    <linearGradient id="cardSocial" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#faf5ff"/>
+    </linearGradient>
+    <linearGradient id="cardDominance" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fdf4ff"/>
+    </linearGradient>
+    <linearGradient id="cardExplore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ecfdf5"/>
+    </linearGradient>
+
+    <linearGradient id="cardArousal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fff7ed"/>
+    </linearGradient>
+    <linearGradient id="cardNeuroception" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#fef2f2"/>
+    </linearGradient>
+
+    <!-- Filter Shadows -->
+    <filter id="shadowBox" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="108%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+
+    <!-- Markers -->
+    <marker id="arrRed" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#e11d48"/>
+    </marker>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f46e5"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Background Frame -->
+  <rect x="4" y="4" width="1012" height="712" rx="16" fill="url(#bgGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Main Header -->
+  <g transform="translate(35, 30)">
+    <text class="title" x="0" y="0">KIẾN TRÚC ĐỘNG CƠ TÂM LÝ PHÂN TẦNG HAI LỚP (TWO-TIER EMERGENCE ENGINE)</text>
+    <text class="subtitle" x="0" y="20">Hệ Động Lực Nhanh - Chậm (Fast-Slow): Phân tách Nội Mô Sinh Thể (10 Hz) và Nhận Thức Xã Hội (1 Hz)</text>
+  </g>
+
+  <!-- ==================== TIER 2: COGNITIVE & SOCIAL SPACE ==================== -->
+  <g transform="translate(35, 75)">
+    <!-- Container Box -->
+    <rect x="0" y="0" width="950" height="280" rx="14" fill="url(#tier2Grad)" stroke="#c7d2fe" stroke-width="2" filter="url(#shadowBox)"/>
+    
+    <!-- Tier 2 Header -->
+    <rect x="20" y="16" width="310" height="26" rx="6" fill="#4338ca"/>
+    <text class="badge-txt" x="30" y="33">TẦNG 2: TÂM TRÍ, NHẬN THỨC &amp; VỊ THẾ XÃ HỘI</text>
+    <text class="tier-freq" x="340" y="34" fill="#4338ca">[Tick Rate: 1 Hz | Quán tính chậm | Neocortex]</text>
+    <text class="tier-desc" x="650" y="34">Ánh xạ trọn vẹn 100% Big Five (OCEAN) &amp; Interpersonal Circumplex</text>
+
+    <!-- 4 Cognitive Cards -->
+    <!-- Card 1: Clarity & Bandwidth -->
+    <g transform="translate(20, 56)">
+      <rect x="0" y="0" width="215" height="205" rx="10" fill="url(#cardClarity)" stroke="#bae6fd" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="12" width="70" height="18" rx="4" fill="#0284c7"/>
+      <text class="badge-txt" x="17" y="24">BIG 5: C</text>
+      <text class="card-title" x="12" y="48" fill="#0369a1">1. Clarity (Băng Thông)</text>
+      <text class="card-math" x="12" y="66" fill="#0284c7">C(t) ∈ [0.0, 1.0]</text>
+      <text class="card-desc" x="12" y="88">Dung lượng bộ nhớ làm việc &amp; Quyền tự chủ nhận thức (DLPFC). Quyết định khả năng lập kế hoạch dài hạn.</text>
+      <line x1="12" y1="124" x2="203" y2="124" stroke="#e0f2fe" stroke-width="1"/>
+      <text class="card-sub" x="12" y="142">• 1.0: Sáng suốt, ý chí tối đa</text>
+      <text class="card-sub" x="12" y="158">• 0.5: Trạng thái bình thường</text>
+      <text class="card-sub" x="12" y="174">• 0.0: Sụp đổ ý chí / Bản năng 4F</text>
+      <text class="card-sub" x="12" y="192" fill="#0284c7" font-weight="700">Tiêu hao: Ego Depletion τ_drain</text>
+    </g>
+
+    <!-- Card 2: Warmth & Sociality -->
+    <g transform="translate(255, 56)">
+      <rect x="0" y="0" width="215" height="205" rx="10" fill="url(#cardSocial)" stroke="#e9d5ff" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="12" width="70" height="18" rx="4" fill="#7c3aed"/>
+      <text class="badge-txt" x="17" y="24">BIG 5: A</text>
+      <text class="card-title" x="12" y="48" fill="#6b21a8">2. Warmth (Gắn Kết)</text>
+      <text class="card-math" x="12" y="66" fill="#7c3aed">W(t) ∈ [-1.0, +1.0]</text>
+      <text class="card-desc" x="12" y="88">Trục gắn bó xã hội, thấu cảm và hướng bầy đàn. Khác biệt rạch ròi với phản xạ quỳ lạy sinh tồn Fawn.</text>
+      <line x1="12" y1="124" x2="203" y2="124" stroke="#f3e8ff" stroke-width="1"/>
+      <text class="card-sub" x="12" y="142">• +1.0: Vị tha cao thượng, che chở</text>
+      <text class="card-sub" x="12" y="158">• 0.0: Trung lập, độc lập bầy đàn</text>
+      <text class="card-sub" x="12" y="174">• -1.0: Thù địch, tàn nhẫn (Machiavellian)</text>
+      <text class="card-sub" x="12" y="192" fill="#7c3aed" font-weight="700">Lực: F_social &amp; Co-regulation</text>
+    </g>
+
+    <!-- Card 3: Dominance & Assertiveness -->
+    <g transform="translate(490, 56)">
+      <rect x="0" y="0" width="215" height="205" rx="10" fill="url(#cardDominance)" stroke="#f5d0fe" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="12" width="70" height="18" rx="4" fill="#a21caf"/>
+      <text class="badge-txt" x="17" y="24">BIG 5: E_dom</text>
+      <text class="card-title" x="12" y="48" fill="#86198f">3. Dominance (Vị Thế)</text>
+      <text class="card-math" x="12" y="66" fill="#a21caf">D(t) ∈ [-1.0, +1.0]</text>
+      <text class="card-desc" x="12" y="88">Khía cạnh quyết đoán &amp; thống trị của Extraversion (Interpersonal Circumplex). Định hình trật tự xã hội.</text>
+      <line x1="12" y1="124" x2="203" y2="124" stroke="#fae8ff" stroke-width="1"/>
+      <text class="card-sub" x="12" y="142">• +1.0: Quyết đoán, thủ lĩnh, áp chế</text>
+      <text class="card-sub" x="12" y="158">• 0.0: Cân bằng thế năng xã hội</text>
+      <text class="card-sub" x="12" y="174">• -1.0: Phục tùng, khiêm nhường, nhún</text>
+      <text class="card-sub" x="12" y="192" fill="#a21caf" font-weight="700">Rẽ nhánh: Autocrat vs Submissive</text>
+    </g>
+
+    <!-- Card 4: Exploration & Drive -->
+    <g transform="translate(725, 56)">
+      <rect x="0" y="0" width="205" height="205" rx="10" fill="url(#cardExplore)" stroke="#a7f3d0" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="12" width="70" height="18" rx="4" fill="#059669"/>
+      <text class="badge-txt" x="17" y="24">BIG 5: O</text>
+      <text class="card-title" x="12" y="48" fill="#065f46">4. Exploration (Tò Mò)</text>
+      <text class="card-math" x="12" y="66" fill="#059669">E_x(t) ∈ [0.0, 1.0]</text>
+      <text class="card-desc" x="12" y="88">Động cơ tìm kiếm phần thưởng Dopamine &amp; thôi thúc khám phá điều mới (Openness / Epistemic Drive).</text>
+      <line x1="12" y1="124" x2="203" y2="124" stroke="#d1fae5" stroke-width="1"/>
+      <text class="card-sub" x="12" y="142">• 1.0: Say mê tri thức, thám hiểm</text>
+      <text class="card-sub" x="12" y="158">• 0.5: Khám phá có chọn lọc</text>
+      <text class="card-sub" x="12" y="174">• 0.0: Bảo thủ, thụ động bằng lòng</text>
+      <text class="card-sub" x="12" y="192" fill="#059669" font-weight="700">Lực kéo: F_epistemic = grad(Ex)</text>
+    </g>
+  </g>
+
+  <!-- ==================== INTER-TIER COUPLING ZONE ==================== -->
+  <g transform="translate(35, 365)">
+    <!-- Upward arrow: Emergency Inhibit / Dimensionality Collapse -->
+    <path d="M 280 95 L 280 15" stroke="#e11d48" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrRed)"/>
+    <rect x="110" y="32" width="340" height="40" rx="8" fill="#fff1f2" stroke="#fda4af" stroke-width="1.5"/>
+    <text class="inter-label" x="125" y="48" fill="#be123c">ỨC CHẾ KHẨN CẤP: SỤP ĐỔ SỐ CHIỀU (Hypofrontality)</text>
+    <text class="inter-desc" x="125" y="64">Khi V_bio &lt; -0.7 ➔ Thân não triệt tiêu Tầng 2 (C ➔ 0, Ex ➔ 0) ép kích hoạt 4F</text>
+
+    <!-- Downward arrow: Willpower Override F_will -->
+    <path d="M 720 15 L 720 95" stroke="#4f46e5" stroke-width="3" marker-end="url(#arrBlue)"/>
+    <rect x="550" y="32" width="340" height="40" rx="8" fill="#eef2ff" stroke="#a5b4fc" stroke-width="1.5"/>
+    <text class="inter-label" x="565" y="48" fill="#3730a3">TOÁN TỬ Ý CHÍ F_will: ĐIỀU TIẾT THÂN NÃO NGƯỢC</text>
+    <text class="inter-desc" x="565" y="64">Ý chí từ C &amp; D bơm lực ngược lại Tầng 1, hạ nhịp tim A và trấn áp sợ hãi V</text>
+  </g>
+
+  <!-- ==================== TIER 1: PHYSIOLOGICAL HARDWARE ==================== -->
+  <g transform="translate(35, 475)">
+    <!-- Container Box -->
+    <rect x="0" y="0" width="950" height="215" rx="14" fill="url(#tier1Grad)" stroke="#fecdd3" stroke-width="2" filter="url(#shadowBox)"/>
+
+    <!-- Tier 1 Header -->
+    <rect x="20" y="16" width="310" height="26" rx="6" fill="#be123c"/>
+    <text class="badge-txt" x="30" y="33">TẦNG 1: NỘI MÔ SINH THỂ &amp; THẦN KINH TỰ CHỦ</text>
+    <text class="tier-freq" x="340" y="34" fill="#be123c">[Tick Rate: 10 Hz | Phản xạ tức thời | Thân não &amp; Polyvagal]</text>
+    <text class="tier-desc" x="690" y="34">Cốt lõi Sinh Tồn &amp; Phản Xạ 4F Nguyên Thủy</text>
+
+    <!-- 2 Physiological Modules + Fast Coupling -->
+    <!-- Card 1: Arousal Thể Lý -->
+    <g transform="translate(40, 54)">
+      <rect x="0" y="0" width="320" height="142" rx="10" fill="url(#cardArousal)" stroke="#fed7aa" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="10" width="85" height="18" rx="4" fill="#ea580c"/>
+      <text class="badge-txt" x="18" y="22">NỘI MÔ 10 HZ</text>
+      <text class="card-title" x="12" y="46" fill="#9a3412">1. Arousal Thể Lý (Năng Lượng)</text>
+      <text class="card-math" x="12" y="64" fill="#c2410c">A_phys(t) ∈ [0.0, 1.0]</text>
+      <text class="card-desc" x="12" y="84">Mức tiêu hao năng lượng, nhịp tim và giao cảm. Định hình từ kiệt sức (0.0) đến bùng nổ xung năng (1.0).</text>
+      <text class="card-sub" x="12" y="108">• 0.8 - 1.0: Tim đập nhanh, giao cảm cực độ</text>
+      <text class="card-sub" x="12" y="124">• 0.0 - 0.2: Trầm lắng, nghỉ ngơi, cạn năng lượng</text>
+    </g>
+
+    <!-- Central Fast Metabolic Loop -->
+    <g transform="translate(385, 75)">
+      <ellipse cx="90" cy="50" rx="65" ry="38" fill="#ffffff" stroke="#f43f5e" stroke-width="1.8" stroke-dasharray="4,3"/>
+      <text class="inter-label" x="90" y="45" text-anchor="middle" fill="#9f1239">GHÉP NỐI NỘI MÔ</text>
+      <text class="inter-desc" x="90" y="62" text-anchor="middle">Metabolic Coupling</text>
+      <text class="card-math" x="90" y="78" text-anchor="middle" fill="#e11d48">dA/dt ⟷ dV/dt</text>
+    </g>
+
+    <!-- Card 2: Neuroception Sinh Học -->
+    <g transform="translate(590, 54)">
+      <rect x="0" y="0" width="320" height="142" rx="10" fill="url(#cardNeuroception)" stroke="#fecdd3" stroke-width="1.5" filter="url(#cardShadow)"/>
+      <rect x="12" y="10" width="85" height="18" rx="4" fill="#e11d48"/>
+      <text class="badge-txt" x="18" y="22">POLYVAGAL</text>
+      <text class="card-title" x="12" y="46" fill="#9f1239">2. Neuroception (An Toàn Sinh Học)</text>
+      <text class="card-math" x="12" y="64" fill="#be123c">V_bio(t) ∈ [-1.0, +1.0]</text>
+      <text class="card-desc" x="12" y="84">Đánh giá vô thức của hệ thần kinh: Môi trường an toàn (+1) hay hiểm họa sinh tử (-1). Quyết định rẽ nhánh 4F.</text>
+      <text class="card-sub" x="12" y="108">• V_bio &lt; -0.7: Ngưỡng ngắt khẩn cấp V_crit</text>
+      <text class="card-sub" x="12" y="124">• Hysteresis: Vết trễ sang chấn theo Target_ID</text>
+    </g>
+  </g>
+</svg>
