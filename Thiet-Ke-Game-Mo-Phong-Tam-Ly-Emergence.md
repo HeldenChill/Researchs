@@ -14,47 +14,92 @@
 
 ---
 
-## 2. Trọng Tâm Kiến Trúc: Động Cơ Hai Tầng Nổi Sinh (The Two-Tier Emergence Engine - Kế Hoạch B)
+---
 
-Khắc phục hạn chế của mô hình 4 trục phẳng cũ (thiếu tính xã hội đa chiều và không biểu đạt được trọn vẹn 5 nhóm tính cách Big Five), *Project Anima* chính thức vận hành trên **Kiến trúc Không gian Trạng thái Hai Tầng (Two-Tier State Space Engine)** theo nguyên lý Hình học Vi phân (Fiber Bundle $\mathcal{E} \xrightarrow{\pi} \mathcal{B}$):
+## 2. Kiến Trúc Tổng Thể: Hệ Thống 6 Không Gian Logic Hợp Nhất (The Master 6-Space Architecture)
 
-$$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (1 Hz)}} \Big)$$
+Theo Nghị quyết phê chuẩn chính thức của **Giám đốc Dự án** (Biên bản Hội đồng Khoa học ngày 28/09/2026), *Project Anima* nâng cấp toàn diện từ mô hình động lực học cá nhân thành **Hệ Thống 6 Không Gian Logic Hợp Nhất**. Hệ thống phân định rạch ròi giữa Thực tại Ngoại cảnh, Phần cứng Sinh học, Động lực học Tâm lý, Định hướng Giá trị, Liên mạng Xã hội và Quyền năng Ý chí Siêu việt:
 
 ```mermaid
 graph TD
-    subgraph TIER1["TẦNG 1: KHÔNG GIAN CƠ SỞ THỂ LÝ & BẢN NĂNG (Base Space ℬ - Fast 10 Hz)"]
-        A_phys["1. A_phys: Physiological Arousal [0, 1]<br/>(Kích hoạt thần kinh tự chủ / Nhịp tim / Adrenaline)"]
-        V_bio["2. V_bio: Neuroception / Biological Valence [-1, +1]<br/>(Đánh giá vô thức an toàn vs sinh tử)"]
-        A_phys <-->|Tương tác thần kinh tự chủ cấp tốc| V_bio
+    subgraph S1_GLOBAL["1. KHÔNG GIAN SỰ KIỆN TOÀN CỤC (Event Space Ɛ - Ngoại cảnh Khách quan)"]
+        EV_PHYS["Xung lực Thể lý Khách quan (Bom đạn, Khí hậu, Va đập, Độc tố)"]
+        EV_SEMA["Xung lực Ngữ nghĩa / Xã hội (Lời nói, Bối cảnh, Mất mát, Quy tắc)"]
     end
 
-    subgraph TIER2["TẦNG 2: KHÔNG GIAN THỚ NHẬN THỨC & XÃ HỘI (Fiber Space ℱ - Slow 1 Hz)"]
-        C["3. Clarity (C) [0, 1]<br/>Băng thông thùy trán & Kìm hãm xung động"]
-        W["4. Warmth (W) [-1, +1]<br/>Gắn kết xã hội / Đồng cảm vs Thù địch"]
-        D["5. Dominance (D) [-1, +1]<br/>Khẳng định quyền lực vs Quy phục"]
-        Ex["6. Exploration (Ex) [0, 1]<br/>Động lực tò mò / Khám phá tri thức"]
+    subgraph S0_META["0. CHIỀU Ý CHÍ SIÊU CẤP (Meta-Volitional Dimension 𝒲 - Siêu Nhận thức)"]
+        WILL["Ý Chí Tự Vượt Ngưỡng & Ý Nghĩa Hiện Sinh (Will to Meaning / Agency)<br/>TOÁN TỬ BIẾN DẠNG ĐA TÔ-PÔ CẤP 2 (Reality Distortion Operator)"]
     end
 
-    TIER1 ==>|Gốc rễ chi phối & Bóp nghẹt hình học| TIER2
-    TIER2 -.->|Lực can thiệp nhận thức & Ý chí (F_will)| TIER1
+    subgraph S2_SOMATIC["2. KHÔNG GIAN THỂ LÝ NỘI MÔI (Somatic Space ℋ - Phần cứng Sinh học)"]
+        SOM_VARS["Glucose, Nước, Thân nhiệt, Độ nát mô (HP), Độc tố, Mệt mỏi<br/>(Nhiệt động lực học & Trao đổi chất bên trong Màng chắn Markov)"]
+    end
+
+    subgraph S3_PSYCH["3. ĐA TẠP KHÔNG GIAN TÂM LÝ HAI TẦNG (Psychological Space ℳ - Phần mềm Điều phối)"]
+        T1["Tầng 1 (10 Hz): Thụ cảm Bản năng & Tự chủ (A_phys, V_bio)"]
+        T2["Tầng 2 (1 Hz): Nhận thức & Khí chất Xã hội (C, W, D, Ex)"]
+        T1 <--> T2
+    end
+
+    subgraph S4_BELIEF["4. KHÔNG GIAN GIÁ TRỊ & NIỀM TIN (Belief Space ℘ - La bàn Hiện sinh)"]
+        BELIEF_VARS["Tiền nghiệm Đạo đức (Haidt), Ý thức hệ, Đức tin, Lẽ sống<br/>(Tham số cảnh quan θ định hình hàm thế năng V(S; θ))"]
+    end
+
+    subgraph S5_RELATION["5. KHÔNG GIAN QUAN HỆ ĐỒ THỊ (Relational Space ℛ - Cấu trúc Xã hội)"]
+        REL_GRAPH["Ma trận Cặp Đôi (Affinity, Trust, Power, Debt, Nemesis)<br/>(Cấu trúc tô-pô ghép cặp giữa các agent - O(N^2))"]
+    end
+
+    %% Dòng chảy tác động ngoại cảnh
+    EV_PHYS ==>|Tác động vật lý phá hủy trực tiếp| S2_SOMATIC
+    EV_PHYS -.->|Xung kích tức thì 50-100ms| T1
+    EV_SEMA ==>|Lọc qua Bộ lọc Thẩm định| T2
+
+    %% Thụ cảm thể lý lên tâm lý
+    S2_SOMATIC ==>|Tín hiệu Thần kinh Nội thụ (Interoception)| T1
+
+    %% La bàn niềm tin uốn nắn tâm lý
+    S4_BELIEF ==>|Định hình Độ dốc Địa hình & Hố Hút| T2
+
+    %% Quan hệ xã hội ghép cặp
+    S5_RELATION <==>|Ghép nối dao động cảm xúc liên cá nhân| T2
+
+    %% QUYỀN NĂNG BÓP MÉO TỐI CAO CỦA Ý CHÍ (META-WARPING)
+    WILL ==>|BÓP MÉO: San phẳng hố sợ hãi/trauma| S3_PSYCH
+    WILL ==>|BÓP MÉO: Khóa van thụ cảm đau & Vắt kiệt cơ thể| S2_SOMATIC
+    WILL ==>|BÓP MÉO: Đập vỡ định kiến & Tái sinh nhân cách| S4_BELIEF
+    WILL ==>|BÓP MÉO: Chuyển hóa tử thù thành đồng minh| S5_RELATION
 ```
 
-![Kiến Trúc Hai Tầng Không Gian Động Lực Học Tâm Lý](assets/diagram-twotier-architecture.svg)
-*Hình 0: Sơ đồ kiến trúc động cơ tâm lý Hai Tầng (Two-Tier Architecture): Tầng 1 Thể lý/Bản năng (10 Hz) làm nền tảng nâng đỡ Tầng 2 Nhận thức/Xã hội (1 Hz), biểu đạt trọn vẹn 5 nhân tố Big Five (OCEAN) và Vòng tròn Tương tác Xã hội.*
+### Bảng Quy Chuẩn 6 Không Gian Logic của Project Anima:
 
-### 2.1. Chi tiết các trục trạng thái:
+| Thứ tự | Tên Không Gian | Cương Vị Bản Thể Học | Cấu Trúc / Tọa Độ Cốt Lõi | Chu Kỳ Cập Nhật ($\Delta t$) | Vai Trò Trong Game Loop |
+| :---: | :--- | :--- | :--- | :--- | :--- |
+| **0** | **Ý Chí Siêu Cấp ($\mathcal{W}$)** | **Toán tử Biến dạng Cấp 2** (Meta-Operator) | Biên độ $\mathcal{W} \in [0, 1]$ + Vector ý hướng $\vec{\Phi}_{\text{intent}}$ | Bộc phát theo sự kiện | Ghi đè thực tại, san phẳng hố sợ hãi/trauma, đè bẹp cơn đau và thù hận vì đại nghĩa. |
+| **1** | **Sự Kiện Toàn Cục ($\mathcal{E}$)** | **Động lực Ngoại sinh** (Exogenous World) | $\vec{I}_{\text{visceral}} \oplus \vec{I}_{\text{semantic}} \oplus \text{Rules}$ | Theo diễn biến game | Phát xung lực hai luồng: đập trực diện Tầng 1/Somatic và lọc qua Tầng 2. |
+| **2** | **Thể Lý Nội Môi ($\mathcal{H}$)** | **Phần cứng Sinh học** (Biological Hardware) | $\vec{H} = (\text{Energy}, \text{Hydration}, \text{HP}, \text{Temp} \dots)$ | Nhanh ($10\text{ Hz}$) | Duy trì cân bằng sinh hóa, phát tín hiệu nội thụ (interoception) lên tâm lý. |
+| **3** | **Đa Tạp Tâm Lý ($\mathcal{M}$)** | **Không gian Pha Sinh-Tâm lý** (Psychological Phase Space) | $\vec{S} = (A_{\text{phys}}, V_{\text{bio}} \mid C, W, D, E_x)$ | Phân tầng ($10\text{ Hz}$ và $1\text{ Hz}$) | Trung tâm điều hòa cảm xúc, quyết định hành vi sinh tồn tức thời (4F) và kế hoạch. |
+| **4** | **Giá Trị & Niềm Tin ($\mathcal{P}$)** | **Tham số Cảnh quan** (Landscape Parameters) | $\vec{\theta} = (\text{Care}, \text{Hierarchy}, \text{Loyalty} \dots)$ | Cực chậm ($\tau \sim \text{tháng/năm}$) | Uốn nắn bề mặt thế năng $V(\vec{S}; \boldsymbol{\theta})$, quyết định ý nghĩa cuộc sống và hố hút mục đích. |
+| **5** | **Quan Hệ Đồ Thị ($\mathcal{R}$)** | **Tô-pô Liên Mạng Xã Hội** (Distributed Social Graph) | $\mathbf{R}_{ij} = (\text{Affinity}, \text{Trust}, \text{Power}, \text{Nemesis})$ | Theo nhịp tương tác ($O(N^2)$) | Ràng buộc liên cá nhân, vận hành cừu thù (Nemesis) và đồng điều hòa bầy đàn. |
+
+---
+
+### 2.1. Chi Tiết Đa Tạp Không Gian Tâm Lý Hai Tầng (Psychological State Space $\mathcal{M}$)
+
+Cốt lõi điều phối cảm xúc của tác tử vận hành trên **Đa Tạp Phân Thớ Hai Tầng (Fiber Bundle $\mathcal{E} \xrightarrow{\pi} \mathcal{B}$)**, tách biệt hai thang thời gian để tối ưu hiệu năng:
+
+$$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (1 Hz)}} \Big)$$
 
 #### Tầng 1: Lõi Thể Lý & Thần Kinh Tự Chủ (Tier 1 - Base Space $\mathcal{B}$, Tần số nhanh $10\text{ Hz}$)
 1. **$A_{\text{phys}}$ - Physiological Arousal ($[0.0, 1.0]$):** 
-   * Mức năng lượng và độ kích hoạt sinh học (nhịp tim, huyết áp, trương lực cơ).
-   * $\approx 0.0$: Tê liệt/ngủ say/suy sụp năng lượng; $\approx 0.5$: Vùng sẵn sàng cân bằng; $\approx 1.0$: Kích động thể lý tột đỉnh.
+   * Mức năng lượng và độ kích hoạt thần kinh tự chủ (nhịp tim, huyết áp, adrenaline).
+   * $\approx 0.0$: Tê liệt/ngủ say/suy sụp; $\approx 0.5$: Trạng thái sẵn sàng cân bằng; $\approx 1.0$: Kích động cực đại.
 2. **$V_{\text{bio}}$ - Neuroception / Biological Valence ($[-1.0, +1.0]$):**
    * Đánh giá an toàn vô thức của hệ thần kinh (Porges Polyvagal Theory).
-   * $+1.0$: Môi trường che chở, an toàn tuyệt đối; $-1.0$: Mối đe dọa sinh tử cận kề, kích hoạt chuông báo động đỏ.
+   * $+1.0$: Che chở, an toàn tuyệt đối; $-1.0$: Mối đe dọa sinh tử cận kề, báo động đỏ.
 
 #### Tầng 2: Không Gian Nhận Thức & Tương Tác Xã Hội (Tier 2 - Fiber Space $\mathcal{F}$, Tần số chậm $1\text{ Hz}$)
 3. **$C$ - Cognitive Clarity & Frontal Bandwidth ($[0.0, 1.0]$):**
-   * Dung lượng bộ nhớ làm việc của vỏ não trước trán (DLPFC). Quyết định năng lực kiềm chế xung động, phân tích logic và thực thi kế hoạch dài hạn.
+   * Dung lượng bộ nhớ làm việc của vỏ não trước trán (DLPFC). Quyết định năng lực kiềm chế xung động, tư duy chiến lược và thực thi kế hoạch dài hạn.
 4. **$W$ - Social Warmth / Affiliation ($[-1.0, +1.0]$):**
    * Trục Ngang của Vòng tròn Tương tác Xã hội (Interpersonal Circumplex).
    * $+1.0$: Đồng cảm, vị tha, gắn kết bầy đàn; $-1.0$: Lạnh lùng, thù địch, Machiavellian.
@@ -62,22 +107,41 @@ graph TD
    * Trục Dọc của Vòng tròn Tương tác Xã hội.
    * $+1.0$: Thống trị, chỉ huy, quyết đoán, kiểm soát; $-1.0$: Phục tùng, co cụm, nhún nhường, phụ thuộc.
 6. **$E_x$ - Epistemic Drive / Exploration ($[0.0, 1.0]$):**
-   * Trục tò mò nhận thức và săn tìm phần thưởng mới (Dopaminergic Seeking System của Jaak Panksepp).
-   * Động lực thúc đẩy nhân vật nghiên cứu khoa học, khám phá vùng đất mới hoặc thử nghiệm ý tưởng mạo hiểm.
+   * Động lực tò mò nhận thức và săn tìm phần thưởng mới (Dopaminergic Seeking System). Thúc đẩy nghiên cứu, khám phá và sáng tạo.
 
 ---
 
-### 2.2. Ánh Xạ Toàn Diện Mô Hình 5 Nhóm Tính Cách Big Five (OCEAN Mapping)
+### 2.2. Chi Tiết 5 Không Gian Vệ Tinh & Siêu Cấp
 
-Không cần tạo thêm 5 thanh thuộc tính tĩnh, tính cách Big Five tự nhiên **trồi sinh** từ các tham số cấu trúc của động cơ Hai Tầng:
+1. **Chiều Ý Chí Siêu Cấp ($\mathcal{W}$):** 
+   * Không phải tài nguyên thụ động của trục $C$, mà là **Toán tử Biến dạng Cấp 2** ($\hat{\mathcal{W}}$).
+   * Được hỗ trợ bởi trung tâm tính bất khuất của não bộ (aMCC - anterior Mid-Cingulate Cortex). Có khả năng can thiệp trực tiếp bóp méo thế năng tâm lý $V_{\text{warped}} = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}$, san phẳng hố sợ hãi/trauma và khóa van cảm giác đau thể lý để hoàn thành mục đích tối thượng.
+2. **Không Gian Sự Kiện Toàn Cục ($\mathcal{E}$):**
+   * Bao trùm toàn bộ thế giới game (Context + Rules + Environment).
+   * Phát sinh hai luồng dữ liệu độc lập: **Luồng Thể lý Khách quan** (sát thương, nhiệt độ, chấn động $\to$ đập thẳng vào Thể lý $\mathcal{H}$ và Tâm lý Tầng 1) và **Luồng Ngữ nghĩa** (đối thoại, đạo đức, phe phái $\to$ lọc qua Thẩm định chủ quan vào Tâm lý Tầng 2).
+3. **Không Gian Thể Lý Nội Môi ($\mathcal{H}$):**
+   * Phần cứng cơ sinh học bên trong Màng chắn Markov của nhân vật: $\vec{H} = (\text{Energy}, \text{Hydration}, \text{Temp}, \text{TissueIntegrity/HP}, \text{Toxin}, \text{Fatigue})$.
+   * Hoạt động theo quy luật chuyển hóa nhiệt động lực học; độc lập với nhận thức chủ quan và liên tục truyền tín hiệu thần kinh nội thụ (interoception) lên Tầng 1.
+4. **Không Gian Giá Trị & Niềm Tin ($\mathcal{P}$):**
+   * Vector tiền nghiệm đạo đức và nhân sinh quan $\vec{\theta}$ (dựa trên Thuyết Nền tảng Đạo đức của Jonathan Haidt & Thought Cabinet của Disco Elysium).
+   * Đóng vai trò là **Không gian Tham số Cảnh quan**, định hình vị trí các hố hút mục đích sống trên bề mặt thế năng $V(\vec{S}; \boldsymbol{\theta})$.
+5. **Không Gian Quan Hệ Đồ Thị Liên Cá Nhân ($\mathcal{R}$):**
+   * Đồ thị có hướng đa tác tử mang vector thuộc tính cạnh $\mathbf{R}_{ij} = (\text{Affinity}, \text{Trust}, \text{PowerDynamic}, \text{Debt}, \text{NemesisAttractor})$.
+   * Điều hòa sự gắn kết xã hội, hiệu ứng bầy đàn và chi phối toàn bộ cơ chế Cừu Thù Động Lực Học (Dynamical Nemesis).
 
-| Chiều Tính Cách (Big Five) | Ánh Xạ Vào Động Cơ Hai Tầng (*Project Anima*) | Cơ Chế Động Lực Học Trong Game |
+---
+
+### 2.3. Ánh Xạ Toàn Diện Mô Hình 5 Nhóm Tính Cách Big Five (OCEAN Mapping)
+
+Không cần tạo thêm 5 thanh thuộc tính tĩnh, tính cách Big Five tự nhiên **trồi sinh** từ các tham số cấu trúc của Đa tạp Tâm lý và Cảnh quan Niềm tin:
+
+| Chiều Tính Cách (Big Five) | Ánh Xạ Vào Kiến Trúc (*Project Anima*) | Cơ Chế Động Lực Học Trong Game |
 | :--- | :--- | :--- |
 | **Neuroticism (N - Tâm lý bất ổn)** | Độ nhạy cảm và độ dốc của Tầng 1 ($A_{\text{phys}}, V_{\text{bio}}$) | Điểm cân bằng $V_{\text{bio}}$ thấp; ngưỡng hoảng loạn nhỏ; hệ số khuếch đại xung lực tiêu cực cao. |
 | **Extraversion (E - Hướng ngoại)** | Tổ hợp Dominance ($D$), Exploration ($E_x$) và Warmth ($W$) | $D > 0, E_x > 0$: Chủ động kết nối, nói to, ưa thích đám đông và săn tìm kích thích môi trường. |
-| **Openness to Experience (O - Cởi mở)** | Trục Exploration ($E_x$) tại Tầng 2 | $E_x$ kháng suy giảm; ưu tiên các hành động học hỏi, sáng tạo, giải mã công nghệ lạ. |
-| **Agreeableness (A - Dễ chịu / Hòa đồng)** | Trục Social Warmth ($W$) khi $V_{\text{bio}} > 0$ | $W \to +1$: Dễ tha thứ, sẵn sàng chia sẻ thức ăn, nhường quyền kiểm soát ($D \approx 0$). |
-| **Conscientiousness (C - Tận tâm)** | Trục Clarity ($C$) + Trọng số Ý chí $\vec{F}_{\text{will}}$ | Duy trì $C$ bền bỉ trước mệt mỏi; tốc độ xả trôi ý chí $\tau_{\text{drain}}$ cực chậm; kỷ luật cao. |
+| **Openness to Experience (O - Cởi mở)** | Trục Exploration ($E_x$) tại Tầng 2 + Hệ số Niềm tin $\theta$ | $E_x$ kháng suy giảm; ưu tiên các hành động học hỏi, sáng tạo, giải mã công nghệ lạ. |
+| **Agreeableness (A - Dễ chịu / Hòa đồng)** | Trục Social Warmth ($W$) khi $V_{\text{bio}} > 0$ + Trọng số $\mathbf{R}_{ij}$ | $W \to +1$: Dễ tha thứ, sẵn sàng chia sẻ thức ăn, nhường quyền kiểm soát ($D \approx 0$). |
+| **Conscientiousness (C - Tận tâm)** | Trục Clarity ($C$) + Cường độ Ý chí $\mathcal{W}$ | Duy trì $C$ bền bỉ trước mệt mỏi; khả năng huy động $\mathcal{W}$ cao; kỷ luật và kiên định mục tiêu. |
 
 ---
 
@@ -124,15 +188,30 @@ Không cần tạo thêm 5 thanh thuộc tính tĩnh, tính cách Big Five tự 
 
 ---
 
-### 3.4. Cơ Chế 4: Ý Chí — "Bàn Tay Viết Lại Địa Hình" & Hành Vi Anh Hùng Nổi Sinh (Willpower Override)
-Ý chí trong game là một **Toán Tử Ghi Đè Gradient Động Lực Học (Gradient Override Operator)** được tiếp sức bởi thùy trán ($C$):
-* **Ghi đè phản xạ sinh học:** Khi rơi vào tình huống nguy tử ($V_{\text{bio}} \to -1$), nhân vật sở hữu Ý chí mạnh mẽ ($C > 0.6$ và có Mục Đích Tối Thượng $\vec{P}_{\text{purpose}}$) có thể kích hoạt lực nội sinh:
-  $$\vec{F}_{\text{will}} = -k_w \cdot \nabla V(\vec{S}) + \vec{P}_{\text{purpose}}$$
-* **Hao mòn Bản ngã (Ego Depletion):** Việc duy trì $\vec{F}_{\text{will}}$ tiêu hao dự trữ năng lượng nhận thức theo hàm mũ. Nếu hành động kéo dài vượt quá sức chịu đựng, nhân vật sẽ rơi vào tình trạng kiệt quệ thần kinh sau chiến tích.
-* **Hào quang Lan tỏa Ý chí (Willpower Resonance):** Nhân vật hành động anh hùng đóng vai trò như một nguồn trường ổn định, nâng ngưỡng sụp đổ nhận thức cho toàn bộ đồng đội xung quanh, thắp sáng hy vọng giữa hoàn cảnh ngặt nghèo nhất.
+### 3.4. Cơ Chế 4: Ý Chí — "Bàn Tay Viết Lại Địa Hình" & Toán Tử Biến Dạng Đa Không Gian (Reality Distortion Operator $\hat{\mathcal{W}}$)
+
+Ý chí trong *Project Anima* không phải là một thanh mana thụ động hay tài nguyên sinh lý học tầm thường gắn với trục $C$. Ý chí chính thức được định danh là **Toán Tử Biến Dạng Đa Không Gian Cấp 2 (Second-Order Meta-Deformation Operator $\hat{\mathcal{W}}$)** — hiện thân cho "Bàn tay viết lại địa hình":
+
+* **Công thức Biến dạng Thế năng Tâm lý:**
+  Khi một nhân vật bộc phát Ý chí vì Mục Đích Hiện Sinh Tối Thượng ($\vec{\Phi}_{\text{intent}}$ thuộc Không gian Niềm tin $\mathcal{P}$):
+  $$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \mathcal{W} \cdot \vec{\Phi}_{\text{intent}}$$
+* **Quyền Năng Bóp Méo Đa Không Gian (Cross-Space Warping):**
+  1. **San phẳng Hố Sợ hãi / Trauma trên Đa tạp Tâm lý ($\mathcal{M}$):**
+     * Độ dốc của hố hoảng loạn sinh học tại $V_{\text{bio}} \to -1$ bị triệt tiêu hoàn toàn ($\Delta E_{\text{fear}} \to 0$).
+     * Nhân vật bước qua lửa đạn, lao vào cứu đồng đội hoặc đối mặt với tử địch từng gây PTSD mà không bị rơi vào trạng thái sụp đổ số chiều 4F.
+  2. **Khóa Van Thụ Cảm Đau trên Không gian Thể lý ($\mathcal{H}$):**
+     * Trung tâm ý chí sống não bộ (aMCC) bắn xung ức chế GABAergic bịt miệng hạch hạnh nhân và khóa cảm giác đau đớn (nociception gating).
+     * Cơ thể được cưỡng bức giải phóng năng lượng trao đổi chất dự trữ cuối cùng từ mô sâu ngay cả khi gan đã cạn kiệt glycogen.
+  3. **Đập tan Thù hận Cá nhân trên Không gian Quan hệ ($\mathcal{R}$):**
+     * Nhân vật tạm thời phong tỏa cực hút thù địch $\text{NemesisAttractor}$ để hợp tác với kẻ thù truyền kiếp vì lý tưởng chung tối thượng (Sự tha thứ siêu việt).
+  4. **Tái Cấu Trúc Định Kiến trên Không gian Niềm tin ($\mathcal{P}$):**
+     * Tự phản tỉnh siêu nhận thức, đập vỡ giáo điều cố hữu để đón nhận chân lý mới (Tự vượt ngưỡng bản thân - Self-Overcoming).
+* **Cơ Chế Gameplay Signature (Willpower Awakening):**
+  * Khi $\mathcal{W} > \theta_{\text{transcendent}}$, trò chơi kích hoạt hiệu ứng đặc trưng: Thế giới xung quanh chuyển sang chế độ cô đọng thời gian (bullet time), tạp âm lắng xuống chỉ còn tiếng đập của tâm thức, màn hình chuyển sang vệt sáng đơn sắc hướng thẳng về mục tiêu.
+  * Sau khi hoàn thành hành động phi thường, nhân vật rơi vào trạng thái **Kiệt Quệ Siêu Nhận Thức (Metacognitive Crash)**, đòi hỏi thời gian nghỉ ngơi và đồng điều hòa xã hội sâu sắc để phục hồi.
 
 ![Toán Tử Ý Chí và Hào Quang Lan Tỏa](assets/diagram-willpower-override.svg)
-*Hình 4: Toán tử Ý chí ghi đè dốc địa hình sinh học ($\vec{F}_{\text{will}}$) hướng về mục đích cao thượng ($\vec{P}_{\text{purpose}}$) và Hào quang lan tỏa nâng đỡ đồng đội xung quanh.*
+*Hình 4: Toán tử Ý chí bóp méo địa hình thế năng sinh học ($\hat{\mathcal{W}}$), san phẳng các hố sợ hãi và lan tỏa trường ổn định nâng đỡ đồng đội xung quanh.*
 
 ---
 
@@ -181,36 +260,51 @@ flowchart TD
 
 ---
 
-## 4. Tầng Giao Tiếp Thế Giới: Biến Cố & Lời Nói Thành Xung Lực 6 Chiều (Event-to-Force Abstraction)
+## 4. Tầng Giao Tiếp Thế Giới: Không Gian Sự Kiện Toàn Cục & Hai Luồng Xung Lực (Event Pipeline)
 
-Trò chơi sử dụng kiến trúc trừu tượng hóa hai bánh răng để chuyển hóa thế giới thành động lực học toán học siêu nhẹ ($< 0.05 \text{ ms}$ trên CPU):
+Không Gian Sự Kiện Toàn Cục ($\mathcal{E}$) bao trùm toàn bộ thế giới game (Context + Rules), chuyển hóa các tương tác vật lý và xã hội thành hai luồng xung lực chuyên biệt:
 
 ```mermaid
-flowchart LR
-    Event["Biến Cố / Lời Nói / Hành Động<br/>(Event Emitter)"] --> Raw["Bánh Răng 1: Vector Xung Lực Gốc 6D<br/>I_raw = (ΔA_phys, ΔV_bio | ΔC, ΔW, ΔD, ΔEx)"]
-    Raw --> Filter{"Bánh Răng 2: Bộ Lọc Nhận Thức Chủ Quan<br/>Filter(S_hientai, Trauma_Basins, Rel_Matrix)"}
-    Filter --> Final["Xung Lực Thực Nhận (I_perceived)<br/>Nạp vào tích phân Euler hai tốc độ"]
+flowchart TD
+    Event["BIẾN CỐ THẾ GIỚI (Global Event Emitter Ɛ)<br/>Game Context + Environment + Social Interaction"]
+    
+    subgraph SOMATIC_BRANCH["Luồng 1: Xung Lực Thể Lý Khách Quan (Visceral / Somatic Flow)"]
+        Raw_Som["Somatic Payload<br/>ΔHP, Sốc Nhiệt, Chấn Động, Độc Tố"]
+        Raw_Som ==>|ĐẬP TRỰC DIỆN 50-100ms| Somatic_Space["Không Gian Thể Lý ℋ & Tâm Lý Tầng 1 (A_phys, V_bio)<br/>(Bỏ qua hoàn toàn bộ lọc nhận thức)"]
+    end
+
+    subgraph SEMANTIC_BRANCH["Luồng 2: Xung Lực Ngữ Nghĩa / Xã Hội (Semantic Flow)"]
+        Raw_Sem["Semantic Payload<br/>ΔC, ΔW, ΔD, ΔEx, target_id"]
+        Raw_Sem --> Filter{"Bộ Lọc Thẩm Định Chủ Quan<br/>Filter(S, Niềm Tin θ, Vết Sẹo Ký Ức, Quan Hệ R_ij)"}
+        Filter --> Perceived["Xung Lực Thực Nhận (I_perceived)<br/>Nạp vào Tâm Lý Tầng 2 (1 Hz)"]
+    end
+
+    Event ==> SOMATIC_BRANCH
+    Event ==> SEMANTIC_BRANCH
 ```
 
-### 4.1. Cấu Trúc Xung Lực Sự Kiện 6 Chiều (`ImpactVector`)
+### 4.1. Cấu Trúc Xung Lực Sự Kiện Toàn Cục (`EventPayload`)
 
 ```python
 from dataclasses import dataclass
+from typing import Optional
 
 @dataclass
-class ImpactVector:
-    # --- Tier 1: Tác động Thể lý & Bản năng (Fast 10 Hz) ---
-    delta_A_phys: float   # Kích hoạt nhịp tim, giật mình, adrenaline [-1.0, +1.0]
-    delta_V_bio: float    # Đánh giá đe dọa sinh tử vs che chở an toàn [-1.0, +1.0]
+class SomaticPayload:
+    """Luồng thể lý: Đập thẳng vào Somatic Space H và Tâm lý Tầng 1 (10 Hz)"""
+    delta_tissue_damage: float = 0.0  # Tổn thương mô cơ học (mất máu, rách da, gãy xương) [-1.0, 0.0]
+    delta_temperature: float = 0.0    # Sốc nhiệt (lửa thiêu, đóng băng)
+    delta_toxin: float = 0.0          # Nhiễm độc, ngạt khói [0.0, 1.0]
+    delta_A_shock: float = 0.0        # Xung kích động adrenaline trực tiếp [0.0, 1.0]
 
-    # --- Tier 2: Tác động Nhận thức & Xã hội (Slow 1 Hz) ---
-    delta_C: float        # Tổn hao hoặc phục hồi băng thông nhận thức [-1.0, +1.0]
-    delta_W: float        # Gia tăng gắn kết yêu thương vs thù ghét lạnh lùng [-1.0, +1.0]
-    delta_D: float        # Khẳng định quyền lực vs nhục mạ hạ thấp vị thế [-1.0, +1.0]
-    delta_Ex: float       # Kích thích trí tò mò vs gây chán nản suy kiệt [-1.0, +1.0]
-    
-    # --- Metadata định vị quan hệ ---
-    target_id: str = None # ID đối tượng phát sinh tương tác (dùng cho Nemesis System)
+@dataclass
+class SemanticPayload:
+    """Luồng nhận thức: Lọc qua Subjective Appraisal Filter vào Tầng 2 (1 Hz)"""
+    delta_C: float = 0.0              # Tác động băng thông nhận thức [-1.0, +1.0]
+    delta_W: float = 0.0              # Biến động gắn kết xã hội [-1.0, +1.0]
+    delta_D: float = 0.0              # Khẳng định vs hạ thấp vị thế quyền lực [-1.0, +1.0]
+    delta_Ex: float = 0.0             # Kích thích tò mò vs gây nản chí [-1.0, +1.0]
+    target_id: Optional[str] = None   # Đối tượng phát sinh tương tác (Nemesis/Đồng minh)
 ```
 
 #### Một số ví dụ xung lực thực tế:
