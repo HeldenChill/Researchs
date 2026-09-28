@@ -228,5 +228,11 @@ To eliminate high-barrier jargon, mechanical analogies were established:
   2. Build the unified Python / C# mathematical simulation engine.
   3. Wire up the 3D Interactive Three.js / WebGL visualization sandbox.
 
+---
+
+## 5. Session Update — Independent Validation Council and Vietnamese Editing Handoff (2026-09-28)
+
+The Project Director established a two-agent validation council, required all review activity to be logged in `EvaluationMinutes/` rather than chat, commissioned an audit of the first psychological-space meeting, and requested a source-linked explanatory supplement. The council's first two review sessions, their evidence limits, corrections to mathematical and empirical claims, and the handoff for Antigravity to improve the Vietnamese writing are recorded in [the dedicated session memory](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md). This new review supersedes earlier unqualified claims in this memory that the five stress tests were run or that the 2+4 architecture has been empirically validated; those claims remain part of the historical dialogue, not established findings.
+
 
 

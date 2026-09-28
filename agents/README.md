@@ -1,7 +1,18 @@
 # Council of Expert Agents: Psychological State Space & Emergent Simulation
 ### (Project Anima Expert Advisory Board)
 
-This directory serves as the centralized registry for the profiles, operational methodologies, and **Isolated Memory Systems (`memory.md`)** of the four Senior Advisory Experts established during the peer-review and architecture validation of *Project Anima*.
+This directory serves as the centralized registry for the profiles, operational methodologies, and **Isolated Memory Systems (`memory.md`)** of the advisory experts and the independent validation council of *Project Anima*.
+
+## Independent Validation Council
+
+The [validation council](validation-council/README.md) checks claims made in meeting minutes against traceable sources and examines whether the sources actually support the scientific, mathematical, and technical conclusions. Its two members are agent roles, not real credentialed researchers. No meeting has been audited yet.
+
+| Agent | Responsibility | Profile | Memory |
+| :--- | :--- | :--- | :--- |
+| **Minh Anh Trần** | Source provenance and evidence quality | [AGENT.md](minh-anh-tran/AGENT.md) | [memory.md](minh-anh-tran/memory.md) |
+| **Quang Huy Lê** | Scientific reasoning, equations, and inference | [AGENT.md](quang-huy-le/AGENT.md) | [memory.md](quang-huy-le/memory.md) |
+
+Every validation session produces [review minutes](../EvaluationMinutes/README.md) recording the work and verdicts in `EvaluationMinutes/`. On the Chair's request, the council may also produce a source-linked explanatory supplement for an individual meeting. The formats and verdict criteria are in the [council protocol](validation-council/README.md).
 
 ---
 

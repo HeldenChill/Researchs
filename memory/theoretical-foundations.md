@@ -1,4 +1,6 @@
 # Theoretical Foundations & Mathematical Formulations
+
+> **Evidence note (2026-09-28):** Equations and cross-domain mappings below include Project Anima design hypotheses. The independent council's [review and Antigravity handoff](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md) distinguishes mathematical deductions, outside evidence, and unverified simulation/clinical claims. Read that review before treating these formulations as validated scientific results.
 **Project:** Computational Modeling of Psychological Systems, Trauma Dynamics & Willpower  
 **File Type:** Project-Internal Theoretical Memory  
 **Language:** English  
