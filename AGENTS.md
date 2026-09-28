@@ -37,6 +37,9 @@ This workspace is dedicated to computational research, psychological dynamical m
 - **GS. Marcus Thorne:** [`agents/marcus-thorne/AGENT.md`](agents/marcus-thorne/AGENT.md) | Memory: [`agents/marcus-thorne/memory.md`](agents/marcus-thorne/memory.md) (Empirical Psychology, 5 Stress-Test Scenarios).
 - **GS. Gabriel Brandt:** [`agents/gabriel-brandt/AGENT.md`](agents/gabriel-brandt/AGENT.md) | Memory: [`agents/gabriel-brandt/memory.md`](agents/gabriel-brandt/memory.md) (Cognitive Volition, Agency Cybernetics, Downward Causality & Willpower $\mathcal{W}$).
 - **GS. Thaddeus Mercer:** [`agents/thaddeus-mercer/AGENT.md`](agents/thaddeus-mercer/AGENT.md) | Memory: [`agents/thaddeus-mercer/memory.md`](agents/thaddeus-mercer/memory.md) (Social Cognition, Moral Neuroethics, Epistemic Networks & Beliefs $\mathcal{P}$).
+- **GS. Valeria Moreau:** [`agents/valeria-moreau/AGENT.md`](agents/valeria-moreau/AGENT.md) | Memory: [`agents/valeria-moreau/memory.md`](agents/valeria-moreau/memory.md) (Social Neuroscience, Attachment Topologies & Relational Dynamics $\mathcal{R}$).
+- **GS. Alistair Finch:** [`agents/alistair-finch/AGENT.md`](agents/alistair-finch/AGENT.md) | Memory: [`agents/alistair-finch/memory.md`](agents/alistair-finch/memory.md) (Computational Environmental Physics, Perturbation Dynamics & Event Causality $\mathcal{E}$).
+- **GS. Viktor Lindqvist:** [`agents/viktor-lindqvist/AGENT.md`](agents/viktor-lindqvist/AGENT.md) | Memory: [`agents/viktor-lindqvist/memory.md`](agents/viktor-lindqvist/memory.md) (Adaptive Physiology, Metabolic Allostasis & Bioenergetic Dynamics $\mathcal{H}$).
 
 ---
 
@@ -66,3 +69,6 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes: Identification & Topology Audit of the Master 6-Space Architecture.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes: Deconstruction of Meta-Volitional Space & Warping Operator ($\mathcal{W}$).
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes: Deconstruction of Value & Belief Space ($\mathcal{P}$) and Thought Cabinet Lifecycle.
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md) — Official Minutes: Deconstruction of Interpersonal & Relational Space ($\mathcal{R}$), Sparse Multi-Graph & Dynamic Nemesis.
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md) — Official Minutes: Deconstruction of Global Exogenous Event Space ($\mathcal{E}$), Two-Tier Appraisal Pipeline & Zero-Allocation RingBuffer.
+- [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md) — Official Minutes: Deconstruction of Somatic Homeostasis Space ($\mathcal{H}$), Dual-Rate Pipeline & 32B Blittable Engine.

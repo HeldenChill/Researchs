@@ -168,6 +168,36 @@ To eliminate high-barrier jargon, mechanical analogies were established:
   1. Formalized the 5 orthogonal dimensions of $\mathcal{P}$: $\vec{\theta}_{\text{moral}}$ (6 Haidt Moral Foundations), $\delta_{\text{dogma}}$ (Epistemic Calcification / Bayesian Prior Precision), $\sigma_{\text{sacred}}$ (Sacred Barrier creating infinite potential walls $V \to \infty$), $\lambda_{\text{locus}}$ (Existential Locus of Control), and $\alpha_{\text{tribal}}$ (In-Group Memetic Coupling).
   2. Architectural design of the "Thought Cabinet" lifecycle (Seed $\to$ Dissonant Incubation $\to$ Crystallization $\to$ Crisis Bifurcation).
 
+### Stage 15: Deconstruction of the Relational Space ($\mathcal{R}$)
+* **Date:** 2026-09-28
+* **Context:** The Project Director ordered the council session to deconstruct the Interpersonal / Relational Space, appointing **Prof. Valeria Moreau** (Social Neuroscience & Relational Dynamics), recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md).
+* **Key Breakthroughs:**
+  1. **Ontological Asymmetry:** Refuted naive scalar `affinity`. Proved $\mathcal{R}$ is a **Multilayer Directed Edge Manifold** on a social graph $\mathcal{G} = (\mathcal{V}, \mathcal{E}_{\text{rel}})$ where $\vec{R}_{ij} \neq \vec{R}_{ji}$.
+  2. **5 Orthogonal Dimensions of Edge $\vec{R}_{ij}$:** $\alpha_{\text{aff}}$ (Affinity/Attachment Trust $[-1, 1]$), $\beta_{\text{dom}}$ (Dominance Differential $[-1, 1]$), $\gamma_{\text{debt}}$ (Reciprocity Debt $[-1, 1]$), $\mu_{\text{tom}}$ (Theory of Mind Fidelity $[0, 1]$), and $\tau_{\text{bond}}$ (Trauma Bonding $[0, 1]$).
+  3. **Dynamics & Engine Performance:** Formulated differential edge ODE with natural social decay $\mathbf{\Lambda}$, reciprocity mirroring $\mathbf{K}_{\text{recip}}$, and betrayal catastrophe hysteresis. Kai Sorenson architected `SparseMultiGraph` (24 bytes/edge) and Active Social Bubbles (10-20 agents at 1Hz, rest at 0.05Hz/dormant) with emergent Dynamic Nemesis and Dynamic Brotherhood triggers.
+
+### Stage 16: Deconstruction of the Global Exogenous Event Space ($\mathcal{E}$)
+* **Date:** 2026-09-28
+* **Context:** The Project Director convened Session 6 of the Council, ordering the formal deconstruction of the Event Space, appointing **Prof. Alistair Finch** (Computational Environmental Physics & Event Causality), recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md).
+* **Key Breakthroughs:**
+  1. **Ontological Shift:** Abolished naive callback handlers (`OnEventTriggered`). Formulated $\mathcal{E}$ as an **Objective Spatio-Temporal Perturbation Function Space** where events exist as physical wave packets independently of whether an observer is present.
+  2. **5 Orthogonal Dimensions of Event $\vec{e} \in \mathcal{E}$:** $\mathcal{I}_{\text{visc}}$ (Visceral Kinetic Intensity $[0, 1]$), $\vec{\mathcal{S}}_{\text{sem}}$ (Semantic Valence & Moral Gravity $[-1, 1]^K$), $\mathcal{D}_{\text{decay}}$ (Spatio-Temporal Radius & Half-life $\mathbb{R}^+ \times \mathbb{R}^+$), $\mathcal{U}_{\text{ent}}$ (Epistemic Surprise / Information Entropy $[0, 1]$), and $\vec{\Omega}_{\text{vec}}$ (Target Directionality Matrix).
+  3. **Two-Tier Appraisal Pipeline:**
+     * *Tier 1 (Subcortical fast bypass ~50ms):* Visceral shock $\mathcal{I}_{\text{visc}}$ hits Thalamus $\to$ Amygdala $\to$ Brainstem directly, forcing $A_{\text{phys}} \to 1.0, V_{\text{bio}} \to -1.0$ with zero conscious gating.
+     * *Tier 2 (Cognitive Appraisal Matrix $\mathbf{F} \sim 300\text{ms}$):* Cortical decoding transforms $\vec{\mathcal{S}}_{\text{sem}}$ via $\vec{I}_{\text{appraised}} = \mathbf{F}(\vec{S}, \vec{\theta}, \vec{R}) \cdot \mathbf{A}_{\text{dist}} \cdot \vec{e}(t) + \hat{\mathcal{W}}^{\text{reappraisal}}$.
+  4. **Engine Architecture (Kai Sorenson):** `EventDataBlittable` (48 bytes fixed struct), Zero-Allocation Circular Event RingBuffer, Spatial BVH broadphase filtering, and Rumor Propagation Networks on `SparseMultiGraph`.
+
+### Stage 17: Deconstruction of the Somatic Homeostasis Space ($\mathcal{H}$) & Theoretical Completion
+* **Date:** 2026-09-28
+* **Context:** The Project Director convened Session 7 of the Council, ordering the autonomous debate and formal deconstruction of the biological hardware space, appointing **Prof. Viktor Lindqvist** (Adaptive Physiology, Metabolic Allostasis & Bioenergetics), recorded in [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md).
+* **Key Breakthroughs:**
+  1. **Ontological Shift:** Abolished naive monolithic health bars (`HP = 100`). Formulated biological body as an **open thermodynamic dissipative structure** (Prigogine / Schrödinger) consuming negative entropy to maintain setpoints $\vec{H}^*$.
+  2. **5 Orthogonal Dimensions of Hardware $\vec{H} \in \mathcal{H}$:** $E_{\text{glyc}}$ (Metabolic Energy & Glycogen $[0, 1]$), $P_{\text{pain}}$ (Tissue Damage & Nociceptive Pain $[0, 1]$), $S_{\text{sleep}}$ (Sleep Pressure & Adenosine Debt $[0, 1]$), $W_{\text{hydr}}$ (Fluid Balance & Hemodynamics $[0, 1]$), and $T_{\text{thermo}}$ (Core Body Temperature Deviation $[-1, 1]$).
+  3. **Homeostatic Error SDE & Two-Way Coupling:**
+     * Forward ($\mathcal{H} \to \mathcal{M}$): Homeostatic error vector $\vec{e}_{\text{homeo}} = |\vec{H} - \vec{H}^*|$ drives Tier 1 base space ($A_{\text{phys}} \to 1.0, V_{\text{bio}} \to -1.0$) via hypothalamus and brainstem alarms.
+     * Backward ($\mathcal{W} \to \mathcal{H}$): Willpower $\hat{\mathcal{W}}$ triggers PAG endorphin pain-gating and adrenaline mobilization, accumulating Allostatic Debt ($\mathcal{A}_{\text{load}}$) that causes a devastating **Post-Warp Somatic Crash** upon volitional release.
+  4. **Engine Architecture (Kai Sorenson):** Dual-Rate pipeline (10 Hz fast loop for tissue damage/pain; 0.1 Hz slow loop with time-slicing for metabolic/sleep/thermal processes) packed into a **32-byte blittable struct (`SomaticState32B`)**, requiring only 32 KB RAM for 1000 NPCs (fitting inside CPU L1 Cache).
+
 ---
 
 ## 3. Related Artifacts & Repository Files
@@ -176,15 +206,27 @@ To eliminate high-barrier jargon, mechanical analogies were established:
   * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes of the Council Meeting on Master 6-Space Architecture.
   * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes of the Willpower Space Deconstruction Meeting.
   * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes of the Belief Space Deconstruction Meeting.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md) — Official Minutes of the Relational Space Deconstruction Meeting.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md) — Official Minutes of the Global Exogenous Event Space Deconstruction Meeting.
+  * [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md) — Official Minutes of the Somatic Homeostasis Space Deconstruction Meeting.
 * [`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md) — Upgraded Game Design Document with the Master 6-Space Architecture.
 * [`assets/diagram-twotier-architecture.svg`](../assets/diagram-twotier-architecture.svg) — High-Definition Vector Architecture Diagram for Two-Tier Engine.
-* [`agents/README.md`](../agents/README.md) — Registry of the 6 Senior Expert Agents with dedicated persona and memory files.
+* [`agents/README.md`](../agents/README.md) — Registry of the Senior Expert Agents with dedicated persona and memory files.
 
 ---
 
-## 4. Current State of the Codebase for the Next Session
-* **Core Theoretical Status:** Master 6-Space Unified Architecture established. Willpower ($\mathcal{W}$) and Belief ($\mathcal{P}$) spaces fully deconstructed into 5D orthogonal vectors and dynamic ODEs.
-* **Next Agenda (Per Director's Order):** Deconstruct the remaining spaces: Somatic Homeostasis ($\mathcal{H}$), Relational Graph Topology ($\mathcal{R}$), and Global Exogenous Event Space ($\mathcal{E}$).
+## 4. Current State of the Codebase & Next Directives
+* **Core Theoretical Status:** **100% Complete!** All 6 spaces fully deconstructed and mathematically formalized:
+  1. $\mathcal{M}$ (Psychological 6D: Base 10Hz & Fiber 1Hz)
+  2. $\mathcal{W}$ (Willpower 5D & Manifold Warping Operator $\hat{\mathcal{W}}$)
+  3. $\mathcal{P}$ (Values & Beliefs 5D & Thought Cabinet Lifecycle)
+  4. $\mathcal{R}$ (Multilayer Directed Relational Graph 5D & Dynamic Nemesis)
+  5. $\mathcal{E}$ (Exogenous Events 5D & Two-Tier Appraisal Pipeline)
+  6. $\mathcal{H}$ (Somatic Homeostasis 5D & Dual-Rate 32B Blittable Engine)
+* **Next Directives (Per Director's Order):** Transition from Theoretical Deconstruction to **Implementation & Code Architecture**:
+  1. Update and synchronize the unified Game Design Document ([`Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md`](../Thiet-Ke-Game-Mo-Phong-Tam-Ly-Emergence.md)).
+  2. Build the unified Python / C# mathematical simulation engine.
+  3. Wire up the 3D Interactive Three.js / WebGL visualization sandbox.
 
 
 

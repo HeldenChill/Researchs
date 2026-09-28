@@ -30,8 +30,11 @@ graph TD
 | **Dr. Elena Rostova** | Autonomic Neurobiology, Polyvagal Theory, CB5T, Neural Metabolism | [`agents/elena-rostova/AGENT.md`](file:///g:/Projects/Researchs/agents/elena-rostova/AGENT.md) | [`agents/elena-rostova/memory.md`](file:///g:/Projects/Researchs/agents/elena-rostova/memory.md) |
 | **Kai Sorenson** | Game Engine Architecture, Emergent Simulation, Dynamical Nemesis | [`agents/kai-sorenson/AGENT.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/AGENT.md) | [`agents/kai-sorenson/memory.md`](file:///g:/Projects/Researchs/agents/kai-sorenson/memory.md) |
 | **Prof. Marcus Thorne** | Clinical & Empirical Psychology, Stress-Testing, Boundary Auditing | [`agents/marcus-thorne/AGENT.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/AGENT.md) | [`agents/marcus-thorne/memory.md`](file:///g:/Projects/Researchs/agents/marcus-thorne/memory.md) |
-| **Prof. Gabriel Brandt** | Neuro-Volition, Agency Cybernetics, Downward Causality & Willpower ($\mathcal{W}$) | [`agents/gabriel-brandt/AGENT.md`](file:///g:/Projects/Researchs/agents/gabriel-brandt/AGENT.md) | [`agents/gabriel-brandt/memory.md`](file:///g:/Projects/Researchs/agents/gabriel-brandt/memory.md) |
-| **Prof. Thaddeus Mercer** | Social Cognition, Moral Neuroethics, Epistemic Networks & Beliefs ($\mathcal{P}$) | [`agents/thaddeus-mercer/AGENT.md`](file:///g:/Projects/Researchs/agents/thaddeus-mercer/AGENT.md) | [`agents/thaddeus-mercer/memory.md`](file:///g:/Projects/Researchs/agents/thaddeus-mercer/memory.md) |
+| **Prof. Gabriel Brandt** | Neuro-Volition, Agency Cybernetics, Downward Causality & Willpower ($\mathcal{W}$) | [`agents/gabriel-brandt/AGENT.md`](agents/gabriel-brandt/AGENT.md) | [`agents/gabriel-brandt/memory.md`](agents/gabriel-brandt/memory.md) |
+| **Prof. Thaddeus Mercer** | Social Cognition, Moral Neuroethics, Epistemic Networks & Beliefs ($\mathcal{P}$) | [`agents/thaddeus-mercer/AGENT.md`](agents/thaddeus-mercer/AGENT.md) | [`agents/thaddeus-mercer/memory.md`](agents/thaddeus-mercer/memory.md) |
+| **Prof. Valeria Moreau** | Social Neuroscience, Attachment Topologies & Relational Dynamics ($\mathcal{R}$) | [`agents/valeria-moreau/AGENT.md`](agents/valeria-moreau/AGENT.md) | [`agents/valeria-moreau/memory.md`](agents/valeria-moreau/memory.md) |
+| **Prof. Alistair Finch** | Computational Environmental Physics, Perturbation Dynamics & Event Causality ($\mathcal{E}$) | [`agents/alistair-finch/AGENT.md`](agents/alistair-finch/AGENT.md) | [`agents/alistair-finch/memory.md`](agents/alistair-finch/memory.md) |
+| **Prof. Viktor Lindqvist** | Adaptive Physiology, Metabolic Allostasis & Bioenergetic Dynamics ($\mathcal{H}$) | [`agents/viktor-lindqvist/AGENT.md`](agents/viktor-lindqvist/AGENT.md) | [`agents/viktor-lindqvist/memory.md`](agents/viktor-lindqvist/memory.md) |
 
 ---
 
@@ -59,3 +62,13 @@ When the Project Director or any subagent needs to consult an expert or adopt th
 * **Session 4 (September 28, 2026): Deconstruction of Value & Belief Space ($\mathcal{P}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md).
   * Appointed **Prof. Thaddeus Mercer**; formalized 5 orthogonal dimensions ($\vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}}$) and the Thought Cabinet Lifecycle.
+* **Session 5 (September 28, 2026): Deconstruction of Relational Space ($\mathcal{R}$)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md).
+  * Appointed **Prof. Valeria Moreau**; formalized 5 orthogonal dimensions of directed edge $\vec{R}_{ij}$ ($\alpha_{\text{aff}}, \beta_{\text{dom}}, \gamma_{\text{debt}}, \mu_{\text{tom}}, \tau_{\text{bond}}$), Sparse Multi-Graph architecture, and Dynamic Nemesis/Brotherhood engine hooks.
+* **Session 6 (September 28, 2026): Deconstruction of Global Exogenous Event Space ($\mathcal{E}$)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md).
+  * Appointed **Prof. Alistair Finch**; formalized 5 orthogonal dimensions ($\mathcal{I}_{\text{visc}}, \vec{\mathcal{S}}_{\text{sem}}, \mathcal{D}_{\text{decay}}, \mathcal{U}_{\text{ent}}, \vec{\Omega}_{\text{vec}}$), Two-Tier Appraisal Pipeline, Spatial BVH, and Zero-Allocation Circular Event RingBuffer.
+* **Session 7 (September 28, 2026): Deconstruction of Somatic Homeostasis Space ($\mathcal{H}$)**
+  * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md).
+  * Appointed **Prof. Viktor Lindqvist**; formalized 5 orthogonal dimensions ($E_{\text{glyc}}, P_{\text{pain}}, S_{\text{sleep}}, W_{\text{hydr}}, T_{\text{thermo}}$), Homeostatic SDE, Two-Way Interoceptive/Volitional Coupling, and Dual-Rate (10Hz/0.1Hz) 32-Byte Blittable Engine Architecture.
+  * **Historic Milestone:** 100% of the Master 6-Space Architecture is fully deconstructed and mathematically formalized.
