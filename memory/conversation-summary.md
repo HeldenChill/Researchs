@@ -234,5 +234,11 @@ To eliminate high-barrier jargon, mechanical analogies were established:
 
 The Project Director established a two-agent validation council, required all review activity to be logged in `EvaluationMinutes/` rather than chat, commissioned an audit of the first psychological-space meeting, and requested a source-linked explanatory supplement. The council's first two review sessions, their evidence limits, corrections to mathematical and empirical claims, and the handoff for Antigravity to improve the Vietnamese writing are recorded in [the dedicated session memory](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md). This new review supersedes earlier unqualified claims in this memory that the five stress tests were run or that the 2+4 architecture has been empirically validated; those claims remain part of the historical dialogue, not established findings.
 
+## 6. Session Update — Willpower Review and Supplement (2026-09-29)
+
+The Project Director asked the validation council to continue reviewing the [Willpower meeting minutes](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md), then explicitly commissioned a Supplement. The council created [review session 01](../EvaluationMinutes/2026-09-29-Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi-01.md), [review session 02](../EvaluationMinutes/2026-09-29-Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi-02.md), and the [source-linked Supplement](../MeetingMinutes/Supplements/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.supplement.md). The original meeting was not edited. Decisions, W-01–W-12 findings, source-access limits and next work are recorded in [the dedicated session memory](2026-09-29-tham-dinh-khong-gian-y-chi.md).
+
+This review **qualifies the historical Stage 7, Stage 12, Stage 13, and Section 4 assertions above**: five named willpower components are not yet demonstrated to be five independent dimensions; the proposed warping formula does not necessarily flatten an attractor; pain gating, 200% muscle output, exponential debt, inevitable collapse and clinical/millisecond accuracy were not established. Evidence for aMCC-linked challenge/motivation is limited to the cited small study, and the Project Anima engine has no validation data in the reviewed record. Read the review and Supplement before repeating those earlier claims as scientific findings.
+
 
 

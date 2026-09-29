@@ -1,6 +1,6 @@
 # Theoretical Foundations & Mathematical Formulations
 
-> **Evidence note (2026-09-28):** Equations and cross-domain mappings below include Project Anima design hypotheses. The independent council's [review and Antigravity handoff](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md) distinguishes mathematical deductions, outside evidence, and unverified simulation/clinical claims. Read that review before treating these formulations as validated scientific results.
+> **Evidence note (updated 2026-09-29):** Equations and cross-domain mappings below include Project Anima design hypotheses. The independent council's [psychological-space review](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md) and [willpower review](2026-09-29-tham-dinh-khong-gian-y-chi.md) distinguish mathematical deductions, outside evidence, and unverified simulation/clinical claims. Read the relevant review before treating these formulations as validated scientific results.
 **Project:** Computational Modeling of Psychological Systems, Trauma Dynamics & Willpower  
 **File Type:** Project-Internal Theoretical Memory  
 **Language:** English  
@@ -154,25 +154,29 @@ Ratified by the Project Director on September 28, 2026, *Project Anima* elevates
 
 ## 8. Meta-Volitional Space ($\mathcal{W}$) & Lie Deformation Operator ($\hat{\mathcal{W}}$)
 
-Ratified in Session 3 (Prof. Gabriel Brandt), Willpower is formalized as a **5-Dimensional State Space** driving a **Second-Order Lie Deformation Operator**:
+> **Status after the 2026-09-29 review:** This section preserves the project's 2026-09-28 design proposal; its biological mappings and clinical effects are not established. The original meeting defines four state blocks and omits $\theta$ from the displayed tuple; this memory writes five blocks by adding $\theta$. Neither notation proves five linearly independent dimensions: $\Phi\in\mathbb S^{K-1}$ has $K-1$ intrinsic degrees of freedom, and $\theta$ may be a parameter rather than a state variable. See the [Willpower Supplement](../MeetingMinutes/Supplements/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.supplement.md).
+
+The 2026-09-28 meeting led by the Prof. Gabriel Brandt agent proposed five **conceptual components** and a potential-deformation rule. Their dimensional independence and biological mappings remain unverified:
 
 $$\mathbf{W}(t) = \Big( \mathcal{W}_{\text{amp}}(t), \vec{\Phi}_{\text{intent}}(t), \kappa_{\text{coh}}(t), \tau_{\text{tenacity}}(t), \theta_{\text{transcend}} \Big) \in [0, 1] \times \mathbb{S}^{K-1} \times [0, 1] \times \mathbb{R}^+ \times [0, 1]$$
 
-### 8.1. The 5 Orthogonal Dimensions of $\mathcal{W}$:
-1. **$\mathcal{W}_{\text{amp}} \in [0, 1]$ (Tenacity Amplitude):** Firing rate of the anterior Mid-Cingulate Cortex (**aMCC**), dictating anti-gradient strength.
-2. **$\vec{\Phi}_{\text{intent}} \in \mathbb{S}^{K-1}$ (Intentional Direction Vector, $\|\vec{\Phi}\| = 1$):** Frontoparietal Network (**FPN**) and **DLPFC** goal allocation targeting survival, altruistic sacrifice, or ideological fidelity.
-3. **$\kappa_{\text{coh}} \in [0, 1]$ (Phase Coherence / Dissonance Veto):** Gamma-band ($40-80\text{Hz}$) phase synchronization between DLPFC, Striatum, and aMCC. $\kappa \to 1.0$: total internal alignment; $\kappa \to 0$: cognitive ambivalence.
-4. **$\tau_{\text{tenacity}} \in \mathbb{R}^+$ (Metabolic Half-Life):** Astrocytic glycogen reservoir and noradrenergic receptor sensitivity defining maximum sustainable duration.
-5. **$\theta_{\text{transcend}} \in [0, 1]$ (Transcendence Threshold):** Phase transition boundary between standard executive effort ($< \theta$) and reality-warping transcendent surge ($\ge \theta$).
+### 8.1. Five proposed components of $\mathcal{W}$:
+1. **$\mathcal{W}_{\text{amp}} \in [0, 1]$ (Tenacity Amplitude):** Proposed control strength; a direct mapping to aMCC firing rate has not been established.
+2. **$\vec{\Phi}_{\text{intent}} \in \mathbb{S}^{K-1}$ (Intentional Direction Vector, $\|\vec{\Phi}\| = 1$):** Proposed goal direction; its mapping to FPN/DLPFC activity needs a measurement model.
+3. **$\kappa_{\text{coh}} \in [0, 1]$ (Phase Coherence / Dissonance Veto):** Proposed alignment parameter; a one-to-one mapping to 40–80 Hz synchrony across DLPFC, striatum and aMCC has not been shown.
+4. **$\tau_{\text{tenacity}} \in \mathbb{R}^+$ (Duration Parameter):** Proposed persistence scale; glycogen and noradrenergic sensitivity have not been shown to set this exact value. A half-life is different from a maximum duration unless a specific law equates them.
+5. **$\theta_{\text{transcend}} \in [0, 1]$ (Threshold Parameter):** Proposed gameplay threshold between ordinary effort and surge; a physical phase transition has not been demonstrated.
 
-### 8.2. Manifold Potential Warping Equation:
+### 8.2. Proposed manifold potential warping equation:
 $$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \Big[ \mathcal{W}_{\text{amp}} \cdot \kappa_{\text{coh}} \Big] \cdot \Big\langle \nabla V(\vec{S}), \vec{\Phi}_{\text{intent}} \Big\rangle_{\mathbf{G}}$$
-* When an organism faces lethal panic ($V_{\text{bio}} \to -1$) but volitional intent opposes it, the compensatory term cancels the potential slope: $\lim_{\mathcal{W} \to 1} \Delta E_{\text{fear}} = 0$. The trauma/panic basin is leveled in real time.
+* The meeting proposed that strong intent could cancel the fear barrier, $\lim_{\mathcal{W} \to 1} \Delta E_{\text{fear}} = 0$. This result does **not** follow generally from the displayed formula; the Supplement gives a quadratic counterexample in which the basin shifts without flattening.
 
-### 8.3. Cross-Space Warping & Post-Warp Crash Dynamics:
+### 8.3. Proposed cross-space effects and post-warp crash:
 * **Somatic Gating & Boost:** $\text{Nociception}_{\text{perceived}} = \text{Nociception}_{\text{tissue}} \cdot (1 - \mathcal{W}_{\text{amp}}\kappa_{\text{coh}})$; $\text{Power}_{\text{muscle}} = \text{BasePower} \cdot (1 + \alpha_{\text{boost}}\mathcal{W}_{\text{amp}})$.
 * **Metabolic Debt Accumulation:** $\frac{dD_{\text{met}}}{dt} = \beta_{\text{burn}} \cdot (\mathcal{W}_{\text{amp}})^2$.
-* **The Crash Dynamic:** Once $\tau_{\text{tenacity}}$ expires or intent is achieved, $\mathcal{W} \to 0$, triggering acute somatic exhaustion: $\vec{H}_{\text{energy}} \to 0, C \to 0, A_{\text{phys}} \to 0$ (Comatose recovery phase).
+* **Proposed crash rule:** Once $\tau_{\text{tenacity}}$ expires or intent is achieved, a game design could set $\mathcal{W} \to 0$ and apply exhaustion. The stated consequences $\vec{H}_{\text{energy}} \to 0, C \to 0, A_{\text{phys}} \to 0$ and coma do not follow from the current equations or reviewed clinical evidence.
+
+**Review boundary:** The displayed warping term can shift, rather than flatten, a quadratic potential well; loss of a trauma attractor requires case-specific gradient/Hessian checks. The pain rule leaves 6.9% of its input for the meeting's $w=0.95,\kappa=0.98$ example and does not erase tissue damage. $\dot D_{\text{met}}=\beta w^2$ grows linearly in time for fixed $w$, not exponentially. The threshold rule has an undefined branch when $w\ge\theta$ but $\kappa\le0.8$ and does not itself demonstrate a physical bifurcation or energy conservation. The asserted inevitable coma/heart failure and clinical precision are unverified. See [W-01–W-12](../MeetingMinutes/Supplements/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.supplement.md) for evidence and proposed wording.
 
 ---
 

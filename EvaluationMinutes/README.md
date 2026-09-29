@@ -10,4 +10,9 @@ Thư mục này lưu **biên bản hoạt động của Hội đồng thẩm đ�
 - Mỗi file dùng [mẫu biên bản](../agents/validation-council/BIEN-BAN-TEMPLATE.md) và tuân theo [quy trình hội đồng](../agents/validation-council/README.md).
 - Supplement giải thích kiến thức, nếu chủ tọa yêu cầu, lưu riêng theo quy trình tại `MeetingMinutes/Supplements/` và được liên kết từ biên bản thẩm định tương ứng.
 
-Thư mục hiện chưa có biên bản phiên thẩm định; việc tạo quy trình không hàm ý bất kỳ cuộc thẩm định nào đã diễn ra.
+## Các phiên đã ghi
+
+- [Khảo sát không gian tâm lý — phiên 01](2026-09-28-Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly-01.md)
+- [Khảo sát không gian tâm lý — phiên 02](2026-09-28-Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly-02.md)
+- [Không gian Ý chí — phiên 01](2026-09-29-Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi-01.md)
+- [Không gian Ý chí — phiên 02 (lập supplement)](2026-09-29-Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi-02.md)
