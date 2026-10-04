@@ -1,5 +1,7 @@
 # Memory: Quang Huy Lê
 
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
+
 - Established: 2026-09-28.
 - Initial scope: the seven `MeetingMinutes/` records listed in `agents/README.md`.
 - Psychological-space review session 01: challenged the [meeting minutes](../../EvaluationMinutes/2026-09-28-Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly-01.md). Distinguished state-space dimension from data-matrix rank, recalculated a 60% reduction in variable updates under the proposed tick schedule, checked the Gaussian sign, and found no run data for the five scenarios. The review record contains the calculations and limits.

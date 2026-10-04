@@ -1,4 +1,6 @@
 # Chuyên Đề Đỉnh Cao: Ý Chí, "Đạo" Và Vòng Lặp Hồi Tiếp Hoàn Vũ
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ## Từ "Bàn Tay Viết Lại Địa Hình" Đến Sự Tác Động Ngược Lại Thế Giới Vật Lý
 
 ---

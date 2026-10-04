@@ -24,6 +24,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
+- [Latest session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
 - [`memory/conversation-summary.md`](memory/conversation-summary.md) — Comprehensive log and synthesis of research dialogues, paradigm shifts, and cross-disciplinary models.
 - [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, Two-Tier 6D Engine, Dynamical Nemesis).
 
@@ -66,3 +67,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes: Identification & Topology Audit of the Master 6-Space Architecture.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes: Deconstruction of Meta-Volitional Space & Warping Operator ($\mathcal{W}$).
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes: Deconstruction of Value & Belief Space ($\mathcal{P}$) and Thought Cabinet Lifecycle.
+
+## Current project purpose (2026-10-04)
+
+The owner defines the core project as a theory of **logical space for game design**: derive coherent rules, gameplay and progression from an initial game idea. Psychological dynamics and Forest_Bloom are case studies. Fourier-style decomposition/reconstruction is currently an analogy, not a proven transform. See [approved correction scope](docs/superpowers/specs/2026-10-04-project-corrections-design.md) and [correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md).

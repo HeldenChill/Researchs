@@ -205,3 +205,9 @@ Hệ thống kiểm thử tự động sử dụng `pytest` trong thư mục `Ps
    * Kiểm thử tính ổn định của thuật toán Euler-Maruyama qua $10,000$ bước mô phỏng: không xuất hiện `NaN` hay `Inf`.
    * Kiểm thử kịch bản Sụp đổ số chiều: Sau khi bơm Trigger vượt ngưỡng, hệ thống rơi vào giếng Trauma và chỉ số $\text{PR}$ giảm xuống $< 1.3$.
    * Kiểm thử kịch bản Thoát hố (Can thiệp): Khi kích hoạt can thiệp Somatic và Cognitive, trạng thái thoát khỏi hố sang chấn và $\text{PR}$ tăng trở lại $> 2.2$.
+
+## Corrected execution contract (2026-10-04)
+
+One application-lifespan task owns integration, including with zero viewers. WebSockets consume bounded latest-snapshot queues and never call step; slow/disconnected clients cannot alter trajectories. Use one server worker until shared-state ownership is implemented. Preset/trigger/config changes execute on the same event loop without yielding inside mutation.
+
+PR is unavailable for fewer than 10 samples or covariance trace ≤1e−12 (or squared-eigenvalue sum ≤1e−24); transmit null and INSUFFICIENT_DATA/STATIONARY respectively. Nonzero covariance PR measures recent trajectory anisotropy only; it is not a clinical diagnosis or proof of manifold dimension. Force decay uses elapsed simulation time with reference multiplier .85 at dt=.02. API rejects invalid vector lengths, nonfinite directions, out-of-range strengths/noise/depth and mesh sizes outside 2–200. Python/FastAPI execution and zero/one/two-client regression tests remain pending in this workspace.

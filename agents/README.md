@@ -5,7 +5,7 @@ This directory serves as the centralized registry for the profiles, operational 
 
 ## Independent Validation Council
 
-The [validation council](validation-council/README.md) checks claims made in meeting minutes against traceable sources and examines whether the sources actually support the scientific, mathematical, and technical conclusions. Its two members are agent roles, not real credentialed researchers. No meeting has been audited yet.
+The [validation council](validation-council/README.md) checks claims made in meeting minutes against traceable sources and examines whether the sources actually support the scientific, mathematical, and technical conclusions. Its two members are agent roles, not real credentialed researchers. Four validation sessions are recorded in EvaluationMinutes (two psychological-space sessions and two willpower sessions). Their limited findings do not validate the complete architecture.
 
 | Agent | Responsibility | Profile | Memory |
 | :--- | :--- | :--- | :--- |
@@ -69,17 +69,17 @@ When the Project Director or any subagent needs to consult an expert or adopt th
   * Formally established the 6 autonomous, non-subsumed spaces: $\mathcal{W}, \mathcal{E}, \mathcal{H}, \mathcal{M}, \mathcal{P}, \mathcal{R}$.
 * **Session 3 (September 28, 2026): Deconstruction of Meta-Volitional Space ($\mathcal{W}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md).
-  * Appointed **Prof. Gabriel Brandt**; formalized 5 orthogonal dimensions ($\mathcal{W}_{\text{amp}}, \vec{\Phi}_{\text{intent}}, \kappa_{\text{coh}}, \tau_{\text{tenacity}}, \theta_{\text{transcend}}$) and the Deformation Operator $\hat{\mathcal{W}}$.
+  * Appointed **Prof. Gabriel Brandt**; formalized five conceptual blocks (scalar dimensionality and independence require separate checks) ($\mathcal{W}_{\text{amp}}, \vec{\Phi}_{\text{intent}}, \kappa_{\text{coh}}, \tau_{\text{tenacity}}, \theta_{\text{transcend}}$) and the Deformation Operator $\hat{\mathcal{W}}$.
 * **Session 4 (September 28, 2026): Deconstruction of Value & Belief Space ($\mathcal{P}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md).
-  * Appointed **Prof. Thaddeus Mercer**; formalized 5 orthogonal dimensions ($\vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}}$) and the Thought Cabinet Lifecycle.
+  * Appointed **Prof. Thaddeus Mercer**; formalized five conceptual blocks (scalar dimensionality and independence require separate checks) ($\vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}}$) and the Thought Cabinet Lifecycle.
 * **Session 5 (September 28, 2026): Deconstruction of Relational Space ($\mathcal{R}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md).
-  * Appointed **Prof. Valeria Moreau**; formalized 5 orthogonal dimensions of directed edge $\vec{R}_{ij}$ ($\alpha_{\text{aff}}, \beta_{\text{dom}}, \gamma_{\text{debt}}, \mu_{\text{tom}}, \tau_{\text{bond}}$), Sparse Multi-Graph architecture, and Dynamic Nemesis/Brotherhood engine hooks.
+  * Appointed **Prof. Valeria Moreau**; formalized five conceptual blocks (scalar dimensionality and independence require separate checks) of directed edge $\vec{R}_{ij}$ ($\alpha_{\text{aff}}, \beta_{\text{dom}}, \gamma_{\text{debt}}, \mu_{\text{tom}}, \tau_{\text{bond}}$), Sparse Multi-Graph architecture, and Dynamic Nemesis/Brotherhood engine hooks.
 * **Session 6 (September 28, 2026): Deconstruction of Global Exogenous Event Space ($\mathcal{E}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md).
-  * Appointed **Prof. Alistair Finch**; formalized 5 orthogonal dimensions ($\mathcal{I}_{\text{visc}}, \vec{\mathcal{S}}_{\text{sem}}, \mathcal{D}_{\text{decay}}, \mathcal{U}_{\text{ent}}, \vec{\Omega}_{\text{vec}}$), Two-Tier Appraisal Pipeline, Spatial BVH, and Zero-Allocation Circular Event RingBuffer.
+  * Appointed **Prof. Alistair Finch**; formalized five conceptual blocks (scalar dimensionality and independence require separate checks) ($\mathcal{I}_{\text{visc}}, \vec{\mathcal{S}}_{\text{sem}}, \mathcal{D}_{\text{decay}}, \mathcal{U}_{\text{ent}}, \vec{\Omega}_{\text{vec}}$), Two-Tier Appraisal Pipeline, Spatial BVH, and Zero-Allocation Circular Event RingBuffer.
 * **Session 7 (September 28, 2026): Deconstruction of Somatic Homeostasis Space ($\mathcal{H}$)**
   * Meeting Minutes: [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](../MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md).
-  * Appointed **Prof. Viktor Lindqvist**; formalized 5 orthogonal dimensions ($E_{\text{glyc}}, P_{\text{pain}}, S_{\text{sleep}}, W_{\text{hydr}}, T_{\text{thermo}}$), Homeostatic SDE, Two-Way Interoceptive/Volitional Coupling, and Dual-Rate (10Hz/0.1Hz) 32-Byte Blittable Engine Architecture.
-  * **Historic Milestone:** 100% of the Master 6-Space Architecture is fully deconstructed and mathematically formalized.
+  * Appointed **Prof. Viktor Lindqvist**; formalized five conceptual blocks (scalar dimensionality and independence require separate checks) ($E_{\text{glyc}}, P_{\text{pain}}, S_{\text{sleep}}, W_{\text{hydr}}, T_{\text{thermo}}$), Homeostatic SDE, Two-Way Interoceptive/Volitional Coupling, and Dual-Rate (10Hz/0.1Hz) 32-Byte Blittable Engine Architecture.
+  * **Historic Milestone:** Six conceptual modules have design records; mathematical closure, empirical calibration and runtime acceptance remain incomplete.

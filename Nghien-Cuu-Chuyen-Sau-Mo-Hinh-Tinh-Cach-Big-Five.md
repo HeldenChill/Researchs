@@ -1,4 +1,6 @@
 # Nghiên Cứu Chuyên Sâu: Mô Hình Tính Cách Big Five (Five-Factor Model)
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Từ Nền Tảng Thực Chứng, Sinh Học Thần Kinh, Lý Thuyết Điều Khiển Học (CB5T) Đến Mô Hình Hóa Động Lực Học Toán Học
 
 ---

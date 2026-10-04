@@ -1,4 +1,6 @@
 # BIÊN BẢN CUỘC HỌP HỘI ĐỒNG KHOA HỌC DỰ ÁN ANIMA
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Chuyên đề Chuyên sâu: Phân Rã Bản Thể Luận, Động Lực Học Lan Truyền Không-Thời Gian Và Bộ Lọc Thẩm Định Của Không Gian Sự Kiện Ngoại Sinh Toàn Cục (Global Exogenous Event Space $\mathcal{E}$)
 
 * **Thời gian bắt đầu:** 03:15:00 (Giờ hệ thống) — Ngày 28 tháng 09 năm 2026

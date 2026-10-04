@@ -1,12 +1,14 @@
 # Mô Hình Hóa Hệ Thống Tâm Lý Và Sang Chấn (Trauma) Trong Không Gian Trạng Thái Đa Chiều
 
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
+
 ---
 
 ## 1. Bản Chất Cốt Lõi: Tâm Lý Là Hệ Thống Động Lực Phi Tuyến
 
 Trong khoa học thần kinh tính toán (Computational Neuroscience) và tâm lý học nhận thức, **tâm lý không phải là một thực thể tĩnh**, mà là một **hệ thống động lực học phi tuyến (Nonlinear Dynamical System)**.
 
-Tại bất kỳ thời điểm $t$, trạng thái tâm lý toàn vẹn của một con người là một vector trạng thái $\vec{S}(t)$ nằm trong không gian pha đa chiều (Phase Space) $\mathbb{R}^N$:
+Trong mô hình đề xuất, một tập biến đại diện cho trạng thái tâm lý tại thời điểm $t$ được viết thành vector $\vec{S}(t)$ trong không gian trạng thái $\mathbb{R}^N$. Đây là biểu diễn rút gọn cần định nghĩa phép đo; không phải mô tả đã kiểm chứng của toàn bộ tâm trí:
 
 $$\vec{S}(t) = \big(x_1(t), x_2(t), \dots, x_N(t)\big) \in \mathbb{R}^N$$
 
@@ -27,9 +29,10 @@ Trong đó:
 
 ### 1.2. Trạng Thái Khỏe Mạnh: Tự Tổ Chức Tới Hạn (Self-Organized Criticality)
 
-Một quan niệm sai lầm phổ biến là xem trạng thái khỏe mạnh như một điểm cân bằng đứng yên (Point Attractor). Trong hệ thống phức hợp sinh học:
-* **Trạng thái khỏe mạnh:** Là một **Quỹ đạo giả hỗn loạn linh hoạt (Strange Attractor / Self-Organized Criticality)**. Hệ thống có đủ bậc tự do để dao động thích ứng mềm dẻo quanh các thung lũng chức năng mà không bao giờ bị đông cứng.
-* **Trạng thái bệnh lý / Sang chấn:** Là sự thoái hóa thành **Điểm kẹt (Point Attractor)** hoặc **Chu kỳ giới hạn cứng nhắc (Rigid Limit Cycle)** — mất đi tính linh hoạt thích ứng trước những biến đổi của đời sống.
+Mô hình game có thể biểu diễn khả năng thích ứng bằng việc chuyển linh hoạt giữa nhiều hành vi phù hợp với ngữ cảnh. Tuy nhiên, không được đồng nhất sức khỏe với strange attractor hoặc self-organized criticality; đây là các khái niệm khác nhau và cần tiêu chí đo riêng.
+* **Giả thuyết thiết kế về thích ứng:** Quỹ đạo có thể trở về trạng thái chức năng sau nhiễu loạn và thay đổi chiến lược khi ngữ cảnh đổi. Điều này không bắt buộc quỹ đạo phải hỗn loạn hay có PR cao.
+* **Giả thuyết thiết kế về cứng nhắc:** Một số agent có thể lặp hành vi không phù hợp dù hoàn cảnh thay đổi. Điểm cân bằng hoặc limit cycle tự nó không chứng minh bệnh lý hay sang chấn.
+* **Giới hạn toán học:** Với hệ gradient tự trị thuần túy $\dot S=-\nabla V$, ta có $\dot V=-\|\nabla V\|^2\le0$; không thể suy ra chu kỳ hút không tầm thường hoặc strange attractor chỉ từ các hố thế năng. Muốn mô phỏng dao động/hỗn loạn phải chỉ rõ lực không bảo toàn, biến phụ hoặc tác động phụ thuộc thời gian; thêm nhiễu không tự chứng minh self-organized criticality.
 
 ### 1.3. Bảng Giải Mã Trực Quan Các Khái Niệm Toán Học Bằng Hình Tượng Cơ Học
 

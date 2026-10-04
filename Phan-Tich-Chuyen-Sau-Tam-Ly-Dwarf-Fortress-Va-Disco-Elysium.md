@@ -1,4 +1,6 @@
 # Phân Tích Chuyên Sâu Hệ Thống Tâm Lý Nhân Vật: Dwarf Fortress & Disco Elysium
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Khảo Sát Tài Liệu Phát Triển, Kiến Trúc Thuật Toán, Mô Hình Nhận Thức & Bài Học Cho Game Nổi Sinh (Project Anima)
 
 ---

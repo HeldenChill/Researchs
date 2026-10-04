@@ -240,5 +240,40 @@ The Project Director asked the validation council to continue reviewing the [Wil
 
 This review **qualifies the historical Stage 7, Stage 12, Stage 13, and Section 4 assertions above**: five named willpower components are not yet demonstrated to be five independent dimensions; the proposed warping formula does not necessarily flatten an attractor; pain gating, 200% muscle output, exponential debt, inevitable collapse and clinical/millisecond accuracy were not established. Evidence for aMCC-linked challenge/motivation is limited to the cited small study, and the Project Anima engine has no validation data in the reviewed record. Read the review and Supplement before repeating those earlier claims as scientific findings.
 
+---
+
+## 7. Session Update — ForestBloom Discrete Sandbox & Live Lyapunov Verification (2026-10-01)
+
+The Project Director directed the transition of the theoretical psychological dynamical models into the active Unity game project `Forest_Bloom` (`G:\Unity\Project\Forest_Bloom`). A critical rule was added to enforce intellectual rigor and ruthless critique of game design pitfalls (`.agents/rules/critical-debate-and-rigor.md`).
+
+### 1. Paradigm Pivot: Autonomous Zero-Player Sandbox First
+- **Elimination of Arbitrary Constraints:** Completely removed the "3 actions per turn" limitation and predefined win conditions. The ecosystem was converted into a **Discrete Autonomous Simulation Engine** (analogous to Conway's Game of Life coupled with Lotka-Volterra dynamics).
+- **Core Stance:** Player agency is temporarily suspended (`isSandboxSimulation = true` bypassing raycast click/hold). The natural balance, resilience, and emergent boundaries of Flora vs Blight Grass must stabilize autonomously before hook points for player interventions are determined.
+- **Species Invariance:** Rejected cross-species transmutation. Entities maintain their genetic species identity, adapting strictly through **Attractor Phase Shifts** (`HOMEOSTATIC`, `STRESS`, `WILT`) and **Allostatic Load** ($\mathcal{H}_{\text{load}}$).
+
+### 2. Tri-Space Cybernetic Loop $(\mathcal{E} \leftrightarrow \mathcal{M} \leftrightarrow \mathcal{A})$
+- **Toán tử Thẩm Định $\hat{\mathcal{O}}_{\text{sense}}: \mathcal{E} \times \mathcal{M} \to \Delta \mathcal{M}$ (`SenseAppraisalOperator.cs`):** Maps soil moisture, toxicity, and temperature to psychological coordinates ($V_{\text{bio}}, A_{\text{phys}}, C_{\text{cog}}$).
+- **Toán tử Kích Hoạt $\hat{\mathcal{O}}_{\text{act}}: \mathcal{M} \to \mathcal{A}$ (`ActuationOperator.cs`):** Modulates affordance valves (BridgeStrength, EmitWater, EmitHeat, AbsorbTox). Under panic ($V_{\text{bio}} < -0.4$), the root bridge snaps to 0 to preserve vital fluids.
+- **Toán tử Tác Động $\hat{\mathcal{O}}_{\text{impact}}: \mathcal{A} \to \Delta \mathcal{E}$ (`WorldImpactOperator.cs`):** Feeds entity actions back into soil profile deltas.
+
+### 3. Unity Implementation & 50-Step Lyapunov Empirical Verification
+- **Codebase Integration:** Implemented 24B blittable struct `PsychologicalState`, `AffordanceVector`, `SoilProfile`, 3 Operators, `PlantUnit` phase shifts, `GrassUnit` blight logic, `DiscreteSimulationEngine`, and `SimulationDashboard`.
+- **Boot Sequence:** Verified complete initialization through the official boot flow (`CryptoLoader` $\to$ `LoadStart` $\to$ `GameScene`), bypassing standard UI dependencies in sandbox mode.
+- **50-Step Empirical Run:**
+  - Initial state: 48 grid cells, 3 Flora, 3 Blight Grass, soil moisture 0.80.
+  - Step 51 trajectory: Average moisture smoothly dropped to 0.27 due to biological uptake and natural evaporation.
+  - **Emergent Phase Transitions:**
+    - `[BLUE]` held `HOMEOSTATIC` ($V_{\text{bio}} = +0.95, C_{\text{cog}} = 0.80, \text{Bridge} = 0.50$) via its active water emission valve ($\phi_e^{\text{water}} = 0.28$), creating a local oasis.
+    - `[RED]` and `[PURPLE]` shifted into `STRESS` ($V_{\text{bio}} = -1.00, A_{\text{phys}} = 1.00, \text{Bridge} = 0.00$), defensively sealing root connections.
+    - All 3 `[GRASS]` units collapsed into `WILT` ($C_{\text{cog}} \to 0.00, V_{\text{bio}} = -1.00$) as aggressive water depletion without mycorrhizal co-regulation caused acute cognitive-somatic failure.
+- **Repository Segregation:** All implementation specs, plans, and game-specific memories were synchronized into `G:\Unity\Project\Forest_Bloom` (`docs/superpowers/`, `memory/conversation-summary.md`, `.cursor/memory/mem-psychological-dynamical-engine.md`), keeping the `Researchs` repository focused on scientific dynamical theory and cross-disciplinary models.
 
 
+
+
+
+## Session update — approved corrections (2026-10-04)
+
+**Latest handoff:** [Full session memory and Forest_Bloom continuation guide](2026-10-04-project-review-corrections-and-forest-bloom-handoff.md). The owner will resume Forest_Bloom review in another session. Read this handoff before using older completion claims or changing external Unity code.
+
+The owner clarified the core goal: a theory of logical space for deriving complete, clear gameplay from game ideas, with Fourier-style decomposition as an analogy. Psychological simulation is a case study. The owner approved repairing reviewed errors before continuing Forest_Bloom. Current correction scope and evidence are in [the correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md). Earlier claims of complete theory, executed stress tests, orthogonality, clinical accuracy or measured performance remain historical proposals unless supported by explicit verification records. Unity integration, population acceptance and empirical validation remain pending.

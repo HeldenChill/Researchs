@@ -24,6 +24,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
+- [Latest session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
 - [`memory/conversation-summary.md`](memory/conversation-summary.md) — Comprehensive log and synthesis of research dialogues, paradigm shifts, and cross-disciplinary models.
 - [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, Two-Tier 6D Engine, Dynamical Nemesis).
 
@@ -60,6 +61,8 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`Phan-Tich-He-Thong-Tam-Ly-Cac-Reference-Game.md`](Phan-Tich-He-Thong-Tam-Ly-Cac-Reference-Game.md) — Comparative Analysis of Psychological Systems in Reference Games (RimWorld, Dwarf Fortress, Frostpunk, Disco Elysium, Darkest Dungeon, etc.).
 - [`Phan-Tich-Chuyen-Sau-Tam-Ly-Dwarf-Fortress-Va-Disco-Elysium.md`](Phan-Tich-Chuyen-Sau-Tam-Ly-Dwarf-Fortress-Va-Disco-Elysium.md) — Deep-dive Architecture Analysis of Character Psychological Systems in Dwarf Fortress & Disco Elysium.
 - [`docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md`](docs/superpowers/specs/2026-09-27-psychological-trauma-simulation-design.md) — Technical Specification for 3D SDE Interactive Simulation (FastAPI + Three.js).
+- [`docs/superpowers/specs/2026-10-01-forest-bloom-symbiotic-defense-design.md`](docs/superpowers/specs/2026-10-01-forest-bloom-symbiotic-defense-design.md) — Technical Specification for Autonomous Discrete Sandbox (`Forest_Bloom`, Unity 6).
+- [`docs/superpowers/plans/2026-10-01-forest-bloom-symbiotic-defense.md`](docs/superpowers/plans/2026-10-01-forest-bloom-symbiotic-defense.md) — Implementation Plan & 50-Step Ecological Smoke Test (external acceptance pending).
 
 ### 4. Interactive Archive
 - [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive HTML archive with KaTeX formulas and zoomable Mermaid diagrams.
@@ -72,3 +75,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Quan-He.md) — Official Minutes: Deconstruction of Interpersonal & Relational Space ($\mathcal{R}$), Sparse Multi-Graph & Dynamic Nemesis.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md) — Official Minutes: Deconstruction of Global Exogenous Event Space ($\mathcal{E}$), Two-Tier Appraisal Pipeline & Zero-Allocation RingBuffer.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md) — Official Minutes: Deconstruction of Somatic Homeostasis Space ($\mathcal{H}$), Dual-Rate Pipeline & 32B Blittable Engine.
+
+## Current project purpose (2026-10-04)
+
+The owner defines the core project as a theory of **logical space for game design**: derive coherent rules, gameplay and progression from an initial game idea. Psychological dynamics and Forest_Bloom are case studies. Fourier-style decomposition/reconstruction is currently an analogy, not a proven transform. See [approved correction scope](docs/superpowers/specs/2026-10-04-project-corrections-design.md) and [correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md).

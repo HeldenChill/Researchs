@@ -1,5 +1,7 @@
 # Memory: Minh Anh Trần
 
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
+
 - Established: 2026-09-28.
 - Initial scope: the seven `MeetingMinutes/` records listed in `agents/README.md`.
 - Psychological-space review session 01: assessed major claim groups in the [meeting minutes](../../EvaluationMinutes/2026-09-28-Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly-01.md). Outside sources supported some background concepts but did not validate the 2+4 engine, coverage percentages, or five benchmarks. Many sources were accessible only as publisher pages or abstracts; the review record preserves the details and activity log.

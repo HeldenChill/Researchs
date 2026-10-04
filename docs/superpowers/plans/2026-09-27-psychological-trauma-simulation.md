@@ -31,6 +31,8 @@ All implementation files reside under `Psychology/`:
 
 ---
 
+> **Correction status (2026-10-04):** Examples corrected; Python/FastAPI runtime tests remain pending. PR is null for insufficient/constant history; UI must show unavailable, never green "expanded". Test application lifespan, zero/one/two subscribers, disconnect cleanup, invalid API payloads and deterministic trajectories with identical RNG seeds. Run one Uvicorn worker: process-local engine state is not shared across workers. Add application-level locking/storage before multi-worker deployment.
+
 ### Task 1: Environment Setup & Project Scaffolding
 
 **Files:**
@@ -44,6 +46,7 @@ All implementation files reside under `Psychology/`:
 
 ```text
 fastapi>=0.110.0
+pydantic>=2.0,<3.0
 uvicorn>=0.28.0
 numpy>=1.26.0
 scipy>=1.12.0
@@ -213,7 +216,7 @@ class PotentialLandscape:
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `python -m pytest Psychology/tests/test_landscape.py -v` (with `PYTHONPATH=Psychology`).  
+Run: `python -m pytest Psychology/tests/test_landscape.py -v` (with `PYTHONPATH=Psychology` set for every test command).
 Expected: All 4 tests PASS.
 
 - [ ] **Step 5: Commit**
@@ -281,6 +284,17 @@ def test_participation_ratio_computation(test_engine):
         test_engine.history.append(np.array([t, 0.001 * t, -0.001 * t]))
     pr_low = test_engine.compute_participation_ratio()
     assert pr_low < 1.3
+
+def test_participation_ratio_unavailable_for_stationary_history(test_engine):
+    test_engine.history.clear()
+    for _ in range(50):
+        test_engine.history.append(np.array([0.5, 0.5, 0.5]))
+    assert test_engine.compute_participation_ratio() is None
+
+def test_participation_ratio_unavailable_during_warmup(test_engine):
+    test_engine.history.clear()
+    test_engine.history.append(np.zeros(3))
+    assert test_engine.compute_participation_ratio() is None
 ```
 
 - [ ] **Step 2: Run test to verify failure**
@@ -292,6 +306,7 @@ Expected: FAIL (`ModuleNotFoundError: No module named 'app.core.engine'`).
 
 Create `Psychology/app/core/engine.py`:
 ```python
+import math
 from collections import deque
 from typing import Dict, List, Optional
 import numpy as np
@@ -306,6 +321,8 @@ class SimulationEngine:
         noise_std: float = 0.08,
         history_len: int = 100
     ):
+        if not np.isfinite(dt) or dt <= 0 or dt > 0.1:
+            raise ValueError("dt must be finite and in (0, 0.1]")
         self.landscape = landscape
         self.dt = dt
         self.noise_std = noise_std
@@ -338,10 +355,10 @@ class SimulationEngine:
             # Cognitive reframing: lift toxic shame (x3) and valence (x2)
             self.external_force += np.array([0.0, 2.5, 4.0]) * strength
 
-    def compute_participation_ratio(self) -> float:
+    def compute_participation_ratio(self) -> Optional[float]:
         """Compute Participation Ratio (PR) of recent trajectory covariance."""
         if len(self.history) < 10:
-            return 3.0
+            return None
             
         data = np.array(self.history)  # Shape (W, 3)
         centered = data - np.mean(data, axis=0)
@@ -349,13 +366,15 @@ class SimulationEngine:
         
         try:
             eigenvalues = np.linalg.eigvalsh(cov)
-            eigenvalues = np.maximum(eigenvalues, 1e-9)
+            eigenvalues = np.maximum(eigenvalues, 0.0)
             sum_lambda = np.sum(eigenvalues)
             sum_lambda_sq = np.sum(eigenvalues**2)
+            if sum_lambda <= 1e-12 or sum_lambda_sq <= 1e-24:
+                return None
             pr = (sum_lambda**2) / sum_lambda_sq
             return float(np.clip(pr, 1.0, 3.0))
         except Exception:
-            return 2.5
+            raise RuntimeError("Participation ratio computation failed")
 
     def identify_active_basin(self) -> str:
         """Identify which attractor basin the current state is closest to."""
@@ -380,21 +399,21 @@ class SimulationEngine:
         self.history.append(self.state.copy())
         
         # Decay external force impulse
-        self.external_force *= self.force_decay
+        self.external_force *= math.exp(math.log(self.force_decay) * self.dt / 0.02)
         if np.linalg.norm(self.external_force) < 1e-4:
             self.external_force = np.zeros(3)
 
         energy = self.landscape.evaluate(self.state)
         pr = self.compute_participation_ratio()
         active_basin = self.identify_active_basin()
-        status = "COLLAPSED" if pr < 1.3 else ("VULNERABLE" if pr < 1.8 else "EXPANDED")
+        status = ("INSUFFICIENT_DATA" if len(self.history) < 10 else "STATIONARY") if pr is None else ("COLLAPSED" if pr < 1.3 else ("VULNERABLE" if pr < 1.8 else "EXPANDED"))
 
         return {
             "t": round(self.time, 3),
             "state": self.state.round(4).tolist(),
-            "velocity": ds.round(4).tolist(),
+            "velocity": (ds / self.dt).round(4).tolist(),
             "energy": round(energy, 4),
-            "pr": round(pr, 3),
+            "pr": None if pr is None else round(pr, 3),
             "status": status,
             "active_basin": active_basin,
             "force": self.external_force.round(3).tolist()
@@ -404,7 +423,7 @@ class SimulationEngine:
 - [ ] **Step 4: Run test to verify it passes**
 
 Run: `python -m pytest Psychology/tests/test_engine.py -v`  
-Expected: All 4 tests PASS.
+Expected: All tests in the selected module PASS.
 
 - [ ] **Step 5: Commit**
 
@@ -551,7 +570,8 @@ from app.main import app
 
 @pytest.fixture
 def client():
-    return TestClient(app)
+    with TestClient(app) as test_client:
+        yield test_client
 
 def test_get_presets(client):
     res = client.get("/api/presets")
@@ -595,15 +615,44 @@ Create `Psychology/app/main.py`:
 import asyncio
 import os
 from typing import Dict, List, Optional
+from contextlib import asynccontextmanager, suppress
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.core.engine import SimulationEngine
 from app.core.presets import get_preset, list_presets
 
-app = FastAPI(title="Psychological Trauma Dynamics Simulation API")
+latest_packet = None
+subscribers = set()
+
+async def simulation_loop():
+    global latest_packet
+    loop = asyncio.get_running_loop()
+    next_tick = loop.time()
+    while True:
+        latest_packet = engine.step()
+        for queue in tuple(subscribers):
+            if queue.full():
+                queue.get_nowait()
+            queue.put_nowait(latest_packet)
+        next_tick += engine.dt
+        # Skip accumulated wall-clock backlog; never let slow viewers drive steps.
+        next_tick = max(next_tick, loop.time())
+        await asyncio.sleep(max(0.0, next_tick - loop.time()))
+
+@asynccontextmanager
+async def lifespan(app):
+    task = asyncio.create_task(simulation_loop())
+    try:
+        yield
+    finally:
+        task.cancel()
+        with suppress(asyncio.CancelledError):
+            await task
+
+app = FastAPI(title="Psychological Trauma Dynamics Simulation API", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -619,23 +668,23 @@ landscape, initial_state = get_preset(active_preset_id)
 engine = SimulationEngine(landscape=landscape, initial_state=initial_state, dt=0.02, noise_std=0.08)
 
 class TriggerRequest(BaseModel):
-    magnitude: float = 6.0
-    direction: Optional[List[float]] = [1.0, -1.0, -1.0]
+    magnitude: float = Field(default=6.0, ge=0.0, le=100.0, allow_inf_nan=False)
+    direction: List[float] = Field(default_factory=lambda: [1.0, -1.0, -1.0], min_length=3, max_length=3)
 
 class InterventionRequest(BaseModel):
     type: str  # 'somatic', 'social', 'cognitive'
-    strength: float = 1.0
+    strength: float = Field(default=1.0, ge=0.0, le=10.0, allow_inf_nan=False)
 
 class ConfigRequest(BaseModel):
-    noise_std: Optional[float] = None
-    trauma_depth: Optional[float] = None
+    noise_std: Optional[float] = Field(default=None, ge=0.0, le=2.0, allow_inf_nan=False)
+    trauma_depth: Optional[float] = Field(default=None, ge=0.0, le=20.0, allow_inf_nan=False)
 
 @app.get("/api/presets")
 def api_list_presets():
     return list_presets()
 
 @app.post("/api/preset/{preset_id}")
-def api_set_preset(preset_id: str):
+async def api_set_preset(preset_id: str):
     global active_preset_id, landscape, engine
     try:
         landscape, initial_state = get_preset(preset_id)
@@ -646,7 +695,9 @@ def api_set_preset(preset_id: str):
         raise HTTPException(status_code=404, detail=str(e))
 
 @app.get("/api/landscape-mesh")
-def api_landscape_mesh(grid_size: int = 40):
+async def api_landscape_mesh(grid_size: int = 40):
+    if not 2 <= grid_size <= 200:
+        raise HTTPException(status_code=422, detail="grid_size must be between 2 and 200")
     x, y, z = engine.landscape.generate_mesh(grid_size=grid_size, bounds=(-3.0, 3.0), slice_x3=engine.state[2])
     return {
         "x": x.tolist(),
@@ -656,21 +707,23 @@ def api_landscape_mesh(grid_size: int = 40):
     }
 
 @app.post("/api/trigger")
-def api_trigger(req: TriggerRequest):
+async def api_trigger(req: TriggerRequest):
     import numpy as np
     dir_arr = np.array(req.direction, dtype=float) if req.direction else np.array([1.0, -1.0, -1.0])
+    if not np.isfinite(dir_arr).all():
+        raise HTTPException(status_code=422, detail="Direction must contain three finite numbers")
     engine.apply_trigger(magnitude=req.magnitude, direction=dir_arr)
     return {"status": "ok"}
 
 @app.post("/api/intervene")
-def api_intervene(req: InterventionRequest):
+async def api_intervene(req: InterventionRequest):
     if req.type not in ["somatic", "social", "cognitive"]:
         raise HTTPException(status_code=400, detail="Invalid intervention type")
     engine.apply_intervention(intervention_type=req.type, strength=req.strength)
     return {"status": "ok"}
 
 @app.post("/api/config")
-def api_config(req: ConfigRequest):
+async def api_config(req: ConfigRequest):
     if req.noise_std is not None:
         engine.noise_std = float(req.noise_std)
     if req.trauma_depth is not None:
@@ -682,13 +735,17 @@ def api_config(req: ConfigRequest):
 @app.websocket("/ws/stream")
 async def websocket_stream(websocket: WebSocket):
     await websocket.accept()
+    queue = asyncio.Queue(maxsize=1)
+    subscribers.add(queue)
     try:
+        if latest_packet is not None:
+            await websocket.send_json(latest_packet)
         while True:
-            packet = engine.step()
-            await websocket.send_json(packet)
-            await asyncio.sleep(0.02)  # ~50 FPS
+            await websocket.send_json(await queue.get())
     except WebSocketDisconnect:
         pass
+    finally:
+        subscribers.discard(queue)
 
 # Mount static files
 static_dir = os.path.join(os.path.dirname(__file__), "static")

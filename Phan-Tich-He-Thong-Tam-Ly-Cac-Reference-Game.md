@@ -1,4 +1,6 @@
 # Phân Tích Hệ Thống Tâm Lý Trong Các Reference Game
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Khảo Sát Thiết Kế Cơ Chế, Mô Hình Hóa Nhận Thức & Đối Chiếu Với Động Cơ Nổi Sinh (Project Anima)
 
 ---

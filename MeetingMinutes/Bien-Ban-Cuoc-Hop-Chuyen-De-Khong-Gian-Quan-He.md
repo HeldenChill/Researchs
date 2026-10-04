@@ -1,4 +1,6 @@
 # BIÊN BẢN CUỘC HỌP HỘI ĐỒNG KHOA HỌC DỰ ÁN ANIMA
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Chuyên đề Chuyên sâu: Phân Rã Bản Thể Luận, Động Lực Học Tô Pô Và Cấu Trúc Đa Tầng Của Không Gian Quan Hệ Xã Hội & Mạng Lưới Liên Nhân Cách (Interpersonal / Relational Space $\mathcal{R}$)
 
 * **Thời gian bắt đầu:** 02:30:00 (Giờ hệ thống) — Ngày 28 tháng 09 năm 2026

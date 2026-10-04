@@ -1,4 +1,6 @@
 # Khảo Sát & Phản Biện Chuyên Sâu: Kiểm Định Tính Trực Giao Của Hệ Trục Không Gian Tâm Lý
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Biên Bản Thảo Luận Mở Rộng: Hội Đồng Tứ Trụ Thẩm Định (Toán Học Động Lực, Thần Kinh Sinh Học, Kiến Trúc Sư Game & Tâm Lý Học Thực Nghiệm)
 
 ---

@@ -1,5 +1,7 @@
 # Theoretical Foundations & Mathematical Formulations
 
+> **Current corrections (2026-10-04):** Read the [correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md). Logical game-space design is the broader project; this memory records the psychological-simulation case study.
+
 > **Evidence note (updated 2026-09-29):** Equations and cross-domain mappings below include Project Anima design hypotheses. The independent council's [psychological-space review](2026-09-28-hoi-dong-tham-dinh-va-ban-giao-antigravity.md) and [willpower review](2026-09-29-tham-dinh-khong-gian-y-chi.md) distinguish mathematical deductions, outside evidence, and unverified simulation/clinical claims. Read the relevant review before treating these formulations as validated scientific results.
 **Project:** Computational Modeling of Psychological Systems, Trauma Dynamics & Willpower  
 **File Type:** Project-Internal Theoretical Memory  
@@ -44,14 +46,16 @@ $$\Delta E_{\text{escape}} \gg \Delta E_{\text{fall}}$$
 ### 3.2. Critical Slowing Down (Early Warning Signals)
 Prior to a catastrophic phase shift (Tipping Point into trauma / panic):
 1. **Recovery time diverges:** $\tau_{\text{recovery}} \to \infty$ as the local potential well flattens.
-2. **Variance spikes:** $\operatorname{Var}(\vec{S}) \to \infty$.
+2. **Variance may increase:** divergence is a local unbounded linear-noise approximation, not a property of bounded coordinates. For a scalar in [a,b], variance is at most (b-a)^2/4. Finite sampling, forcing and nonlinear dynamics can obscure early-warning signals.
 3. **Autocorrelation (lag-1) approaches 1:** $\operatorname{ACF}(1) \to 1$.
 
 ### 3.3. Dimensionality Collapse (Participation Ratio - PR)
-Given covariance matrix $C \in \mathbb{R}^{N \times N}$ computed over a sliding temporal window of width $W$:
+For nonzero covariance only (zero trace makes PR undefined; return unavailable, not N), given covariance matrix $C \in \mathbb{R}^{N \times N}$ computed over a sliding temporal window of width $W$:
 $$\text{PR} = \frac{\left(\sum_{k=1}^N \lambda_k\right)^2}{\sum_{k=1}^N \lambda_k^2} \in [1.0, N]$$
-* $\text{PR} \approx N$: High degrees of freedom, cognitive flexibility, complex emotional processing (Healthy Self-Organized Criticality).
-* $\text{PR} \to 1.0$: Degeneration to a 1-dimensional binary survival axis (Fight/Flight or Freeze/Shutdown).
+* $\text{PR} \approx N$: Nearly isotropic recent covariance; independent noise can also produce this. It does not establish cognitive flexibility or self-organized criticality.
+* $\text{PR} \to 1.0$: Recent covariance dominated by one direction. This is not proof of a one-dimensional manifold, binary behavior, trauma or a clinical diagnosis.
+
+For the unforced deterministic gradient subsystem alone, $\dot V=-\|\nabla V\|^2\le0$. Nontrivial sustained cycles or strange attractors require additional non-gradient dynamics; noise alone does not demonstrate self-organized criticality.
 
 ---
 
@@ -71,7 +75,7 @@ $$\begin{cases}
 
 ## 5. The Two-Tier Emergent Engine (Plan B - Fiber Bundle Formulation)
 
-The architecture upgraded from the flat 4-axis model to a **Two-Tier Fiber Bundle** ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$) to guarantee mathematical non-degeneracy, full Big Five (OCEAN) cybernetic mapping (CB5T), and dual-rate computational optimization:
+The architecture upgraded from the flat 4-axis model to a **Two-Tier Fiber Bundle** ($\mathcal{E} \xrightarrow{\pi} \mathcal{B}$) as a project design hypothesis. Two update rates do not establish orthogonality, empirical Big Five coverage or measured CPU savings:
 
 $$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1: Base Space } \mathcal{B} \text{ (Fast 10 Hz)}} \;\Big|\; \underbrace{C, W, D, E_x}_{\text{Tier 2: Fiber Space } \mathcal{F} \text{ (Slow 1 Hz)}} \Big)$$
 
@@ -84,7 +88,7 @@ $$\vec{S}(t) = \Big( \underbrace{A_{\text{phys}}, V_{\text{bio}}}_{\text{Tier 1:
 5. **$D \in [-1.0, +1.0]$ (Dominance / Agency):** Vertical axis of the Interpersonal Circumplex (Assertive leadership vs Submissive obedience).
 6. **$E_x \in [0.0, 1.0]$ (Epistemic Drive / Exploration):** Panksepp SEEKING system, curiosity and dopaminergic reward-seeking.
 
-### 5.2. Cybernetic Big Five Mapping (CB5T):
+### 5.2. Proposed Big Five-inspired mapping (not calibrated trait measurement):
 * **Neuroticism ($N$):** Sensitivity and gradient of Tier 1 ($A_{\text{phys}}, V_{\text{bio}}$).
 * **Extraversion ($E$):** Composite of $D > 0$, $E_x > 0$, and $W > 0$.
 * **Openness ($O$):** Epistemic exploration axis $E_x$.
@@ -101,14 +105,14 @@ $$\vec{I}_{\text{perceived}} = \mathbf{M}_{\text{filter}}(\vec{S}, \text{Trauma\
 ## 6. Dynamical Nemesis System Formulations
 
 ### 6.1. Saddle-Node Bifurcation of Relational Potential
-A catastrophic humiliation/defeat event exceeding injury threshold ($\text{Loss} > \theta$) triggers a structural bifurcation in the relational potential landscape $U_{ij}(\vec{S}_{\text{rel}})$:
-$$\frac{dU_{ij}}{dt} = \mu_{\text{trauma}} - S_{\text{rel}}^2$$
-* For $\mu_{\text{trauma}} > 0$, a new stable fixed point (Obsession / Nemesis Attractor) and an unstable saddle point emerge, permanently trapping character $i$'s relational dynamics toward target $j$.
+A proposed game rule may map humiliation/defeat above a chosen threshold to a change in the parameter of the following local normal form; the event does not mathematically or empirically guarantee a bifurcation:
+$$\frac{dS_{\text{rel}}}{dt} = \mu_{\text{trauma}} - S_{\text{rel}}^2, \qquad U(S_{\text{rel}})=\frac{S_{\text{rel}}^3}{3}-\mu_{\text{trauma}}S_{\text{rel}}$$
+* For mu > 0, the scalar local normal form has equilibria at ±sqrt(mu); +sqrt(mu) is stable and -sqrt(mu) unstable because f'(S)=-2S. In one dimension the unstable equilibrium is not a saddle. At mu=0 they coalesce. This local equation neither supplies global confinement nor proves permanent trapping; bounded implementation requires a specified boundary rule or globally stabilizing drift. Psychological interpretation remains a game hypothesis.
 
 ### 6.2. Coupled Forced Oscillations (Hostile Resonance)
 Proximity $d(i, \text{Nemesis})$ injects a periodic driving force into $A_{\text{phys}, i}$:
 $$\frac{d^2 A_{\text{phys}, i}}{dt^2} + \gamma \frac{dA_{\text{phys}, i}}{dt} + \omega_0^2 A_{\text{phys}, i} = F_0 \cdot \exp\big(-k \cdot d(i, \text{Nemesis})\big) \cdot \cos(\Omega t)$$
-* This resonant excitation locks the target in high arousal, collapsing Tier 2 executive bandwidth and precluding ventral vagal social co-regulation.
+* This is a proposed forced-oscillator mechanism. Resonance depends on damping and frequency; the equation alone does not imply positive high arousal, executive collapse or a specific clinical response. It also needs a velocity state and a rule respecting the arousal bounds.
 
 ---
 
@@ -123,7 +127,7 @@ Ratified by the Project Director on September 28, 2026, *Project Anima* elevates
          +-------------------+-------------------+-------------------+
          | (Warps Potential) | (Gates Pain)      | (Crushes Hatred)  | (Breaks Dogma)
          v                   v                   v                   v
-[ LEVEL 1: DYNAMICAL SPACES (Mutually Linearly Independent) ]
+[ LEVEL 1: CONCEPTUAL MODULES (Independence not established) ]
   Ɛ (Event Space)   ==>  ℋ (Somatic)  ==>  ℳ (Psychological) <== ℘ (Belief)
   (Exogenous World)      (Bio-Hardware)    (Two-Tier Phase)      (Priors / Values)
                                                   ^
@@ -132,13 +136,14 @@ Ratified by the Project Director on September 28, 2026, *Project Anima* elevates
 ```
 
 ### 7.1. Space Taxonomies & Ontological Roles:
-1. **$\mathcal{W}$ (Meta-Volitional Dimension — Rank 0 Operator):**
+1. **$\mathcal{W}$ (Meta-Volitional control module; operator rank unspecified):**
    * An endogenous second-order deformation operator $\hat{\mathcal{W}}$ capable of restructuring the geometry of adjacent manifolds.
 2. **$\mathcal{E}$ (Global Exogenous Event Space):**
    * The universe of environmental, contextual, and physical triggers outside the organism's Markov Blanket. Decomposed into Visceral shocks and Semantic payloads.
 3. **$\mathcal{H}$ (Internal Somatic Homeostasis Space):**
    * The objective biochemical/thermodynamic configuration space inside the Markov Blanket:
-     $$\vec{H}(t) = \big( \text{Energy}_{\text{glucose}}, \text{Hydration}, \text{CoreTemp}, \text{TissueIntegrity}_{\text{HP}}, \text{Toxin}, \text{Fatigue} \big) \in \mathbb{R}^6$$
+     $$\vec{H}(t) = \big( E_{\text{glyc}}, P_{\text{pain}}, S_{\text{sleep}}, W_{\text{hydr}}, T_{\text{thermo}} \big) \in [0,1]^4 \times [-1,1]$$
+   * This matches the five scalar state coordinates in the somatic meeting's proposed engine. Allostatic load and tick/status fields are additional runtime data. Tissue injury, perceived pain, hydration and blood volume must not be treated as clinically interchangeable without a separate measurement model; this is a game abstraction.
 4. **$\mathcal{M}$ (Psychological Two-Tier Phase Space):**
    * The subjective regulatory phase manifold structured as a Fiber Bundle $\mathcal{E} \xrightarrow{\pi} \mathcal{B}$:
      $$\vec{S}(t) = \big( A_{\text{phys}}, V_{\text{bio}} \;\big|\; C, W, D, E_x \big) \in \mathbb{R}^2 \times \mathbb{R}^4$$
@@ -148,7 +153,8 @@ Ratified by the Project Director on September 28, 2026, *Project Anima* elevates
    * Operates as parameter coefficients directly shaping potential landscape wells: $V(\vec{S}; \boldsymbol{\theta})$.
 6. **$\mathcal{R}$ (Distributed Interpersonal Relational Topology):**
    * An asynchronous directed graph of pairwise interaction vectors between agents $i$ and $j$:
-     $$\mathbf{R}_{ij} = \big( \text{Affinity}_{ij}, \text{Trust}_{ij}, \text{PowerDynamic}_{ij}, \text{Debt}_{ij}, \text{NemesisAttractor}_{ij} \big) \in \mathbb{R}^5$$
+     $$\mathbf{R}_{ij} = \big( \alpha_{\text{aff}}, \beta_{\text{dom}}, \gamma_{\text{debt}}, \mu_{\text{tom}}, \tau_{\text{bond}} \big) \in [-1,1]^3 \times [0,1]^2$$
+   * This matches the five fields in the relational meeting's proposed engine. Nemesis is a derived game condition, not an additional independent coordinate.
 
 ---
 
@@ -185,7 +191,7 @@ $$V_{\text{warped}}(\vec{S}) = V(\vec{S}) - \Big[ \mathcal{W}_{\text{amp}} \cdot
 ### 9.1. Interoceptive Inference Mapping ($\mathcal{H} \to \mathcal{M}$):
 Physical damage in $\mathcal{H}$ translates to subjective neuroception in $\mathcal{M}$ via sensory projection:
 $$V_{\text{bio}}(t) = \tanh\left( \mathbf{W}_{\text{intero}} \cdot \vec{H}(t) + b_{\text{neuroception}} \right)$$
-* Explains clinical divergence: under anesthesia ($\mathbf{W}_{\text{intero}} \to 0$), severe tissue trauma ($\text{HP} \to 0$) does not trigger psychological panic ($V_{\text{bio}} \approx 0$).
+* Under zero interoceptive weights this formula gives V_bio=tanh(b_neuroception), not necessarily zero. Clinical effects are unverified; do not equate this algebraic illustration with an anesthesia model.
 
 ### 9.2. Event Pipeline Equations:
 An exogenous event $\mathbf{E} \in \mathcal{E}$ splits into dual propagation streams:
@@ -202,9 +208,9 @@ Ratified in Session 4 (Prof. Thaddeus Mercer), Beliefs operate as the **Landscap
 
 $$\vec{\theta} = \Big( \vec{\theta}_{\text{moral}}, \delta_{\text{dogma}}, \sigma_{\text{sacred}}, \lambda_{\text{locus}}, \alpha_{\text{tribal}} \Big) \in [-1, 1]^6 \times [0, 1] \times [0, 1] \times [-1, 1] \times [0, 1]$$
 
-### 10.1. The 5 Orthogonal Dimensions of $\mathcal{P}$:
+### 10.1. Five conceptual blocks, ten scalar coordinates of $\mathcal{P}$:
 1. **$\vec{\theta}_{\text{moral}} \in [-1, 1]^6$ (Haidt's Moral Foundations):** Care/Harm, Fairness/Cheating, Loyalty/Betrayal, Authority/Subversion, Sanctity/Degradation, Liberty/Oppression. Shapes behavioral attractor basins: $V_{\text{moral}} = -\sum_{k=1}^6 \theta_k \Psi_k(\vec{S})$.
-2. **$\delta_{\text{dogma}} \in [0, 1]$ (Epistemic Calcification / Bayesian Dogmatism):** Defines the precision of prior beliefs: $\Pi_{\text{prior}} = \frac{1}{1.001 - \delta_{\text{dogma}}}$. When $\delta \to 1.0$, sensory prediction errors are zeroed out (Confirmation Bias / Fanaticism).
+2. **$\delta_{\text{dogma}} \in [0, 1]$ (Epistemic Calcification / Bayesian Dogmatism):** Defines the precision of prior beliefs: $\Pi_{\text{prior}} = \frac{1}{1.001 - \delta_{\text{dogma}}}$. At delta=1 this precision is finite (1000), not infinite, and does not itself zero prediction error. The separate learning-rate factor (1-delta) below suppresses evidence-driven updates; this is a game rule, not an established clinical mapping.
 3. **$\sigma_{\text{sacred}} \in [0, 1]$ (Sacred Value Barrier):** Deontological cut-off switch disabling utilitarian cost-benefit circuitry (DLPFC). Creates an infinite repulsive potential wall:
    $$V_{\text{taboo}}(\vec{S}) = \sigma_{\text{sacred}} \cdot \frac{K_{\text{barrier}}}{\big(\text{DistanceToTaboo}(\vec{S})\big)^2} \xrightarrow{\text{taboo} \to 0} \infty$$
 4. **$\lambda_{\text{locus}} \in [-1, 1]$ (Existential Locus of Control):** $+1.0$ Internal Agency (Master of Fate) vs. $-1.0$ External Fatalism (Helpless Pawn of Destiny).
@@ -217,5 +223,3 @@ $$\frac{d\vec{\theta}}{dt} = \frac{1}{\tau_{\text{belief}}} (1.0 - \delta_{\text
 
 ### 10.3. Thought Cabinet Lifecycle Engine:
 $$\text{Ideational Seed} \xrightarrow{\text{Incubation: } \text{Cognitive Dissonance penalty} (\Delta C < 0)} \text{Crystallized Thought} \big(\Delta \vec{\theta}_{\text{permanent}}\big)$$
-
-

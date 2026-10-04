@@ -1,4 +1,6 @@
 # Persistent Memory: GS. Valeria Moreau
+
+> **Current correction guidance (2026-10-04):** This document contains historical proposals, analogies or design expectations. Read the [project correction register](../../docs/superpowers/specs/2026-10-04-project-correction-register.md) before treating equations, biological mappings, dimensional independence, performance or acceptance claims as established results.
 ### Social Neuroscience, Attachment Dynamics & Complex Relational Topologies
 
 ---
