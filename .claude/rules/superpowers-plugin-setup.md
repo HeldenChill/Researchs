@@ -1,3 +1,6 @@
+---
+description: Invoke the matching Superpowers skill before acting (brainstorming, systematic-debugging, writing-plans), one skill at a time
+---
 # Rule: Superpowers Plugin Setup
 
 **Scope:** Universal — no project config needed.
@@ -16,7 +19,7 @@
 | Task | Skill |
 |------|-------|
 | New feature or refactor | `brainstorming` |
-| Bug with unclear root cause | `debug-bug` |
+| Bug with unclear root cause | `systematic-debugging` |
 | Design → code | `writing-plans` |
 | Tests first | `tdd-workflow` |
 

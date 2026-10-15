@@ -1,3 +1,6 @@
+---
+description: Forbidden characters in Mermaid labels (`()` `->` `=>` `==` `<>` `#`) and their safe replacements; Cursor parses stricter than GitHub
+---
 # Rule: Mermaid Diagrams
 
 **Scope:** Universal — no project config needed.
@@ -6,6 +9,8 @@
 
 ## Forbidden characters in label text
 
+Labels must not contain any of the characters or sequences below, even when quoted.
+
 | Character | Why it breaks |
 |-----------|--------------|
 | `()` | Tokenized as function call |
@@ -13,6 +18,7 @@
 | `=>` | Conflicts with thick-arrow syntax |
 | `==` | Conflicts with thick-arrow syntax |
 | `<>` | Conflicts with generics / HTML |
+| `#` | Reserved for Mermaid entity syntax; use plain words in labels |
 
 ## Safe replacements
 
@@ -22,6 +28,7 @@
 | `stamina == 0` | `stamina zero` or `stamina depleted` |
 | `A -> B` | `A calls B` or `A then B` |
 | `A => B` | `A then B` |
+| `Issue #42` | `Issue 42` or `Issue number 42` |
 
 ## Other syntax rules
 

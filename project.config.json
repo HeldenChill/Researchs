@@ -1,0 +1,9 @@
+{
+  "_comment": "Project config for Researchs workspace",
+  "PROJECT_NAME": "Researchs",
+  "L5_ASSEMBLY": "Researchs",
+  "L5_PATH": "docs/",
+  "LOCATOR_SERVICE": "N/A",
+  "INTEGRITY_CHECK": "N/A",
+  "UNITY_VERSION": "6000.0.0f1"
+}
