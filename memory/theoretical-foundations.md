@@ -223,3 +223,35 @@ $$\frac{d\vec{\theta}}{dt} = \frac{1}{\tau_{\text{belief}}} (1.0 - \delta_{\text
 
 ### 10.3. Thought Cabinet Lifecycle Engine:
 $$\text{Ideational Seed} \xrightarrow{\text{Incubation: } \text{Cognitive Dissonance penalty} (\Delta C < 0)} \text{Crystallized Thought} \big(\Delta \vec{\theta}_{\text{permanent}}\big)$$
+
+---
+
+## 11. Core Theory of Logical Game Space: The Formal System $\langle \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega \rangle$
+
+Ratified on 2026-10-16. This section records the foundational formulation for the project's primary goal: **A Theory of Logical Space for Game Design** (superseding specific case-study constraints).
+
+### 11.1. Universal Definition
+Any game system $\mathcal{G}$ (or any of its operational layers, such as Core Combat) is formally defined as a 4-tuple:
+
+$$\mathcal{G} = \left\langle \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega \right\rangle$$
+
+1. **State Space ($\mathcal{S}$):** The Cartesian product of all independent, dynamic state variables that measure the instantaneous configuration of the game world and its agents at step $t$:
+   $$\mathcal{S} = \prod_{k=1}^K \mathcal{S}_k$$
+   *Criterion:* An element belongs to $\mathcal{S}$ if and only if it represents an observable, time-varying state variable (e.g., $HP$, resources, continuous or discrete coordinates). Static configuration parameters (e.g., base multipliers, stat coefficients) are NOT state coordinates.
+2. **Action & Affordance Space ($\mathcal{A}$):** The set of all admissible decisions, interventions, or control inputs available to human players and autonomous agents at step $t$:
+   $$\mathcal{A} = \prod_{j=1}^J \mathcal{A}_j$$
+   *Criterion:* Elements of $\mathcal{A}$ represent choices (which skill card to pick, which target to assign, what topological sequence to form), not system transformations.
+3. **Transition Operators / Resolvers ($\hat{\mathbb{O}}$):** The set of mechanical functions mapping current state and chosen actions to the successor state:
+   $$\hat{\mathcal{O}}: (\mathcal{S}_t \times \mathcal{A}_t) \longrightarrow \mathcal{S}_{t+1}$$
+   *The Non-Negotiable Ontological Principle:* **An Operator is NEVER a Basis Space.** Mechanics such as clash resolvers, damage calculators, or status decay functions are transformation operators $\hat{\mathcal{O}}$, never state coordinates. Confusing an operator with a basis dimension is a category error (The Operator-As-Space Fallacy).
+4. **Boundary & Termination Space ($\Omega$):** The set of halting predicates, absorbing boundaries, and win/loss manifolds that partition terminal states from ongoing dynamics.
+
+### 11.2. The Principle of Non-Sacred Dimension Numbers
+The dimensionality $D = \dim(\mathcal{S})$ of a game's logical space is strictly determined by its **irreducible degrees of freedom**. It is forbidden to artificially collapse or expand systems into aesthetic/numerological counts (such as "5 axes" or "6 spaces") due to bias from external case studies. Every game system must be derived from its own empirical mechanics.
+
+### 11.3. Multi-Tier Hierarchy of Game Spaces
+A complete game comprises nested, coupled logical spaces operating across distinct timescales:
+* **Tier 1 (In-Combat / Micro Loop):** High-frequency turn-by-turn resolution $(\sim 1 \text{ turn})$.
+* **Tier 2 (Dungeon / Rule-Warping Modifiers):** Medium-frequency traversal with meta-operators modifying Tier 1 rules (e.g. E.G.O Gifts, relics).
+* **Tier 3 (Roster / Meta-Progression):** Low-frequency character leveling, tier-upties, and persistent deck building.
+* **Tier 4 (Macro Economy & Operations):** Global stamina/energy conversion, currency sinks, and acquisition loops.

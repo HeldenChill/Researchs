@@ -64,10 +64,18 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`docs/superpowers/specs/2026-10-01-forest-bloom-symbiotic-defense-design.md`](docs/superpowers/specs/2026-10-01-forest-bloom-symbiotic-defense-design.md) — Technical Specification for Autonomous Discrete Sandbox (`Forest_Bloom`, Unity 6).
 - [`docs/superpowers/plans/2026-10-01-forest-bloom-symbiotic-defense.md`](docs/superpowers/plans/2026-10-01-forest-bloom-symbiotic-defense.md) — Implementation Plan & 50-Step Ecological Smoke Test (external acceptance pending).
 
-### 4. Interactive Archive
+### 4. Case Study & Game Space Explorations (`docs/explorations/`)
+- [`docs/explorations/limbus-company-logical-space/`](docs/explorations/limbus-company-logical-space/) — Phân rã Không Gian Logic Core Combat Limbus Company thành $\mathcal{G} = \langle \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega \rangle$.
+  - Tài liệu đặc tả: [`Khong-Gian-Logic-Core-Gameplay-Limbus-Company.md`](docs/explorations/limbus-company-logical-space/Khong-Gian-Logic-Core-Gameplay-Limbus-Company.md).
+  - Bách khoa cơ học: [`Toan-Bo-Cac-Yeu-To-Gameplay-Limbus-Company.md`](docs/explorations/limbus-company-logical-space/Toan-Bo-Cac-Yeu-To-Gameplay-Limbus-Company.md).
+  - Branch Playbook: [`playbook-limbus-combat-analysis.md`](docs/explorations/limbus-company-logical-space/meta/playbook-limbus-combat-analysis.md).
+  - Branch Memory: [`memory.md`](docs/explorations/limbus-company-logical-space/meta/memory.md).
+
+
+### 5. Interactive Archive
 - [`Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html`](Cuoc-Tro-Chuyen-Khong-Gian-Tam-Ly-Va-Y-Chi.html) — Interactive HTML archive with KaTeX formulas and zoomable Mermaid diagrams.
 
-### 5. Meeting Minutes Archive (`MeetingMinutes/`)
+### 6. Meeting Minutes Archive (`MeetingMinutes/`)
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Khao-Sat-Kiem-Dinh-Khong-Gian-Tam-Ly.md) — Official Minutes: 4-Pillar Scrutiny of Psychological Axes, Plan B (Two-Tier 6D Engine) & Dynamical Nemesis System.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes: Identification & Topology Audit of the Master 6-Space Architecture.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes: Deconstruction of Meta-Volitional Space & Warping Operator ($\mathcal{W}$).
@@ -76,6 +84,11 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Su-Kien.md) — Official Minutes: Deconstruction of Global Exogenous Event Space ($\mathcal{E}$), Two-Tier Appraisal Pipeline & Zero-Allocation RingBuffer.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Sinh-Hoc-Noi-Moi.md) — Official Minutes: Deconstruction of Somatic Homeostasis Space ($\mathcal{H}$), Dual-Rate Pipeline & 32B Blittable Engine.
 
+## Project Rules & Playbooks (2026-10-16)
+- **Quy tắc cốt tử chống thiên kiến:** [`.agents/rules/no-case-study-bias-and-basis-orthogonality.md`](.agents/rules/no-case-study-bias-and-basis-orthogonality.md) — Nghiêm cấm mang số chiều hoặc mô hình của case study cũ áp vào game mới; tách bạch tuyệt đối State $\mathcal{S}$, Action $\mathcal{A}$, Operator $\hat{\mathbb{O}}$, Boundary $\Omega$.
+- **Universal Playbook (Base Theory):** [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Quy trình 6 bước chuẩn hóa phân rã bất kỳ game nào thành Không Gian Logic.
+
 ## Current project purpose (2026-10-04)
 
 The owner defines the core project as a theory of **logical space for game design**: derive coherent rules, gameplay and progression from an initial game idea. Psychological dynamics and Forest_Bloom are case studies. Fourier-style decomposition/reconstruction is currently an analogy, not a proven transform. See [approved correction scope](docs/superpowers/specs/2026-10-04-project-corrections-design.md) and [correction register](docs/superpowers/specs/2026-10-04-project-correction-register.md).
+

@@ -277,3 +277,31 @@ The Project Director directed the transition of the theoretical psychological dy
 **Latest handoff:** [Full session memory and Forest_Bloom continuation guide](2026-10-04-project-review-corrections-and-forest-bloom-handoff.md). The owner will resume Forest_Bloom review in another session. Read this handoff before using older completion claims or changing external Unity code.
 
 The owner clarified the core goal: a theory of logical space for deriving complete, clear gameplay from game ideas, with Fourier-style decomposition as an analogy. Psychological simulation is a case study. The owner approved repairing reviewed errors before continuing Forest_Bloom. Current correction scope and evidence are in [the correction register](../docs/superpowers/specs/2026-10-04-project-correction-register.md). Earlier claims of complete theory, executed stress tests, orthogonality, clinical accuracy or measured performance remain historical proposals unless supported by explicit verification records. Unity integration, population acceptance and empirical validation remain pending.
+
+---
+
+## 8. Session Update — Phân Tầng Không Gian Logic Thuần Túy & Bóc Tách Case Study Limbus Company (2026-10-16)
+
+**Workspace:** `G:\Projects\Researchs`.  
+Trong phiên làm việc này, Chủ nhiệm dự án đã chỉ đạo chuẩn hóa phương pháp luận bóc tách một game thực chứng (Limbus Company) về hệ cơ sở Không Gian Logic, loại bỏ toàn bộ thiên kiến và thiết lập các quy tắc bản thể bất di bất dịch:
+
+### 1. Phê bình Bản thể học & Loại bỏ Thiên kiến Case Study (Anti-Bias Pivot)
+* **Loại bỏ "Con số thiêng" 5 trục:** Phát hiện và phê phán việc trợ lý bị "neo định kiến" (Anchor Bias) từ Big Five và 5 kịch bản stress-test của Anima, dẫn tới việc cố ép Limbus Company vào "5 trục cơ sở". Bác bỏ mọi con số tiên nghiệm; số chiều không gian phải rút trích thuần túy từ bậc tự do thực tế của hệ thống.
+* **Quy tắc mới được ban hành:** [`.agents/rules/no-case-study-bias-and-basis-orthogonality.md`](../.agents/rules/no-case-study-bias-and-basis-orthogonality.md). Nghiêm cấm mang toán học SDE hoặc mô hình tâm lý của case study cũ áp đặt sang case study mới.
+* **Bóc trần Cạm bẫy "Biến Toán tử thành Không gian" (Operator-as-Space Fallacy):** Nhận diện lỗi phân loại khi coi Bộ giải đụng độ (Clash Resolver) hay Ma trận tương khắc (Affinity Matrix) là "Trục không gian". Chúng là các **Toán tử chuyển trạng thái ($\hat{\mathbb{O}}$)** hoặc **Tham số cấu hình tĩnh**, tuyệt đối không phải là Không gian trạng thái cơ sở.
+
+### 2. Định Nghĩa Chuẩn Tắc Hệ Thống Không Gian Logic $\mathcal{G} = \langle \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega \rangle$
+Xác lập cấu trúc 4 thành phần toán học chặt chẽ áp dụng cho mọi game:
+1. **$\mathcal{S}$ (Không Gian Trạng Thái Động):** Tập hợp các đại lượng biến thiên mô tả snapshot thế giới/thực thể tại thời điểm $t$.
+2. **$\mathcal{A}$ (Không Gian Quyết Định & Hành Động):** Các bậc tự do mà người chơi/AI được quyền lựa chọn trong lượt.
+3. **$\hat{\mathbb{O}}$ (Hệ Toán Tử Chuyển Trạng Thái):** Các hàm phân giải $(\mathcal{S}_t \times \mathcal{A}_t) \xrightarrow{\hat{\mathbb{O}}} \mathcal{S}_{t+1}$.
+4. **$\Omega$ (Không Gian Ranh Giới & Dừng):** Điều kiện biên kết thúc (Thắng, Thua, Timeout).
+
+### 3. Phân Tầng Kiến Trúc Toàn Game vs Core Gameplay
+* Xác định rõ: Phân tích 7 toán tử lượt chỉ thuộc về **Tầng 1 (Core Combat Loop)**.
+* Một game hoàn chỉnh là một hệ phân cấp đa tầng: Tầng 1 (Combat Gameplay) $\subset$ Tầng 2 (Roguelike / Dungeon) $\subset$ Tầng 3 (Roster / Meta-Progression) $\subset$ Tầng 4 (Macro Economy / Gacha).
+
+### 4. Thành Phẩm Trực Tiếp Của Phiên
+* Tài liệu lý thuyết chuẩn tắc: [`Khong-Gian-Logic-Core-Gameplay-Limbus-Company.md`](../docs/explorations/limbus-company-logical-space/Khong-Gian-Logic-Core-Gameplay-Limbus-Company.md).
+* Bách khoa 9 sơ đồ cơ học: [`Toan-Bo-Cac-Yeu-To-Gameplay-Limbus-Company.md`](../docs/explorations/limbus-company-logical-space/Toan-Bo-Cac-Yeu-To-Gameplay-Limbus-Company.md).
+
