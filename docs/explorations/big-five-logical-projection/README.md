@@ -7,6 +7,13 @@
 > * **Non-Interference Guarantee:** Hypotheses, mathematical models, or empirical psychological facets explored here do NOT mutate, constrain, or pollute the upstream Logical Space definitions or base engine specifications.
 > * **Re-alignment Policy:** When Core Logical Space develops or refines its basis coordinates, updates are absorbed strictly via [basis-mapping.md](basis-mapping.md). Core files remain untouched.
 > * **Status:** Exploratory Subspace / Domain Case Study.
+> * **Conformance (2026-10-24): pre-v0.2, known non-conformant** with [core v0.2](../../theory/Logical-Space-Base-Theory.md). Pin stays at v0.1 until rework.
+>   * **P0 / L4:** starts from a psychological model instead of a game spec; basis resolution not derived.
+>   * **L3:** five traits fixed in advance as five coordinates (sacred number).
+>   * **L1:** traits mapped as coordinates while acting as operator parameters (noise gain, coupling weight).
+>   * **L6:** linear projection $\sum_k \alpha_k \phi_k$ cannot produce emergence.
+>   * **Unverified claim:** OCEAN $|r| \le 0.2$; meta-analyses report larger correlations, and CB5T meta-axes exist because traits correlate. Population correlation is also not functional independence under operators (gate P2).
+>   * **Planned rework:** game-first. Pick a concrete game needing character behavior, run P0 to P2, decide whether personality is needed and at what resolution; traits likely become per-agent config parameters modulating operators.
 
 ---
 

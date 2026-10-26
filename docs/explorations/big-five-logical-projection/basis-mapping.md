@@ -20,7 +20,9 @@
 
 ## 2. Orthogonality & Decomposition Checks
 
-* **Empirical Independence:** In psychometrics, OCEAN traits have low cross-correlation ($|r| \le 0.2$ in standard populations), making them viable candidates for orthogonal decomposition in an agent state space.
+> **Flag (2026-10-24):** the independence claim and the projection formula below are non-conformant with core v0.2. See [README conformance note](README.md).
+
+* **Empirical Independence (unverified):** In psychometrics, OCEAN traits have low cross-correlation ($|r| \le 0.2$ in standard populations), making them viable candidates for orthogonal decomposition in an agent state space.
 * **Fourier-Style Projection Analogy:**
   $$\Psi_{\text{agent}} = \sum_{k \in \{O, C, E, A, N\}} \alpha_k \cdot \phi_k(\text{game\_state})$$
   *Note:* Analogy pending formal mathematical definition of the basis operator $\phi_k$.
@@ -30,3 +32,4 @@
 ## 3. Drift & Re-alignment Log
 
 * **2026-10-16:** Initial mapping created against Logical Space v0.1. Mapped 5 traits to candidate primitive coordinates $(\mathbf{e}_{\text{explore}}, \mathbf{e}_{\text{order}}, \mathbf{e}_{\text{energy}}, \mathbf{e}_{\text{synergy}}, \mathbf{e}_{\text{stability}})$.
+* **2026-10-24:** Audited against core v0.2. Non-conformant with P0, L1, L3, L4, L6; independence claim unverified. Mapping left unchanged; pin stays v0.1 until game-first rework. Details in [README](README.md).

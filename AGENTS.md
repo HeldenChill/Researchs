@@ -24,7 +24,9 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
-- [Latest session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
+- [Latest session / Forest_Bloom review and basis ladder](memory/2026-10-24-forest-bloom-review-and-basis-ladder-session.md) — Forest_Bloom read-only audit vs v0.2, AG-6 basis ladder (detector vs spec), core v0.2.1, playbook v2.1, open T2 to T4, I2 detector next.
+- [Base theory v0.2 session](memory/2026-10-24-logical-space-base-theory-session.md) — Owner's theory intent, agreed decisions AG-1 to AG-5, new core theory files, Bump_Hero first pass, deferrals.
+- [Previous session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
 - [`memory/conversation-summary.md`](memory/conversation-summary.md) — Comprehensive log and synthesis of research dialogues, paradigm shifts, and cross-disciplinary models.
 - [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, Two-Tier 6D Engine, Dynamical Nemesis).
 
@@ -86,7 +88,9 @@ This workspace is dedicated to computational research, psychological dynamical m
 
 ## Project Rules & Playbooks (2026-10-16)
 - **Quy tắc cốt tử chống thiên kiến:** [`.agents/rules/no-case-study-bias-and-basis-orthogonality.md`](.agents/rules/no-case-study-bias-and-basis-orthogonality.md) — Nghiêm cấm mang số chiều hoặc mô hình của case study cũ áp vào game mới; tách bạch tuyệt đối State $\mathcal{S}$, Action $\mathcal{A}$, Operator $\hat{\mathbb{O}}$, Boundary $\Omega$.
-- **Universal Playbook (Base Theory):** [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Quy trình 6 bước chuẩn hóa phân rã bất kỳ game nào thành Không Gian Logic.
+- **Core Base Theory (entry point, v0.2.1, 2026-10-24):** [`docs/theory/Logical-Space-Base-Theory.md`](docs/theory/Logical-Space-Base-Theory.md) — Point to this file when developing a new game. Math explainer: [`docs/theory/Logical-Space-Mathematical-Foundations.md`](docs/theory/Logical-Space-Mathematical-Foundations.md). Discussion record: [`.cursor/plans/design/2026-10-24-logical-space-base-theory.md`](.cursor/plans/design/2026-10-24-logical-space-base-theory.md).
+- **Universal Playbook (Base Theory):** [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Playbook v2.1: thang basis (AG-6) và quy trình 12 bước phân rã game thành Không Gian Logic, kèm cổng kiểm định P2–P6.
+- **Bump_Hero exploration:** [`docs/explorations/bump-hero-logical-space/README.md`](docs/explorations/bump-hero-logical-space/README.md) — First-pass decomposition from source.
 
 ## Current project purpose (2026-10-04)
 

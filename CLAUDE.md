@@ -24,7 +24,9 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
-- [Latest session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
+- [Latest session / Forest_Bloom review and basis ladder](memory/2026-10-24-forest-bloom-review-and-basis-ladder-session.md) — Forest_Bloom read-only audit vs v0.2, AG-6 basis ladder (detector vs spec), core v0.2.1, playbook v2.1, open T2 to T4, I2 detector next.
+- [Base theory v0.2 session](memory/2026-10-24-logical-space-base-theory-session.md) — Owner's theory intent, agreed decisions AG-1 to AG-5, new core theory files, Bump_Hero first pass, deferrals.
+- [Previous session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
 - [`memory/conversation-summary.md`](memory/conversation-summary.md) — Comprehensive log and synthesis of research dialogues, paradigm shifts, and cross-disciplinary models.
 - [`memory/theoretical-foundations.md`](memory/theoretical-foundations.md) — Mathematical formulations (Langevin SDE, Hysteresis, CSD, Coupled Oscillators, Two-Tier 6D Engine, Dynamical Nemesis).
 
@@ -67,6 +69,13 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Xac-Dinh-Cac-Khong-Gian-Project-Anima.md) — Official Minutes: Identification & Topology Audit of the Master 6-Space Architecture.
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Y-Chi.md) — Official Minutes: Deconstruction of Meta-Volitional Space & Warping Operator ($\mathcal{W}$).
 - [`MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md`](MeetingMinutes/Bien-Ban-Cuoc-Hop-Chuyen-De-Khong-Gian-Niem-Tin.md) — Official Minutes: Deconstruction of Value & Belief Space ($\mathcal{P}$) and Thought Cabinet Lifecycle.
+
+### 6. Logical Space Base Theory (2026-10-24, draft v0.2.1)
+- **[`docs/theory/Logical-Space-Base-Theory.md`](docs/theory/Logical-Space-Base-Theory.md) — CORE ENTRY POINT.** Point to this file when developing a new game.
+- [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Playbook v2.1: basis ladder plus 12-step decomposition with P2–P6 gates.
+- [`docs/explorations/bump-hero-logical-space/README.md`](docs/explorations/bump-hero-logical-space/README.md) — Bump_Hero first-pass decomposition.
+- [`docs/theory/Logical-Space-Mathematical-Foundations.md`](docs/theory/Logical-Space-Mathematical-Foundations.md) — Explainer: Fourier essence, Boolean Fourier, Sobol, Koopman/DMD, graph spectral, telemetry spectra, operator algebra, statistics layer, clean-code mapping.
+- [`.cursor/plans/design/2026-10-24-logical-space-base-theory.md`](.cursor/plans/design/2026-10-24-logical-space-base-theory.md) — Living discussion record: agreed points AG-1 to AG-6, draft P0–P6 define-and-confirm process, open questions.
 
 ## Current project purpose (2026-10-04)
 
