@@ -1,6 +1,6 @@
 # Playbook: Phân Rã Một Game Bất Kỳ Thành Không Gian Logic Chuẩn Tắc
 
-> **Phiên bản:** v3.0, 2026-11-03. Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
+> **Phiên bản:** v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
 > **Phạm vi:** Playbook cấp Base Theory (Universal Playbook áp dụng cho mọi game).
 > **Lý thuyết lõi:** [Logical-Space-Base-Theory.md](../../docs/theory/Logical-Space-Base-Theory.md) — định nghĩa, nguyên tắc L1–L17, thang basis (mục 4.1), danh mục I1–I6 và M1–M6, cổng P0–P7.
 > **Hồ sơ phản biện:** [2026-11-03-logical-space-critique-and-study.md](../plans/design/2026-11-03-logical-space-critique-and-study.md) — H1–H6, lý do của các thay đổi v3.0.
@@ -58,6 +58,26 @@ Quy tắc của thang:
 * **Mỗi bậc giữ bản đồ chế độ** và ghi lại tương tác nào tạo khác biệt; đủ ghi chép thì detector nâng cấp thành spec.
 * **Engine cũ là kho linh kiện.** Chỉ lấy lại một toán tử cũ khi bậc hiện tại cần nó; không cắt tỉa engine cũ rồi gọi đó là thang.
 
+### 2B. Sandbox Bao Trùm Level: Level Là Lát Cắt Của Không Gian Luật (FB-1, ID-7)
+
+Khi game có cả chế độ sandbox và chế độ level (Forest_Bloom: sandbox gene C bao trùm level phục hồi A kiểu Terra Nil):
+
+```mermaid
+flowchart LR
+    C["Không gian luật chung: V và toán tử"] --> Search["Tìm level bằng máy"]
+    Search --> Map["Bản đồ level đa dạng"]
+    Map --> Des["Designer chọn, sửa, khóa ô"]
+    Des -- "bản sửa đưa ngược" --> Search
+    Des --> A["Bộ level đã tuyển chọn"]
+    Map -- "ô trống lâu dài" --> Gap["Tín hiệu: C thiếu luật"]
+    Gap --> C
+```
+
+* **Một vocabulary $\mathcal{V}$ chung** cho mọi chế độ. Level chỉ giới hạn $\mathcal{V}$, trạng thái đầu, hành động, mục tiêu (L15); không có luật riêng cho từng level.
+* **Mỗi level là một detector cụ thể cho không gian luật.** Level không giải được, hoặc mọi level đều tầm thường → luật thiếu hoặc thừa → một bậc thang mới.
+* **Nổi sinh làm level khó vẽ tay.** Dùng tìm kiếm quality-diversity (MAP-Elites có ràng buộc) dạng **Hybrid**: máy lấp bản đồ level, designer tuyển chọn. Ràng buộc cứng = điều kiện sống còn (L16); fitness = khoảng cách kỹ năng (gieo tốt nhất trừ ngẫu nhiên, M6); chiều đa dạng chọn 2. Tài liệu: [QD synthesis](../../docs/research/quality-diversity-level-generation/QD-Level-Generation-Synthesis.md).
+* **Chất lượng agent giới hạn chất lượng tìm kiếm.** Agent không bao giờ thử một chiến lược thì level thưởng chiến lược đó trông giống hệt nhau (bài Mario GAN). Dựng và kiểm agent "chơi giỏi" trước; dùng ít nhất hai agent (ngẫu nhiên và giỏi).
+
 ---
 
 ## 3. Quy Trình 13 Bước
@@ -90,6 +110,8 @@ flowchart TD
 ---
 
 ### Bước 0: Đặc Tả Ý Tưởng (P0)
+* **Mẹo tìm "khoảnh khắc" khi chủ ý tưởng chưa rõ:** đừng hỏi "game của anh là gì". Hỏi **khoảnh khắc thích nhất trong một game tham chiếu** họ yêu thích ("chuỗi phục hồi lan ra khi đặt công trình đúng chỗ" — Terra Nil). Rồi hỏi người chơi **làm gì bằng tay** lúc đó. Câu trả lời mô tả hệ thống ("rừng cân bằng") mà không có người chơi là dấu hiệu thiếu vòng người chơi.
+* **Kiểm tra ý định gốc:** game xây từ dưới lên thường trôi khỏi ý định ban đầu (Forest_Bloom: khởi đầu là puzzle hyper casual kiểu Candy Crush, trôi thành mô phỏng sinh thái sâu). Ghi lại ý định gốc và ý định hiện tại; nếu khác, chọn lại một cách có ý thức.
 * **Thao tác:** Viết danh sách đánh số các **cơ chế và trải nghiệm bắt buộc** của ý tưởng ("người chơi dập lửa bằng nước", "kinh tế không được lăn cầu tuyết").
 * **Khai báo loại thú vị mục tiêu** từ danh mục I1–I6 của lý thuyết lõi, kèm ngưỡng đo. Mỗi game có điểm thú vị riêng; không có định nghĩa "thú vị" phổ quát.
 * **Tách điều kiện sống còn khỏi mục tiêu thú vị (L16, AG-8).** Điều kiện sống còn là thứ phải đúng thì cái thú vị mới tồn tại (nhiều loài cùng sống; bàn cờ luôn còn nước đi). Ghi thành danh sách riêng, kèm phép kiểm. Không tối ưu điều kiện sống còn như thể nó là mục tiêu.
@@ -283,6 +305,11 @@ Nổi sinh trong mô phỏng và niềm vui của người chơi là **hai tuyê
 | Forest_Bloom, kiểm toán 2026-10-24 | Kỹ thuật mạnh (thứ tự 22 giai đoạn, snapshot, ledger, checkpoint, ablation) nhưng tầng thiết kế bị ngược: xây từ nguyên tử tâm lý lên, không có P0. Kết quả: hơn 100 tham số ghép nối, $\mathcal{A}$ rỗng (UI chỉnh gen/tham số không tồn tại), trạng thái nội tại quyết định mọi thứ nhưng không hiển thị, I2 chưa đạt (10/10 seed trượt nghiệm thu). Bài học: kỹ thuật tốt không thay được P0; cần detector và thang basis (mục 2A); cạm bẫy 5, 6, 7 |
 | Phiên lý thuyết 2026-10-24 | Leo thang mà không có detector thì không có điểm dừng. Detector (nhận ra) khác spec (giải thích); lịch sử các bậc nâng detector thành spec |
 | Phản biện 2026-11-03 | Một số hạng tương tác chưa phải nổi sinh; nổi sinh cần vòng lặp (AG-7). Mô phỏng thú vị chưa phải game vui: thiếu $Y$, vòng người chơi và progression. Forest_Bloom "thú vị phía mô phỏng nhưng chưa fun" là ví dụ. Lý thuyết là **phương pháp**, không phải lý thuyết của mọi game; phần mới so với Sellers và MDA là đo và kiểm tra |
+| Forest_Bloom, phiên 2026-11-03 | **Cân bằng không phải mục tiêu mà là điều kiện sống còn** ("điều kiện để các loài cây có ý nghĩa") → L16. Tối ưu điều kiện sống còn như mục tiêu đã nuốt hết công sức. Mục tiêu thật là I6: gieo đúng chỗ → làn sóng phục hồi/diễn thế lan ra. Độc chiếm nhàm khi một loài chiếm gần hết **và** trên 12 cây |
+| Forest_Bloom, thiết kế $Y$ 2026-11-03 | Ngưỡng số liệu khó hiện trong gameplay → giữ ngầm, người chơi thấy 1–2 tín hiệu: số loài hiệu dụng (Hill number $e^H$) thành **độ rực màu bản đồ** + mũi tên xu hướng → L17. Làn sóng nổi sinh và cân bằng hiện trên cùng một hình ảnh |
+| Terra Nil, 2026-11-03 | Chuỗi phục hồi của Terra Nil phần lớn là luật bán kính viết tay → nội dung hơn là nổi sinh (L6). Cơ hội vượt: lan bằng luật cục bộ lặp lại giữa các loài |
+| Cloud Gardens, 2026-11-03 | Được khen về không khí, bị chê vì luật không rõ (L13). Nhà phát triển phải trao người chơi quyền điều khiển sự phát triển mới làm được puzzle |
+| Lý thuyết, 2026-11-03 | Basis tối thiểu không duy nhất → không chứng minh, dùng quy tắc chọn: người chơi thấy được, ít toán tử, dùng lại code; ghi lý do (L3, AG-10). Đo fun bằng hành vi trước, lời nói sau: số phút tự chơi thêm, kể lại nguyên nhân (AG-11) |
 | Sửa lỗi 2026-10-04 | "5 trục" thực chất là 5 khối và 10 tọa độ vô hướng → kiểm tra độc lập trước khi tuyên bố số chiều. Đọc láng giềng tại chỗ gây phụ thuộc thứ tự → đọc snapshot, cộng dồn delta, commit cùng lúc |
 
 ---
@@ -294,9 +321,10 @@ Nổi sinh trong mô phỏng và niềm vui của người chơi là **hai tuyê
 ├── README.md        # P0 đặc tả, loại thú vị mục tiêu, dự đoán ghi trước, vòng người chơi, progression, nguồn và revision
 ├── decomposition    # Bảng vocabulary V; bảng basis: cấu hình / trạng thái / dẫn xuất; A và meta-action; bảng toán tử và vòng lặp; Omega
 ├── ladder           # Game mới: mỗi bậc thang, thay đổi gì, dự đoán, detector báo gì, bản đồ chế độ
+├── levels           # Nếu có chế độ level (mục 2B): cấu hình tìm kiếm QD, bản đồ level, level đã tuyển chọn
 ├── gates            # Bằng chứng P2 đến P6, hoặc "chưa đo"
 ├── player           # P7: bảng khả năng cảm nhận Y, ghi chép playtest
 └── lessons          # Bài học mới để đưa ngược về lý thuyết lõi và playbook này
 ```
 
-Với game nhỏ, gộp tất cả vào một `README.md`, như [bump-hero-logical-space](../../docs/explorations/bump-hero-logical-space/README.md).
+Với game nhỏ, gộp tất cả vào một `README.md`, như [bump-hero-logical-space](../../docs/explorations/bump-hero-logical-space/README.md). Mẫu điền sẵn cho từng phần: [Designer Guide](../../docs/theory/Logical-Space-Designer-Guide.md) mục 4.

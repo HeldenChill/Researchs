@@ -24,7 +24,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
-- [Latest session / Logical Space critique and study plan](memory/2026-11-03-logical-space-critique-and-study-session.md) — Critique H1 to H6, core v0.3-draft, AG-7 new L6, contribution statement, target is internal guide, 6-step roadmap.
+- [Latest session / Logical Space critique and study plan](memory/2026-11-03-logical-space-critique-and-study-session.md) — Critique H1 to H6, core v0.3-draft (L1–L17, AG-7 to AG-11), playbook v3.1, Designer Guide, Forest_Bloom FB-1 (sandbox C encompasses Terra Nil-style levels A, P0 approved, Hill-number Y signal, hybrid QD level search), reference case deferred until Forest_Bloom migration.
 - [Forest_Bloom review and basis ladder](memory/2026-10-24-forest-bloom-review-and-basis-ladder-session.md) — Forest_Bloom read-only audit vs v0.2, AG-6 basis ladder (detector vs spec), core v0.2.1, playbook v2.1, open T2 to T4, I2 detector next.
 - [Base theory v0.2 session](memory/2026-10-24-logical-space-base-theory-session.md) — Owner's theory intent, agreed decisions AG-1 to AG-5, new core theory files, Bump_Hero first pass, deferrals.
 - [Previous session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.
@@ -76,7 +76,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 - [`docs/theory/Logical-Space-Designer-Guide.md`](docs/theory/Logical-Space-Designer-Guide.md) — Internal designer guide: quickstart, glossary, P0/basis/operator/ladder/perceivability/playtest templates, costly mistakes.
 - [`docs/research/quality-diversity-level-generation/`](docs/research/quality-diversity-level-generation/README.md) — 6 QD/MAP-Elites papers (PDF) plus English synthesis for hybrid level generation (ID-7).
 - **[`docs/theory/Logical-Space-Base-Theory.md`](docs/theory/Logical-Space-Base-Theory.md) — CORE ENTRY POINT.** Point to this file when developing a new game.
-- [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Playbook v3.0 (Vietnamese): basis ladder plus 13-step decomposition with P2–P7 gates, player gate, 9 ontology traps.
+- [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Playbook v3.1 (Vietnamese): basis ladder, sandbox-and-levels section 2B, 13-step decomposition with P2–P7 gates, player gate, 9 ontology traps, accumulated lessons.
 - [`docs/explorations/bump-hero-logical-space/README.md`](docs/explorations/bump-hero-logical-space/README.md) — Bump_Hero first-pass decomposition.
 - [`docs/theory/Logical-Space-Mathematical-Foundations.md`](docs/theory/Logical-Space-Mathematical-Foundations.md) — Explainer: Fourier essence, Boolean Fourier, Sobol, Koopman/DMD, graph spectral, telemetry spectra, operator algebra, statistics layer, clean-code mapping.
 - [`.cursor/plans/design/2026-10-24-logical-space-base-theory.md`](.cursor/plans/design/2026-10-24-logical-space-base-theory.md) — Living discussion record: agreed points AG-1 to AG-6, draft P0–P6 define-and-confirm process, open questions.

@@ -316,6 +316,7 @@ Ba hàng đầu: ý chung, nhiều người đã có. Hai hàng in đậm: phầ
 
 | Ngày | Thay đổi |
 |---|---|
+| 2026-11-03 | Playbook v3.1: mục 2B sandbox bao trùm level + QD Hybrid, mẹo Bước 0 (khoảnh khắc từ game tham chiếu, kiểm ý định gốc), 5 dòng bài học mới; memory phiên viết lại đầy đủ |
 | 2026-11-03 | Viết tài liệu nội bộ (mục 4.1): `docs/theory/Logical-Space-Designer-Guide.md` — quickstart, thuật ngữ, mẫu điền sẵn, lỗi tốn kém |
 | 2026-11-03 | Bước 1 lộ trình xong; ca mẫu (lát cắt Forest_Bloom) hoãn tới khi migration Forest_Bloom xong |
 | 2026-11-03 | AG-11: bộ đo P7 (chơi tiếp, kể lại, IMI) vào core và playbook Bước 12 |
