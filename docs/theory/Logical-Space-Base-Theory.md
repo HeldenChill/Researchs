@@ -218,6 +218,8 @@ The view reads state and never writes it. Headless simulation is required for P2
 
 ## 8. New Game Quickstart
 
+Expanded quickstart, glossary and fill-in templates: [Designer Guide](Logical-Space-Designer-Guide.md).
+
 1. Write P0: required mechanics and target interestingness types with thresholds.
 2. Inventory mechanics with no theory labels; playbook step 1.
 3. Pick the resolution by L4. Write the basis table; mark config, state and derived for every entry.

@@ -316,6 +316,7 @@ Ba hàng đầu: ý chung, nhiều người đã có. Hai hàng in đậm: phầ
 
 | Ngày | Thay đổi |
 |---|---|
+| 2026-11-03 | Viết tài liệu nội bộ (mục 4.1): `docs/theory/Logical-Space-Designer-Guide.md` — quickstart, thuật ngữ, mẫu điền sẵn, lỗi tốn kém |
 | 2026-11-03 | Bước 1 lộ trình xong; ca mẫu (lát cắt Forest_Bloom) hoãn tới khi migration Forest_Bloom xong |
 | 2026-11-03 | AG-11: bộ đo P7 (chơi tiếp, kể lại, IMI) vào core và playbook Bước 12 |
 | 2026-11-03 | AG-10: H2 giải bằng quy tắc chọn basis (core L3, playbook Bước 7) |

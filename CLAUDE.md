@@ -73,6 +73,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 
 ### 6. Logical Space Base Theory (2026-11-03, draft v0.3)
 - [`.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md`](.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md) — Hồ sơ phản biện H1–H6, ý tưởng, lộ trình thành nghiên cứu, link nghiên cứu liên quan, định hướng Forest_Bloom FB-1 (tiếng Việt).
+- [`docs/theory/Logical-Space-Designer-Guide.md`](docs/theory/Logical-Space-Designer-Guide.md) — Internal designer guide: quickstart, glossary, P0/basis/operator/ladder/perceivability/playtest templates, costly mistakes.
 - [`docs/research/quality-diversity-level-generation/`](docs/research/quality-diversity-level-generation/README.md) — 6 QD/MAP-Elites papers (PDF) plus English synthesis for hybrid level generation (ID-7).
 - **[`docs/theory/Logical-Space-Base-Theory.md`](docs/theory/Logical-Space-Base-Theory.md) — CORE ENTRY POINT.** Point to this file when developing a new game.
 - [`.cursor/playbooks/playbook-decompose-game-to-logical-space.md`](.cursor/playbooks/playbook-decompose-game-to-logical-space.md) — Playbook v3.0 (Vietnamese): basis ladder plus 13-step decomposition with P2–P7 gates, player gate, 9 ontology traps.
