@@ -1,8 +1,8 @@
 # Logical Space Base Theory — Core
 
 > **Entry point.** When starting a new game, point to this file. It is the compact, canonical statement of the base theory.
-> **Version:** `2026-10-24-logical-space-v0.2.1` (adds AG-6 basis ladder, section 4.1). Supersedes the `v0.1` pin that pointed to `AGENTS.md`.
-> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested.
+> **Version:** `2026-11-03-logical-space-v0.3-draft` (patches holes H1 to H6 from the 2026-11-03 critical review). Supersedes v0.2.1.
+> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. Items marked **v0.3 patch** were written at the owner's request on 2026-11-03 and are open for discussion in the [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md). **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested.
 > **Detail lives elsewhere:** math explainer [Logical-Space-Mathematical-Foundations.md](Logical-Space-Mathematical-Foundations.md); step-by-step procedure [playbook](../../.cursor/playbooks/playbook-decompose-game-to-logical-space.md); full reasoning and decision history [discussion record](../../.cursor/plans/design/2026-10-24-logical-space-base-theory.md).
 
 ---
@@ -13,19 +13,28 @@ Build a game from a small **basis** of elements that cannot be divided further w
 
 Fourier is the inspiration: few basis waves, a combining operator, any signal. The theory keeps Fourier's basis, span and measurement ideas and drops its linearity, because linear combination cannot create emergence.
 
+**Limit of the analogy (v0.3 patch, H2).** A Fourier basis *represents* one signal. A game basis *generates* many contents and many play histories. The closer mathematical picture is a **vocabulary plus rules iterated over time**, like a grammar or a cellular automaton, not a vector space. Fourier stays an inspiration and a toolbox for measurement (sections 6 and the explainer), not the definition.
+
+**What the theory is (v0.3 patch, H4).** A **design method** with testable claims: strict ontology of state, config, derived values and operators; a ladder that grows the basis until a detector fires; regime maps for tuning; and a catalog of interestingness types with tests. It is not a theory of all games. Its closest relatives are listed in section 11.
+
 ---
 
 ## 2. Core Model
 
-$$\mathcal{G} = \langle \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega \rangle$$
+$$\mathcal{G} = \langle \mathcal{V}, \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega, Y \rangle$$
+
+v0.3 patch: $\mathcal{V}$ (vocabulary, H2) and $Y$ (observation map, H3) added. The loop closes through the player: what the player sees drives what the player does next.
 
 ```mermaid
 flowchart LR
-    Config["Static config: basis types and their parameters"] --> Ops
+    V["Vocabulary V: types and properties, config"] --> Ops
     S["State S: instance values"] --> Ops["Operators O: interaction rules"]
     A["Action A: player and AI choices"] --> Ops
     Ops --> S2["Next state"]
     S2 --> Omega["Boundary Omega: win, loss, limits"]
+    S2 --> Y["Observation Y: what the player sees"]
+    Y --> M["Player mental model"]
+    M --> A
 ```
 
 | Term | Definition | Example |
@@ -39,6 +48,11 @@ flowchart LR
 | **Operator $\hat{\mathcal{O}}$** | Function $\mathcal{S} \times \mathcal{A} \to \mathcal{S}$. **Never a basis element or a state axis** | Heat transfer; contact resolver; damage |
 | **Two-level operator** | Fixed interpreter plus variable rule data held in state | Baba: parser is fixed, rule words are state |
 | **Boundary $\Omega$** | Termination predicates | Waves cleared; all pets dead; turn limit |
+| **Vocabulary $\mathcal{V}$** (v0.3) | The set of types and properties operators read. A content item is a config row over $\mathcal{V}$ | Substance types; Baba nouns and properties; BotW "flammable", "conductive" |
+| **Observation map $Y$** (v0.3) | Function from state to what the player can see or hear: $Y: \mathcal{S} \to \mathcal{O}_{\text{player}}$. Derived, never written back | DRY/WET tint; smoke particles; a counter on screen |
+| **Meta-action** (v0.3, T2) | A player action that edits config or vocabulary values instead of state, between or during runs | Forest_Bloom gene tweak; sandbox sliders |
+| **Viability condition** (v0.3, AG-8) | A property that must hold for the target interestingness to exist at all. Not what the player enjoys; what makes enjoyment possible | Several species coexist, so species variety means something (Forest_Bloom); the board always has a legal move (match-3) |
+| **Progression structure** (v0.3, H5) | Designer-authored restriction of $\mathcal{V}$, start state, $\mathcal{A}$ or $\Omega$ over time | Baba level layouts; unlock order; scenario goals |
 
 ---
 
@@ -47,17 +61,22 @@ flowchart LR
 | ID | Principle | Status |
 |---|---|---|
 | L1 | **Operators are not basis.** Resolvers, formulas and interaction tables are operators or config, never axes of $\mathcal{S}$. | Standing rule |
-| L2 | **Basis = minimal generating set under the operators.** Generating: every game element is a composition of basis elements. Minimal: no basis element is a composition of the others. Atomicity is relative to the operator set. | Owner definition plus assistant formalization |
-| L3 | **No sacred numbers.** With nonlinear operators, minimal generating sets may not be unique and may differ in size. Report the chosen basis, not a "dimension." | Standing rule |
+| L2 | **Basis = vocabulary $\mathcal{V}$ plus state coordinates, minimal under ablation.** *Generating:* every P0 item and every target interestingness is reachable from $\mathcal{V}$, start states and $\mathcal{A}$ by iterating $\hat{\mathbb{O}}$ (P3 witness). *Minimal:* removing any element of $\mathcal{V}$, any state coordinate or any operator loses a P0 item or the target (ablation test, T4). Atomicity is relative to the operator set. v0.3 patch replaces the undefined word "composition" (H2). | Owner definition; v0.3 patch |
+| L3 | **No sacred numbers.** With nonlinear operators, minimal generating sets may not be unique and may differ in size. Report the chosen basis, not a "dimension." **Selection rule (AG-10):** uniqueness is not proven; when several minimal bases pass L2, choose in order: (1) the one the player can see and understand (L13); (2) fewer operators; (3) reuses existing code. Record the reason. Example: (substance type, temperature) over (substance type, heat energy), because players read temperature. | Standing rule; selection rule **Agreed** AG-10 (2026-11-03) |
 | L4 | **Resolution rule.** The basis is the coarsest level that (1) generates every required mechanic plus the target emergence, (2) the player can perceive and predict, (3) fits compute and code cost. Finer detail collapses into config parameters. Physics analog: effective theory. Fourier analog: bandlimit. Do not dig toward "string theory." | **Agreed** AG-5 |
 | L5 | **Derived values are not basis.** If a formula computes it from other coordinates, it is an operator output. | Agreed via examples |
-| L6 | **Emergence lives in interaction terms.** Addition gives complexity without emergence: a sum of waves holds only its input frequencies. Products create new components: $\sin a \sin b = \tfrac12[\cos(a-b) - \cos(a+b)]$. Emergence: an operator whose output contains components outside its inputs. | **Agreed** AG-1 |
+| L6 | **Interaction terms are necessary, iteration makes emergence.** Addition gives complexity without emergence: a sum of waves holds only its input frequencies. Products create new components: $\sin a \sin b = \tfrac12[\cos(a-b) - \cos(a+b)]$. But one interaction term is still hand-written (HOT with MELT). **Emergence** = an outcome that is reachable by iterating operators over time and space, was not enumerated in P0 or in any single operator, and in practice can be found only by running the system (Bedau's *weak emergence*). | **Agreed** AG-7 (2026-11-03), narrows AG-1 |
 | L7 | **Completeness is relative to one idea's spec**, never "all games." | **Agreed** AG-2 |
 | L8 | **Interesting is game-specific.** Each game declares target types from the catalog, section 5. | Owner |
 | L9 | **Emergence is necessary, not sufficient.** Dominant combos, softlocks and trivializing shifts are emergent too. Filter them. | Agreed need |
 | L10 | **Small parameter changes can flip the regime**, interesting to boring. Map the regime before tuning by hand. | Owner observation |
 | L11 | **Evidence, not claims.** Every gate yields evidence. A measure is a hypothesis until it separates known emergent systems from known additive ones. | Standing practice |
 | L12 | **Grow the basis by a ladder, stop by a detector.** Start at the smallest basis; add one element or operator per rung; each rung must earn new emergence. Climbing needs at least a **detector** for the target interestingness, or there is no stopping rule. See section 4.1. | **Agreed** AG-6 |
+| L13 | **Unseen emergence does not count for the player.** Every target interestingness must be visible through $Y$: the player can see the cause and the effect of an emergent event. Simulation interest and player fun are separate claims with separate evidence. | v0.3 patch (H3) |
+| L14 | **Claims are pre-registered.** Detectors, thresholds and expected outcomes are written down before a run. A result explained only after the fact is not evidence. | v0.3 patch (H4) |
+| L15 | **Emergence supplies, progression curates.** Emergence gives the possibility space; progression structure restricts it so the player meets one insight at a time. A game declares both. | v0.3 patch (H5), from Baba lesson BB-5 |
+| L16 | **Targets and viability conditions are separate lists.** P0 declares the interestingness targets (checked in P5 and P7) and the viability conditions (checked in P6 as invariants). Optimizing a viability condition as if it were the target consumes the design: Forest_Bloom spent its effort on balance while the real target was undefined. | **Agreed** AG-8 (2026-11-03) |
+| L17 | **Compress through $Y$.** When the player must sense a viability condition or a target, $Y$ compresses the hidden criteria into **one or two directional signals** (getting better or worse) plus a visual. Detailed thresholds stay in the hidden designer layer. Example: Forest_Bloom shows effective species count (Hill number, $e^{H}$) as map color richness plus a trend arrow, while dominance, richness and persistence thresholds stay hidden. | **Agreed** AG-9 (2026-11-03) |
 
 ### 3.1 Worked Example of L2 to L5
 
@@ -90,18 +109,21 @@ flowchart TD
     P4 -- "pass" --> P5["P5 Emergence measurement"]
     P5 --> P6["P6 Quality filter"]
     P6 -- "degenerate emergence" --> P1
-    P6 -- "pass" --> Done["Versioned logical space spec"]
+    P6 -- "pass" --> P7["P7 Player gate"]
+    P7 -- "not seen or not fun" --> P1
+    P7 -- "pass" --> Done["Versioned logical space spec"]
 ```
 
 | Gate | Question | Evidence |
 |---|---|---|
-| P0 | What must the game do, and which kind of interesting does it target? | Numbered mechanics list; chosen types I1 to I6 with thresholds |
+| P0 | What must the game do, which kind of interesting does it target, and what is the player's loop? | Numbered mechanics list; chosen types I1 to I6 with **pre-registered** thresholds; viability conditions listed separately (L16); player loop: action, simulation, feedback through $Y$, updated mental model; progression structure sketch |
 | P1 | What are $\mathcal{S}$, $\mathcal{A}$, $\hat{\mathbb{O}}$, $\Omega$, and at what resolution? | Decomposition table; L4 justification |
 | P2 | Is every basis element independent? | Derivation test; save-game drop test; reachable-set dependence; category check |
 | P3 | Does the space span the spec? | Coverage matrix with a witness action sequence per spec item |
 | P4 | Are order, invariants and validity explicit? | Read/write table; commutator tests; property tests |
 | P5 | How much emerges, and of the targeted kind? | Measures M1 to M6 |
-| P6 | Is the emergence good? | Dominance, softlock, runaway, invariant and fake-choice checks; then human playtest |
+| P6 | Is the emergence good? | Viability conditions hold across seeds (L16); dominance, softlock, runaway, invariant and fake-choice checks |
+| P7 | Does the player see it and enjoy it? (v0.3 patch) | Perceivability table: each target event, its cause and effect in $Y$. **Playtest kit (AG-11), in priority order:** (1) free-choice continuation: after the session, tell the player they may stop or keep playing, record minutes played voluntarily; (2) retell: "most memorable moment, and why did it happen?" — a correct cause means the emergence is legible; (3) IMI Interest/Enjoyment subscale only when comparing versions. Correlate P5 measures with these results |
 
 ### 4.1 Basis Ladder: How a Space Is Grown
 
@@ -143,7 +165,7 @@ Add a type only with an example game and a test.
 | Type | Meaning | Example | Test |
 |---|---|---|---|
 | I1 Affordance shift | A combination changes what the player can do, not only numbers | Baba Is You: WALL IS YOU | M5 |
-| I2 Dynamic balance | Parameters produce a sustained, diverse, non-collapsing system; lives in parameter space | Forest_Bloom ecological balance | Regime map; M4 |
+| I2 Dynamic balance | Parameters produce a sustained, diverse, non-collapsing system; lives in parameter space. **Target or viability condition, per game (L16):** a target where balance itself is the experience; a viability condition in Forest_Bloom | Ecosystem sandboxes; Forest_Bloom as viability | Regime map; M4 |
 | I3 Solution diversity | Many distinct ways to reach a goal | BotW chemistry puzzles | M2, M3 |
 | I4 Story emergence | Rule interactions produce memorable unscripted events | Dwarf Fortress, RimWorld | M2 plus player reports |
 | I5 Strategic depth | No dominant strategy; skill keeps paying off | Chess, card games | P6 dominance; skill-luck measure |
@@ -157,7 +179,7 @@ I1, I2 and I6 come from the owner; I3 to I5 are assistant candidates. **No type 
 
 | Measure | Definition | Tool, explainer section |
 |---|---|---|
-| M1 Interaction share | Fraction of outcome variance from interaction terms | Boolean Fourier §3; Sobol §4 |
+| M1 Interaction share | Fraction of outcome variance from interaction terms. **v0.3 caution (H1):** shows that interactions exist, not that emergence happens; depends on the input distribution and coordinate choice. Measure it on outcomes after many steps, not on one operator | Boolean Fourier §3; Sobol §4 |
 | M2 Novel outcomes | Outcome classes reached in simulation but absent from P0 | Simulation logs |
 | M3 Strategy diversity | Entropy of strong agents' strategy distribution | Statistics §9 |
 | M4 Dynamic modes | Decay, cycle and runaway modes of key observables | Koopman and DMD §5 |
@@ -173,6 +195,8 @@ I1, I2 and I6 come from the owner; I3 to I5 are assistant candidates. **No type 
 | Statistics layer | Real versus fake choice, luck versus skill, dominance | §9 |
 
 Cheap exact checks first: algebra, graph. Simulation-based checks next. Human playtest last.
+
+**Validating the measures (v0.3 patch, H6).** Follow Browne's Ludi method: compute M1 to M6 on several games or variants, collect human ratings, and keep only measures that correlate with the ratings. Also run them on known emergent and known additive systems; a measure that cannot separate them is dropped.
 
 ---
 
@@ -212,7 +236,8 @@ The view reads state and never writes it. Headless simulation is required for P2
 - **Rules as state.** Rule-editing games need two-level operators. The separation still holds at the interpreter level.
 - **Implicit order.** Per-entity turn hooks and conflicting rules (Baba: WALL IS STOP versus WALL IS DEFEAT) must get explicit priority.
 - **Measure validity.** M1 to M6 are unvalidated.
-- **Agents are not humans.** Simulation shows what rules allow, not what players enjoy.
+- **Agents are not humans.** Simulation shows what rules allow, not what players enjoy. P7 exists for this.
+- **Sandbox meta-actions.** When the player edits config (genes, sliders), the regime map becomes the player's playground. A meta-action that jumps across a regime boundary must be visible through $Y$.
 
 ---
 
@@ -230,10 +255,29 @@ Anti-bias: derive each game's basis independently. Only what recurs across games
 
 ---
 
-## 11. Version History
+## 11. Prior Art and Position (v0.3 patch)
+
+| Work | Overlap | What this theory adds |
+|---|---|---|
+| Sellers, *Advanced Game Design*: Parts, Loops, Wholes (2017) | Parts ≈ basis, loops ≈ operators, wholes ≈ experience | Testable state, config, derived split; ladder with detector |
+| Dormans, Machinations (2012) | Emergence from feedback loops; simulate before building | Not limited to resource economies; regime maps |
+| BotW chemistry engine, GDC 2017 | Rule-based state calculator over a property vocabulary | Method to choose that vocabulary, with gates |
+| Juul, emergence vs progression (2002); Cook, loops and arcs | Emergence and progression as two structures | L15: both declared per game |
+| MDA (2004) | Mechanics to dynamics to aesthetics | Operational gates and measures per layer |
+| Cook, skill atoms (2007) | Player loop: action, simulation, feedback, model | Used in P0 and P7 |
+| Ludocore (Smith, Nelson, Mateas, 2010) | Formal rules for automated reasoning | P4 algebra checks are a lighter version |
+| Browne, Ludi (2010) | Automatic quality measures validated against players | Validation method for M1 to M6 |
+| Bedau, weak emergence (1997) | Emergence = derivable only by simulation | Adopted in L6 |
+
+Links and discussion: [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md).
+
+---
+
+## 12. Version History
 
 | Version | Date | Change |
 |---|---|---|
 | v0.1 | 2026-10-04 | Purpose stated in `AGENTS.md`; model $\mathcal{G}$ in playbook |
 | v0.2 | 2026-10-24 | First core statement: definitions, principles L1 to L11, P0 to P6, catalogs I1 to I6 and M1 to M6, clean-code mapping, quickstart |
 | v0.2.1 | 2026-10-24 | AG-6: principle L12 and basis ladder, section 4.1; detector versus spec; modes A and B |
+| v0.3-draft | 2026-11-03 | Critical review patches H1 to H6: Fourier limit and positioning; model adds $\mathcal{V}$ and $Y$; meta-action and progression terms; L2 via ablation; L6 narrowed to weak emergence; L13 to L15; P7 player gate; M1 caution; measure validation; prior art section 11. Later same day: AG-7 (L6), AG-8 (viability condition, L16), AG-9 (compress through Y, L17), AG-10 (basis selection rule in L3), AG-11 (P7 playtest kit) |

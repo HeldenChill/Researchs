@@ -309,3 +309,4 @@ flowchart TD
 | 2026-10-24 | Bump_Hero first-pass decomposition; owner confirmed its interesting moment; added I6 chain reaction and M6 cascade profile. |
 | 2026-10-24 | Compacted into core file v0.2; playbook updated to v2. Testing deferred until Bump_Hero adoption completes. |
 | 2026-10-24 | Forest_Bloom review against v0.2 (read-only): strong P4 engineering; no action space, I2 not reached, internal state invisible, likely over-resolved. Owner parked Forest_Bloom during its migration; theory gaps T1 to T4 raised; T1 agreed as AG-6, core v0.2.1. |
+| 2026-11-03 | Critical review H1 to H6; core patched to v0.3-draft. Discussion continues in [2026-11-03-logical-space-critique-and-study.md](2026-11-03-logical-space-critique-and-study.md). |
