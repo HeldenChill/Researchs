@@ -81,7 +81,9 @@ Note after rung 1: pioneers no longer enrich bare soil (`enrichCap` 0), so the "
 | Check | Status | Evidence |
 |---|---|---|
 | Served at `http://localhost:8000/web/`: page, module scripts and level file load | **Observed 2026-11-12** | HTTP 200 for `web/`, `web/main.js`, `src/observe.js`, `levels/level-01.txt` (port 8011 used for the probe) |
-| `file://` fallback message visible | **Pending**: not opened in a browser. By construction the message is in static HTML and only `main.js` removes it; browsers block module scripts on `file://`, so it should stay | `web/index.html` |
-| Each perceivability row visible in play | **Pending**: needs a person at a browser. The executor had no browser session. Owner checks before Task 9 | — |
+| `file://` fallback message visible | **Observed by owner 2026-11-13** | Owner report: "All check" |
+| Each perceivability row visible in play | **Observed by owner 2026-11-13: 4 of 5 rows.** Wave spreads, wave stops, succession, monoculture risk seen. **Shade kill not seen**: no canopy is left alive in play, so the cause never appears | Owner report: "all seen except shade kill, no canopy left" |
 
 Run: `python -m http.server 8000` in `prototypes/forest-bloom-slice`, open `http://localhost:8000/web/`.
+
+Finding for Task 10: shade kill is designed but cannot be perceived because canopy does not survive (same cause as the rung 3 caveat "0 canopy"). L13 fails for this one target event.
