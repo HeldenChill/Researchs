@@ -1,0 +1,119 @@
+{
+  "rung": 3,
+  "overrides": {},
+  "revision": "632611e",
+  "thresholds": {
+    "skillGap": 3,
+    "bestShare": 0.25,
+    "nearBestShare": 0.15,
+    "depth": 6
+  },
+  "profile": {
+    "actions": 31,
+    "best": 35,
+    "mean": 8.225806451612904,
+    "skillGap": 4.254901960784314,
+    "bestShare": 0.2777777777777778,
+    "nearBestShare": 0.12903225806451613,
+    "depth": 11,
+    "bestAction": {
+      "species": 2,
+      "cell": 111
+    },
+    "checks": {
+      "D1": true,
+      "D2": true,
+      "D3": true,
+      "D4": true
+    },
+    "pass": true
+  },
+  "viability": {
+    "greedy": {
+      "V1": true,
+      "V2": true,
+      "ticks": 32,
+      "final": {
+        "counts": {
+          "1": 16,
+          "2": 88,
+          "3": 0,
+          "total": 104
+        },
+        "hill": 1.5362171861003946,
+        "coverage": 0.8253968253968254
+      }
+    },
+    "random": {
+      "V1": true,
+      "V2": true,
+      "ticks": 48,
+      "final": {
+        "counts": {
+          "1": 19,
+          "2": 81,
+          "3": 0,
+          "total": 100
+        },
+        "hill": 1.6261625325725353,
+        "coverage": 0.7936507936507936
+      }
+    }
+  },
+  "controls": {
+    "N1": {
+      "pass": false,
+      "checks": {
+        "D1": false,
+        "D2": true,
+        "D3": false,
+        "D4": true
+      },
+      "skillGap": 1.1599910494517789
+    },
+    "N2": {
+      "pass": false,
+      "checks": {
+        "D1": false,
+        "D2": false,
+        "D3": false,
+        "D4": false
+      },
+      "best": 1
+    }
+  },
+  "config": {
+    "species": {
+      "1": {
+        "minSoil": 1,
+        "soilSelf": 0,
+        "soilNear": 1,
+        "enrichCap": 0,
+        "matureAge": 1,
+        "lifespan": 6,
+        "shadeLimit": 1,
+        "rank": 1
+      },
+      "2": {
+        "minSoil": 3,
+        "soilSelf": 0,
+        "soilNear": 1,
+        "enrichCap": 5,
+        "matureAge": 2,
+        "lifespan": 7,
+        "shadeLimit": 3,
+        "rank": 2
+      },
+      "3": {
+        "minSoil": 3,
+        "soilSelf": -1,
+        "soilNear": 0,
+        "enrichCap": 5,
+        "matureAge": 3,
+        "lifespan": 16,
+        "shadeLimit": 5,
+        "rank": 3
+      }
+    }
+  }
+}

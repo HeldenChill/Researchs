@@ -34,7 +34,7 @@ Smallest Forest_Bloom slice used as the first full reference case for the Logica
 | `soilNear` | 1 | 1 | 0 | Soil change on each 4-neighbour per tick |
 | `enrichCap` | 3, **0 from rung 1** | 5 | 5 | A positive `soilNear` never lifts a cell above this |
 | `matureAge` | 1 | 2 | 3 | Age from which the plant seeds neighbours |
-| `lifespan` | 6 | 10 | 16 | Dies when age exceeds this |
+| `lifespan` | 6 | 10, **7 from rung 3** | 16 | Dies when age exceeds this |
 | `shadeLimit` | 1 | 3 | 5 | Dies when canopy 4-neighbours reach this count |
 | `rank` | 1 | 2 | 3 | Higher rank wins a contested empty cell |
 

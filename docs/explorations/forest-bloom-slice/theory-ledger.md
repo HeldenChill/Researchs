@@ -13,7 +13,7 @@ An item counts as "did work" only with an evidence link.
 | L7 | | | | |
 | L8 | | | | |
 | L9 | | | | |
-| L10 | | | | |
+| L10 | 7 | Yes. Regime maps changed every rung choice: showed enrichCap 1 to 5 is flat (rung 1), minSoil 3 has one safe side (rung 2), shrub lifespan viable only at 6 and 7 (rung 3). Also exposed that the pass is fragile | [rung-log](rung-log.md), `results/regime-*.csv` | |
 | L11 | 6 | Yes. Negative controls run before trusting the detector; both rejected, and N1 showed level 01 fails on the same checks as a uniform field | [rung-log](rung-log.md), [detector.test.js](../../../prototypes/forest-bloom-slice/test/detector.test.js) | |
 | L12 | 6, 7 | Yes. Rung 0 is the smallest basis; the ladder could finally run because a detector exists | [rung-log](rung-log.md) | |
 | L13 | | | | |

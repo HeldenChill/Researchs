@@ -69,3 +69,9 @@ test('rung 2: canopy germinates and survives on soil 3', () => {
   s = tick(s, level, CONFIG);
   assert.equal(s.species[1], CANOPY);
 });
+
+test('rung 3: shrub dies after age 7', () => {
+  const level = L('3'); const s = createState(level); put(s, 0, SHRUB);
+  assert.equal(run(s, level, CONFIG, 7).species[0], SHRUB);
+  assert.equal(run(s, level, CONFIG, 8).species[0], EMPTY);
+});
