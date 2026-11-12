@@ -46,15 +46,23 @@ function draw(pulse = 0) {
   renderSeeds();
 }
 
+// Buttons are built once; redraws only update them. Rebuilding every frame
+// destroyed a button between mousedown and mouseup, so clicks were lost.
+const seedButtons = {};
+for (const id of SPECIES_IDS) {
+  const b = document.createElement('button');
+  b.innerHTML = `<span class="swatch" style="background:rgb(${SPECIES[id].rgb})"></span><span class="label"></span>`;
+  b.onclick = () => { selected = id; draw(); };
+  seedsBar.append(b);
+  seedButtons[id] = b;
+}
+
 function renderSeeds() {
-  seedsBar.innerHTML = '';
   for (const id of SPECIES_IDS) {
-    const b = document.createElement('button');
-    b.innerHTML = `<span class="swatch" style="background:rgb(${SPECIES[id].rgb})"></span>${SPECIES[id].name} ${state.inventory[id]}`;
+    const b = seedButtons[id];
+    b.querySelector('.label').textContent = `${SPECIES[id].name} ${state.inventory[id]}`;
     b.className = id === selected ? 'sel' : '';
     b.disabled = busy || state.inventory[id] === 0;
-    b.onclick = () => { selected = id; draw(); };
-    seedsBar.append(b);
   }
 }
 
