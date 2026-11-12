@@ -23,3 +23,10 @@
 | Git | Branch `study/forest-bloom-slice`, 15 local commits, not pushed or merged |
 
 Resume: serve with `python -m http.server 8000` in `prototypes/forest-bloom-slice`, open `http://localhost:8000/web/`.
+
+## Task 10 written without playtest (2026-11-13, owner request)
+
+- Proposal: [.cursor/plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md](../.cursor/plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md), Vietnamese, **awaiting owner approval**. Core, playbook, Designer Guide untouched.
+- Ledger verdicts: Keep 13, Keep untested 9, Merge 6, Cut candidate 9. Cut candidates: L1 (merge with L5 proposed instead), L2, L3, L4, L7, M1, M4, P2, P3.
+- Method lesson: viability V2 (k = 2 of 3) let a dead species pass; P6 should name which components must survive.
+- P7 playtest still deferred; it may change L13, L17, P7 verdicts.
