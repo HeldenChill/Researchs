@@ -37,3 +37,7 @@ Honest caveats, carried into the playtest and the theory ledger:
 | No canopy alive at the end of greedy or random play | Third species does no work at the end state; V2 passes on pioneer plus shrub. Succession to canopy is not happening |
 | The best first action is a shrub at cell 111, cascade 35 cells | The I6 wave is a shrub wave, not a pioneer-to-canopy succession |
 | HY-1 proxy count | 24 species values plus 4 level scalars (`ticksPerTurn`, 3 inventory) = 28, at most 30: **pass**, if grid cells are counted as level data, not config. Prediction was fail: **miss** |
+
+## Provenance note (final review, 2026-11-12)
+
+`rung-0.json` to `rung-2.json` record the commit **before** each rung's change was committed: the run used the working tree, and the tool did not mark uncommitted code. The code that produced rung N is the commit named `feat: rung N ...` (rung 0: `feat: I6 detector and rung 0 result`). Numbers reproduce from those commits. `rung-3.json` was re-run on a clean tree after the fix and names its own revision. The tool now appends `-dirty` when the tree has uncommitted changes.
