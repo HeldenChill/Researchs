@@ -24,6 +24,7 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
+- [Latest session / project review and reference-case plan](memory/2026-11-12-project-review-and-reference-case-plan-session.md) — Critique (zero evidence, ladder blocked by L12), 10-task plan for Forest_Bloom slice + I6 detector + P7 playtest + prune proposal; plan written, not approved or executed; no AG-n decided.
 - [Latest session / Logical Space critique and study plan](memory/2026-11-03-logical-space-critique-and-study-session.md) — Critique H1 to H6, core v0.3-draft (L1–L17, AG-7 to AG-11), playbook v3.1, Designer Guide, Forest_Bloom FB-1 (sandbox C encompasses Terra Nil-style levels A, P0 approved, Hill-number Y signal, hybrid QD level search), reference case deferred until Forest_Bloom migration.
 - [Forest_Bloom review and basis ladder](memory/2026-10-24-forest-bloom-review-and-basis-ladder-session.md) — Forest_Bloom read-only audit vs v0.2, AG-6 basis ladder (detector vs spec), core v0.2.1, playbook v2.1, open T2 to T4, I2 detector next.
 - [Base theory v0.2 session](memory/2026-10-24-logical-space-base-theory-session.md) — Owner's theory intent, agreed decisions AG-1 to AG-5, new core theory files, Bump_Hero first pass, deferrals.
