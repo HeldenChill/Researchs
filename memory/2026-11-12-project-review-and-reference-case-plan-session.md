@@ -1,5 +1,7 @@
 # Session memory — project review, reference-case plan (2026-11-12)
 
+> **Superseded status:** the plan below was approved and executed in the next session. See [theory freeze and reference case](2026-11-12-theory-freeze-and-reference-case-session.md).
+
 **Session date:** 2026-11-12. **Workspace:** `D:\Projects\Research`. Continues [Logical Space critique and study](2026-11-03-logical-space-critique-and-study-session.md). Substantive summary, not a transcript. **No AG-n decision was made this session.** Nothing was committed. Core, playbook and Designer Guide were not edited.
 
 ## Read first in the next session
