@@ -1,10 +1,10 @@
-// Vocabulary and static config. Values are the rung 0 species table (pre-registration.md).
+// Vocabulary and static config. Rung 0 species table (pre-registration.md) plus ladder changes in rung-log.md.
 export const EMPTY = 0, PIONEER = 1, SHRUB = 2, CANOPY = 3, SOIL_MAX = 5;
 export const SPECIES_IDS = [PIONEER, SHRUB, CANOPY];
 
 export const CONFIG = {
   species: {
-    1: { minSoil: 1, soilSelf: 0, soilNear: 1, enrichCap: 3, matureAge: 1, lifespan: 6, shadeLimit: 1, rank: 1 },
+    1: { minSoil: 1, soilSelf: 0, soilNear: 1, enrichCap: 0, matureAge: 1, lifespan: 6, shadeLimit: 1, rank: 1 },
     2: { minSoil: 3, soilSelf: 0, soilNear: 1, enrichCap: 5, matureAge: 2, lifespan: 10, shadeLimit: 3, rank: 2 },
     3: { minSoil: 4, soilSelf: -1, soilNear: 0, enrichCap: 5, matureAge: 3, lifespan: 16, shadeLimit: 5, rank: 3 },
   },

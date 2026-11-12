@@ -3,13 +3,13 @@ import assert from 'node:assert/strict';
 import { CONFIG, EMPTY, PIONEER, SHRUB, CANOPY } from '../src/config.js';
 import { createState } from '../src/state.js';
 import { tick, run } from '../src/operators.js';
-import { L, put } from './helpers.js';
+import { L, put, RUNG0 } from './helpers.js';
 
-test('pioneer spreads one cell per tick and enriches soil', () => {
+test('pioneer spreads one cell per tick and enriches soil (rung 0 table)', () => {
   const level = L('111'); let s = createState(level); put(s, 0, PIONEER);
-  s = tick(s, level, CONFIG);
+  s = tick(s, level, RUNG0);
   assert.deepEqual([...s.species], [1, 1, 0]);
-  s = tick(s, level, CONFIG);
+  s = tick(s, level, RUNG0);
   assert.deepEqual([...s.species], [1, 1, 1]);
   assert.deepEqual([...s.soil], [2, 3, 2]);
 });
@@ -55,4 +55,11 @@ test('tick does not mutate its input and is deterministic', () => {
   const a = run(s, level, CONFIG, 10), b = run(s, level, CONFIG, 10);
   assert.equal(JSON.stringify([...s.species, ...s.soil, ...s.age]), before);
   assert.deepEqual([...a.species], [...b.species]);
+});
+
+test('rung 1: pioneer no longer lifts bare soil, so it cannot cross soil 0', () => {
+  const level = L('10'); let s = createState(level); put(s, 0, PIONEER);
+  s = run(s, level, CONFIG, 3);
+  assert.equal(s.soil[1], 0);
+  assert.equal(s.species[1], EMPTY);
 });

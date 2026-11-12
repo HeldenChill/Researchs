@@ -5,6 +5,7 @@ One row per rung, one change per rung (L12). Budget: 5 rungs (0 to 4).
 | Rung | One change | D1 | D2 | D3 | D4 | V1 | V2 | N1 fails | N2 fails | Verdict | What was missing |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 0 | Baseline species table | 1.59 fail | 1.00 pass | 0.19 fail | 12 pass | fail | fail | yes | yes | **Fail** | Pioneer wave floods all 126 open cells within 12 ticks from almost any start (mean 79 of best 126), so position barely matters (D1, D3). Greedy plays 2 seeds, then the map is full: shrub and canopy are never planted (V1, V2). Evidence: [rung-0.json](../../../prototypes/forest-bloom-slice/results/rung-0.json) |
+| 1 | Pioneer `enrichCap` 3 to 0: pioneers no longer lift bare soil | 3.64 pass | 0.28 pass | 0.154 fail | 11 pass | fail | pass | yes | yes | **Fail** | Before: D1 and D3 failed because the pioneer wave crossed soil 0 everywhere. Regime map [enrichCap x lifespan](../../../prototypes/forest-bloom-slice/results/regime-1.enrichCap-1.lifespan.csv): only cap 0 changes anything, so the change sits on the flip edge (cap 1 flips back), L10 cannot be satisfied for a 0/1 switch. After: position matters (best is a shrub at cell 111), D3 misses by one action (4 of 26 near-best). New failure: shrub takes 106 of 116 trees (91%), V1. Evidence: [rung-1.json](../../../prototypes/forest-bloom-slice/results/rung-1.json) |
 
 ## Rung 0 against predictions (ID-1)
 
