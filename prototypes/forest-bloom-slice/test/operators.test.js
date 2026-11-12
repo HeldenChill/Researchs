@@ -20,11 +20,11 @@ test('pioneer dies after its lifespan', () => {
   assert.equal(run(s, level, CONFIG, 7).species[0], EMPTY);
 });
 
-test('lone canopy starves its own soil', () => {
+test('lone canopy starves its own soil (rung 0 table)', () => {
   const level = L('4'); let s = createState(level); put(s, 0, CANOPY);
-  const s1 = tick(s, level, CONFIG);
+  const s1 = tick(s, level, RUNG0);
   assert.equal(s1.species[0], CANOPY); assert.equal(s1.soil[0], 3);
-  assert.equal(tick(s1, level, CONFIG).species[0], EMPTY);
+  assert.equal(tick(s1, level, RUNG0).species[0], EMPTY);
 });
 
 test('canopy shade kills a neighbouring pioneer', () => {
@@ -62,4 +62,10 @@ test('rung 1: pioneer no longer lifts bare soil, so it cannot cross soil 0', () 
   s = run(s, level, CONFIG, 3);
   assert.equal(s.soil[1], 0);
   assert.equal(s.species[1], EMPTY);
+});
+
+test('rung 2: canopy germinates and survives on soil 3', () => {
+  const level = L('33'); let s = createState(level); put(s, 0, CANOPY, 3);
+  s = tick(s, level, CONFIG);
+  assert.equal(s.species[1], CANOPY);
 });

@@ -1,0 +1,16 @@
+x,y,skillGap,bestShare,nearBestShare,depth,viable,pass
+2,6,4.255,0.278,0.129,11,true,true
+2,7,4.255,0.278,0.129,11,true,true
+2,8,4.255,0.278,0.129,11,false,false
+2,9,4.255,0.278,0.129,11,true,true
+2,10,4.255,0.278,0.129,11,false,false
+3,6,4.255,0.278,0.129,11,true,true
+3,7,4.255,0.278,0.129,11,true,true
+3,8,4.255,0.278,0.129,11,false,false
+3,9,4.255,0.278,0.129,11,false,false
+3,10,4.255,0.278,0.129,11,false,false
+4,6,3.640,0.278,0.154,11,true,false
+4,7,3.640,0.278,0.154,11,true,false
+4,8,3.640,0.278,0.154,11,false,false
+4,9,3.640,0.278,0.154,11,false,false
+4,10,3.640,0.278,0.154,11,false,false

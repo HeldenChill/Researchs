@@ -29,7 +29,7 @@ Smallest Forest_Bloom slice used as the first full reference case for the Logica
 
 | Field | pioneer | shrub | canopy | Meaning |
 |---|---|---|---|---|
-| `minSoil` | 1 | 3 | 4 | Soil needed to germinate and to stay alive |
+| `minSoil` | 1 | 3 | 4, **3 from rung 2** | Soil needed to germinate and to stay alive |
 | `soilSelf` | 0 | 0 | -1 | Soil change on own cell per tick |
 | `soilNear` | 1 | 1 | 0 | Soil change on each 4-neighbour per tick |
 | `enrichCap` | 3, **0 from rung 1** | 5 | 5 | A positive `soilNear` never lifts a cell above this |
