@@ -14,3 +14,4 @@ ehthumbs.db
 *.tmp
 .superpowers/
 .correction-verification/
+.claude/settings.local.json

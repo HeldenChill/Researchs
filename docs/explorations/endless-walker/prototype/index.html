@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endless Walker - One Snow Mountain Prototype</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #cfd8e3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    #app {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #hud {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 10;
+    }
+    #help {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(20, 24, 30, 0.75);
+      color: #f0f4f8;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      pointer-events: none;
+      z-index: 20;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    #help h2 {
+      margin: 0 0 10px 0;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    #help table {
+      border-collapse: collapse;
+    }
+    #help td {
+      padding: 2px 8px 2px 0;
+    }
+    #help td.key {
+      font-family: monospace;
+      color: #90caf9;
+      font-weight: 600;
+    }
+    #help .note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #b0bec5;
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+        "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.19.2/dist/lil-gui.esm.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="hud"></div>
+  <div id="help">
+    <h2>Endless Walker Controls</h2>
+    <table>
+      <tr><td class="key">W A S D</td><td>Move</td></tr>
+      <tr><td class="key">Shift</td><td>Sprint / Tuck (Slide)</td></tr>
+      <tr><td class="key">Space</td><td>Jump / Lunge (Wall)</td></tr>
+      <tr><td class="key">Left Mouse (Hold)</td><td>Grab (Climb)</td></tr>
+      <tr><td class="key">Right Mouse (Hold)</td><td>Hook (G toggles)</td></tr>
+      <tr><td class="key">C</td><td>Crouch (Start Slide)</td></tr>
+      <tr><td class="key">Z / X</td><td>Load - / +</td></tr>
+      <tr><td class="key">R</td><td>Reset to Base</td></tr>
+      <tr><td class="key">T</td><td>Jump to Peak</td></tr>
+      <tr><td class="key">Tab</td><td>Tuning Panel</td></tr>
+      <tr><td class="key">H</td><td>Toggle this Help</td></tr>
+    </table>
+    <div class="note">Gamepad supported (Sticks, Triggers, A, B, D-pad, Start/Back).</div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
