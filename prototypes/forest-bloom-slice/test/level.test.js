@@ -39,3 +39,8 @@ test('state copies level data and clone is independent', () => {
   assert.equal(s.soil[0], 1);
   assert.equal(s.inventory[1], 3);
 });
+
+test('rejects non-integer header values, naming the line', () => {
+  assert.throws(() => L('111', '3,2'), /line 2/);
+  assert.throws(() => parseLevel('ticksPerTurn=abc\ninventory=3,2,1\n---\n111'), /line 1/);
+});

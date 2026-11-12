@@ -11,6 +11,11 @@ import { cascadeProfile, uniformLevel, noIterationConfig, THRESHOLDS } from '../
 
 export const WINDOW = 8;
 
+// A result produced from uncommitted code names its parent commit plus '-dirty'.
+export function formatRevision(sha, porcelain) {
+  return porcelain.trim() ? `${sha}-dirty` : sha;
+}
+
 export function parseOverrides(list) {
   const out = {};
   for (const item of list) {
@@ -55,7 +60,7 @@ function main(argv) {
   const n1 = cascadeProfile(uniformLevel(), config);
   const n2 = cascadeProfile(level, noIterationConfig(config));
   let revision = 'unknown';
-  try { revision = execSync('git rev-parse --short HEAD').toString().trim(); } catch {}
+  try { revision = formatRevision(execSync('git rev-parse --short HEAD').toString().trim(), execSync('git status --porcelain .').toString()); } catch {}
   const result = {
     rung, overrides, revision, thresholds: THRESHOLDS, profile,
     viability: { greedy, random },
