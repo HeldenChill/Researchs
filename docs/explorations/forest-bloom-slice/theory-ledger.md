@@ -16,11 +16,11 @@ An item counts as "did work" only with an evidence link.
 | L10 | 7 | Yes. Regime maps changed every rung choice: showed enrichCap 1 to 5 is flat (rung 1), minSoil 3 has one safe side (rung 2), shrub lifespan viable only at 6 and 7 (rung 3). Also exposed that the pass is fragile | [rung-log](rung-log.md), `results/regime-*.csv` | |
 | L11 | 6 | Yes. Negative controls run before trusting the detector; both rejected, and N1 showed level 01 fails on the same checks as a uniform field | [rung-log](rung-log.md), [detector.test.js](../../../prototypes/forest-bloom-slice/test/detector.test.js) | |
 | L12 | 6, 7 | Yes. Rung 0 is the smallest basis; the ladder could finally run because a detector exists | [rung-log](rung-log.md) | |
-| L13 | | | | |
+| L13 | 8 | Partly. The perceivability table was written before view code and drove what the view draws (soil colour, shade overlay, pulse). It also caught a stale row: after rung 1 the Succession cause is shrub enrichment, not pioneers. Player check still pending | [README perceivability](README.md) | |
 | L14 | 2, 6 | Yes. Predictions written before the run; one miss (V2) exposed a wrong mental model of the fill dynamics | [pre-registration](pre-registration.md), [rung-log](rung-log.md) | |
 | L15 | | | | |
 | L16 | 6 | Yes. Viability failed separately from the target: D2 and D4 passed while V1 and V2 failed. Without the split, "big wave" would look like success | [rung-log](rung-log.md) | |
-| L17 | | | | |
+| L17 | 8 | Yes. Viability compressed to one saturation level plus a trend arrow; no numbers but seed counts. Whether it works is a P7 question | [main.js](../../../prototypes/forest-bloom-slice/web/main.js) | |
 | M1 | | | | |
 | M2 | | | | |
 | M3 | | | | |

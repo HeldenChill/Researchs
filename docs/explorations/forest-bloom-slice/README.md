@@ -63,3 +63,25 @@ flowchart LR
     Der --> Obs["observe: Y map for the view"]
     St --> Det["detector: cascade profile"]
 ```
+
+## Perceivability table (L13, written before any view code)
+
+| Target event | Cause the player sees | Effect the player sees |
+|---|---|---|
+| Wave spreads | Ground gets darker and richer ahead of the wave: soil 0 pale sand to soil 5 dark brown | New plants appear cell by cell, one tick at a time |
+| Wave stops | Rock; pale soil that the species cannot use | Front line stops |
+| Succession | Rich soil ring behind pioneers | Shrub then canopy colours replace pioneer colour |
+| Shade kill | Dark overlay on cells next to canopy | Pioneer fades out |
+| Monoculture risk | Whole map loses colour saturation; trend arrow points down; border of the dominant species pulses | Player plants a different species |
+
+Note after rung 1: pioneers no longer enrich bare soil (`enrichCap` 0), so the "rich soil ring behind pioneers" cause in the Succession row is now produced by shrubs, not pioneers. The row stays as written (L14); the playtest checks whether players read it anyway.
+
+## View checks (Task 8 step 5)
+
+| Check | Status | Evidence |
+|---|---|---|
+| Served at `http://localhost:8000/web/`: page, module scripts and level file load | **Observed 2026-11-12** | HTTP 200 for `web/`, `web/main.js`, `src/observe.js`, `levels/level-01.txt` (port 8011 used for the probe) |
+| `file://` fallback message visible | **Pending**: not opened in a browser. By construction the message is in static HTML and only `main.js` removes it; browsers block module scripts on `file://`, so it should stay | `web/index.html` |
+| Each perceivability row visible in play | **Pending**: needs a person at a browser. The executor had no browser session. Owner checks before Task 9 | — |
+
+Run: `python -m http.server 8000` in `prototypes/forest-bloom-slice`, open `http://localhost:8000/web/`.
