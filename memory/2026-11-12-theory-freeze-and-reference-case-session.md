@@ -58,7 +58,7 @@
 | v0.4 proposal | Approve, change, reject. If approved: record next AG, then edit core, playbook steps, Designer Guide |
 | P7 playtest | Deferred. Kit: `docs/explorations/forest-bloom-slice/playtest-protocol.md`, `playtest-results.md`. Serve `python -m http.server 8000` in `prototypes/forest-bloom-slice`, open `http://localhost:8000/web/` |
 | Canopy | Next rung only after P6 is fixed to require canopy alive |
-| Branch | `study/forest-bloom-slice`, local commits, not pushed or merged. Older branch `theory/v0.3-critique-and-study` also still unmerged (carried over) |
+| Branch | `study/forest-bloom-slice` **fast-forward merged into local `main` 2026-11-13**; main not pushed (ahead of origin). Older branch `theory/v0.3-critique-and-study` also still unmerged (carried over) |
 
 ## Working-style notes
 
