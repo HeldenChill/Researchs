@@ -1,6 +1,7 @@
 # Playbook: Phân Rã Một Game Bất Kỳ Thành Không Gian Logic Chuẩn Tắc
 
 > **Phiên bản:** v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
+> **Đóng băng 2026-11-12:** không thêm nguyên tắc, thước đo, cổng hay loại catalog mới cho tới khi ca mẫu lát cắt Forest_Bloom báo cáo. Xem [plan](../plans/implement/2026-11-12-forest-bloom-slice-reference-case.md).
 > **Phạm vi:** Playbook cấp Base Theory (Universal Playbook áp dụng cho mọi game).
 > **Lý thuyết lõi:** [Logical-Space-Base-Theory.md](../../docs/theory/Logical-Space-Base-Theory.md) — định nghĩa, nguyên tắc L1–L17, thang basis (mục 4.1), danh mục I1–I6 và M1–M6, cổng P0–P7.
 > **Hồ sơ phản biện:** [2026-11-03-logical-space-critique-and-study.md](../plans/design/2026-11-03-logical-space-critique-and-study.md) — H1–H6, lý do của các thay đổi v3.0.

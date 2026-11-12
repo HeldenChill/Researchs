@@ -209,7 +209,7 @@ flowchart TD
 | Bước | Trạng thái |
 |---|---|
 | 1 Chốt định nghĩa v0.3 | **Xong**, trừ H6 chờ dữ liệu. AG-7 đến AG-11 |
-| 2–3 Giả thuyết + ca mẫu | **Hoãn.** Trợ lý đề xuất ca mẫu = lát cắt nhỏ nhất của Forest_Bloom (3 loài, một level kiểu Terra Nil, prototype headless mới, engine cũ là kho linh kiện). Chủ dự án: migration Forest_Bloom chưa xong → **hoãn tới khi migration xong** |
+| 2–3 Giả thuyết + ca mẫu | **Đang làm (2026-11-12).** Lý do: prototype mới nằm trong repo Research nên không phụ thuộc migration. Xem [plan](../implement/2026-11-12-forest-bloom-slice-reference-case.md). Ghi chú cũ: **Hoãn.** Trợ lý đề xuất ca mẫu = lát cắt nhỏ nhất của Forest_Bloom (3 loài, một level kiểu Terra Nil, prototype headless mới, engine cũ là kho linh kiện). Chủ dự án: migration Forest_Bloom chưa xong → **hoãn tới khi migration xong** |
 | 4–6 | Chờ bước 3 |
 
 ### 4.1 Đích Đến: Tài Liệu Nội Bộ (Q5, 2026-11-03)
@@ -316,6 +316,7 @@ Ba hàng đầu: ý chung, nhiều người đã có. Hai hàng in đậm: phầ
 
 | Ngày | Thay đổi |
 |---|---|
+| 2026-11-12 | Đóng băng lý thuyết ở v0.3; bước 2–3 chuyển sang "Đang làm": ca mẫu lát cắt Forest_Bloom là prototype mới trong repo Research, không phụ thuộc migration. Đảo ngược quyết định hoãn ngày 2026-11-03 |
 | 2026-11-03 | Playbook v3.1: mục 2B sandbox bao trùm level + QD Hybrid, mẹo Bước 0 (khoảnh khắc từ game tham chiếu, kiểm ý định gốc), 5 dòng bài học mới; memory phiên viết lại đầy đủ |
 | 2026-11-03 | Viết tài liệu nội bộ (mục 4.1): `docs/theory/Logical-Space-Designer-Guide.md` — quickstart, thuật ngữ, mẫu điền sẵn, lỗi tốn kém |
 | 2026-11-03 | Bước 1 lộ trình xong; ca mẫu (lát cắt Forest_Bloom) hoãn tới khi migration Forest_Bloom xong |

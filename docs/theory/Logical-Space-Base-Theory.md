@@ -2,7 +2,7 @@
 
 > **Entry point.** When starting a new game, point to this file. It is the compact, canonical statement of the base theory.
 > **Version:** `2026-11-03-logical-space-v0.3-draft` (patches holes H1 to H6 from the 2026-11-03 critical review). Supersedes v0.2.1.
-> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. Items marked **v0.3 patch** were written at the owner's request on 2026-11-03 and are open for discussion in the [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md). **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested.
+> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. Items marked **v0.3 patch** were written at the owner's request on 2026-11-03 and are open for discussion in the [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md). **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested. **Frozen 2026-11-12:** no new principle, measure, gate or catalog type until the Forest_Bloom slice reference case reports. See [plan](../../.cursor/plans/implement/2026-11-12-forest-bloom-slice-reference-case.md).
 > **Detail lives elsewhere:** math explainer [Logical-Space-Mathematical-Foundations.md](Logical-Space-Mathematical-Foundations.md); step-by-step procedure [playbook](../../.cursor/playbooks/playbook-decompose-game-to-logical-space.md); full reasoning and decision history [discussion record](../../.cursor/plans/design/2026-10-24-logical-space-base-theory.md).
 
 ---
