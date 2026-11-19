@@ -251,6 +251,7 @@ Expanded quickstart, glossary and fill-in templates: [Designer Guide](Logical-Sp
 | Bump_Hero | Turn-based physics flick roguelike; target I6 | First-pass decomposition; testing waits for package adoption | [exploration](../explorations/bump-hero-logical-space/README.md) |
 | Forest_Bloom | Ecosystem sandbox; target I2 | Deep discussion waits for adoption in that project | Discussion record §6 |
 | Limbus Company | Combat decomposition | Earlier exploration | [exploration](../explorations/limbus-company-logical-space/) |
+| A Fishing Night | Stealth fishing horror; noise bus as shared operator; P0 draft, targets proposed | Draft, no detector yet | [exploration](../explorations/fishing-night-logical-space/README.md) |
 | Big Five | Psychology projection sandbox | Downstream branch; **pre-v0.2, non-conformant** with P0, L1, L3, L4, L6; game-first rework pending | [sandbox](../explorations/big-five-logical-projection/README.md) |
 
 Anti-bias: derive each game's basis independently. Only what recurs across games may enter this core.
