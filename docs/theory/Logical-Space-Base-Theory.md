@@ -1,8 +1,8 @@
 # Logical Space Base Theory — Core
 
 > **Entry point.** When starting a new game, point to this file. It is the compact, canonical statement of the base theory.
-> **Version:** `2026-11-03-logical-space-v0.3-draft` (patches holes H1 to H6 from the 2026-11-03 critical review). Supersedes v0.2.1.
-> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. Items marked **v0.3 patch** were written at the owner's request on 2026-11-03 and are open for discussion in the [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md). **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested. **Frozen 2026-11-12:** no new principle, measure, gate or catalog type until the Forest_Bloom slice reference case reports. See [plan](../../.cursor/plans/implement/2026-11-12-forest-bloom-slice-reference-case.md).
+> **Version:** `2026-11-20-logical-space-v0.3.1-draft` (patches holes H1 to H6 from the 2026-11-03 critical review). Supersedes v0.2.1.
+> **Status:** Draft theory. Definitions and principles are agreed with the owner where marked. Items marked **v0.3 patch** were written at the owner's request on 2026-11-03 and are open for discussion in the [critique and study record](../../.cursor/plans/design/2026-11-03-logical-space-critique-and-study.md). **No emergence measure is validated yet.** Treat every measure as a hypothesis until tested. **Freeze lifted 2026-11-20 (AG-12):** the owner unblocked v0.3 (it was frozen 2026-11-12 pending the Forest_Bloom slice, see [plan](../../.cursor/plans/implement/2026-11-12-forest-bloom-slice-reference-case.md)). L18 to L21 and catalog type I7 were added as provisional (2 cases, 0 playtests).
 > **Detail lives elsewhere:** math explainer [Logical-Space-Mathematical-Foundations.md](Logical-Space-Mathematical-Foundations.md); step-by-step procedure [playbook](../../.cursor/playbooks/playbook-decompose-game-to-logical-space.md); full reasoning and decision history [discussion record](../../.cursor/plans/design/2026-10-24-logical-space-base-theory.md).
 
 ---
@@ -77,6 +77,10 @@ flowchart LR
 | L15 | **Emergence supplies, progression curates.** Emergence gives the possibility space; progression structure restricts it so the player meets one insight at a time. A game declares both. | v0.3 patch (H5), from Baba lesson BB-5 |
 | L16 | **Targets and viability conditions are separate lists.** P0 declares the interestingness targets (checked in P5 and P7) and the viability conditions (checked in P6 as invariants). Optimizing a viability condition as if it were the target consumes the design: Forest_Bloom spent its effort on balance while the real target was undefined. | **Agreed** AG-8 (2026-11-03) |
 | L17 | **Compress through $Y$.** When the player must sense a viability condition or a target, $Y$ compresses the hidden criteria into **one or two directional signals** (getting better or worse) plus a visual. Detailed thresholds stay in the hidden designer layer. Example: Forest_Bloom shows effective species count (Hill number, $e^{H}$) as map color richness plus a trend arrow, while dominance, richness and persistence thresholds stay hidden. | **Agreed** AG-9 (2026-11-03) |
+| L18 | **Core loop first.** Before decomposing, find the core loop: action, state change, feedback through $Y$, decision. Mark the elements on that loop as core; classify the rest as support, progression or polish. Test: cutting a core element breaks the loop. Weigh by loop steps, not by element count (counting elements gives a false 80/20). | **Agreed** AG-13 (2026-11-20), provisional: A Fishing Night, PEAK; 0 playtests |
+| L19 | **Two-loop rule.** A second loop gets its own graph when it has its own state and clock, and its outputs do not return to the first loop as system state. Draw both loops in one frame; system links are one-way arrows. A link through the player (via $Y$) is not a system edge; measure it with decision dependence (L21). Link tests: cut the link, decision dependence, shared tick. | **Agreed** AG-14 (2026-11-20), provisional |
+| L20 | **Feeling layer.** Each loop produces feelings, recorded per beat, not per loop; one beat may carry several. Feelings reinforce, contrast or conflict. A divided-attention conflict (two loops demand the player's eyes at once) is the main check point, and $Y$ must show both sources at that moment. | **Agreed** AG-15 (2026-11-20), provisional |
+| L21 | **Decoupling detector.** Two loops count as merged only if two pre-registered tests pass: (1) decision dependence: player choices in loop A change with loop B state; (2) feeling co-occurrence: beats carry feelings from both loops together. Additive coupling (a flat cost per action) does not merge; merging needs a product term inside an operator (L6). | **Agreed** AG-16 (2026-11-20), provisional; detector not yet run |
 
 ### 3.1 Worked Example of L2 to L5
 
@@ -116,7 +120,7 @@ flowchart TD
 
 | Gate | Question | Evidence |
 |---|---|---|
-| P0 | What must the game do, which kind of interesting does it target, and what is the player's loop? | Numbered mechanics list; chosen types I1 to I6 with **pre-registered** thresholds; viability conditions listed separately (L16); player loop: action, simulation, feedback through $Y$, updated mental model; progression structure sketch |
+| P0 | What must the game do, which kind of interesting does it target, and what is the player's loop? | Numbered mechanics list; chosen types I1 to I6 with **pre-registered** thresholds; viability conditions listed separately (L16); player loop: action, simulation, feedback through $Y$, updated mental model; core loop and loop split (L18, L19); feeling per beat (L20); progression structure sketch |
 | P1 | What are $\mathcal{S}$, $\mathcal{A}$, $\hat{\mathbb{O}}$, $\Omega$, and at what resolution? | Decomposition table; L4 justification |
 | P2 | Is every basis element independent? | Derivation test; save-game drop test; reachable-set dependence; category check |
 | P3 | Does the space span the spec? | Coverage matrix with a witness action sequence per spec item |
@@ -170,6 +174,7 @@ Add a type only with an example game and a test.
 | I4 Story emergence | Rule interactions produce memorable unscripted events | Dwarf Fortress, RimWorld | M2 plus player reports |
 | I5 Strategic depth | No dominant strategy; skill keeps paying off | Chess, card games | P6 dominance; skill-luck measure |
 | I6 Chain reaction | One action triggers a cascade of interactions | Bump_Hero: one shot chains allies' skills | M6 |
+| I7 Loop coupling (provisional, AG-17) | Two loops with separate state and clock interlock: choices and feelings in one depend on the other's live state, through a product term inside an operator, not a flat added cost | A Fishing Night target: tension of the line × fish class against the Guard's noise loop | L21 detector: decision dependence plus feeling co-occurrence, pre-registered |
 
 I1, I2 and I6 come from the owner; I3 to I5 are assistant candidates. **No type has a defined detector yet** (L12); I2 is first in line.
 
@@ -284,3 +289,4 @@ Links and discussion: [critique and study record](../../.cursor/plans/design/202
 | v0.2 | 2026-10-24 | First core statement: definitions, principles L1 to L11, P0 to P6, catalogs I1 to I6 and M1 to M6, clean-code mapping, quickstart |
 | v0.2.1 | 2026-10-24 | AG-6: principle L12 and basis ladder, section 4.1; detector versus spec; modes A and B |
 | v0.3-draft | 2026-11-03 | Critical review patches H1 to H6: Fourier limit and positioning; model adds $\mathcal{V}$ and $Y$; meta-action and progression terms; L2 via ablation; L6 narrowed to weak emergence; L13 to L15; P7 player gate; M1 caution; measure validation; prior art section 11. Later same day: AG-7 (L6), AG-8 (viability condition, L16), AG-9 (compress through Y, L17), AG-10 (basis selection rule in L3), AG-11 (P7 playtest kit) |
+| v0.3.1-draft | 2026-11-20 | AG-12: freeze lifted by owner. AG-13 to AG-16: L18 core loop first, L19 two-loop rule, L20 feeling layer, L21 decoupling detector; AG-17: catalog type I7 loop coupling. P0 evidence extended. Provisional: from A Fishing Night and PEAK, no playtest |

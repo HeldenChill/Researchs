@@ -20,3 +20,6 @@
 ## Links
 - Playbook: `.cursor/playbooks/playbook-decompose-game-to-logical-space.md`, section 4.
 - Exploration: `docs/explorations/fishing-night-logical-space/README.md`, `docs/explorations/peak-vs-fishing-night/README.md`.
+
+## Update 2026-11-20
+- Owner unblocked v0.3 (AG-12). L18 core loop first, L19 two-loop rule, L20 feeling layer, L21 decoupling detector adopted as AG-13 to AG-16, provisional (2 cases, 0 playtests). I7 loop coupling added as AG-17, provisional. Core stays v0.3.1-draft (owner chose, v0.4 name kept for prune proposal). Still open: v0.4 prune proposal, six Fishing Night phase 0 decisions. Not committed.

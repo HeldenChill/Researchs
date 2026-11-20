@@ -331,3 +331,18 @@ Ba hàng đầu: ý chung, nhiều người đã có. Hai hàng in đậm: phầ
 | 2026-11-03 | Câu đóng góp C1–C5 (Q3); mục 5.1 so sánh Fourier, Sellers, MDA |
 | 2026-11-03 | AG-7: chủ dự án đồng ý L6 mới (emergence = kết quả của luật lặp nhiều bước, không ai liệt kê trước). Q1, Q2 đã trả lời |
 | 2026-11-03 | Tạo file. Ghi mục đích, H1 đến H6, ý tưởng ID-1 đến ID-5, lộ trình nghiên cứu, giả thuyết HY-1 đến HY-4, nghiên cứu liên quan, câu hỏi mở. Core vá lên v0.3-draft |
+
+---
+
+## Cập nhật 2026-11-20: mở khóa v0.3 và chấp nhận L18 đến L21
+
+| ID | Nội dung | Trạng thái |
+|---|---|---|
+| AG-12 | Chủ dự án mở khóa v0.3 (gỡ lệnh đóng băng 2026-11-12) | Đã chấp nhận 2026-11-20 |
+| AG-13 | L18 Tìm vòng lõi trước khi phân rã; đo theo bước vòng, không theo số phần tử | Đã chấp nhận, tạm thời |
+| AG-14 | L19 Quy tắc hai vòng: trạng thái riêng, nhịp riêng, đầu ra không quay về; cạnh một chiều | Đã chấp nhận, tạm thời |
+| AG-15 | L20 Lớp cảm giác: ghi theo beat; tăng cường, tương phản, xung đột; kiểm chú ý bị chia | Đã chấp nhận, tạm thời |
+| AG-17 | I7 Vòng ghép (loop coupling): loại mục tiêu mới, kiểm bằng detector L21 | Đã chấp nhận, tạm thời |
+| AG-16 | L21 Detector tách vòng: phụ thuộc quyết định + đồng xuất hiện cảm giác, đăng ký trước | Đã chấp nhận, tạm thời; chưa chạy |
+
+Bằng chứng: 2 ca (A Fishing Night, PEAK), 0 playtest. Giữ tên v0.3.1. Vẫn mở: đề xuất cắt gọt v0.4, 6 quyết định giai đoạn 0 của Fishing Night.
