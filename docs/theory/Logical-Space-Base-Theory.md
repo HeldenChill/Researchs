@@ -257,6 +257,7 @@ Expanded quickstart, glossary and fill-in templates: [Designer Guide](Logical-Sp
 | Forest_Bloom | Ecosystem sandbox; target I2 | Deep discussion waits for adoption in that project | Discussion record §6 |
 | Limbus Company | Combat decomposition | Earlier exploration | [exploration](../explorations/limbus-company-logical-space/) |
 | A Fishing Night | Stealth fishing horror; noise bus as shared operator; P0 draft, targets proposed | Draft, no detector yet | [exploration](../explorations/fishing-night-logical-space/README.md) |
+| Airplane co-op | FPS co-op stabilization; unstable plane, center of mass from cargo; targets I2 and I7 | Draft theory, stabilization core only | [exploration](../explorations/airplane-coop-stabilization/README.md) |
 | Big Five | Psychology projection sandbox | Downstream branch; **pre-v0.2, non-conformant** with P0, L1, L3, L4, L6; game-first rework pending | [sandbox](../explorations/big-five-logical-projection/README.md) |
 
 Anti-bias: derive each game's basis independently. Only what recurs across games may enter this core.
