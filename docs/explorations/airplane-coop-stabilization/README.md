@@ -24,6 +24,10 @@
 | OD-11 | No tilt cap (option A rejected). Big tilts may happen; what players do then (climb, tools, captain recovery) is designed later |
 | OD-12 | Free throwing rejected (option D): it makes moving pointless. Throwing stays but must be limited |
 | OD-13 | Handrails/ropes (B) and captain counter-steer (C) approved |
+| OD-15 | Tilt model: **rate model kept** (tilt speed = k × offset). Fixing the offset only stops the tilt; the captain's counter-steer brings the plane back to level once the offset is near zero. Crew fixes the cause, captain fixes the angle |
+| OD-16 | Crates are much heavier than players (proposal: 3 to 5 × player mass), so standing on the high side is not a dominant fix |
+| OD-17 | Thin choices (which crate, which shelf is obvious): tune in the demo, not on paper |
+| OD-18 | Crew-only information (so the crew is not just order-takers): later |
 | OD-14 | Deferred: carried crate moves the center of mass with the carrier; door cycle limit (T1); heavy crates need two people (T3, approved for later) |
 
 ---
@@ -75,7 +79,7 @@
 
 ### 3.2 Config (fixed per flight)
 
-Crate masses; shelf slot positions; door position; amplifier $k$ (OD-10); danger angle $\theta_d$; crash time $D_{max}$; captain counter-steer strength $c$; floor friction; uphill walk penalty; rail pull speed; player mass.
+Crate masses (3 to 5 × player mass, OD-16); shelf slot positions; door position; amplifier $k$ (OD-10); danger angle $\theta_d$; crash time $D_{max}$; captain counter-steer strength $c$; floor friction; uphill walk penalty; rail pull speed; player mass.
 
 ### 3.3 Derived (never stored)
 
@@ -101,7 +105,7 @@ L1 check: the tilt formula, slide rule and danger timer are **operators**, not a
 | Operator | Reads | Writes | Rule |
 |---|---|---|---|
 | O_com | crate slots, loose crates, players | $\Delta$ (derived) | Mass-weighted mean minus balanced reference |
-| O_tilt | $\Delta$, $u$, disturbance | $\theta, \phi$ | $\dot\theta = k\,\Delta_z - c\,u_\theta + d_\theta(t)$, same for roll (OD-10, OD-13) |
+| O_tilt | $\Delta$, $u$, disturbance | $\theta, \phi$ | $\dot\theta = k\,\Delta_z - c\,u_\theta + d_\theta(t)$, same for roll (OD-10, OD-13, OD-15). Rate model: $\Delta = 0$ holds the angle, it does not level. Levelling comes from captain input $u$ |
 | O_slide | $\theta, \phi$, loose bodies, rail flag | loose velocities | Acceleration $g \sin\theta$ minus friction; rail holders exempt |
 | O_walk | $\theta, \phi$, input | player velocity | Speed scaled down uphill, up downhill |
 | O_rail | rail flag, input | player velocity | Fixed pull speed, ignores slope (OD-13) |
@@ -207,6 +211,8 @@ Solid arrows are system edges. The dashed arrow (callout) goes through the playe
 | V3 | **Never solved:** a balanced plane does not stay balanced (disturbances, OD-6) | Dead calm after first fix |
 | V4 | **Running matters:** a single standing player cannot hold balance | Loop without co-op |
 | V5 | **Captain not enough:** $c$ cannot cancel large offsets alone | Captain replaces crew |
+| V7 | **Players are not ballast:** all players on the high side cannot cancel the offset of one heavy crate (OD-16) | Stand-on-the-high-side strategy |
+| V8 | **Levelling needs the captain, offset needs the crew:** with $\Delta \approx 0$ the captain levels within the danger window; with large $\Delta$ the captain alone cannot (V5) | One role makes the other pointless |
 | V6 | **Slide not overwhelming:** locking crates is possible at the angles the crew usually faces | All cargo piles on one side |
 
 **Test plan (proposal):** headless 2D sim of section 4 with bot crew; sweep $k$, friction, walk penalty, $c$; record time in each tilt band, recovery success from seeded tilts, and throw share. V1 to V6 must hold across seeds before any 3D build.

@@ -19,3 +19,8 @@
 - Next: owner lists instability causes; decide where a carried crate's mass counts in v1; crew size and captain role.
 - Playbook lessons added (section 4, rows dated 2026-11-20).
 - Not committed yet.
+
+## Part 4: core loop critique (same day)
+- OD-15 rate model kept; captain counter-steer levels the plane once offset is near zero (crew fixes cause, captain fixes angle).
+- OD-16 crates much heavier than players (proposal 3 to 5 ×); new viability V7, V8.
+- OD-17 thin choices tuned in demo. OD-18 crew-only information later.
