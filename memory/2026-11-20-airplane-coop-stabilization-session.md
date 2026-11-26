@@ -24,3 +24,7 @@
 - OD-15 rate model kept; captain counter-steer levels the plane once offset is near zero (crew fixes cause, captain fixes angle).
 - OD-16 crates much heavier than players (proposal 3 to 5 ×); new viability V7, V8.
 - OD-17 thin choices tuned in demo. OD-18 crew-only information later.
+
+## Part 5: prototype plan
+- Gemini implementation plan: `D:\Projects\SleepWithTheFish\.cursor\plans\implement\2026-11-20-airplane-stabilization-prototype.md` (moved there by owner). Build destination `D:\Projects\SleepWithTheFish\HtmlDemo\Airplane\` (empty on 2026-11-20). Spec stays in Research.
+- Assistant calls for owner review: single-player crew switching (no networking), carried crate mass stays at pickup point, 20 s throw cooldown placeholder, sine gust placeholder disturbance, tail-heavy start layout.
