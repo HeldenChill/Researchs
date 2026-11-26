@@ -14,6 +14,28 @@
 
 ---
 
+## Diagram index
+
+| Question | Diagram | Section |
+|---|---|---|
+| What is the whole space made of? | D1 | 1 |
+| Where does a name from the design belong? | D2 | 2 |
+| Which rule reads which property? | D3 | 3 |
+| What does a save file hold? | D4 | 4 |
+| Where can an item be? | D5 | 4.2 |
+| Which action calls which rule? | D6 | 5 |
+| Which rule writes which saved value? | D7, D8 | 6.1 |
+| How does the acid pit admit items? | D9 | 6.2 |
+| In what order do rules run? | D10 | 6.5 |
+| What happens when an item is broken? | D11, D12, D13 | 6.7 |
+| How does one start state open many histories? | D14, D15 | 7.1 |
+| When does a match end? | D16 | 8 |
+| What is built first? | D17 | 9 |
+
+Diagrams show the same content as the tables, **including proposals**. Where a diagram and its table disagree, the table wins. Each diagram is a selection, not a complete list, unless its note says so.
+
+---
+
 ## 1. Model
 
 $$\mathcal{G} = \langle \mathcal{V}, \mathcal{S}, \mathcal{A}, \hat{\mathbb{O}}, \Omega, Y \rangle$$
@@ -36,6 +58,36 @@ flowchart LR
     N --> E["Boundary check"]
     N --> S
 ```
+
+**Diagram D1: the whole space**
+
+```mermaid
+flowchart TD
+    subgraph Fixed["Vocabulary and config, fixed in a match"]
+        V1["Item and creature rows"]
+        V2["Tool rows"]
+        V3["Rooms, terrain, obstacles"]
+    end
+    subgraph Saved["State, saved"]
+        S1["Worm body values"]
+        S2["Items, hazards, crew, tools"]
+        S3["World and economy"]
+        S4["Hidden values"]
+    end
+    subgraph Act["Actions"]
+        A1["Driver: steer, ping, door"]
+        A2["Crew: move, handle, use, set heart"]
+    end
+    Fixed --> Ops["Operators O1 to O25"]
+    Saved --> Ops
+    Act --> Ops
+    Ops --> Saved
+    Saved --> End["Boundary: win or loss"]
+    Saved -. "read only" .-> See["Observation: what players perceive"]
+    See -. "player decides" .-> Act
+```
+
+Solid arrows are system edges. Dotted arrows pass through the player.
 
 **Resolution (L4, P).** The world is discrete objects with a few properties, moving in two spaces: an exterior side view and an interior room map. No gut tissue, no digestion chemistry, no soft-body worm. Anything finer becomes a config number.
 
@@ -68,6 +120,23 @@ The source names rooms, tools, item classes and systems. Most are not basis. Thi
 
 ---
 
+**Diagram D2: sorting test for any new name**
+
+```mermaid
+flowchart TD
+    N["A name from the design"] --> Q1{"Does a player choose it?"}
+    Q1 -- "yes" --> Act["Action"]
+    Q1 -- "no" --> Q2{"Does it change saved values?"}
+    Q2 -- "yes, it is a process" --> Op["Operator"]
+    Q2 -- "no, it is a thing or value" --> Q3{"Can it differ between two moments of one match?"}
+    Q3 -- "no" --> Cfg["Config: row, property or room"]
+    Q3 -- "yes" --> Q4{"Can it be calculated from other values?"}
+    Q4 -- "yes" --> Der["Derived, never saved"]
+    Q4 -- "no" --> St["State, saved"]
+```
+
+Examples: throw is an action; shake is an operator; a tyre row is config; warning colour is derived; a breach is state. A name can split into two answers: the acid pit is a config zone **and** the Digest operator. The allergen choice is fixed during one match but is saved as hidden state, because it differs between matches and cannot be recalculated unless the seed rebuilds it.
+
 ## 3. Vocabulary $\mathcal{V}$
 
 ### 3.1 Item and creature properties (P)
@@ -95,6 +164,24 @@ Operators read only these. They never read an item's name.
 | `health` | Number, creatures only | Damage, Creature | |
 
 `neglect_limit` (time before a breach) is one config value, or per row if items should differ (Q-16).
+
+**Diagram D3: which rule reads which item property**
+
+```mermaid
+flowchart LR
+    mass["mass"] --> O5["O5 Crew motion"]
+    mass --> O7["O7 Interior physics"]
+    rolls["rolls"] --> O7
+    obstructs["obstructs"] --> O8["O8 Trip"]
+    pieces["max pieces, on break, toughness"] --> O10["O10 Break"]
+    digest["digest times, digestible, size"] --> O14["O14 Digest"]
+    yields["hunger and currency yield"] --> O14
+    tag["tag, allergy hunger"] --> O15["O15 React"]
+    beh["behaviour, health"] --> O9["O9 Creature"]
+    beh --> O12["O12 Harm"]
+```
+
+No arrow starts from an item name. A new item is a new set of values on the left. `share` scales several of these values; see D12.
 
 ### 3.2 Tool capabilities (P)
 
@@ -165,6 +252,66 @@ $$\mathcal{S} = \mathcal{S}_{worm} \times \mathcal{S}_{econ} \times \mathcal{S}_
 
 So this space has **no fixed dimension count** (L3).
 
+**Diagram D4: shape of the save file**
+
+```mermaid
+classDiagram
+    direction LR
+    class SaveFile
+    class Worm {
+        position and velocity
+        health and hunger
+        timers
+        heart count and points
+        evolution unlocks
+    }
+    class Item {
+        id and row id
+        share
+        place and motion
+        age
+        break progress
+        digest progress
+        acid order
+    }
+    class Hazard {
+        kind
+        place
+        size
+        age
+    }
+    class Crew {
+        place and velocity
+        health
+        two slots
+        stun timer
+    }
+    class ToolObj {
+        row id and level
+        place
+    }
+    class WorldEconomy {
+        apocalypse position
+        obstacles and doors
+        currency
+    }
+    class Hidden {
+        allergen tag
+        cooldowns
+        random seed
+        next item id
+    }
+    SaveFile *-- "1" Worm
+    SaveFile *-- "1" WorldEconomy
+    SaveFile *-- "1" Hidden
+    SaveFile *-- "many" Item
+    SaveFile *-- "many" Hazard
+    SaveFile *-- "many" Crew
+    SaveFile *-- "many" ToolObj
+```
+
+Boxes marked many change in number during play, which is why the space has no fixed dimension count. Some fields are shortened or left out; sections 4.1 to 4.3 are complete.
+
 ### 4.1 Fixed parts
 
 | Part | Coordinate | Range |
@@ -194,6 +341,28 @@ So this space has **no fixed dimension count** (L3).
 | ToolObj | Row id, level, place, ammunition if any (Q-19), tipped flag for cart |
 
 **Place** is one tagged value: `floor(room, x, y)`, `held(player, slot)`, `cart(id)`, `air`, `acid`, or `gone`. One value, so an item cannot be in two places.
+
+**Diagram D5: places of one item**
+
+```mermaid
+stateDiagram-v2
+    [*] --> floor : bite O4
+    floor --> held : pick up O6
+    held --> floor : drop O6 or trip O8
+    held --> air : throw O6
+    air --> floor : lands O7
+    air --> acid : lands in pit O7
+    floor --> acid : slides in O7
+    floor --> cart : load O6
+    cart --> floor : unload or tip
+    acid --> gone : digested O14
+    floor --> gone : replaced by pieces O10
+    floor --> gone : ejected at rear O20
+    held --> gone : ejected at rear O20
+    gone --> [*]
+```
+
+Proposals shown here: nothing leaves the acid by hand (Q-27), and breaking happens only on the floor. Not drawn: what an allergen reaction does to the item, and whether a breach removes it (Q-16). Explosion also removes items.
 
 **Splitting (SW-1):** a broken item is removed and replaced by $N$ new item instances. Each is carried, rolls, ages and digests on its own, using the same operators. There is no piece counter. Rules in section 6.7.
 
@@ -262,6 +431,27 @@ Actions are requests. Operators decide what happens.
 | | `eject` | Items at rear node | Eject |
 | | `door` | At door | Door |
 
+**Diagram D6: actions and the rules they call**
+
+```mermaid
+flowchart LR
+    steer["steer"] --> O2["O2 Move worm"]
+    ping["ping"] --> Talk["Talk only, no state"]
+    door["door"] --> O23["O23 Door"]
+    move["move, sprint"] --> O5["O5 Crew motion"]
+    hand["pick, drop, throw, swap, cart"] --> O6["O6 Handle"]
+    use["use tool"] --> O10["O10 Break"]
+    use --> O11["O11 Restrain"]
+    use --> O12["O12 Harm"]
+    use --> O13["O13 Reveal"]
+    use --> O18["O18 Seal"]
+    alloc["set heart points"] --> O1["O1 Allocate"]
+    craft["craft"] --> O21["O21 Craft"]
+    eject["eject"] --> O20["O20 Eject"]
+```
+
+The tool row decides which of the five tool rules runs. Rules with no arrow, such as Bite, Digest, Neglect and Trip, are started by the world, not chosen.
+
 Auto-Bite is **not** an action. It is an operator fired by contact (L1).
 
 ---
@@ -300,6 +490,47 @@ Auto-Bite is **not** an action. It is an operator fired by contact (L1).
 | O24 | Director | Zone, load, player count, cooldowns, seed | Spawners, cooldowns |
 | O25 | Apocalypse | Time | `apocalypse_pos`, `critical_timer` |
 
+**Diagram D7: the intake path, rules and the values they write**
+
+```mermaid
+flowchart LR
+    O4["O4 Bite"] --> Items[("Items and places")]
+    O6["O6 Handle"] --> Items
+    O7["O7 Physics"] --> Items
+    O10["O10 Break"] --> Items
+    Items --> O14["O14 Digest"]
+    Items --> O15["O15 React"]
+    Items --> O16["O16 Neglect"]
+    O14 --> Hunger[("Hunger")]
+    O14 --> Money[("Currency")]
+    O15 --> Hunger
+    O15 --> Haz[("Hazards")]
+    O16 --> Haz
+```
+
+Rounded stores are state. Boxes are rules. An arrow into a store means writes; out of a store means reads.
+
+**Diagram D8: the body path, how interior results reach the Driver**
+
+```mermaid
+flowchart TD
+    Haz[("Hazards")] --> O17["O17 Hazard tick"]
+    O17 --> HP[("Worm health")]
+    Pts[("Heart points")] --> O19["O19 Metabolism"]
+    O19 --> HP
+    O19 --> Hunger[("Hunger")]
+    O1["O1 Allocate"] --> Pts
+    Hunger --> O2["O2 Move worm"]
+    Pts --> O2
+    Pts --> O4["O4 Bite gate"]
+    O2 --> Motion[("Worm motion")]
+    Motion --> O3["O3 Impact"]
+    O3 --> J[("Shake impulse")]
+    J --> O7["O7 Physics"]
+```
+
+D7 and D8 together close the circle: items become hunger and hazards, those change the Driver, and the Driver sends shake and new items back inside.
+
 O16 has no row for explosive timers: the source mentions time bombs. If a bomb explodes on a timer, it needs a `fuse` property and a timer coordinate (Q-23).
 
 ### 6.2 Rules with a defined form
@@ -331,6 +562,25 @@ The heart demo (S) shows drain as a multiplier: $0.8 + 0.1s$ with one heart, $1.
 **Content rule (P):** $C$ must be at least the largest whole `size`. Otherwise that item can never be admitted, hammering becomes compulsory, and its stated whole digest time can never happen.
 
 **Capacity unit (Q-24):** this document assumes **size**. The other reading is a count of objects, where a whole engine and one piece each take 1. Not yet confirmed.
+
+**Diagram D9: one tick of the acid pit**
+
+```mermaid
+flowchart TD
+    Start["Items now in acid, ordered by entry"] --> React["New allergen entries react, O15"]
+    React --> Next{"Is another item waiting?"}
+    Next -- "yes" --> Fit{"Does its size fit the free capacity?"}
+    Fit -- "yes" --> Admit["Admit it"]
+    Admit --> Next
+    Fit -- "no" --> Hold["It waits, and so do all behind it"]
+    Next -- "no" --> Prog["Every admitted digestible item gains progress"]
+    Hold --> Prog
+    Prog --> Done{"Is progress full?"}
+    Done -- "yes" --> Pay["Pay hunger and currency, item is gone, capacity freed"]
+    Done -- "no" --> Keep["Stays admitted"]
+```
+
+One pit with a maximum capacity is decided (SW-2). Size as the unit and first in first out are assumptions. What happens to an allergen item after it reacts is not defined, including whether it still takes capacity.
 
 ### 6.3 Interaction operators
 
@@ -390,10 +640,28 @@ Part of L-B and L-E closes through a player's decision (reading signals, then ch
 | 4 Interior intent | O5, O6 | Conflicts over one item: fixed priority, Q-25 |
 | 5 Interior motion | O7, O9, O8 | Uses this tick's $J$ |
 | 6 Tool effects | O13, O11, O12, O10, O18 | |
-| 7 Sinks | O20, O14, O15, O21 | |
+| 7 Sinks | O20, O15, O14, O21 | |
 | 8 Time | O16, O19, O17 | |
 | 9 World | O24 | |
 | 10 Check | $\Omega$ | |
+
+**Diagram D10: one tick**
+
+```mermaid
+flowchart TD
+    T1["1 Read all actions"] --> T2["2 Control: O1, O23, O22"]
+    T2 --> T3["3 Exterior: O2, O3, O4, O25"]
+    T3 --> T4["4 Interior intent: O5, O6"]
+    T4 --> T5["5 Interior motion: O7, O9, O8"]
+    T5 --> T6["6 Tool effects: O13, O11, O12, O10, O18"]
+    T6 --> T7["7 Sinks: O20, O15, O14, O21"]
+    T7 --> T8["8 Time: O16, O19, O17"]
+    T8 --> T9["9 World: O24"]
+    T9 --> T10["10 Check the boundary"]
+    T10 --> T1
+```
+
+Each of the 25 operators appears in exactly one phase.
 
 Consequences, each a **design choice** to confirm:
 
@@ -452,6 +720,49 @@ flowchart LR
 `on_break` explode ignores $N$: the first hit detonates (S: hammering it makes it explode).
 
 An iron hammer with `break_power` at or above `break_toughness` gives the stated one-hit break (S) with no special rule.
+
+**Diagram D11: breaking, step by step**
+
+```mermaid
+sequenceDiagram
+    participant C as Crew
+    participant B as Break O10
+    participant I as Item set
+    C->>B: swing hammer
+    B->>I: check floor, whole, not alive
+    B->>I: add break power to progress
+    C->>B: swing again
+    B->>I: progress reaches toughness
+    B->>I: remove the whole item
+    B->>I: add N pieces with new ids
+    I-->>C: pieces usable from next tick
+```
+
+An explosive row detonates on the first hit instead.
+
+**Diagram D12: what one piece gets**
+
+```mermaid
+flowchart LR
+    subgraph Whole["Whole item, share 1"]
+        W1["row id and tag"]
+        W2["age"]
+        W3["revealed mark"]
+    end
+    subgraph Piece["Each piece"]
+        P1["same row id and tag"]
+        P2["same age"]
+        P3["same revealed mark"]
+        P4["share one of N"]
+        P5["progress zero, new id"]
+    end
+    W1 -- "copied" --> P1
+    W2 -- "copied" --> P2
+    W3 -- "copied" --> P3
+    P4 --> D["Calculated from share: mass, size, yields, allergy loss"]
+```
+
+Digest time, rolling and blocking are **not** scaled by share. A piece uses its own `piece_` values from the row.
 
 #### What a piece inherits
 
@@ -546,6 +857,21 @@ Rules (P):
 
 **Consequence to test: taste-testing.** The Crew can feed one piece, pay a third of the loss, learn that the item is the allergen and eject the rest. This is a possible alternative to scanning. It is a problem only if it is almost always cheaper than scanning (V2).
 
+**Diagram D13: allergy loss follows share, SW-3**
+
+```mermaid
+flowchart TD
+    W["Allergen item, loss 30, example value"] --> A["Piece, one third"]
+    W --> B["Piece, one third"]
+    W --> C["Piece, one third"]
+    A -- "enters acid" --> LA["lose 10"]
+    B -- "enters acid" --> LB["lose 10"]
+    C -- "ejected" --> LC["lose 0"]
+    LA --> Sum["Total 20, hunger 70 becomes 50"]
+    LB --> Sum
+    LC --> Sum
+```
+
 **Deferred by owner, 2026-11-26 (Q-30):** SW-3 covers hunger. Shock slow duration, acid overflow and tumor need their own rules. **P:** scale slow duration and overflow by share too. A tumor needs a size or merge rule, otherwise three pieces could grow three tumors.
 
 ---
@@ -564,6 +890,38 @@ Rules (P):
 $$\mathcal{R} = \{\, x : x = \hat{\mathcal{O}}_{tick}(\dots \hat{\mathcal{O}}_{tick}(x_0, a_1) \dots, a_k),\; x_0 \in Start,\; a_i \in \mathcal{A} \,\}$$
 
 Valid is larger than reachable. What players can experience is the history space. Interesting play, if any, is a region of it that nobody listed in advance.
+
+**Diagram D14: four nested spaces**
+
+```mermaid
+flowchart TD
+    subgraph Content["Content space: all legal rows"]
+        subgraph StateSp["State space: values that obey the invariants"]
+            subgraph Reach["Reachable set: states the rules can actually produce"]
+                Hist["History space: paths through reachable states"]
+            end
+        end
+    end
+```
+
+The nesting is a reading aid, not exact set inclusion: rows describe what states may contain, and histories are sequences of reachable states.
+
+**Diagram D15: a very small slice of history from one start**
+
+```mermaid
+flowchart TD
+    S0["Whole engine on floor"] -- "feed whole" --> S1["Whole in acid"]
+    S0 -- "hammer" --> S2["Three pieces on floor"]
+    S0 -- "leave it" --> S3["Breach beside whole engine"]
+    S1 --> S4["Paid at once, after the long wait"]
+    S2 -- "feed all three" --> S5["Paid after the short wait"]
+    S2 -- "feed two, forget one" --> S6["Two paid, one breach later"]
+    S2 -- "shake moves a piece" --> S7["Piece lies in a walking path"]
+    S7 -- "carrier sprints into it" --> S8["Trip, another item dropped"]
+    S7 -- "someone picks it up" --> S5
+```
+
+Drawn by hand to show branching. Not generated and not complete. If this item were the allergen, every path through the acid would also cost hunger.
 
 ### 7.2 Two coupled sub-spaces
 
@@ -664,6 +1022,21 @@ Written before any run. Each is a prediction to test, not a result.
 | $h = 0$ | Slows, then dying state | S; end condition Q-2 |
 | All Crew down | Undefined | Q-14 |
 
+**Diagram D16: match end**
+
+```mermaid
+stateDiagram-v2
+    [*] --> Running
+    Running --> Won : worm reaches B
+    Running --> Critical : apocalypse catches worm
+    Critical --> Lost : timer expires
+    Running --> Lost : health zero
+    Won --> [*]
+    Lost --> [*]
+```
+
+Health zero as a loss is a proposal. Whether anything can leave the critical state, what empty hunger leads to, and what happens when all Crew are down are open (Q-2, Q-14).
+
 ---
 
 ## 9. Smallest Space That Runs (rung 1, P)
@@ -677,6 +1050,22 @@ One change per later rung (L12). Rung 1 keeps only the intake side of the core l
 | $\mathcal{A}$ | Move, pick, drop, seal |
 | $\hat{\mathbb{O}}$ | Scripted intake, O5, O6, O14 with capacity $C$, O16, O17, O18, O19 |
 | $\Omega$ | $H = 0$, $h = 0$, or time limit |
+
+**Diagram D17: rung 1 loop**
+
+```mermaid
+flowchart LR
+    Script["Scripted intake"] --> Floor["Food on floor, ageing"]
+    Floor -- "carry" --> Pit["Acid with capacity C"]
+    Pit --> Hunger["Hunger up"]
+    Drain["Drain"] --> Hunger
+    Floor -- "too old" --> Breach["Breach"]
+    Breach --> Health["Health down"]
+    Crew["Crew time"] --> Floor
+    Crew -- "seal" --> Breach
+```
+
+Crew time is the shared limit: carrying and sealing compete for it. There is no Driver, so this rung cannot test coupling.
 
 | Parameter to sweep | Why |
 |---|---|

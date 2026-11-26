@@ -8,14 +8,16 @@
 </head>
 <body>
 <header class="top">
-  <p class="game">Co-op Sandworm Survival</p>
+  <p class="game">sandworm-coop / logical-space</p>
   <nav aria-label="Page sections">
     <a href="#follow">One engine</a>
     <a href="#sort">Sort the design</a>
     <a href="#decisions">Decisions</a>
     <a href="#loops">Loops</a>
+    <a href="#histories">Histories</a>
     <a href="#lookup">Look up a value</a>
     <a href="#open">Not settled</a>
+    <a href="#worktree">Work tree</a>
   </nav>
 </header>
 
@@ -81,6 +83,17 @@
     <div data-bin="operator"><b>Rule</b><span>What changes state. Called an operator.</span></div>
   </div>
   <p class="note">The test that catches most mistakes: if the code ever asks “is this item a tyre?”, a property is missing from the data.</p>
+
+  <h3 class="sub">Have a new idea that is not on the list?</h3>
+  <p class="lead">Think of it, then answer up to four questions. If your idea is really two things, such as a place and the rule that runs there, sort each one separately.</p>
+  <div id="quiz" class="quiz" aria-live="polite"></div>
+  <div class="bins">
+    <div data-quizbin="config"><b>Fixed setup</b></div>
+    <div data-quizbin="state"><b>Saved state</b></div>
+    <div data-quizbin="derived"><b>Calculated</b></div>
+    <div data-quizbin="action"><b>Action</b></div>
+    <div data-quizbin="operator"><b>Rule</b></div>
+  </div>
 </section>
 
 <section id="decisions">
@@ -99,7 +112,7 @@
       <path class="arrow" d="M148 101 H246"/><path class="head" d="M246 92 L264 101 L246 110 Z"/>
       <text x="196" y="88" text-anchor="middle">Break</text>
       <g class="whole"><rect x="292" y="46" width="74" height="34" rx="7"/><rect x="310" y="86" width="74" height="34" rx="7"/><rect x="286" y="126" width="74" height="34" rx="7"/></g>
-      <g class="on" text-anchor="middle"><text x="329" y="69">⅓</text><text x="347" y="109">⅓</text><text x="323" y="149">⅓</text></g>
+      <g class="on" text-anchor="middle"><text x="329" y="69">1/3</text><text x="347" y="109">1/3</text><text x="323" y="149">1/3</text></g>
     </svg>
   </article>
 
@@ -119,9 +132,9 @@
     <h3><i class="m m-decided">Decided</i> Allergy damage follows each piece’s share</h3>
     <p>All the pieces together cost exactly what the whole item would. The penalty of 30 and the starting hunger of 70 are example numbers only. Choose which pieces enter the acid.</p>
     <div class="shares" role="group" aria-label="Which pieces enter the acid">
-      <button type="button" data-share><b>Piece 1, ⅓</b><span></span></button>
-      <button type="button" data-share><b>Piece 2, ⅓</b><span></span></button>
-      <button type="button" data-share><b>Piece 3, ⅓</b><span></span></button>
+      <button type="button" data-share><b>Piece 1, 1/3</b><span></span></button>
+      <button type="button" data-share><b>Piece 2, 1/3</b><span></span></button>
+      <button type="button" data-share><b>Piece 3, 1/3</b><span></span></button>
     </div>
     <div class="meter" aria-hidden="true"><div id="hunger-fill"></div><div id="hunger-lost"></div></div>
     <p class="readout" aria-live="polite"><strong id="hunger-readout"></strong><span id="hunger-sum"></span></p>
@@ -131,7 +144,16 @@
 
 <section id="loops">
   <h2>Where surprises could come from</h2>
-  <p class="lead">One rule on its own is just written content. A chance of something unplanned appears when rules form a circle: one writes what the next one reads. This circle starts with the Driver, passes through the Crew and returns to the Driver.</p>
+  <p class="lead">One rule on its own is just written content. A chance of something unplanned appears when rules form a circle: one writes what the next one reads. First watch the circle. It is a selection of the rules, not all of them.</p>
+  <div class="player" id="scene-circle" data-label="A circle of rules and saved values: items, digest, hunger, moving the worm, worm motion, impact, shake, physics and back to items. A bite also returns new items. A side path runs from neglected items to hazards.">
+    <div class="controls">
+      <button type="button" data-play>Play</button>
+      <input type="range" data-scrub min="0" value="0" aria-label="Position in the animation">
+    </div>
+  </div>
+  <p class="note">Part of this circle also passes through people: a player reads signals and then chooses. That part is not drawn as a rule.</p>
+  <h3 class="sub">The same circle as a moment of play</h3>
+  <p class="lead">This one starts with the Driver, passes through the Crew and returns to the Driver.</p>
   <div class="player" id="scene-shake" data-label="A hard landing shakes the interior, a piece rolls into a path, a carrier trips, food misses the acid, and the Driver is affected.">
     <div class="controls">
       <button type="button" data-play>Play</button>
@@ -139,6 +161,23 @@
     </div>
   </div>
   <p class="note">This is a story the rules should allow, drawn by hand. It has not been observed in a simulation, so it is not proof of emergence. Two more circles also cross both roles: what gets bitten feeds hunger, which limits the next bite; and heart points change how the Driver can move and bite.</p>
+</section>
+
+<section id="histories">
+  <h2>One engine, many histories</h2>
+  <p class="lead">This is what “logical space” means in practice. Nobody writes these paths as scripts. Each step is a rule or a choice, and together they open different futures. Walk one, start again, walk another.</p>
+  <label class="toggle"><input type="checkbox" id="allergen"> This engine is the match’s allergen</label>
+  <div class="story">
+    <div class="tree-wrap"><svg id="tree" viewBox="0 0 1000 530" role="img" aria-label="A branching tree of what can happen to one engine. The same information is given as text beside it."></svg></div>
+    <div class="story-side">
+      <p id="story-now" aria-live="polite"></p>
+      <p id="story-cost" class="cost" aria-live="polite"></p>
+      <div id="story-choices" class="choices"></div>
+      <button type="button" id="story-reset">Back to the start</button>
+      <p id="story-count" class="note"></p>
+    </div>
+  </div>
+  <p class="note">A very small slice, drawn by hand. It was not produced by a simulation and leaves out most paths. A breach for a forgotten item and what a trip drops depend on rules that are still <i class="m m-proposal">Proposal</i> or <i class="m m-open">Open</i>.</p>
 </section>
 
 <section id="lookup">
@@ -163,7 +202,31 @@
       <tr><td>How fast do hunger, damage and food change?</td><td><i class="m m-open">Open</i></td><td>Balance cannot be judged without these numbers</td></tr>
     </tbody>
   </table>
-  <p class="note">Everything on this page is a paper model. Nothing has been simulated or playtested, so no claim about balance or fun is made. The first test would be the smallest loop that runs: food arrives on a script, the crew carries it to the pit, forgotten food opens breaches.</p>
+  <p class="note">The model above is a paper model. No parameter sweep or playtest has run, so no claim about balance or fun is made. The first test would be the smallest loop that runs: food arrives on a script, the crew carries it to the pit, forgotten food opens breaches.</p>
+</section>
+
+<section id="worktree">
+  <h2>From logical space to work</h2>
+  <p class="lead">Read it left to right: the goal, a branch title, a task, and as the last leaf the part of our logical space theory that task builds or checks. Choose a node to see what it needs. Choose a branch title to fold it.</p>
+  <p class="note">Progress as recorded on 26 November 2026: the numbers sheet and the rung 1 rules are built and their tests pass. The parameter sweep has not run, so no prediction has a result. The thresholds under G3 are not approved. Ticks stay in this browser. They do not change the plan file or approve anything.</p>
+  <div class="work-bar">
+    <div class="chips" role="group" aria-label="Which tasks to show">
+      <button type="button" data-view="all">Whole graph</button>
+      <button type="button" data-view="mine">My branch</button>
+      <button type="button" data-view="ready">Can start now</button>
+    </div>
+    <button type="button" id="work-reset">Back to recorded progress</button>
+  </div>
+  <p class="work-key">Light up one part of the theory. The number is how many leaves it has.</p>
+  <div id="work-parts" class="chips parts" role="group" aria-label="Parts of the logical space theory"></div>
+  <p id="work-part-note" class="note" aria-live="polite"></p>
+  <p id="work-progress" class="work-progress" aria-live="polite"></p>
+  <div class="graph-wrap">
+    <svg id="work-graph" role="group" aria-label="Work graph from the goal through branches and tasks to theory leaves"></svg>
+    <p id="work-empty" class="note"></p>
+  </div>
+  <aside id="task-detail" class="work-detail"></aside>
+  <p class="note">Dashed orange arrows point from what the chosen task needs first; an arrow shows only when both nodes are on screen. Full spec and plan: <code>.cursor/plans/design/</code> and <code>.cursor/plans/implement/</code>, file <code>2026-11-26-sandworm-rung01.md</code>. If this page and the plan disagree, the plan wins.</p>
 </section>
 </main>
 

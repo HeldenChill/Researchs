@@ -6,7 +6,7 @@ import {C, crew, label, piece, pit} from './kit';
 export default makeScene2D(function* (view) {
   view.fill(C.gut);
   // Outside: side view.
-  view.add(<Rect y={-250} width={1280} height={220} fill={'#4A3426'} />);
+  view.add(<Rect y={-250} width={1280} height={220} fill={'#2E2A2B'} />);
   view.add(<Line points={[[-640, -250], [640, -250]]} stroke={C.sand} lineWidth={5} />);
   view.add(label('Outside, seen by the Driver', 430, -330, 28, C.sand));
   view.add(label('Inside, seen by the Crew', -445, -105, 28, C.dim));
@@ -44,32 +44,32 @@ export default makeScene2D(function* (view) {
   inside().add(p3);
   inside().add(other);
 
-  op.text('O2  The Driver leaps.');
+  op.text('// O2  The Driver leaps.');
   yield* body(1, 2, linear);
 
-  op.text('O3  A belly landing makes a shake impulse.');
+  op.text('// O3  A belly landing makes a shake impulse.');
   const wave = createRef<Circle>();
   view.add(<Circle ref={wave} x={220} y={-250} size={20} stroke={C.alarm} lineWidth={8} />);
   yield* all(wave().size(520, 0.55, easeOutCubic), wave().opacity(0, 0.55));
   for (const dx of [26, -22, 16, -10, 0]) yield* inside().x(dx, 0.08);
   yield* waitFor(0.9);
 
-  op.text('O7  Loose things slide. This one rolls into the path.');
+  op.text('// O7  Loose things slide. This one rolls into the path.');
   yield* all(rolling.x(-170, 1.2, easeOutCubic), rolling.rotation(-300, 1.2, easeOutCubic));
   yield* waitFor(0.7);
 
-  op.text('O8  A sprinting carrier trips and drops what they hold.');
+  op.text('// O8  A sprinting carrier trips and drops what they hold.');
   yield* all(p3.x(-215, 0.6, easeInCubic), other.x(-215, 0.6, easeInCubic));
   yield* all(p3.rotation(95, 0.25), p3.y(155, 0.25), other.position([-60, 190], 0.45, easeOutCubic), other.rotation(200, 0.45));
   yield* waitFor(1.2);
 
-  op.text('O14  Food that never reaches the acid pays no hunger.');
+  op.text('// O14  Food that never reaches the acid pays no hunger.');
   const empty = label('acid is empty', 430, 215, 30, C.alarm);
   inside().add(empty);
   yield* empty.scale(1.15, 0.35).to(1, 0.35);
   yield* waitFor(1.4);
 
-  op.text('O2  Less hunger changes how the Driver can move.');
+  op.text('// O2  Less hunger changes how the Driver can move.');
   yield* all(p3.rotation(0, 0.5, easeInOutCubic), p3.y(120, 0.5));
   yield* waitFor(2);
 });

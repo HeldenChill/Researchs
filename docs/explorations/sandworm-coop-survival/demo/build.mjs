@@ -30,7 +30,7 @@ try {
     cacheDir: join(work, '.cache'),
     define: {'process.env.NODE_ENV': '"production"'},
     plugins: [
-      motionCanvas({project: ['./src/projects/engine.ts', './src/projects/pit.ts', './src/projects/shake.ts']}),
+      motionCanvas({project: ['./src/projects/engine.ts', './src/projects/pit.ts', './src/projects/shake.ts', './src/projects/circle.ts']}),
       // The Motion Canvas plugin makes each project an entry; we want one page entry instead.
       {name: 'single-entry', configResolved(c) { c.build.rollupOptions.input = join(work, 'src/main.ts'); }},
     ],

@@ -2,6 +2,8 @@
 
 Substantive summary, not a transcript. Owner discussed in English this session.
 
+> **Later the same day** the logical space was turned into a spec, a plan and running rung 0 and rung 1 code. Current state and next step: [rung 0 and 1 build session](2026-11-26-sandworm-rung01-build-session.md). Its "Open next" replaces the list below.
+
 ## Read first next session
 
 | File | Holds |
@@ -55,6 +57,16 @@ Substantive summary, not a transcript. Owner discussed in English this session.
 - Demo text is a hand copy of `logical-space.md`; it does not sync.
 - Not published as an Artifact. A Vietnamese version was offered.
 
+## Later the same day: diagrams and demo additions
+
+- Added 17 Mermaid diagrams (D1 to D17) and a diagram index to `logical-space.md`; 21 blocks in total parsed and rendered with Mermaid 11.
+- Drawing the tick order exposed a contradiction: phase 7 listed O14 before O15 while the consequence table said O15 runs first. Fixed to O20, O15, O14, O21 (still a proposal).
+- Owner replied "approve" to the offer to bring D2, D7 plus D8 and D15 into the demo. It approves that work only, **not** the proposals shown in the diagrams.
+- Demo now also has: a four-question sorter (D2), a fourth Motion Canvas scene for the rule circle (D7, D8), and a clickable history tree with an allergen switch (D15); file is 242 KB. In headless Chrome the 5 quiz routes and 6 history paths gave the expected results.
+- Commit `2c29d28` (owner's git user, 15:30) holds the work up to before these diagrams and demo additions. This round was not committed by the assistant.
+
+- Owner asked for a coder-appropriate theme: demo is now an editor theme (slate background, Cascadia Code plus Segoe UI). Colour works as syntax highlighting: rule blue, saved state orange, fixed setup purple, calculated teal, action green, damage red (in the animations, green also marks the acid and active links, orange the outside world and shake). Save panel reads as code with diff-style changed rows; canvas captions read as comments. The `⅓` glyph looked like `%` in Cascadia, so the demo writes `1/3`.
+
 ## MotionCanvas project
 
 - VideoZero skills: `git fetch` on `references/videozero-skills` showed no new commits; the three `.claude/skills` copies were identical; all three reloaded.
@@ -65,7 +77,7 @@ Substantive summary, not a transcript. Owner discussed in English this session.
 1. Owner: accept or change targets I7 and I4.
 2. Missing numbers (hunger drain, food value, breach damage, neglect limit, capacity values).
 3. Basis questions: momentum derived or stored (Q-1), what counts as neglect (Q-16).
-4. Rung 0 and 1: numbers sheet, then headless intake, carry, acid, breach loop. Rung 2 predictions are written in `logical-space.md` section 9.
+4. (Done later the same day, see the build session.) Rung 0 and 1: numbers sheet, then headless intake, carry, acid, breach loop. Rung 2 predictions are written in `logical-space.md` section 9.
 5. Not committed: the whole `docs/explorations/sandworm-coop-survival/` folder and these memory and playbook edits. Core theory section 10 case table does not list this case yet.
 
 ## Stale records found during recall

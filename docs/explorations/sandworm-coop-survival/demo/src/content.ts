@@ -18,7 +18,7 @@ export const LEDGER: {op: string; reads: string; writes: string; after: Rows}[] 
     op: 'O10 Break',
     reads: 'break power, break toughness, max pieces, share',
     writes: 'break progress, then removes 1 item and creates 3',
-    after: [['id', '18, 19, 20 (17 is gone)'], ['row', 'engine'], ['share', '⅓ each'], ['place', 'floor, chamber 1'], ['age', 'each keeps the old age'], ['break progress', '0']],
+    after: [['id', '18, 19, 20 (17 is gone)'], ['row', 'engine'], ['share', '1/3 each'], ['place', 'floor, chamber 1'], ['age', 'each keeps the old age'], ['break progress', '0']],
   },
   {
     op: 'O6 Handle, then O14 Digest',

@@ -1,6 +1,6 @@
 # Playbook: Phân Rã Một Game Bất Kỳ Thành Không Gian Logic Chuẩn Tắc
 
-> **Phiên bản:** v3.3, 2026-11-26 (v3.2 + bài học ca Co-op Sandworm Survival vào mục 4; quy trình 13 bước **không đổi**, không thêm nguyên tắc, cổng hay thước đo; lõi hiện là `v0.3.1-draft`). v3.2, 2026-11-13 (v3.1 + bài học ca mẫu lát cắt Forest_Bloom vào mục 4; quy trình 13 bước **chưa đổi**, chờ duyệt [đề xuất v0.4](../plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md)). v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
+> **Phiên bản:** v3.4, 2026-11-26 (v3.3 + mục 2C "từ không gian logic sang việc phát triển" và bài học dựng rung 0, rung 1 Sandworm vào mục 4. Mục 2C là **thực hành từ một ca**, không phải nguyên tắc lý thuyết; 13 bước, nguyên tắc, cổng và thước đo **không đổi**). v3.3, 2026-11-26 (v3.2 + bài học ca Co-op Sandworm Survival vào mục 4; quy trình 13 bước **không đổi**, không thêm nguyên tắc, cổng hay thước đo; lõi hiện là `v0.3.1-draft`). v3.2, 2026-11-13 (v3.1 + bài học ca mẫu lát cắt Forest_Bloom vào mục 4; quy trình 13 bước **chưa đổi**, chờ duyệt [đề xuất v0.4](../plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md)). v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
 > **Đóng băng 2026-11-12:** không thêm nguyên tắc, thước đo, cổng hay loại catalog mới cho tới khi ca mẫu lát cắt Forest_Bloom báo cáo. Xem [plan](../plans/implement/2026-11-12-forest-bloom-slice-reference-case.md).
 > **Phạm vi:** Playbook cấp Base Theory (Universal Playbook áp dụng cho mọi game).
 > **Lý thuyết lõi:** [Logical-Space-Base-Theory.md](../../docs/theory/Logical-Space-Base-Theory.md) — định nghĩa, nguyên tắc L1–L17, thang basis (mục 4.1), danh mục I1–I6 và M1–M6, cổng P0–P7.
@@ -78,6 +78,59 @@ flowchart LR
 * **Mỗi level là một detector cụ thể cho không gian luật.** Level không giải được, hoặc mọi level đều tầm thường → luật thiếu hoặc thừa → một bậc thang mới.
 * **Nổi sinh làm level khó vẽ tay.** Dùng tìm kiếm quality-diversity (MAP-Elites có ràng buộc) dạng **Hybrid**: máy lấp bản đồ level, designer tuyển chọn. Ràng buộc cứng = điều kiện sống còn (L16); fitness = khoảng cách kỹ năng (gieo tốt nhất trừ ngẫu nhiên, M6); chiều đa dạng chọn 2. Tài liệu: [QD synthesis](../../docs/research/quality-diversity-level-generation/QD-Level-Generation-Synthesis.md).
 * **Chất lượng agent giới hạn chất lượng tìm kiếm.** Agent không bao giờ thử một chiến lược thì level thưởng chiến lược đó trông giống hệt nhau (bài Mario GAN). Dựng và kiểm agent "chơi giỏi" trước; dùng ít nhất hai agent (ngẫu nhiên và giỏi).
+
+---
+
+### 2C. Từ Không Gian Logic Sang Việc Phát Triển (Thực Hành Từ Ca Sandworm, 2026-11-26)
+
+> Rút từ **một ca**, mới chạy tới test luật của rung 1; chưa quét tham số, chưa playtest. Đây là cách làm, không phải nguyên tắc lý thuyết. Bằng chứng: [spec](../plans/design/2026-11-26-sandworm-rung01.md), [plan](../plans/implement/2026-11-26-sandworm-rung01.md).
+
+```mermaid
+flowchart TD
+    Space["Không gian logic trên giấy"] --> Audit["Đối chiếu đọc ghi của từng bậc"]
+    Audit --> Fix["Ghi lỗ hổng và đề xuất sửa"]
+    Fix --> Spec["Spec và giả định có mã số"]
+    Spec --> R0["Rung 0 bảng số bằng code"]
+    R0 --> Build["Rung 1 code soi theo mô hình"]
+    Build --> Measure["Soát định nghĩa thước đo bằng số học"]
+    Measure --> Approve["Chủ dự án duyệt ngưỡng"]
+    Approve --> Sweep["Quét và báo đạt hoặc trượt"]
+```
+
+**Bước 1: đối chiếu trước khi chia việc.** Bảng "không gian nhỏ nhất chạy được" trên giấy có thể **không chạy được**. Khi cắt toán tử để làm một bậc, kiểm:
+
+| Câu hỏi | Lỗi đã gặp |
+|---|---|
+| Mọi chuyển trạng thái cần cho vòng còn toán tử ghi nó không? | Cắt vật lý và ném → **không còn đường nào đưa thức ăn vào axit** |
+| Mọi thứ toán tử đọc có trong $\mathcal{V}$, $\mathcal{S}$ hoặc cấu hình không? | Thiếu `size`, `neglect_limit`, `seal_rate`; tiêu hóa ghi tiền dù bậc này không có tiền |
+| Trạng thái ẩn đủ để load và chạy lại không? | Thiếu seed, con trỏ random, tick, lịch sinh vật kế tiếp, id kế tiếp |
+| Có tọa độ nào ghi hai lần dưới hai tên không? | Ô tay của Crew trùng với nơi `held` của vật |
+| Ai phát hành hành động khi chưa có người chơi? | Không có. Phải định nghĩa bot **ngoài** không gian |
+| Ghép hai đề xuất lại có tạo kẽ hở không? | "Chỉ vật ngoài axit mới già" + "hàng đợi axit không giới hạn" = cất vật vô hạn an toàn, sức chứa không còn gây vết thủng |
+| Đại lượng cộng dồn có lệch tick không? | Cộng số thực → dùng số nguyên tick |
+
+**Bước 2: cây việc suy từ lý thuyết.** Mỗi nhiệm vụ gắn **một lá**: phần lý thuyết nó dựng hoặc kiểm ($\mathcal{V}$, $\mathcal{S}$, $\mathcal{A}$, $\hat{\mathbb{O}}$, $\Omega$, hoặc cổng, nguyên tắc). Thêm một **nhánh riêng cho chủ dự án** chứa quyết định và duyệt. Đếm lá theo phần để thấy chỗ trống: ca này $Y$ có **0 lá**, nghĩa là không gì kiểm được thứ người chơi thấy. Lá cho biết việc dựng cái gì, **không phải** bằng chứng việc đã đúng.
+
+**Bước 3: rung 0 viết bằng code, dùng chung cấu hình với rung 1.** So tốc độ cầu, cung, bộ xử lý và vận chuyển; mỗi giá trị ghi nhãn tạm hoặc nguồn. Điều kiện đạt: có ít nhất một điểm chạy được và một điểm không. "Chạy được" chỉ là điều kiện cần.
+
+**Bước 4: code soi theo mô hình.**
+
+| Lý thuyết | Code | Kiểm |
+|---|---|---|
+| $\mathcal{V}$ | Cấu hình là dữ liệu, có hàm kiểm hợp lệ | Từ chối cấu hình vi phạm quy tắc nội dung |
+| $\mathcal{S}$ | Dữ liệu thuần, lưu và load được | Lưu giữa ván rồi chạy tiếp cho kết quả y hệt |
+| Dẫn xuất | Hàm đọc, không lưu | |
+| $\hat{\mathbb{O}}$ | Mỗi toán tử một hàm; thứ tự tick là **một danh sách** | Test cho các cặp thứ tự có ý nghĩa |
+| Bất biến | Một hàm kiểm | Fuzz lệnh ngẫu nhiên, **bắt buộc khẳng định mọi loại sự kiện đã xảy ra** |
+| P3 | Chuỗi lệnh chính xác làm nhân chứng | Số kỳ vọng tính tay trên cấu hình tí hon |
+
+Fuzz không kiểm độ phủ thì có thể đạt mà không chạm luật nào. Random của test phải tách khỏi random trong trạng thái. Nhân chứng viết sau khi luật đã xong không có bước "thấy trượt trước": hãy **cố ý phá thứ tự tick một lần** để chứng minh test bắt được (ca này mới phá một cặp).
+
+**Bước 5: soát định nghĩa thước đo trước khi duyệt ngưỡng (L14).** Dùng số học của rung 0 ước lượng thước đo tại vài điểm. Ca này: định nghĩa "rảnh" tính cả đường quay về, nên theo ước lượng tay, điểm mà bảng số gọi là chạy được dễ bị xếp "rảnh": **cách đếm có thể quyết định lớp thay vì hàng đợi**. Sửa định nghĩa khi **chưa có kết quả quét nào**, ghi thành quyết định có mã, không đổi con số ngưỡng. Kèm theo:
+* ngưỡng nằm trong file riêng có hai ô duyệt **chỉ chủ dự án điền**; lệnh quét phải từ chối chạy khi còn trống (hàm khóa đã viết và test; lệnh quét chưa viết);
+* trước khi duyệt, **không in và không đọc** số đo từ cấu hình sẽ quét; test chỉ so hai lần chạy giống nhau, còn logic đo kiểm trên cấu hình tí hon.
+
+**Bước 6: nói rõ bậc này không chứng minh gì.** Bậc chỉ có một vai trò thì không kiểm được vòng ghép (I7). Ngưỡng của nó là **điều kiện sống còn** (L16), không phải detector cho L12. Bot đọc toàn bộ trạng thái, tốt hơn người chơi, nên kết quả chỉ mô tả bot.
 
 ---
 
@@ -368,6 +421,16 @@ Nổi sinh trong mô phỏng và niềm vui của người chơi là **hai tuyê
 | Sandworm, Motion Canvas nhúng HTML | **Không cần gói player:** dùng `Player` và `Stage` của core. Plugin ép mỗi project thành một entry, cần plugin phụ đổi `rollupOptions.input` sang một entry rồi build IIFE và nhúng vào một file HTML. Mượn `node_modules` của repo khác qua junction trong thư mục tạm; gỡ junction trước khi xóa thư mục |
 | Sandworm, repo đang có phiên khác | **Trước khi ghi vào repo khác, xem `git status`, mtime và dev server.** Đang có phiên khác làm việc thì không sửa, không đổi nhánh; chỉ đọc. File đổi trong lúc mình làm phải xác minh ai đổi trước khi báo cáo |
 | Sandworm, prior art | **Tóm tắt tìm kiếm không cho biết trang nào chứa câu nào.** Ghi link là "chỗ để kiểm", không phải trích dẫn đã xác nhận; "không tìm thấy game giống" không phải bằng chứng là mới |
+| Sandworm rung 1 2026-11-26, "không gian nhỏ nhất" | **Cắt toán tử để thu nhỏ bậc có thể cắt luôn một đường chuyển trạng thái.** Đối chiếu từng toán tử đọc, ghi gì trước khi giao việc tìm ra 18 lỗ hổng ở lượt đầu, 20 trong spec. Báo từng lỗ hổng kèm đề xuất sửa, không lặng lẽ lấp. Xem mục 2C |
+| Sandworm rung 1, ghép đề xuất | **Từng đề xuất hợp lý riêng lẻ vẫn có thể phá nhau.** Rà đề xuất theo cặp, nhất là cặp "cái gì già đi" và "cái gì chứa được bao nhiêu". Cách ít trạng thái hơn đã được dùng: axit đầy thì từ chối vật, bỏ hẳn `acid_order` |
+| Sandworm rung 1, giả định | **Chủ dự án bảo làm luôn khi câu hỏi chưa trả lời: đổi đề xuất thành giả định có mã số (A-n), ghi cái gì phải sửa nếu đổi.** Đồng ý gián tiếp (chạy plan, trả lời một chữ) phải ghi là gián tiếp, không ghi thành quyết định đã phát biểu |
+| Sandworm rung 1, thước đo rảnh | **Định nghĩa thước đo cũng là một phần của đăng ký trước.** Lỗi được chính người viết ngưỡng nêu ra bằng số học trước khi quét và đưa chủ dự án chọn. Nếu phát hiện sau khi quét thì sửa sẽ giống chỉnh cho đạt |
+| Sandworm rung 1, số kỳ vọng sai | **Test trượt thì truy vết trước, rồi mới quyết sửa bên nào.** Kỳ vọng tính tay mượn kịch bản nhân chứng (đứng chờ ở hố), còn bot quay về ngay: in 20 bước cho thấy code đúng. Kịch bản nhân chứng và hành vi bot là hai thứ khác nhau. Mọi lần sửa số kỳ vọng phải ghi sổ và báo chủ dự án; không sửa ngưỡng hay số của plan để cho đạt |
+| Sandworm rung 1, bẫy lệnh test | **Kiểm lệnh kiểm.** `node --test` không đối số đếm cả file phụ trợ trong thư mục test thành test đạt. Lệnh đóng nhiệm vụ kết thúc bằng `; true` thì không thể báo trượt. Node 24 chạy TypeScript không cần thư viện nhưng **không kiểm kiểu**: nói rõ điều đó |
+| Sandworm cây việc, hình dạng | **Chủ dự án yêu cầu cây việc dạng đồ thị:** nút tên nhánh, lá cuối là lý thuyết không gian logic, có nhánh riêng cho mình. Đã dựng: gốc → nhánh → nhiệm vụ → lá. "Lá cuối" hiểu được hai cách (mỗi đường một lá, hoặc một nút chung): nói rõ cách đã chọn và mời sửa |
+| Sandworm đồ thị, kiểm bằng ảnh | **Kiểm tự động đạt hết mà bảng chi tiết dính đáy vẫn che cả đồ thị.** Kiểm chồng lấn giữa các nút không bắt được lớp giao diện đè lên nhau. Luôn xem ảnh chụp; thêm phép đo khung này có che khung kia không |
+| Sandworm đồ thị, tiến độ | **Đồ thị chép tay phải ghi ngày tiến độ, nói rõ tích trên trang không duyệt gì và plan thắng khi lệch.** Ghi chú cũ trên trang ("chưa mô phỏng gì") phải sửa khi đã có code |
+| Sandworm, "đã có demo chưa" | **Phân biệt ba thứ khi trả lời:** trang giải thích (hoạt cảnh vẽ tay, không chạy luật), mô phỏng headless (chạy luật, không hình), và demo xem hoặc chơi được (chưa có). Xem lượt chạy bằng cấu hình sắp quét trước khi duyệt ngưỡng có thể ảnh hưởng tới ngưỡng |
 
 ---
 

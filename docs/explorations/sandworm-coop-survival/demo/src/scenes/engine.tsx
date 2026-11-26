@@ -12,7 +12,7 @@ export default makeScene2D(function* (view) {
   view.add(label('Acid pit, capacity 3', 430, -190, 28, C.dim));
   view.add(acid.node);
 
-  const title = label('', 0, -300, 46);
+  const title = label('', 0, -300, 40);
   view.add(title);
   const whole = engine();
   whole.position([-760, 0]).opacity(0);
@@ -22,19 +22,19 @@ export default makeScene2D(function* (view) {
   view.add(p3);
 
   // 1. Bite: a new item instance appears at the mouth.
-  title.text('The worm bites a truck. One engine drops in.');
+  title.text('// The worm bites a truck. One engine drops in.');
   yield* all(whole.opacity(1, 0.3), whole.position([-450, 20], 0.8, easeOutCubic));
   yield* waitFor(STEP - 0.8);
 
   // 2. Handle: only its place changes.
-  title.text('A crew member carries it. Only its place changes.');
+  title.text('// A crew member carries it. Only its place changes.');
   yield* p3.position([-450, 100], 0.7, easeInOutCubic);
   yield* all(p3.position([-130, 110], 1.4, easeInOutCubic), whole.position([-130, 25], 1.4, easeInOutCubic));
   yield* whole.position([-80, 30], 0.35, easeOutCubic);
   yield* waitFor(STEP - 2.45);
 
   // 3. Break: one instance is removed, three are created in the same set.
-  title.text('Hammer work fills a bar. Then one item becomes three.');
+  title.text('// Hammer work fills a bar. Then one item becomes three.');
   const hammer = createRef<Rect>();
   const bar = createRef<Rect>();
   view.add(<Rect ref={hammer} x={-170} y={-70} width={90} height={34} fill={C.sand} radius={7} offset={[-0.6, 0]} />);
@@ -60,7 +60,7 @@ export default makeScene2D(function* (view) {
   yield* waitFor(STEP - 3 * 0.61 - 0.45);
 
   // 4. Two pieces go into the acid and digest together.
-  title.text('Two pieces go in. They fit, so they digest together.');
+  title.text('// Two pieces go in. They fit, so they digest together.');
   yield* all(p3.position([170, 40], 0.6, easeInOutCubic), parts[1].position([350, -30], 0.8, easeInOutCubic));
   yield* acid.occupy(1, 0.1);
   yield* parts[2].position([505, -30], 0.7, easeInOutCubic);
@@ -79,7 +79,7 @@ export default makeScene2D(function* (view) {
   yield* waitFor(STEP - 4.1);
 
   // 5. The third piece is forgotten: it ages and opens a breach.
-  title.text('The third piece is forgotten. It ages, then the wall breaks.');
+  title.text('// The third piece is forgotten. It ages, then the wall breaks.');
   yield* all(paid.opacity(0, 0.25), p3.position([430, 250], 0.5, easeInOutCubic), parts[0].position([-150, 20], 0.4));
   const ring = createRef<Rect>();
   view.add(<Rect ref={ring} x={-150} y={18} width={84} height={84} radius={42} stroke={C.sand} lineWidth={7} opacity={0} />);

@@ -2,21 +2,22 @@ import {Circle, Line, Node, Rect, Txt} from '@motion-canvas/2d';
 import {createRef, ThreadGenerator, waitFor} from '@motion-canvas/core';
 
 export const C = {
-  gut: '#2B1733',
-  wall: '#6B3F6E',
-  room: '#3B2144',
-  ink: '#F2ECF3',
-  dim: '#BBA6C0',
-  bile: '#B7C73C',
-  sand: '#D8A24A',
-  alarm: '#E0533D',
-  metal: '#A9B8C4',
-  metalDark: '#5E6E7C',
+  gut: '#1B212C',
+  wall: '#4A566F',
+  room: '#252D3C',
+  ink: '#D6DEEB',
+  dim: '#9AA8BF',
+  bile: '#A9D977',
+  sand: '#F2AE68',
+  alarm: '#F47B78',
+  metal: '#B8C4D9',
+  metalDark: '#5C6A85',
+  rule: '#82AAFF',
 };
-export const FONT = 'Bahnschrift, "DIN Alternate", "Arial Narrow", sans-serif';
+export const FONT = '"Cascadia Code", "Cascadia Mono", Consolas, Menlo, monospace';
 
 export function label(text: string, x: number, y: number, size = 32, fill = C.ink) {
-  return <Txt text={text} x={x} y={y} fontSize={size} fontFamily={FONT} fill={fill} fontWeight={500} /> as Txt;
+  return <Txt text={text} x={x} y={y} fontSize={Math.round(size * 0.8)} fontFamily={FONT} fill={fill} fontWeight={500} /> as Txt;
 }
 
 export function room(x: number, y: number, w: number, h: number, name: string) {
@@ -44,7 +45,7 @@ export function piece(showShare = true) {
     <Node>
       <Line points={[[-34, -28], [20, -34], [36, 6], [8, 32], [-32, 20]]} closed fill={C.metal} stroke={C.gut} lineWidth={5} />
       <Circle x={-2} y={0} size={26} fill={C.metalDark} />
-      {showShare ? label('⅓', 0, 54, 30) : null}
+      {showShare ? label('1/3', 0, 54, 30) : null}
     </Node>
   ) as Node;
 }
@@ -63,7 +64,7 @@ export function pit(x: number, y: number, capacity: number) {
   const slots = createRef<Node>();
   const node = (
     <Node x={x} y={y}>
-      <Rect width={360} height={190} radius={[20, 20, 90, 90]} fill={'#35421F'} stroke={C.bile} lineWidth={5} />
+      <Rect width={360} height={190} radius={[20, 20, 90, 90]} fill={'#22302A'} stroke={C.bile} lineWidth={5} />
       <Rect y={34} width={332} height={96} radius={[8, 8, 66, 66]} fill={C.bile} opacity={0.28} />
       <Node ref={slots} y={132}>
         {Array.from({length: capacity}, (_, i) => (

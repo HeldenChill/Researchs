@@ -24,7 +24,7 @@ export default makeScene2D(function* (view) {
 
   const clock = createSignal(0);
   const clockText = () => `game time ${clock().toFixed(1)} s`;
-  view.add(<Txt text={clockText} y={-325} x={390} fontFamily={FONT} fontSize={38} fill={C.dim} />);
+  view.add(<Txt text={clockText} y={-325} x={390} fontFamily={FONT} fontSize={30} fill={C.dim} />);
 
   const track = (y: number) => {
     const bar = createRef<Rect>();

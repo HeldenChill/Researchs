@@ -2,6 +2,9 @@ import {Player, Stage, Vector2} from '@motion-canvas/core';
 import engine from './projects/engine?project';
 import pit from './projects/pit?project';
 import shake from './projects/shake?project';
+import circle from './projects/circle?project';
+import {startExplorers} from './explore';
+import {startWorkTree} from './worktree';
 import {STEP} from './timing';
 import {LEDGER, OPERATORS, SORT, VALUES} from './content';
 
@@ -115,6 +118,9 @@ $('#run-from-start').addEventListener('click', () => {
 });
 ledger(0);
 mount($('#scene-pit'), pit, false);
+mount($('#scene-circle'), circle, false);
+startExplorers();
+startWorkTree();
 mount($('#scene-shake'), shake, false);
 
 // ---------- Sorter ----------
@@ -151,7 +157,7 @@ function allergy() {
   $('#hunger-lost').style.left = `${left}%`;
   $('#hunger-lost').style.width = `${start - left}%`;
   $('#hunger-readout').textContent = `Hunger ${start} becomes ${left}`;
-  $('#hunger-sum').textContent = count ? `${Array(count).fill('30 × ⅓').join('  +  ')}  =  ${loss} lost` : 'Nothing entered the acid, so nothing is lost.';
+  $('#hunger-sum').textContent = count ? `${Array(count).fill('30 × 1/3').join('  +  ')}  =  ${loss} lost` : 'Nothing entered the acid, so nothing is lost.';
 }
 shares.forEach((b, i) =>
   b.addEventListener('click', () => {
