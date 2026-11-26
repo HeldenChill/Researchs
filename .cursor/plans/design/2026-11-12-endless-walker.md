@@ -39,6 +39,11 @@ Started 2026-11-12. Living record. Notes: [`docs/explorations/endless-walker/REA
 | EW-30 | Grappling hook (Attack on Titan style: yank up, fly, keep momentum) is a **test only**, not in the GDD. Defaults: on, range 120 m, launch 9 m/s up, lift 4 m, gravity 50 percent while hooked. Keep or drop decided later. |
 | EW-31 | Approach snow grip 0.35 to 0.18 so sliding down the climb side is fast. Speed effects start at 6 m/s. |
 | EW-32 | Owner accepts the prototype state at end of 2026-11-12 ("let it like that"). Open: keep hook as a GDD idea or drop; real slide speed on the slide face. |
+| EW-33 | 2026-11-13: the game design moves into Painted Valley (`G:\Projects\PaintedValley`, branch `game/endless-walker`): valley gives scenery and body, Endless Walker gives rules. [Design](../../../../PaintedValley/.cursor/plans/design/2026-11-13-endless-walker-in-painted-valley.md) approved in stages: loaded walk, fast slide, hook, then climb with its own design. |
+| EW-34 | Port includes the grappling hook (still a test; EW-32 keep or drop stays open), VFX for every mode, real slide and hook animation, and a Tab panel holding every tunable number of every action. |
+| EW-35 | Slide faster with more acceleration than the prototype. Valley preset: slope pull scale 3.5, kick 5 m/s, drag 0.010 relaxed and 0.004 tucked, safe speed 26 m/s. Gives about 22.6 m/s relaxed and 35.8 tucked on a 12 degree meadow. |
+| EW-36 | Claude Opus implements this port, not Gemini. |
+| EW-37 | No walk bound in the valley: walker may leave the painted meadow and cross the far land, up to 2950 m. |
 
 Prototype design document: [`2026-11-12-endless-walker-prototype.md`](2026-11-12-endless-walker-prototype.md)
 
