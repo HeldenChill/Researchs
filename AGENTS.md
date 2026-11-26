@@ -24,7 +24,8 @@ This workspace is dedicated to computational research, psychological dynamical m
 ---
 
 ## Project-Internal Memory (`memory/`)
-- [Latest session / Logical Space critique and study plan](memory/2026-11-03-logical-space-critique-and-study-session.md) — Critique H1 to H6, core v0.3-draft (L1–L17, AG-7 to AG-11), playbook v3.1, Designer Guide, Forest_Bloom FB-1 (sandbox C encompasses Terra Nil-style levels A, P0 approved, Hill-number Y signal, hybrid QD level search), reference case deferred until Forest_Bloom migration.
+- [Latest session: Co-op Sandworm Survival](memory/2026-11-26-sandworm-coop-logical-space-session.md) — 2026-11-26: new co-op case, research and logical-space docs at docs/explorations/sandworm-coop-survival/, decisions SW-1 to SW-3, HTML explainer demo, playbook v3.3. Sessions between 2026-11-12 and 2026-11-20 are indexed in CLAUDE.md.
+- [Logical Space critique and study plan](memory/2026-11-03-logical-space-critique-and-study-session.md) — Critique H1 to H6, core v0.3-draft (L1–L17, AG-7 to AG-11), playbook v3.1, Designer Guide, Forest_Bloom FB-1 (sandbox C encompasses Terra Nil-style levels A, P0 approved, Hill-number Y signal, hybrid QD level search), reference case deferred until Forest_Bloom migration.
 - [Forest_Bloom review and basis ladder](memory/2026-10-24-forest-bloom-review-and-basis-ladder-session.md) — Forest_Bloom read-only audit vs v0.2, AG-6 basis ladder (detector vs spec), core v0.2.1, playbook v2.1, open T2 to T4, I2 detector next.
 - [Base theory v0.2 session](memory/2026-10-24-logical-space-base-theory-session.md) — Owner's theory intent, agreed decisions AG-1 to AG-5, new core theory files, Bump_Hero first pass, deferrals.
 - [Previous session / Forest_Bloom handoff](memory/2026-10-04-project-review-corrections-and-forest-bloom-handoff.md) — Owner's clarified logical-game-space goal, approved corrections, verified checks and next-session limits.

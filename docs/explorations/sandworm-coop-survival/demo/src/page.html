@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sandworm Survival: how the logical space works</title>
+<style>/*CSS*/</style>
+</head>
+<body>
+<header class="top">
+  <p class="game">Co-op Sandworm Survival</p>
+  <nav aria-label="Page sections">
+    <a href="#follow">One engine</a>
+    <a href="#sort">Sort the design</a>
+    <a href="#decisions">Decisions</a>
+    <a href="#loops">Loops</a>
+    <a href="#lookup">Look up a value</a>
+    <a href="#open">Not settled</a>
+  </nav>
+</header>
+
+<main>
+<section class="intro">
+  <h1>You know the game. This is the machine under it.</h1>
+  <div class="intro-side">
+    <p>A logical space splits a design into what can exist, what is true right now, what players may ask for, and the rules that change things. Rules acting again and again produce situations nobody wrote by hand. Whether this game’s situations are any good is not tested yet.</p>
+    <ul class="marks" aria-label="How to read the marks">
+      <li><i class="m m-decided">Decided</i> chosen by the design owner</li>
+      <li><i class="m m-source">From the design</i> written in the game design</li>
+      <li><i class="m m-proposal">Proposal</i> suggested, not agreed</li>
+      <li><i class="m m-open">Open</i> to be decided later</li>
+    </ul>
+  </div>
+</section>
+
+<section id="follow">
+  <h2>Follow one engine and watch the save file</h2>
+  <p class="lead">The picture is what happens. The panel with it shows what the game has to remember, and which rule just changed that. Highlighted rows are new. The save panel shows only the values that matter for this story.</p>
+  <div class="follow">
+    <div class="player" id="scene-engine" data-label="An engine is swallowed, carried, broken into three pieces; two are digested and the third causes a breach.">
+      <div class="controls">
+        <button type="button" data-play>Play</button>
+        <input type="range" data-scrub min="0" value="0" aria-label="Position in the animation">
+        <button type="button" id="run-from-start">Restart</button>
+      </div>
+    </div>
+    <aside class="ledger" aria-live="off">
+      <h3 id="op-name"></h3>
+      <dl>
+        <dt>Rule reads</dt><dd id="op-reads"></dd>
+        <dt>Rule writes</dt><dd id="op-writes"></dd>
+      </dl>
+      <table>
+        <caption>Save file</caption>
+        <tbody id="save-rows"></tbody>
+      </table>
+    </aside>
+  </div>
+  <ol class="steps">
+    <li><button type="button" data-step>Bite</button></li>
+    <li><button type="button" data-step>Carry</button></li>
+    <li><button type="button" data-step>Break</button></li>
+    <li><button type="button" data-step>Digest</button></li>
+    <li><button type="button" data-step>Neglect</button></li>
+  </ol>
+  <p class="note">Marks for this scene: separate pieces and the shared pit are <i class="m m-decided">Decided</i>. Pieces keeping the old age is a <i class="m m-proposal">Proposal</i>, made so hammering cannot reset the rot timer. Rule names such as O10 are the ids used in the full document.</p>
+</section>
+
+<section id="sort">
+  <h2>Sort the design before building it</h2>
+  <p class="lead">The game design lists rooms, objects, numbers and mechanics side by side. They are different kinds of thing. Choose a name to see where it goes.</p>
+  <div class="sorter">
+    <div id="sort-list" class="chips" role="group" aria-label="Names from the game design"></div>
+    <div id="sort-verdict" class="verdict" aria-live="polite"></div>
+  </div>
+  <div class="bins">
+    <div data-bin="config"><b>Fixed setup</b><span>What kinds of things exist. Edited as data.</span></div>
+    <div data-bin="state"><b>Saved state</b><span>What is true now. Goes in the save file.</span></div>
+    <div data-bin="derived"><b>Calculated</b><span>Worked out when needed. Never saved.</span></div>
+    <div data-bin="action"><b>Action</b><span>What a player asks for.</span></div>
+    <div data-bin="operator"><b>Rule</b><span>What changes state. Called an operator.</span></div>
+  </div>
+  <p class="note">The test that catches most mistakes: if the code ever asks “is this item a tyre?”, a property is missing from the data.</p>
+</section>
+
+<section id="decisions">
+  <h2>Three decisions made so far</h2>
+
+  <article class="decision">
+    <div>
+      <h3><i class="m m-decided">Decided</i> A broken item becomes separate pieces</h3>
+      <p>The pieces are ordinary items with a smaller share. So carrying, shaking, tripping, digesting and rotting already work on them. No “piece rules” need to be written.</p>
+      <p>Splitting once into equal parts is still a <i class="m m-proposal">Proposal</i>.</p>
+    </div>
+    <svg viewBox="0 0 420 190" role="img" aria-label="One item with share one goes through the break rule and becomes three items with share one third, all in the same set of items.">
+      <rect class="set" x="4" y="4" width="412" height="182" rx="40"/>
+      <text x="26" y="34">set of all items</text>
+      <rect class="whole" x="36" y="66" width="96" height="70" rx="9"/><text x="84" y="107" text-anchor="middle" class="on">1</text>
+      <path class="arrow" d="M148 101 H246"/><path class="head" d="M246 92 L264 101 L246 110 Z"/>
+      <text x="196" y="88" text-anchor="middle">Break</text>
+      <g class="whole"><rect x="292" y="46" width="74" height="34" rx="7"/><rect x="310" y="86" width="74" height="34" rx="7"/><rect x="286" y="126" width="74" height="34" rx="7"/></g>
+      <g class="on" text-anchor="middle"><text x="329" y="69">⅓</text><text x="347" y="109">⅓</text><text x="323" y="149">⅓</text></g>
+    </svg>
+  </article>
+
+  <article class="decision wide">
+    <h3><i class="m m-decided">Decided</i> One acid pit with a maximum capacity</h3>
+    <p>Everything that fits digests at the same time. <i class="m m-open">Open</i> whether capacity counts size or number of objects; this animation assumes size, with capacity 3 and an engine of size 3. Digest times of about 11 s whole and 3 s per piece are <i class="m m-source">From the design</i>. Hammer and carrying time are left out.</p>
+    <div class="player" id="scene-pit" data-label="The same engine digests in about eleven seconds whole, or three seconds as three pieces fed together.">
+      <div class="controls">
+        <button type="button" data-play>Play</button>
+        <input type="range" data-scrub min="0" value="0" aria-label="Position in the animation">
+      </div>
+    </div>
+    <p class="note">So splitting passes the same material through the pit much faster. Hammer time, hauling and clutter have to be the price, or hammering is always right.</p>
+  </article>
+
+  <article class="decision wide">
+    <h3><i class="m m-decided">Decided</i> Allergy damage follows each piece’s share</h3>
+    <p>All the pieces together cost exactly what the whole item would. The penalty of 30 and the starting hunger of 70 are example numbers only. Choose which pieces enter the acid.</p>
+    <div class="shares" role="group" aria-label="Which pieces enter the acid">
+      <button type="button" data-share><b>Piece 1, ⅓</b><span></span></button>
+      <button type="button" data-share><b>Piece 2, ⅓</b><span></span></button>
+      <button type="button" data-share><b>Piece 3, ⅓</b><span></span></button>
+    </div>
+    <div class="meter" aria-hidden="true"><div id="hunger-fill"></div><div id="hunger-lost"></div></div>
+    <p class="readout" aria-live="polite"><strong id="hunger-readout"></strong><span id="hunger-sum"></span></p>
+    <p class="note">One piece alone costs only 10, so a crew could taste-test instead of scanning. That is fine as a gamble and a problem if it nearly always beats the scanner. It has not been tested. How slowdown, acid flood and tumor scale is <i class="m m-open">Open</i>.</p>
+  </article>
+</section>
+
+<section id="loops">
+  <h2>Where surprises could come from</h2>
+  <p class="lead">One rule on its own is just written content. A chance of something unplanned appears when rules form a circle: one writes what the next one reads. This circle starts with the Driver, passes through the Crew and returns to the Driver.</p>
+  <div class="player" id="scene-shake" data-label="A hard landing shakes the interior, a piece rolls into a path, a carrier trips, food misses the acid, and the Driver is affected.">
+    <div class="controls">
+      <button type="button" data-play>Play</button>
+      <input type="range" data-scrub min="0" value="0" aria-label="Position in the animation">
+    </div>
+  </div>
+  <p class="note">This is a story the rules should allow, drawn by hand. It has not been observed in a simulation, so it is not proof of emergence. Two more circles also cross both roles: what gets bitten feeds hunger, which limits the next bite; and heart points change how the Driver can move and bite.</p>
+</section>
+
+<section id="lookup">
+  <h2>Look up who touches a value</h2>
+  <p class="lead">Use this to start a design talk about changing a value. It shows only 16 of the 25 rules, so check the full rule table in the document before deciding anything.</p>
+  <label class="pick">Saved value or signal <select id="value-select"></select></label>
+  <div class="touch">
+    <div><h3>Rules that change it</h3><ul id="writers"></ul></div>
+    <div><h3>Rules that depend on it</h3><ul id="readers"></ul></div>
+  </div>
+</section>
+
+<section id="open">
+  <h2>What is not settled</h2>
+  <table class="open-table">
+    <thead><tr><th>Question</th><th>Status</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>Does pit capacity count size or objects?</td><td><i class="m m-open">Open</i></td><td>Decides whether items need a size value</td></tr>
+      <tr><td>Do slowdown, flood and tumor scale by share?</td><td><i class="m m-open">Open</i></td><td>Only hunger loss is decided</td></tr>
+      <tr><td>Is momentum calculated from speed, or stored?</td><td><i class="m m-open">Open</i></td><td>Changes how much skill driving can have</td></tr>
+      <tr><td>What counts as neglecting an item?</td><td><i class="m m-open">Open</i></td><td>Sets the pressure on the Crew</td></tr>
+      <tr><td>How fast do hunger, damage and food change?</td><td><i class="m m-open">Open</i></td><td>Balance cannot be judged without these numbers</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Everything on this page is a paper model. Nothing has been simulated or playtested, so no claim about balance or fun is made. The first test would be the smallest loop that runs: food arrives on a script, the crew carries it to the pit, forgotten food opens breaches.</p>
+</section>
+</main>
+
+<footer>Made from the working document <code>logical-space.md</code>, 26 November 2026. If the two disagree, the document wins.</footer>
+<script>/*JS*/</script>
+</body>
+</html>

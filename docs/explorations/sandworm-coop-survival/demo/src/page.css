@@ -1,0 +1,133 @@
+:root {
+  --paper: #e4e9e4;
+  --sheet: #f4f6f2;
+  --gut: #2b1733;
+  --wall: #6b3f6e;
+  --bile: #b7c73c;
+  --sand: #d8a24a;
+  --alarm: #e0533d;
+  --soft: #55455c;
+  --display: Bahnschrift, "DIN Alternate", "Arial Narrow", sans-serif;
+  --text: "Sitka Text", Sitka, "Iowan Old Style", Charter, Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--paper); color: var(--gut); font: 18px/1.62 var(--text); }
+h1, h2, h3, .game, nav, button, select, .m, th, caption, .readout strong, .bins b { font-family: var(--display); }
+h1, h2, h3 { line-height: 1.08; margin: 0 0 .5em; font-weight: 600; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); font-stretch: 85%; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); }
+h3 { font-size: 1.35rem; }
+p { max-width: 68ch; margin: 0 0 1em; }
+:focus-visible { outline: 3px solid var(--alarm); outline-offset: 3px; }
+
+.top { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 6px 32px; align-items: center; padding: 12px max(20px, calc((100vw - 1240px) / 2)); background: var(--gut); color: var(--paper); }
+.game { margin: 0; font-size: 1.15rem; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+nav a { color: #d9ccdd; text-decoration: none; font-size: 1rem; }
+nav a:hover { color: #fff; text-decoration: underline; }
+
+main { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+section { padding: 72px 0 8px; }
+.intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: end; padding-top: 56px; }
+.intro h1 { margin: 0; }
+.intro-side p { margin-bottom: 20px; }
+.lead { margin-bottom: 28px; }
+.note { margin-top: 18px; font-size: 1rem; color: var(--soft); }
+
+/* The marks encode who said it: fill strength falls as certainty falls. */
+.m { display: inline-block; font-style: normal; font-size: .82rem; line-height: 1; padding: 5px 9px 4px; border: 2px solid var(--gut); border-radius: 5px; vertical-align: .12em; white-space: nowrap; color: var(--gut); }
+.m-decided { background: var(--gut); color: var(--paper); }
+.m-source { background: var(--sheet); }
+.m-proposal { border-style: dashed; }
+.m-open { border-style: dotted; border-width: 3px; }
+.marks { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; font-size: 1rem; }
+.marks .m { min-width: 132px; text-align: center; margin-right: 8px; }
+
+.follow { display: grid; grid-template-columns: minmax(0, 2.15fr) minmax(280px, 1fr); background: var(--gut); border-radius: 22px 22px 6px 6px; overflow: hidden; }
+.player { background: var(--gut); border-radius: 18px; overflow: hidden; }
+.follow .player { border-radius: 0; align-self: center; }
+.player canvas { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.controls { display: flex; gap: 12px; align-items: center; padding: 10px 16px 14px; }
+.controls button { font-size: 1rem; min-width: 84px; padding: 7px 14px; color: var(--gut); background: var(--paper); border: 0; border-radius: 6px; cursor: pointer; }
+.controls input { flex: 1; accent-color: var(--bile); min-width: 0; }
+
+.ledger { background: var(--sheet); margin: 10px; border-radius: 14px; padding: 20px; min-height: 440px; }
+.ledger h3 { min-height: 2.2em; }
+.ledger dl { margin: 0 0 16px; font-size: .95rem; line-height: 1.4; }
+.ledger dt { font-family: var(--display); color: var(--wall); }
+.ledger dd { margin: 0 0 8px; min-height: 2.8em; }
+.ledger table { width: 100%; border-collapse: collapse; font-size: .92rem; line-height: 1.35; }
+.ledger caption { text-align: left; font-size: 1.1rem; padding-bottom: 6px; border-bottom: 3px solid var(--gut); }
+.ledger th, .ledger td { text-align: left; vertical-align: top; padding: 6px 6px; border-bottom: 1px solid #c9cfc6; }
+.ledger th { font-weight: 500; width: 42%; }
+.ledger tr.changed { background: #dfe8a0; box-shadow: inset 4px 0 0 var(--gut); }
+
+.steps { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin: 3px 0 0; padding: 0; }
+.steps li { counter-increment: s; }
+.steps button { width: 100%; padding: 12px 8px; font-size: 1.1rem; cursor: pointer; border: 0; background: #cbd3ca; color: var(--gut); }
+.steps button::before { content: counter(s) ". "; }
+.steps button[aria-current="true"] { background: var(--bile); }
+.steps li:first-child button { border-radius: 0 0 0 16px; }
+.steps li:last-child button { border-radius: 0 0 16px 0; }
+
+.sorter { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: start; }
+.chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.chips button { font-size: 1.08rem; padding: 10px 16px; border: 2px solid var(--gut); border-radius: 30px; background: transparent; color: var(--gut); cursor: pointer; }
+.chips button:hover { background: var(--sheet); }
+.chips button[aria-pressed="true"] { background: var(--gut); color: var(--paper); }
+.verdict { background: var(--sheet); border-radius: 4px 26px 26px 26px; padding: 22px 26px 8px; min-height: 210px; }
+.verdict-kind { display: inline-block; font-family: var(--display); padding: 2px 12px; border-radius: 5px; background: #d3d9d0; margin-bottom: 10px; }
+.bins { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 26px; border-top: 4px solid var(--gut); }
+.bins div { padding: 12px 14px 14px; display: grid; gap: 4px; align-content: start; font-size: .95rem; line-height: 1.4; }
+.bins b { font-size: 1.15rem; font-weight: 600; }
+.bins .lit { background: var(--bile); }
+
+.decision { display: grid; grid-template-columns: 1fr 420px; gap: 40px; align-items: center; padding: 30px 0 34px; border-top: 2px solid #b9c2b8; }
+.decision.wide { display: block; }
+.decision svg { width: 100%; height: auto; }
+.decision svg text { font-family: var(--display); font-size: 19px; fill: var(--gut); }
+.decision svg .set { fill: var(--sheet); stroke: var(--wall); stroke-width: 3; }
+.decision svg .whole, .decision svg g.whole rect { fill: var(--gut); }
+.decision svg .on, .decision svg g.on text { fill: var(--paper); }
+.decision svg .arrow { stroke: var(--gut); stroke-width: 5; }
+.decision svg .head { fill: var(--gut); }
+
+.shares { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 760px; }
+.shares button { display: grid; gap: 3px; padding: 16px 10px; cursor: pointer; font-size: 1.1rem; border-radius: 12px; border: 3px dashed var(--wall); background: transparent; color: var(--gut); }
+.shares button b { font-weight: 600; }
+.shares button[aria-pressed="true"] { border-style: solid; border-color: var(--gut); background: var(--bile); }
+.meter { position: relative; height: 34px; max-width: 760px; margin: 18px 0 10px; background: var(--sheet); border: 3px solid var(--gut); border-radius: 8px; overflow: hidden; }
+#hunger-fill { height: 100%; background: var(--gut); transition: width .35s ease; }
+#hunger-lost { position: absolute; top: 0; bottom: 0; background: var(--alarm); transition: left .35s ease, width .35s ease; }
+.readout { display: grid; gap: 2px; }
+.readout strong { font-size: 1.7rem; font-weight: 600; }
+
+.pick { display: inline-flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 20px; }
+select { font-size: 1.15rem; padding: 9px 14px; border: 3px solid var(--gut); border-radius: 8px; background: var(--sheet); color: var(--gut); }
+.touch { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.touch ul { list-style: none; margin: 0; padding: 0; }
+.touch li { display: grid; padding: 9px 0; border-top: 1px solid #b9c2b8; }
+.touch li b { font-family: var(--display); font-weight: 600; }
+
+.open-table { width: 100%; border-collapse: collapse; }
+.open-table th, .open-table td { text-align: left; padding: 11px 14px 11px 0; border-bottom: 1px solid #b9c2b8; vertical-align: top; }
+.open-table thead th { border-bottom: 3px solid var(--gut); }
+
+footer { max-width: 1280px; margin: 40px auto 0; padding: 22px 20px 48px; font-size: .95rem; color: var(--soft); }
+
+/* Keep the first animation higher on the first screen. */
+#follow { padding-top: 48px; }
+
+@media (max-width: 900px) {
+  html { scroll-padding-top: 0; }
+  .top { position: static; }
+  .intro, .follow, .sorter, .decision, .touch { grid-template-columns: 1fr; }
+  .ledger { min-height: 0; }
+  .bins { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .steps li button { border-radius: 0 !important; }
+  .shares { grid-template-columns: 1fr; }
+  .open-table { font-size: .9rem; }
+}
