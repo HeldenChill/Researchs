@@ -1,0 +1,17 @@
+{
+  "name": "@hk/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "uWebSockets.js": "file:../../vendor/uWebSockets.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
+}

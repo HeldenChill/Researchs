@@ -1,0 +1,16 @@
+{
+  "name": "html-kits",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "typecheck": "tsc -p packages/loop && tsc -p packages/physics && tsc -p packages/player && tsc -p packages/server && tsc -p packages/net && tsc -p packages/character"
+  },
+  "devDependencies": {
+    "typescript": "5.6.3",
+    "vitest": "2.1.8",
+    "three": "0.186.0",
+    "@types/three": "0.186.0"
+  }
+}

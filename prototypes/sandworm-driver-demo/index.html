@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandworm Driver Playmode</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 100%; height: 100%; overflow: hidden; background: #14110f; color: #f4ead5; font-family: system-ui, -apple-system, sans-serif; }
+      #app { position: relative; width: 100%; height: 100%; }
+      canvas { display: block; width: 100%; height: 100%; }
+      #hud { position: absolute; inset: 0; pointer-events: none; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+      .row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; }
+      .panel { background: rgba(20, 17, 15, 0.78); border: 1px solid rgba(244, 234, 213, 0.18); border-radius: 8px; padding: 10px 14px; font-size: 13px; line-height: 1.45; min-width: 220px; }
+      .bar-wrap { width: 180px; height: 10px; background: rgba(255,255,255,0.12); border-radius: 99px; overflow: hidden; margin: 3px 0 6px; }
+      .bar { height: 100%; transition: width 0.08s linear; }
+      .bar-hp { background: #e05a47; }
+      .bar-hunger { background: #e6a23c; }
+      .bar-mom { background: #4ea8de; }
+      .muted { color: #b8ab96; font-size: 12px; }
+      #overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(14, 11, 9, 0.72); pointer-events: auto; }
+      #overlay.show { display: flex; }
+      #overlay-card { background: #1e1916; border: 1px solid rgba(244, 234, 213, 0.3); border-radius: 12px; padding: 24px 28px; text-align: center; max-width: 380px; }
+      #overlay-card h1 { font-size: 24px; margin-bottom: 8px; }
+      #overlay-card p { color: #cbbda6; margin-bottom: 16px; font-size: 14px; }
+      #tune-btn { position: absolute; right: 16px; bottom: 16px; pointer-events: auto; background: rgba(20,17,15,0.85); color: #f4ead5; border: 1px solid rgba(244,234,213,0.35); border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 13px; z-index: 20; }
+      .lil-gui.root { position: fixed; top: 0; right: 0; max-height: calc(100% - 64px); overflow-y: auto; z-index: 30; --width: 320px; }
+      #restart-btn { pointer-events: auto; background: #e6a23c; color: #14110f; border: 0; border-radius: 6px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="hud">
+        <div class="row">
+          <div class="panel" id="hud-vitals"></div>
+          <div class="panel" id="hud-progress"></div>
+          <div class="panel" id="hud-interior"></div>
+        </div>
+        <div class="row">
+          <div class="panel muted" id="hud-controls">
+            A/D: turn head counterclockwise / clockwise · W: push · S: brake · Space: Boost · E: Ping Crew · 1/2/3: Heart Preset (Fast/Balanced/Bite) · R: Restart · F3 or `: Tuning popup
+          </div>
+        </div>
+      </div>
+      <button id="tune-btn" type="button">Tune (F3)</button>
+      <div id="overlay">
+        <div id="overlay-card">
+          <h1 id="overlay-title"></h1>
+          <p id="overlay-desc"></p>
+          <button id="restart-btn" type="button">Restart Run (R)</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

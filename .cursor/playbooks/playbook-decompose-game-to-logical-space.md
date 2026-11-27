@@ -1,6 +1,6 @@
 # Playbook: Phân Rã Một Game Bất Kỳ Thành Không Gian Logic Chuẩn Tắc
 
-> **Phiên bản:** v3.4, 2026-11-26 (v3.3 + mục 2C "từ không gian logic sang việc phát triển" và bài học dựng rung 0, rung 1 Sandworm vào mục 4. Mục 2C là **thực hành từ một ca**, không phải nguyên tắc lý thuyết; 13 bước, nguyên tắc, cổng và thước đo **không đổi**). v3.3, 2026-11-26 (v3.2 + bài học ca Co-op Sandworm Survival vào mục 4; quy trình 13 bước **không đổi**, không thêm nguyên tắc, cổng hay thước đo; lõi hiện là `v0.3.1-draft`). v3.2, 2026-11-13 (v3.1 + bài học ca mẫu lát cắt Forest_Bloom vào mục 4; quy trình 13 bước **chưa đổi**, chờ duyệt [đề xuất v0.4](../plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md)). v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
+> **Phiên bản:** v3.5, 2026-11-27 (v3.4 + mục 2D "chỉnh luật điều khiển trên bản chơi được" và bài học demo Driver Sandworm vào mục 4. Mục 2D cũng là **thực hành từ một ca**; 13 bước, nguyên tắc, cổng và thước đo **không đổi**). v3.4, 2026-11-26 (v3.3 + mục 2C "từ không gian logic sang việc phát triển" và bài học dựng rung 0, rung 1 Sandworm vào mục 4. Mục 2C là **thực hành từ một ca**, không phải nguyên tắc lý thuyết; 13 bước, nguyên tắc, cổng và thước đo **không đổi**). v3.3, 2026-11-26 (v3.2 + bài học ca Co-op Sandworm Survival vào mục 4; quy trình 13 bước **không đổi**, không thêm nguyên tắc, cổng hay thước đo; lõi hiện là `v0.3.1-draft`). v3.2, 2026-11-13 (v3.1 + bài học ca mẫu lát cắt Forest_Bloom vào mục 4; quy trình 13 bước **chưa đổi**, chờ duyệt [đề xuất v0.4](../plans/design/2026-11-12-logical-space-v0.4-prune-proposal.md)). v3.1, 2026-11-03 (v3.0 + bài học cuối phiên: mục 2B, mẹo Bước 0, bài học tích lũy). Khớp với lý thuyết lõi `2026-11-03-logical-space-v0.3-draft`.
 > **Đóng băng 2026-11-12:** không thêm nguyên tắc, thước đo, cổng hay loại catalog mới cho tới khi ca mẫu lát cắt Forest_Bloom báo cáo. Xem [plan](../plans/implement/2026-11-12-forest-bloom-slice-reference-case.md).
 > **Phạm vi:** Playbook cấp Base Theory (Universal Playbook áp dụng cho mọi game).
 > **Lý thuyết lõi:** [Logical-Space-Base-Theory.md](../../docs/theory/Logical-Space-Base-Theory.md) — định nghĩa, nguyên tắc L1–L17, thang basis (mục 4.1), danh mục I1–I6 và M1–M6, cổng P0–P7.
@@ -131,6 +131,47 @@ Fuzz không kiểm độ phủ thì có thể đạt mà không chạm luật n�
 * trước khi duyệt, **không in và không đọc** số đo từ cấu hình sẽ quét; test chỉ so hai lần chạy giống nhau, còn logic đo kiểm trên cấu hình tí hon.
 
 **Bước 6: nói rõ bậc này không chứng minh gì.** Bậc chỉ có một vai trò thì không kiểm được vòng ghép (I7). Ngưỡng của nó là **điều kiện sống còn** (L16), không phải detector cho L12. Bot đọc toàn bộ trạng thái, tốt hơn người chơi, nên kết quả chỉ mô tả bot.
+
+---
+
+### 2D. Chỉnh Luật Điều Khiển Trên Bản Chơi Được (Thực Hành Từ Demo Driver Sandworm, 2026-11-27)
+
+> Rút từ **một ca**, một vai trò, một người chơi thử (chủ dự án). Bản demo này không phải một bậc của thang: không có detector, không có ngưỡng đăng ký trước, và chưa đối chiếu ngược với tài liệu không gian logic của ca. Cảm giác của mô hình điều khiển cuối cùng **chưa được playtest**. Đây là cách làm, không phải nguyên tắc lý thuyết. Bằng chứng: [memory phiên](../../memory/2026-11-27-sandworm-driver-html-demo-session.md).
+
+```mermaid
+flowchart TD
+    Feel["Lời cảm giác của người chơi"] --> Split["Tách thành từng triệu chứng"]
+    Split --> Probe["Đo bằng code thật không cần hình"]
+    Probe --> Kind{"Lỗi hiển thị hay lỗi luật"}
+    Kind -- "hiển thị" --> View["Sửa Y và đo lại"]
+    Kind -- "luật" --> Table["Bảng ghi đại lượng và đọc hành động"]
+    Table --> Ask["Chủ dự án chọn luật"]
+    Ask --> Red["Test đỏ rồi sửa"]
+    View --> Red
+    Red --> Check["Đo lại và chạy trên trình duyệt"]
+    Check --> Play["Chủ dự án chơi thử"]
+    Play --> Feel
+```
+
+**Bước 1: một câu cảm giác chứa nhiều lỗi khác tầng.** "Di chuyển không mượt" gồm: thân giật (lỗi $Y$: đặt đốt theo chỉ số điểm vết thay vì theo quãng đường), vẽ không nội suy giữa hai tick, và momentum không tích lũy (lỗi $\mathcal{S}$). Sửa $Y$ trước, vì giật che mất cảm giác thật của luật.
+
+**Bước 2: hỏi đại lượng người chơi gọi tên có nhớ quá khứ không.** Trong code momentum là độ lớn vận tốc hiện tại, tức **dẫn xuất**, nên không thể "tích lũy". Người chơi mong nó được giữ, tăng khi rơi, mất khi hãm → nó phải là **trạng thái lưu**, và tốc độ cùng sức phá đọc từ nó. Đây là chiều ngược của cạm bẫy 4: thứ tưởng là dẫn xuất thật ra là trạng thái.
+
+**Bước 3: lập bảng "ai ghi đại lượng tích lũy, trong chế độ nào".**
+
+| Câu hỏi | Lỗi đã gặp |
+|---|---|
+| Mỗi nguồn vật lý (trọng lực) có tác dụng ở **mọi** chế độ không? | Trọng lực chỉ viết trong nhánh trên không → đào xuống không được gì, còn kém chạy phẳng |
+| Thả hết phím thì đại lượng làm gì? | Tự giảm theo thời gian, trái ý chủ dự án |
+| Mất là do thời gian, do nhập liệu, hay do va chạm? | Ba nguồn trộn nhau; chủ dự án phát biểu lại: mất theo mức nhập liệu **ngược** hướng đang đi |
+| Vòng đóng (xuống rồi lên, lắc trái phải) lãi hay lỗ? | Lãi mỗi mét xuống lớn hơn phí mỗi mét lên → lặp xuống lên làm đầy thanh mà không cần bấm đẩy |
+| Giá trị bắt đầu của phép đo có che trần không? | Đo từ 40 thấy đủ phạt, test bắt đầu từ 60 vẫn chạm trần |
+
+**Bước 4: luật định nghĩa trên $\mathcal{A}$ phải soát lại mỗi khi $\mathcal{A}$ đổi.** Ba lược đồ điều khiển trong một ngày: (1) phím nghiêng mũi và ga theo trục màn hình; (2) phím trỏ hướng đích; (3) phím lái đầu, đẩy và hãm. Luật "mất theo mức nhập liệu ngược hướng đi" có nghĩa rõ ở (2). Sang (3), chỉ phím hãm còn ngược hướng đi, lắc trái phải thành miễn phí, và đầu vào của toán tử đổi tên. Sau khi đổi $\mathcal{A}$: soát lại mọi toán tử đọc hành động, mọi kết luận về vòng lãi, mọi chữ trợ giúp và mọi test.
+
+**Bước 5: khi hiểu được hai cách, phác từng cách như người chơi cầm phím.** Bảng "phím → chuyện xảy ra", cái được, cái mất, kèm khuyến nghị. Chủ dự án trả lời một chữ. Ghi phần mình tự điền (ví dụ lái trên không) là quyết định của người dựng.
+
+**Bước 6: bảng tinh chỉnh là công cụ của vòng lặp này.** Giá trị thành dữ liệu có thể đổi khi đang chạy; mỗi dòng có chữ trợ giúp; chỉ lưu giá trị đã đổi để mặc định mới vẫn tới được người chơi; test bắt buộc mỗi khóa cấu hình có một dòng. Test đó **không** bắt được: số viết cứng ngoài cấu hình, chữ trợ giúp cũ, dòng không còn tác dụng. Ba thứ này phải soát riêng. Bảng không thay được việc sửa lỗi: một thanh trượt "giá trị thức ăn" sẽ che lỗi code bỏ qua giá trị riêng của từng loại.
 
 ---
 
@@ -431,6 +472,17 @@ Nổi sinh trong mô phỏng và niềm vui của người chơi là **hai tuyê
 | Sandworm đồ thị, kiểm bằng ảnh | **Kiểm tự động đạt hết mà bảng chi tiết dính đáy vẫn che cả đồ thị.** Kiểm chồng lấn giữa các nút không bắt được lớp giao diện đè lên nhau. Luôn xem ảnh chụp; thêm phép đo khung này có che khung kia không |
 | Sandworm đồ thị, tiến độ | **Đồ thị chép tay phải ghi ngày tiến độ, nói rõ tích trên trang không duyệt gì và plan thắng khi lệch.** Ghi chú cũ trên trang ("chưa mô phỏng gì") phải sửa khi đã có code |
 | Sandworm, "đã có demo chưa" | **Phân biệt ba thứ khi trả lời:** trang giải thích (hoạt cảnh vẽ tay, không chạy luật), mô phỏng headless (chạy luật, không hình), và demo xem hoặc chơi được (chưa có). Xem lượt chạy bằng cấu hình sắp quét trước khi duyệt ngưỡng có thể ảnh hưởng tới ngưỡng |
+| Demo Driver Sandworm 2026-11-27, giật hình | **Đo trước khi đoán, và đo bằng chính code chạy.** Đoạn dò không cần hình gọi mô phỏng và lớp vẽ thật ở 60 và 144 Hz, đếm số khung đốt thân đứng yên (89/179 và 252/431). Thử giả thuyết bằng cách đổi đúng một thứ trong bản nháp (đặt đốt theo quãng đường): số khung đứng yên về 0 → nguyên nhân được xác nhận trước khi sửa repo |
+| Demo Driver Sandworm, test sót chế độ | **Test chỉ phủ chế độ đã nghĩ tới.** 38 test đạt trong khi đào xuống không cho momentum, vì chỉ có test lao từ trên không. Mỗi luật vật lý cần test ở từng chế độ; mỗi cặp ngược chiều (xuống, phẳng, lên) test cùng lúc |
+| Demo Driver Sandworm, test đổi theo luật | **Phân biệt ba lý do sửa test: luật được chủ dự án đổi, dựng cảnh sai, và hạ yêu cầu cho đạt.** Hai lý do đầu phải nói ra khi báo cáo. Test "lắc lên xuống" thật ra là đi xuống kiểu bậc thang; chỉ lộ khi thêm trọng lực. Lý do thứ ba không được phép |
+| Demo Driver Sandworm, đổi kết luận | **Một lần đo ở một giá trị đầu không đủ.** Đã nói phạt rẽ 22 là đủ dựa trên đo từ 40; test từ 60 vẫn trượt. Báo chủ dự án rằng kết luận trước sai |
+| Demo Driver Sandworm, lớp bị che | **Kẹp giới hạn có thể che lỗi và tạo lỗi.** Kẹp "chỉ đi sang phải" giấu vận tốc thừa sau khi dội; bỏ kẹp thì sâu tự quay đầu. Kẹp độ sâu đặt vận tốc đứng về 0 làm mũi giật 34 độ. Khi gỡ một kẹp, tìm xem ai đang dựa vào nó |
+| Demo Driver Sandworm, hai nguồn sự thật | **Hướng đầu và hướng vận tốc là hai nguồn; nói rõ nguồn nào quyết định.** Áp vào vật cản, va chạm chỉ để lại một mẩu vận tốc tiếp tuyến; lái đọc mẩu đó làm hướng đi → nhảy từ -31 sang -90 độ. Khi bị chặn, đầu quyết định |
+| Demo Driver Sandworm, phản hồi va chạm | **Va chạm không đủ lực cần trạng thái đọc được, không chỉ chặn.** Dịch chuyển tức thời và lật vận tốc tạo vòng dội vô tận (6 lần trong 4 giây). Thay bằng: đẩy ra theo pháp tuyến, một lần dội, sau đó tì và trượt; chưa đủ momentum thì gặm có tiến độ và hủy được; mỗi loại sự kiện có một dấu hiệu hình riêng, mô phỏng gửi sự kiện đánh số cho lớp vẽ |
+| Demo Driver Sandworm, câu hỏi của người chơi | **"Chỉnh sao để đỡ mất X?" trả lời bằng bảng đo, không đổi mặc định hộ.** Cùng một kịch bản, vài bộ tham số, thêm cột kiểm vòng lãi miễn phí; khuyến nghị một thay đổi và nêu giá trị nào làm hỏng vai trò của nút đẩy |
+| Demo Driver Sandworm, kiểm công cụ kiểm | **Mọi đoạn dò cần một đối chứng dương.** Đoạn soát "dòng nào code không đọc" báo cả 62 dòng vì mất một dấu gạch chéo ngược; kết quả vô lý nên bị phát hiện. Thêm một khóa biết chắc có dùng làm đối chứng |
+| Demo Driver Sandworm, trình duyệt không đầu | **Khi tiện ích trình duyệt không kết nối, điều khiển Chrome không đầu bằng giao thức gỡ lỗi** với hồ sơ tạm: bấm phím, đọc HUD, chụp ảnh, gom lỗi console. Ảnh chụp bắt được đường đáy cắt ngang thân sâu. Nó không đo được cảm giác, độ mượt hay tốc độ khung trên máy thật; phải nói rõ |
+| Demo Driver Sandworm, chiếu hình | **Lớp nền nằm sau mặt phẳng chơi bị lệch vì phối cảnh.** Shader chiếu mỗi điểm ảnh về mặt phẳng chơi để vạch mặt đất và đáy khớp với giới hạn trong mô phỏng. Hình sai vị trí là $Y$ nói dối |
 
 ---
 
