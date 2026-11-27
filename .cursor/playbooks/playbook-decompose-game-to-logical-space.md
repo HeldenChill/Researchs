@@ -431,6 +431,9 @@ Nổi sinh trong mô phỏng và niềm vui của người chơi là **hai tuyê
 | Sandworm đồ thị, kiểm bằng ảnh | **Kiểm tự động đạt hết mà bảng chi tiết dính đáy vẫn che cả đồ thị.** Kiểm chồng lấn giữa các nút không bắt được lớp giao diện đè lên nhau. Luôn xem ảnh chụp; thêm phép đo khung này có che khung kia không |
 | Sandworm đồ thị, tiến độ | **Đồ thị chép tay phải ghi ngày tiến độ, nói rõ tích trên trang không duyệt gì và plan thắng khi lệch.** Ghi chú cũ trên trang ("chưa mô phỏng gì") phải sửa khi đã có code |
 | Sandworm, "đã có demo chưa" | **Phân biệt ba thứ khi trả lời:** trang giải thích (hoạt cảnh vẽ tay, không chạy luật), mô phỏng headless (chạy luật, không hình), và demo xem hoặc chơi được (chưa có). Xem lượt chạy bằng cấu hình sắp quét trước khi duyệt ngưỡng có thể ảnh hưởng tới ngưỡng |
+| Sandworm đồ thị, kiểm tra DOM thật (2026-11-26) | **Build thành công không bắt được lỗi runtime trên DOM.** Thiếu `SVG_NS` làm `renderEdges()` gãy và mất toàn bộ đường nối trong khi `build.mjs` vẫn exit 0. Luôn chạy headless Chrome `--dump-dom --enable-logging=stderr` kiểm tra 0 `Uncaught` và xác nhận phần tử con thực tế (như `<path>` trong `<svg>`) sau mỗi lần sửa UI |
+| Sandworm đồ thị, ngôn ngữ nhiệm vụ | **Tách thuật ngữ lý thuyết khỏi việc cần làm trong mỗi task.** Chủ dự án không đọc được task viết dày đặc ký hiệu (`O5`, `IV4`, `S2`). Viết tiêu đề, mục tiêu và checklist bằng hành động cụ thể trong game (input → output/luật), còn ký hiệu `𝒱/𝒮/𝒜/Ô/Ω/✓` đặt ở lá cuối để giữ kỷ luật không gian logic mà vẫn dễ thực thi |
+| Sandworm đồ thị, kéo thả & gập nhánh | **Không gập nhánh khi bấm nếu người dùng chỉ muốn chọn/kéo, và tránh `setPointerCapture` kèm `setTimeout` khi kéo.** Gập nhánh làm các task bên dưới "biến mất" gây hiểu nhầm; dùng `window` listener + `e.preventDefault()` + `blur` cleanup và timestamp chặn click sau kéo để kéo thả ổn định |
 
 ---
 

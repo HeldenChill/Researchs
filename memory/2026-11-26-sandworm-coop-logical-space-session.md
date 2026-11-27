@@ -89,6 +89,18 @@ Substantive summary, not a transcript. Owner discussed in English this session.
 | Core section 10: Forest_Bloom waits for adoption | Omits the slice result |
 | Theory-freeze memory path `G:\Projects\Researchs` | Workspace is `D:\Projects\Research` |
 
+## Later the same evening: Unity GraphView work-graph & 1-Crew / Worm / World graphs
+
+- Upgraded `#worktree` in `docs/explorations/sandworm-coop-survival/demo/` (`page.html`, `page.css`, `worktree.ts`, `plan.ts`) to a Unity GraphView-style vertical top-down node-graph editor (modeled on `G:\Unity\Project\Horror1Game\.cursor\plans\ai-graph-demo\index.html`):
+  - Pannable/zoomable 24px/120px grid viewport, draggable `.wnode` cards, top-down cubic Bezier edges (`svg#work-edges` with explicit bounds), top-arcing dashed prerequisite arrows, `Frame all` (`F`), `Auto layout`, zoom readout, minimap (`#work-mini`), and docked right-hand Inspector (`#task-detail`).
+  - Removed branch-collapse-on-click (`closed` toggle) per owner request so clicking a branch never hides child tasks; hardened drag using `window` pointer listeners, `e.preventDefault()`, and `blur` cleanup.
+- Added 3 full-function work graphs in `demo/src/plan.ts` (`GRAPHS`) with `#work-graph-select` switcher, written in plain actionable English + checklists while keeping `𝒱/𝒮/𝒜/Ô/Ω/✓` leaf mappings:
+  - `crew1` (`1 Crew: Full Function`, default): `CG1`–`CG2`, `CT1`–`CT10` (`O5`, `O6`, `O7`, `O8`, `O17`, `O18`, `IV4`, `L5`).
+  - `worm` (`Worm: Full Function`): `WG1`–`WG2`, `WT1`–`WT10` (`O1`–`O4`, `O14`–`O15`, `O19`–`O22`, `IV1`, `IV2`, `IV6`, `IV8`, `IV11`, `IV12`).
+  - `world` (`World: Full Function`): `EG1`–`EG2`, `ET1`–`ET9` (`O7`, `O9`–`O13`, `O16`, `O23`–`O25`, `IV3`, `IV5`, `IV7`–`IV11`).
+  - `rung1` (`Rung 1: Intake Queue`) preserved in switcher.
+- Rebuilt `logical-space-demo.html` (`299 KB`) via `node build.mjs G:\Projects\MotionCanvas\my-animation\node_modules` (note: default `D:/Projects/...` path is absent on `G:` workspace); verified 0 `Uncaught` console errors and rendered `<path>` edges in headless Chrome `--dump-dom`.
+
 ## Working-style notes
 
 - Owner states rules in their own words and asks "right?"; answer yes or no directly with a small table, and separate what is decided from what is one option.
