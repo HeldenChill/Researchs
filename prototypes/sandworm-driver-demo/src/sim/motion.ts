@@ -2,9 +2,6 @@ import { SIM_CONFIG as C } from './config.ts';
 import { recordImpact } from './impact.ts';
 import type { DriverInput, SimState, WormState } from './types.ts';
 
-/** Extra height kept free above the depth limit when levelling out. */
-const DEPTH_MARGIN = 0.5;
-const PULL_OUT_BOOST = 2;
 const GNAW_BACKOUT_SPEED = 8;
 /** Fastest the drawn nose may swing, rad/s. */
 const MAX_NOSE_RATE = 5;
@@ -90,28 +87,10 @@ function stepUnderground(w: WormState, input: DriverInput, dt: number): void {
 
   const maxTurn = C.turnRate * (1 - C.turnHeaviness * fill) * dt;
   // Steering rotates the head, and the travel direction turns with it. No keys keeps both.
-  const wanted = wrapAngle(angle + input.steer * maxTurn);
-  // The packed sand near the bottom lets the worm pull out faster than it can turn freely.
-  const turnRadius = speed / (maxTurn / dt);
-  const desired = limitDive(wanted, angle, w.y - C.maxDepth, turnRadius / PULL_OUT_BOOST);
-  const turnCap = desired === wanted ? maxTurn : maxTurn * PULL_OUT_BOOST;
-  angle = wrapAngle(angle + clamp(wrapAngle(desired - angle), -turnCap, turnCap));
+  angle = wrapAngle(angle + input.steer * maxTurn);
 
   w.vx = Math.cos(angle) * speed;
   w.vy = Math.sin(angle) * speed;
-}
-
-/**
- * Near the depth limit, only allow as steep a dive as can still level out in the room left,
- * so the worm follows a curve and never slams flat against the bottom.
- */
-function limitDive(wanted: number, current: number, height: number, turnRadius: number): number {
-  const room = clamp((height - DEPTH_MARGIN) / Math.max(1, turnRadius), 0, 1);
-  const steepest = Math.acos(1 - room);
-  if (Math.sin(wanted) >= -Math.sin(steepest)) return wanted;
-  // Keep going the way the worm already travels when the nose points straight down.
-  const across = Math.abs(Math.cos(wanted)) > 1e-3 ? Math.cos(wanted) : Math.cos(current);
-  return across >= 0 ? -steepest : -Math.PI + steepest;
 }
 
 /** Pushing forward builds. With no push the worm never loses momentum here. */
@@ -157,15 +136,26 @@ function releaseGnaw(w: WormState): void {
   w.recoilTimer = C.hitRecoilTime;
 }
 
-/** Short bounce after a hard hit: no steering, velocity dies out, nose keeps facing forward. */
+/** Short bounce after a hard hit: slides & reflects on angled hits, recoils straight back on head-on hits. */
 function stepRecoil(w: WormState, dt: number): void {
   w.recoilTimer = Math.max(0, w.recoilTimer - dt);
-  const keep = Math.exp(-C.hitRecoilDamping * dt);
+  const speed = Math.hypot(w.vx, w.vy);
+  const velAngle = speed > 0.01 ? Math.atan2(w.vy, w.vx) : w.heading;
+  const slideReflect = speed > 0.5 && Math.abs(wrapAngle(velAngle - w.heading)) < 2.2;
+
+  const damping = slideReflect ? C.hitRecoilDamping * 0.25 : C.hitRecoilDamping;
+  const keep = Math.exp(-damping * dt);
   w.vx *= keep;
   w.vy *= keep;
   integrate(w, dt);
-  if (w.recoilTimer === 0) {
-    // Leftover bounce velocity must not count as the new travel direction.
+
+  if (slideReflect && Math.hypot(w.vx, w.vy) > 0.5) {
+    const nose = wrapAngle(Math.atan2(w.vy, w.vx) - w.heading);
+    w.heading = wrapAngle(w.heading + clamp(nose, -MAX_NOSE_RATE * dt, MAX_NOSE_RATE * dt));
+  }
+
+  if (w.recoilTimer === 0 && !slideReflect) {
+    // Leftover head-on bounce velocity must not count as the new travel direction.
     w.vx = Math.cos(w.heading);
     w.vy = Math.sin(w.heading);
   }
@@ -177,7 +167,19 @@ function integrate(w: WormState, dt: number): void {
 
   if (w.y < C.maxDepth) {
     w.y = C.maxDepth;
-    if (w.vy < 0) w.vy = 0;
+    if (w.vy < 0) {
+      const impactSpeed = -w.vy;
+      if (impactSpeed > C.softHitSpeed && w.recoilTimer === 0) {
+        const momRatio = w.momentum / C.momentumMax;
+        w.vy = impactSpeed * C.hitRestitution * (0.4 + momRatio * 0.6);
+        w.recoilTimer = C.hitRecoilTime;
+        w.momentum *= C.hitMomentumKeep;
+        w.shakeImpulse = Math.max(w.shakeImpulse, C.hitShake);
+        recordImpact(w, 'hit', Math.min(1, impactSpeed / 25), w.x, C.maxDepth);
+      } else {
+        w.vy = 0;
+      }
+    }
   }
   if (w.y > C.maxAltitude) {
     w.y = C.maxAltitude;

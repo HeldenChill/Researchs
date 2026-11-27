@@ -62,6 +62,29 @@ describe('bite too weak', () => {
     expect(s.worm.momentum).toBeLessThan(50);
   });
 
+  it('reflects harder when momentum is higher on a failed break', () => {
+    const low = facingRock(2, 20, 10);
+    const high = facingRock(2, 20, 95);
+    low.worm.x = 210.9;
+    high.worm.x = 210.9;
+    stepBite(low, STEP);
+    stepBite(high, STEP);
+    expect(high.worm.vx).toBeLessThan(low.worm.vx);
+  });
+
+  it('slides and reflects along the rock on an angled hard collision', () => {
+    const s = facingRock(2, 22, 80);
+    s.worm.x = 212;
+    s.worm.y = 2.8; // angled above rock centre (215, -1)
+    s.worm.vx = 20;
+    s.worm.vy = -12;
+    s.worm.heading = Math.atan2(-12, 20);
+    const log = drive(s, 0.5, input({ throttle: 1 }));
+    expect(log.kinds).toContain('hit');
+    expect(s.worm.vy).toBeGreaterThan(0);
+    expect(Math.hypot(s.worm.vx, s.worm.vy)).toBeGreaterThan(5);
+  });
+
   it('a slow touch does not shake the crew', () => {
     const s = facingRock(2, 8, 0);
     s.worm.x = 209.1; // just short of contact, so it really arrives slowly

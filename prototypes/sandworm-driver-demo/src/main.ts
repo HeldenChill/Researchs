@@ -3,7 +3,14 @@ import { createInitialState } from './sim/state.ts';
 import { stepSim } from './sim/tick.ts';
 import { SIM_CONFIG } from './sim/config.ts';
 import { WorldRenderer } from './render/world.ts';
+import { CockpitRenderer } from './render/cockpit.ts';
 import { interpolatePose, type Pose } from './render/pose.ts';
+import {
+  createCockpitState,
+  focusMonitor,
+  gateDriverInput,
+  selectCctvRoom,
+} from './cockpit/cockpitState.ts';
 import { InputController } from './ui/input.ts';
 import { HudView } from './ui/hud.ts';
 import { createTuning } from './ui/tuning.ts';
@@ -23,8 +30,25 @@ loadValues(store); // before the first state, so tuned start values apply
 
 const app = document.getElementById('app')!;
 let state = createInitialState();
+const cockpitState = createCockpitState();
 const renderer = new WorldRenderer(app, state);
+const cockpit = new CockpitRenderer(renderer.getRenderer(), {
+  onSelectMonitor: (id) => focusMonitor(cockpitState, id),
+  onHoverMonitor: (id) => {
+    cockpitState.hoveredMonitor = id;
+  },
+});
 const input = new InputController();
+
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Escape') {
+    focusMonitor(cockpitState, 'overview');
+  } else if (cockpitState.activeMonitor === 'cctv') {
+    if (e.code === 'Digit1') selectCctvRoom(cockpitState, 'mouth');
+    if (e.code === 'Digit2') selectCctvRoom(cockpitState, 'acid');
+    if (e.code === 'Digit3') selectCctvRoom(cockpitState, 'hull');
+  }
+});
 
 let lastMs = performance.now();
 let accumulator = 0;
@@ -54,7 +78,11 @@ function jumpToNextRock(): void {
   snapVisuals();
 }
 
-const hud = new HudView(resetRun);
+const hud = new HudView(
+  resetRun,
+  (id) => focusMonitor(cockpitState, id),
+  (room) => selectCctvRoom(cockpitState, room),
+);
 const tuning = createTuning({ getState: () => state, restart: resetRun, jumpToNextRock }, store);
 
 function frame(nowMs: number): void {
@@ -69,17 +97,19 @@ function frame(nowMs: number): void {
   const stepped = stepsForFrame(accumulator, gameDt, FIXED_DT, 12);
   accumulator = stepped.accumulator;
 
+  const driverInput = gateDriverInput(cockpitState, input.sample());
   for (let i = 0; i < stepped.steps; i++) {
     prevPose = poseOf();
     const stormBefore = state.apocalypseX;
-    stepSim(state, input.sample(), FIXED_DT);
+    stepSim(state, driverInput, FIXED_DT);
     applyDebugFlags(state, stormBefore);
   }
 
   // Draw between the last two sim steps, so motion stays even at any refresh rate.
   const alpha = state.outcome === 'playing' ? accumulator / FIXED_DT : 1;
-  renderer.render(state, interpolatePose(prevPose, poseOf(), alpha), gameDt);
-  hud.update(state);
+  renderer.renderToTarget(state, interpolatePose(prevPose, poseOf(), alpha), gameDt, cockpit.driveTarget);
+  cockpit.render(state, cockpitState, frameDt, renderer.getShake());
+  hud.update(state, cockpitState);
   tuning.update();
   requestAnimationFrame(frame);
 }

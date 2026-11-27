@@ -4,45 +4,740 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sandworm Driver Playmode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      html, body { width: 100%; height: 100%; overflow: hidden; background: #14110f; color: #f4ead5; font-family: system-ui, -apple-system, sans-serif; }
-      #app { position: relative; width: 100%; height: 100%; }
-      canvas { display: block; width: 100%; height: 100%; }
-      #hud { position: absolute; inset: 0; pointer-events: none; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
-      .row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; }
-      .panel { background: rgba(20, 17, 15, 0.78); border: 1px solid rgba(244, 234, 213, 0.18); border-radius: 8px; padding: 10px 14px; font-size: 13px; line-height: 1.45; min-width: 220px; }
-      .bar-wrap { width: 180px; height: 10px; background: rgba(255,255,255,0.12); border-radius: 99px; overflow: hidden; margin: 3px 0 6px; }
-      .bar { height: 100%; transition: width 0.08s linear; }
-      .bar-hp { background: #e05a47; }
-      .bar-hunger { background: #e6a23c; }
-      .bar-mom { background: #4ea8de; }
-      .muted { color: #b8ab96; font-size: 12px; }
-      #overlay { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(14, 11, 9, 0.72); pointer-events: auto; }
-      #overlay.show { display: flex; }
-      #overlay-card { background: #1e1916; border: 1px solid rgba(244, 234, 213, 0.3); border-radius: 12px; padding: 24px 28px; text-align: center; max-width: 380px; }
-      #overlay-card h1 { font-size: 24px; margin-bottom: 8px; }
-      #overlay-card p { color: #cbbda6; margin-bottom: 16px; font-size: 14px; }
-      #tune-btn { position: absolute; right: 16px; bottom: 16px; pointer-events: auto; background: rgba(20,17,15,0.85); color: #f4ead5; border: 1px solid rgba(244,234,213,0.35); border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 13px; z-index: 20; }
-      .lil-gui.root { position: fixed; top: 0; right: 0; max-height: calc(100% - 64px); overflow-y: auto; z-index: 30; --width: 320px; }
-      #restart-btn { pointer-events: auto; background: #e6a23c; color: #14110f; border: 0; border-radius: 6px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 14px; }
+      :root {
+        --bg-basalt: #120f0d;
+        --surface-slate: rgba(24, 19, 16, 0.82);
+        --surface-solid: #1c1714;
+        --border-subtle: rgba(242, 230, 208, 0.14);
+        --border-strong: rgba(229, 154, 56, 0.42);
+        --ink-sand: #f2e6d0;
+        --ink-muted: #b4a48d;
+        --accent-amber: #e59a38;
+        --signal-crimson: #dc5342;
+        --signal-acid: #69c98a;
+        --signal-kinetic: #4fb3e8;
+        --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+        --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg-basalt);
+        color: var(--ink-sand);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #app {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      #hud {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      #cockpit-bar {
+        position: fixed;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 25;
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 8px;
+        border-radius: 99px;
+        background: var(--surface-slate);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      }
+
+      .cockpit-btn {
+        font-family: var(--font-display);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 11px;
+        border-radius: 99px;
+        border: 1px solid transparent;
+        background: transparent;
+        color: var(--ink-muted);
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+      }
+
+      .cockpit-btn:hover {
+        color: var(--ink-sand);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .cockpit-btn.active {
+        background: rgba(229, 154, 56, 0.2);
+        color: var(--accent-amber);
+        border-color: var(--border-strong);
+      }
+
+      .cockpit-sep {
+        width: 1px;
+        height: 16px;
+        background: var(--border-subtle);
+        margin: 0 2px;
+      }
+
+      #cctv-rooms {
+        display: none;
+        align-items: center;
+        gap: 4px;
+      }
+
+      #cctv-rooms.show {
+        display: flex;
+      }
+
+      #hud.cockpit-away .hud-top,
+      #hud.cockpit-away #hud-controls,
+      #hud.cockpit-away #hud-minimap {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(4px);
+      }
+
+      .hud-top,
+      #hud-controls,
+      #hud-minimap {
+        transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .hud-top {
+        display: grid;
+        grid-template-columns: minmax(250px, 280px) minmax(260px, 440px) minmax(230px, 270px);
+        gap: 12px;
+        align-items: start;
+        justify-content: space-between;
+      }
+
+      .hud-center-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .panel {
+        background: var(--surface-slate);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 11px 14px;
+        font-size: 12.5px;
+        line-height: 1.4;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+
+      .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .panel-title {
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: var(--ink-sand);
+      }
+
+      .stat-num {
+        font-family: var(--font-display);
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+      }
+
+      /* Heart preset pills */
+      .preset-row {
+        display: flex;
+        gap: 4px;
+      }
+
+      .preset-pill {
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 500;
+        padding: 2px 7px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--ink-muted);
+        border: 1px solid transparent;
+        transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s, border-color 0.2s;
+      }
+
+      .preset-pill.active {
+        background: rgba(229, 154, 56, 0.18);
+        color: var(--accent-amber);
+        border-color: var(--border-strong);
+      }
+
+      .heart-stats {
+        font-size: 11px;
+        color: var(--ink-muted);
+        margin-bottom: 8px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Vital bars */
+      .vital-row {
+        margin-bottom: 7px;
+      }
+
+      .vital-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .vital-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 11.5px;
+        color: var(--ink-muted);
+        margin-bottom: 3px;
+      }
+
+      .vital-label strong {
+        color: var(--ink-sand);
+        font-family: var(--font-display);
+        font-variant-numeric: tabular-nums;
+        font-size: 12.5px;
+      }
+
+      .bar-wrap {
+        position: relative;
+        width: 100%;
+        height: 7px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .bar {
+        height: 100%;
+        border-radius: 99px;
+        transition: width 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .bar-hp {
+        background: linear-gradient(90deg, #c94132, var(--signal-crimson));
+      }
+
+      .bar-hunger {
+        background: linear-gradient(90deg, #cc7a1f, var(--accent-amber));
+      }
+
+      .bar-mom {
+        background: linear-gradient(90deg, #2d87bc, var(--signal-kinetic));
+      }
+
+      .bar-mom.ready {
+        background: linear-gradient(90deg, #4fb3e8, #9fe1ff);
+        box-shadow: 0 0 10px rgba(79, 179, 232, 0.65);
+      }
+
+      .bar-threshold {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(242, 230, 208, 0.65);
+        z-index: 2;
+      }
+
+      .ready-tag {
+        color: var(--signal-kinetic);
+        font-family: var(--font-display);
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      /* Top-center Race Horizon Strip */
+      #hud-progress {
+        width: 100%;
+        padding: 10px 14px;
+      }
+
+      .race-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+        font-size: 12px;
+      }
+
+      .depth-badge {
+        font-family: var(--font-display);
+        font-size: 11px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--ink-sand);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .depth-badge.airborne {
+        background: rgba(79, 179, 232, 0.18);
+        color: var(--signal-kinetic);
+      }
+
+      .race-track {
+        position: relative;
+        height: 8px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 4px 0 7px;
+        overflow: visible;
+      }
+
+      .race-storm-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 99px 0 0 99px;
+        background: linear-gradient(90deg, rgba(220, 83, 66, 0.75), rgba(220, 83, 66, 0.25));
+      }
+
+      .race-worm-dot {
+        position: absolute;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent-amber);
+        border: 2px solid var(--bg-basalt);
+        box-shadow: 0 0 8px rgba(229, 154, 56, 0.7);
+        transform: translate(-50%, -50%);
+      }
+
+      .race-goal-pin {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        background: var(--signal-acid);
+        transform: translate(50%, -50%) rotate(45deg);
+      }
+
+      .race-numbers {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11.5px;
+        color: var(--ink-muted);
+      }
+
+      /* Conditional Action Pill */
+      .action-pill {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 600;
+        background: var(--surface-slate);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--border-strong);
+        color: var(--accent-amber);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        animation: popIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .action-pill.show {
+        display: inline-flex;
+      }
+
+      .action-pill.danger {
+        border-color: rgba(220, 83, 66, 0.6);
+        color: #ff8c7d;
+      }
+
+      /* Interior Crew */
+      .acid-pips {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+
+      .acid-pip {
+        width: 12px;
+        height: 7px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        transition: background 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .acid-pip.filled {
+        background: var(--signal-acid);
+        box-shadow: 0 0 6px rgba(105, 201, 138, 0.45);
+      }
+
+      .interior-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 12px;
+      }
+
+      .interior-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--ink-muted);
+      }
+
+      .crew-status {
+        margin-top: 2px;
+        font-size: 11.5px;
+        color: var(--ink-muted);
+      }
+
+      .crew-status.stunned {
+        color: #ff8c7d;
+        font-weight: 600;
+      }
+
+      /* Bottom controls bar */
+      .hud-bottom {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: end;
+        gap: 12px;
+      }
+
+      #hud-minimap {
+        justify-self: center;
+        width: 390px;
+        max-width: 44vw;
+        padding: 8px 12px 10px;
+      }
+
+      .minimap-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 6px;
+        font-size: 11.5px;
+      }
+
+      .minimap-legend {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink-muted);
+      }
+
+      .legend-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-right: 3px;
+      }
+
+      #minimap-callout {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+
+      #minimap-canvas {
+        display: block;
+        width: 100%;
+        height: 78px;
+        border-radius: 6px;
+        border: 1px solid rgba(242, 230, 208, 0.12);
+        background: rgba(12, 9, 8, 0.72);
+      }
+
+      #hud-controls {
+        justify-self: start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+        align-items: center;
+        padding: 8px 12px;
+        font-size: 11.5px;
+        color: var(--ink-muted);
+        min-width: 0;
+      }
+
+      .ctrl-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        white-space: nowrap;
+      }
+
+      kbd {
+        font-family: var(--font-display);
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 1px 5px;
+        border-radius: 4px;
+        background: rgba(242, 230, 208, 0.1);
+        border: 1px solid rgba(242, 230, 208, 0.22);
+        color: var(--ink-sand);
+      }
+
+      #tune-btn {
+        justify-self: end;
+        position: relative;
+        pointer-events: auto;
+        background: var(--surface-slate);
+        backdrop-filter: blur(8px);
+        color: var(--ink-sand);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 8px 14px;
+        cursor: pointer;
+        font-family: var(--font-display);
+        font-size: 12.5px;
+        font-weight: 600;
+        z-index: 20;
+        transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      }
+
+      #tune-btn:hover {
+        border-color: var(--border-strong);
+        background: rgba(34, 27, 22, 0.92);
+      }
+
+      #tune-btn:focus-visible,
+      #restart-btn:focus-visible {
+        outline: 2px solid var(--accent-amber);
+        outline-offset: 2px;
+      }
+
+      /* Theme lil-gui to match basalt/amber cockpit */
+      .lil-gui.root {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        max-height: calc(100% - 72px);
+        overflow-y: auto;
+        z-index: 30;
+        --width: 316px;
+        --background-color: #191512;
+        --text-color: #f2e6d0;
+        --title-background-color: #241d18;
+        --title-text-color: #e59a38;
+        --widget-color: #2c241e;
+        --hover-color: #382e26;
+        --focus-color: #46392f;
+        --number-color: #4fb3e8;
+        --string-color: #69c98a;
+        --font-family: var(--font-body);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      }
+
+      /* End-of-run Overlay */
+      #overlay {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(12, 9, 8, 0.72);
+        backdrop-filter: blur(4px);
+        pointer-events: auto;
+        z-index: 40;
+      }
+
+      #overlay.show {
+        display: flex;
+      }
+
+      #overlay.show #overlay-card {
+        animation: overlayEnter 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      #overlay-card {
+        background: var(--surface-solid);
+        border: 1px solid var(--border-strong);
+        border-radius: 14px;
+        padding: 26px 30px;
+        text-align: center;
+        max-width: 400px;
+        width: calc(100% - 32px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      }
+
+      #overlay-card h1 {
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--ink-sand);
+      }
+
+      #overlay-card p {
+        color: var(--ink-muted);
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      #restart-btn {
+        pointer-events: auto;
+        background: var(--accent-amber);
+        color: var(--bg-basalt);
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-family: var(--font-display);
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 14px;
+        transition: transform 0.15s, filter 0.15s;
+      }
+
+      #restart-btn:hover {
+        filter: brightness(1.08);
+        transform: translateY(-1px);
+      }
+
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px) scale(0.94);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes overlayEnter {
+        from {
+          opacity: 0;
+          transform: translateY(14px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (max-width: 860px) {
+        .hud-top {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hud-center-col {
+          grid-column: 1 / -1;
+          order: -1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bar,
+        .action-pill,
+        #overlay.show #overlay-card {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <div id="hud">
-        <div class="row">
-          <div class="panel" id="hud-vitals"></div>
-          <div class="panel" id="hud-progress"></div>
-          <div class="panel" id="hud-interior"></div>
-        </div>
-        <div class="row">
-          <div class="panel muted" id="hud-controls">
-            A/D: turn head counterclockwise / clockwise · W: push · S: brake · Space: Boost · E: Ping Crew · 1/2/3: Heart Preset (Fast/Balanced/Bite) · R: Restart · F3 or `: Tuning popup
-          </div>
+      <div id="cockpit-bar">
+        <button class="cockpit-btn active" data-monitor="overview" type="button">Overview (Esc)</button>
+        <button class="cockpit-btn" data-monitor="drive" type="button">Drive</button>
+        <button class="cockpit-btn" data-monitor="interior" type="button">Interior</button>
+        <button class="cockpit-btn" data-monitor="cctv" type="button">Room CCTV</button>
+        <div id="cctv-rooms">
+          <span class="cockpit-sep"></span>
+          <button class="cockpit-btn active" data-room="mouth" type="button">1 Mouth</button>
+          <button class="cockpit-btn" data-room="acid" type="button">2 Acid Pit</button>
+          <button class="cockpit-btn" data-room="hull" type="button">3 Hull</button>
         </div>
       </div>
-      <button id="tune-btn" type="button">Tune (F3)</button>
+      <div id="hud">
+        <div class="hud-top">
+          <div class="panel" id="hud-vitals"></div>
+          <div class="hud-center-col">
+            <div class="panel" id="hud-progress"></div>
+            <div class="action-pill" id="hud-action"></div>
+          </div>
+          <div class="panel" id="hud-interior"></div>
+        </div>
+        <div class="hud-bottom">
+          <div class="panel" id="hud-controls">
+            <span class="ctrl-item"><kbd>A</kbd><kbd>D</kbd> Turn head</span>
+            <span class="ctrl-item"><kbd>W</kbd> Push</span>
+            <span class="ctrl-item"><kbd>S</kbd> Brake</span>
+            <span class="ctrl-item"><kbd>Space</kbd> Boost</span>
+            <span class="ctrl-item"><kbd>E</kbd> Ping crew</span>
+            <span class="ctrl-item"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> Heart</span>
+            <span class="ctrl-item"><kbd>R</kbd> Restart</span>
+          </div>
+          <div class="panel" id="hud-minimap">
+            <div class="minimap-head">
+              <div class="minimap-legend">
+                <span class="panel-title">Sonar +140 m</span>
+                <span><i class="legend-dot" style="background:#dc5342"></i>Hard</span>
+                <span><i class="legend-dot" style="background:#e59a38"></i>Break</span>
+                <span><i class="legend-dot" style="background:#69c98a"></i>Food</span>
+              </div>
+              <span id="minimap-callout">Clear ahead</span>
+            </div>
+            <canvas id="minimap-canvas"></canvas>
+          </div>
+          <button id="tune-btn" type="button">Tune (F3)</button>
+        </div>
+      </div>
       <div id="overlay">
         <div id="overlay-card">
           <h1 id="overlay-title"></h1>

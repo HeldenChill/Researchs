@@ -1,47 +1,75 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
+    "animation-basics": {
+      "source": "VideoZero/skills",
+      "commit": "4836b74bfb745d8ea73cbf55ae2378d1f62b910f",
+      "sourceType": "github",
+      "skillPath": "animation-basics/SKILL.md",
+      "computedHash": "c8b99eb9fc01a8d2064824b5a53591d1b98459b914ec7be57957936e7adcf735"
+    },
     "cavecrew": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/cavecrew/SKILL.md",
-      "computedHash": "326e2f95ddfa1d2aca1c33cbcc2c7352561e4e9a1d26b7c9e84f938590063c9f"
+      "computedHash": "e762bfe74f9b696a329f8eeae88d5661b1edd73fb2638d2e5c51c0ac3157d571"
     },
     "caveman": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman/SKILL.md",
-      "computedHash": "7935e83f9c6a8b7cbb5404d144b0d19e3ba93583f4388301c3dada37cd25adf8"
+      "computedHash": "e1c739abf9187d064075ee91f4d8c74daa97a3caa4a8630861b12acf0cd79e5a"
     },
     "caveman-commit": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman-commit/SKILL.md",
-      "computedHash": "1dd642480aee47934d6c202fd471e41922c7dc312e92a6e38059442b39bb0795"
+      "computedHash": "2d110903701ff0466c01ca4d632b98ae659780fdcfbfe44455ba970877742ae2"
     },
     "caveman-compress": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman-compress/SKILL.md",
-      "computedHash": "6a1722a4381909febe8c8b23e87e3396e3688c05c302f625143e194b447f5bd2"
+      "computedHash": "23829c9ba4915b1ffe94558722700ccb17181b12d8f5bd99c43e4bcb86ac273e"
     },
     "caveman-help": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman-help/SKILL.md",
-      "computedHash": "7a667161d6a0644fa175b0cb4a043b76108a603af70cf25f62afd788191a3fa8"
+      "computedHash": "a3f9613bd2cf4c8845bbafbf7d5ba8522c6253af0420e50d14d3a2cbc93aeb42"
     },
     "caveman-review": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman-review/SKILL.md",
-      "computedHash": "b9091dbc51de0f3710ea818fd4d638539f8c1784f8fda931eb159c44861e702e"
+      "computedHash": "12fb28584817d4073e99fb0cb003562e363348460d85d25c1b08068ec80cad37"
     },
     "caveman-stats": {
       "source": "JuliusBrussee/caveman",
       "sourceType": "github",
       "skillPath": "skills/caveman-stats/SKILL.md",
-      "computedHash": "331f720e2fa97b68cacdae44384878071e8cac6013479edea68f4c8eca308852"
+      "computedHash": "c10c9cd5e084c70bbf6e81e15c73bab94138f6f6b245fd1354574ded8452e357"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "83485963700bcf11d5bf78118facb301676b69d918fee2e45a95e7f1a2840f6c"
+    },
+    "motion-canvas": {
+      "source": "VideoZero/skills",
+      "commit": "4836b74bfb745d8ea73cbf55ae2378d1f62b910f",
+      "sourceType": "github",
+      "skillPath": "motion-canvas/SKILL.md",
+      "computedHash": "12238973a115645686bd0354625ab39aaf277749a3ae330d7837e438a09d86bf"
+    },
+    "motion-canvas-agent": {
+      "source": "VideoZero/skills",
+      "commit": "4836b74bfb745d8ea73cbf55ae2378d1f62b910f",
+      "sourceType": "github",
+      "skillPath": "motion-canvas-agent/SKILL.md",
+      "computedHash": "0679c6ad159dd07c2a8b769e58774e162a0ec449b9eb5b1de9f65e7ce792eace"
     }
   }
 }

@@ -108,13 +108,21 @@ describe('W pushes, S brakes', () => {
 
 describe('bottom of the map', () => {
   for (const [name, heading, into] of [['right', -1.2, RIGHT], ['left', Math.PI + 1.2, LEFT]] as const) {
-    it(`levels out smoothly when steering into the bottom heading ${name}`, () => {
-      const s = wormAt(-14, heading);
-      const worst = run(s, 0.3, input(1, into));
-      const later = run(s, 3, input(1, 0));
-      expect(Math.max(worst, later)).toBeLessThan(6);
+    it(`collides with the bottom instead of auto-turning when diving ${name}`, () => {
+      const s = wormAt(-20, heading);
+      s.worm.vx = Math.cos(heading) * 22;
+      s.worm.vy = Math.sin(heading) * 22;
+      s.worm.momentum = 80;
+      let hitBottom = false;
+      for (let t = 0; t < 60; t++) {
+        stepMotion(s, input(1, into), STEP);
+        if (s.worm.y === SIM_CONFIG.maxDepth || s.worm.impact.kind === 'hit') {
+          hitBottom = true;
+          break;
+        }
+      }
+      expect(hitBottom).toBe(true);
       expect(s.worm.y).toBeGreaterThanOrEqual(SIM_CONFIG.maxDepth);
-      expect(Math.abs(s.worm.vx)).toBeGreaterThan(8);
     });
   }
 });

@@ -115,6 +115,14 @@ export class WorldRenderer {
     }
   }
 
+  getRenderer(): THREE.WebGLRenderer {
+    return this.renderer;
+  }
+
+  getShake(): number {
+    return this.shake * VIEW_CONFIG.cameraShake;
+  }
+
   /** Snap visuals to a fresh state. Call on restart and teleport. */
   reset(state: SimState): void {
     this.syncEntities(state);
@@ -125,7 +133,7 @@ export class WorldRenderer {
     this.follow.set(cameraTargetX(state.worm.x, state.worm.heading), cameraTargetY(state.worm.y));
   }
 
-  render(state: SimState, pose: Pose, dt: number): void {
+  private updateScene(state: SimState, pose: Pose, dt: number): void {
     this.clock += dt;
     this.syncEntities(state);
     this.playImpact(state);
@@ -145,8 +153,20 @@ export class WorldRenderer {
     this.camera.position.y = this.follow.y + Math.cos(this.clock * 61) * amp;
     this.camera.lookAt(this.camera.position.x, this.camera.position.y - CAMERA_LOOK_DROP, 0);
     this.underground.update(this.camera.position.x, pose, this.clock);
+  }
 
+  render(state: SimState, pose: Pose, dt: number): void {
+    this.updateScene(state, pose, dt);
     this.renderer.render(this.scene, this.camera);
+  }
+
+  renderToTarget(state: SimState, pose: Pose, dt: number, target: THREE.WebGLRenderTarget): void {
+    this.camera.aspect = target.width / target.height;
+    this.camera.updateProjectionMatrix();
+    this.updateScene(state, pose, dt);
+    this.renderer.setRenderTarget(target);
+    this.renderer.render(this.scene, this.camera);
+    this.renderer.setRenderTarget(null);
   }
 
   private playImpact(state: SimState): void {

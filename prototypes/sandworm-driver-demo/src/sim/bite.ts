@@ -67,7 +67,9 @@ function block(w: WormState, nx: number, ny: number, depth: number, dt: number):
   if (inward <= 0) return;
 
   if (inward > C.softHitSpeed && w.recoilTimer === 0) {
-    const bounce = (1 + C.hitRestitution) * inward;
+    const momRatio = w.momentum / C.momentumMax;
+    const restitution = C.hitRestitution * (0.4 + momRatio * 0.6);
+    const bounce = (1 + restitution) * inward;
     w.vx += nx * bounce;
     w.vy += ny * bounce;
     w.recoilTimer = C.hitRecoilTime;
