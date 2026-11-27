@@ -12,6 +12,7 @@ Isolated case study. Do not import Anima, Forest_Bloom or psychology assumptions
 | [`../../../.cursor/plans/design/2026-11-12-endless-walker-prototype.md`](../../../.cursor/plans/design/2026-11-12-endless-walker-prototype.md) | Approved prototype design, with builder handoff (section 12) |
 | `../../../.cursor/plans/implement/2026-11-12-endless-walker-prototype.md` | Implementation plan for Gemini, awaiting approval. Brief: `2026-11-12-endless-walker-prototype-gemini-brief.md` |
 | `prototype/` | Prototype code. Run `python -m http.server 8765 --bind 127.0.0.1` inside it |
+| `G:\Projects\PaintedValley` (branch `game/endless-walker`) | The game design ported into Painted Valley (EW-33). Memory: `.cursor/memory/mem-endless-walker-adoption.md` there |
 
 ## Pitch
 
