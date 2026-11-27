@@ -207,25 +207,52 @@
 
 <section id="worktree">
   <h2>From logical space to work</h2>
-  <p class="lead">Read it left to right: the goal, a branch title, a task, and as the last leaf the part of our logical space theory that task builds or checks. Choose a node to see what it needs. Choose a branch title to fold it.</p>
+  <p class="lead">Read it top to bottom: the goal, a branch title, a task, and as the last leaf the part of our logical space theory that task builds or checks. Choose a task to see what it needs.</p>
   <p class="note">Progress as recorded on 26 November 2026: the numbers sheet and the rung 1 rules are built and their tests pass. The parameter sweep has not run, so no prediction has a result. The thresholds under G3 are not approved. Ticks stay in this browser. They do not change the plan file or approve anything.</p>
   <div class="work-bar">
     <div class="chips" role="group" aria-label="Which tasks to show">
+      <select id="work-graph-select" aria-label="Work graph">
+        <option value="crew1">1 Crew: Full Function</option>
+        <option value="worm">Worm: Full Function</option>
+        <option value="world">World: Full Function</option>
+        <option value="rung1">Rung 1: Intake Queue</option>
+      </select>
       <button type="button" data-view="all">Whole graph</button>
       <button type="button" data-view="mine">My branch</button>
       <button type="button" data-view="ready">Can start now</button>
     </div>
-    <button type="button" id="work-reset">Back to recorded progress</button>
+    <div class="work-actions">
+      <button type="button" id="work-frame">Frame all <span class="badge">F</span></button>
+      <button type="button" id="work-layout">Auto layout</button>
+      <button type="button" id="work-reset">Back to recorded progress</button>
+    </div>
   </div>
-  <p class="work-key">Light up one part of the theory. The number is how many leaves it has.</p>
+  <p class="work-key">Light up one part of the theory. The number is how many leaves it has. Drag canvas to pan, scroll to zoom, drag nodes to rearrange.</p>
   <div id="work-parts" class="chips parts" role="group" aria-label="Parts of the logical space theory"></div>
   <p id="work-part-note" class="note" aria-live="polite"></p>
   <p id="work-progress" class="work-progress" aria-live="polite"></p>
-  <div class="graph-wrap">
-    <svg id="work-graph" role="group" aria-label="Work graph from the goal through branches and tasks to theory leaves"></svg>
-    <p id="work-empty" class="note"></p>
+  <div class="work-editor">
+    <div class="work-vp" id="work-vp" tabindex="0" aria-label="Work graph canvas">
+      <div class="work-world" id="work-world">
+        <svg class="work-edges" id="work-edges" width="1" height="1"></svg>
+      </div>
+      <div class="work-legend">
+        <span><i style="background:var(--action)"></i>Can start</span>
+        <span><i style="background:var(--derived)"></i>Done</span>
+        <span><i style="background:var(--muted)"></i>Waiting</span>
+        <span><i style="background:var(--state)"></i>Needs first</span>
+      </div>
+      <div class="work-overlay">
+        <span class="work-zoom" id="work-zoom">100%</span>
+        <canvas class="work-minimap" id="work-mini" width="160" height="100"></canvas>
+      </div>
+      <p id="work-empty" class="note work-empty"></p>
+    </div>
+    <aside id="task-detail" class="work-panel" aria-label="Inspector">
+      <h2>Inspector</h2>
+      <div class="work-panel-body" id="task-detail-body"></div>
+    </aside>
   </div>
-  <aside id="task-detail" class="work-detail"></aside>
   <p class="note">Dashed orange arrows point from what the chosen task needs first; an arrow shows only when both nodes are on screen. Full spec and plan: <code>.cursor/plans/design/</code> and <code>.cursor/plans/implement/</code>, file <code>2026-11-26-sandworm-rung01.md</code>. If this page and the plan disagree, the plan wins.</p>
 </section>
 </main>
