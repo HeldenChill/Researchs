@@ -83,10 +83,10 @@ flowchart LR
 
 ### Task 0: Inspect checkout and baseline
 
-- [ ] **Step 1:** `git branch --show-current`. Expected: `feat/sandworm-prey` (owner creates it before handoff). If `main`, **STOP and report**.
-- [ ] **Step 2:** `git status --short`. Expected: empty, or only `.cursor/plans/` files. Else STOP.
-- [ ] **Step 3:** `npm test`. Expected: `Tests  65 passed (65)`. `npm run typecheck`. Expected: exit 0. Write actual counts here: `____`.
-- [ ] **Step 4:** Confirm these anchors exist (grep). If any missing, STOP:
+- [x] **Step 1:** `git branch --show-current`. Expected: `feat/sandworm-prey` (owner creates it before handoff). If `main`, **STOP and report**.
+- [x] **Step 2:** `git status --short`. Expected: empty, or only `.cursor/plans/` files. Else STOP.
+- [x] **Step 3:** `npm test`. Expected: `Tests  65 passed (65)`. `npm run typecheck`. Expected: exit 0. Write actual counts here: `65 passed (65), typecheck exit 0`.
+- [x] **Step 4:** Confirm these anchors exist (grep). If any missing, STOP:
   - `src/sim/tick.ts`: `  stepMotion(state, input, dt);`
   - `src/sim/motion.ts`: `const MAX_NOSE_RATE = 5;`
   - `src/sim/interior.ts`: `intr.acidSlots.push({ yieldHunger: 20, remaining: 2.6, total: 2.6 });`
@@ -113,7 +113,7 @@ Rules:
 - `pointAtArc`: walk from current head `(headX, headY)` to `pts[0]`, then along `pts`. Lerp inside the leg containing `dist`. If `dist` is beyond the end, return last sample. `dist <= 0` returns head.
 - `segmentPositions`: index `i` = `pointAtArc(t, headX, headY, i * spacing)`, `i = 0..count-1`.
 
-- [ ] **Step 1: Write failing tests** `test/trail.test.ts`:
+- [x] **Step 1: Write failing tests** `test/trail.test.ts`:
 ```ts
 import { describe, expect, it } from 'vitest';
 import { createStraightTrail, pointAtArc, pushTrail, segmentPositions } from '../src/sim/trail.ts';
@@ -153,10 +153,10 @@ describe('path trail', () => {
 });
 ```
 Expected-value reasoning: straight path, head at x=30, segments every 2.2 back → 30 − 2.2·i. Bend test: from head (10,−10) up 10 m to the corner (10,0), then 2 m more along −x → (8,0). Drop test: keep samples with arc ≤ maxLength + spacing = 20.5.
-- [ ] **Step 2:** `npx vitest run test/trail.test.ts`. Expected: FAIL, `Failed to resolve import "../src/sim/trail.ts"`.
-- [ ] **Step 3:** Implement `src/sim/trail.ts` per rules above.
-- [ ] **Step 4:** `npx vitest run test/trail.test.ts` → 4 passed. `npm test` → 69 passed. `npm run typecheck` → 0.
-- [ ] **Step 5:** `git add src/sim/trail.ts test/trail.test.ts` then `git commit -m "feat(sandworm): sim path trail for worm bodies"`.
+- [x] **Step 2:** `npx vitest run test/trail.test.ts`. Expected: FAIL, `Failed to resolve import "../src/sim/trail.ts"`.
+- [x] **Step 3:** Implement `src/sim/trail.ts` per rules above.
+- [x] **Step 4:** `npx vitest run test/trail.test.ts` → 4 passed. `npm test` → 69 passed. `npm run typecheck` → 0.
+- [x] **Step 5:** `git add src/sim/trail.ts test/trail.test.ts` then `git commit -m "feat(sandworm): sim path trail for worm bodies"`.
 
 ### Task 2: Types, config, tuning rows, initial state
 
@@ -228,7 +228,7 @@ State (`createInitialState`):
 
   Each: `vx 0, vy 0, heading 0, sections C.preySegments, trail createStraightTrail(x, y, 0, (C.preySegments + 1) * C.segmentSpacing, C.trailSampleSpacing), mode 'wander', modeTimer 0, latchSegment -1, latchTimer 0, latchMomentumStart 0, wigglePhase 0, alive true`.
 
-- [ ] **Step 1: Failing test** append to `test/state.test.ts`:
+- [x] **Step 1: Failing test** append to `test/state.test.ts`:
 ```ts
 it('spawns preyCount prey with full bodies and a player trail', () => {
   const s = createInitialState();
@@ -246,10 +246,10 @@ it('spawns preyCount prey with full bodies and a player trail', () => {
 });
 ```
 Reasoning: last prey segment index 4 sits 4 × 2.2 = 8.8 m back, so the trail must reach at least that.
-- [ ] **Step 2:** `npx vitest run test/state.test.ts`. Expected: FAIL (`s.prey` undefined).
-- [ ] **Step 3:** Implement types, config, settings rows, state.
-- [ ] **Step 4:** `npm test` → 70 passed (tuning test `has one row for every tunable value` must still pass). `npm run typecheck` → 0.
-- [ ] **Step 5:** Commit `feat(sandworm): prey state, config and tuning rows`.
+- [x] **Step 2:** `npx vitest run test/state.test.ts`. Expected: FAIL (`s.prey` undefined).
+- [x] **Step 3:** Implement types, config, settings rows, state.
+- [x] **Step 4:** `npm test` → 70 passed (tuning test `has one row for every tunable value` must still pass). `npm run typecheck` → 0.
+- [x] **Step 5:** Commit `feat(sandworm): prey state, config and tuning rows`.
 
 ### Task 3: Prey movement, lunge, bite, digest yield
 
@@ -307,7 +307,7 @@ with
   bitePrey(state);
 ```
 
-- [ ] **Step 1: Failing tests** `test/prey.test.ts`:
+- [x] **Step 1: Failing tests** `test/prey.test.ts`:
 ```ts
 import { afterEach, describe, expect, it } from 'vitest';
 import { createInitialState } from '../src/sim/state.ts';
@@ -409,10 +409,10 @@ Expected-value reasoning:
 - Nose-on: worm 6 m behind, facing the prey, so `angleOff = 0`, which is not more than 1.0. Never lunges.
 - Side-on: the prey is 6 m straight below a worm heading +x. `angleOff = π/2 ≈ 1.57 > 1.0` and `d = 6 ≤ 8`. The lunge rule is evaluated before the flee rule, so it lunges in one step.
 - Flee: worm 20 m away, which is more than lungeRadius and within fleeRadius, so the prey flees. Wander speed in step 1 gives about 0.17 m, then flee at 20 m/s for 59 steps gives about 19 m. The jitter is ±0.4 rad, so cos ≥ 0.92 and the forward gain is ≥ 17 m. The margin of 5 is safe.
-- [ ] **Step 2:** `npx vitest run test/prey.test.ts`. Expected: FAIL, `Failed to resolve import "../src/sim/prey.ts"`.
-- [ ] **Step 3:** Implement `prey.ts` (`stepPrey`, `bitePrey`, helpers), the `interior.ts` replace, and the `tick.ts` insert. Define `wrapAngle` and `clamp` locally in `prey.ts` (same one-liners as `motion.ts`).
-- [ ] **Step 4:** `npm test` → 78 passed. `npm run typecheck` → 0.
-- [ ] **Step 5:** Commit `feat(sandworm): prey chase, lunge, bite and digest yield`.
+- [x] **Step 2:** `npx vitest run test/prey.test.ts`. Expected: FAIL, `Failed to resolve import "../src/sim/prey.ts"`.
+- [x] **Step 3:** Implement `prey.ts` (`stepPrey`, `bitePrey`, helpers), the `interior.ts` replace, and the `tick.ts` insert. Define `wrapAngle` and `clamp` locally in `prey.ts` (same one-liners as `motion.ts`).
+- [x] **Step 4:** `npm test` → 78 passed. `npm run typecheck` → 0.
+- [x] **Step 5:** Commit `feat(sandworm): prey chase, lunge, bite and digest yield`.
 
 ### Task 4: Latch physics and escape
 
@@ -437,7 +437,7 @@ Expected-value reasoning:
 
 Shake 0.2 is below the interior stun threshold 0.35 (`interior.ts:9`), so a latch alone never stuns crew or breaches. Plan call: harm stays on steering and momentum, as the spec requires.
 
-- [ ] **Step 1: Failing tests** append to `test/prey.test.ts`:
+- [x] **Step 1: Failing tests** append to `test/prey.test.ts`:
 ```ts
 import { stepLatch } from '../src/sim/prey.ts';
 import { stepSim } from '../src/sim/tick.ts';
@@ -514,10 +514,10 @@ describe('latch', () => {
 ```
 Add `createStraightTrail` (from `../src/sim/trail.ts`) and `playerBodyPoints` to the imports.
 Expected-value reasoning: phase π/2 gives `f = 1.0`. Tail: L = 7/8 = 0.875, Δh = 1 × 0.875 × 1.2 × 0.05 = 0.0525, drain = 18 × (1 − 0.4375) × 0.05 = 0.50625. Head: L = 0.125, Δh = 0.0075, drain = 18 × 0.9375 × 0.05 = 0.84375. Cap: 1000 gain → raw 43.75 × 0.25, capped at 5 × 0.25 = 1.25. Brake: 80 − 54 = 26 ≥ 25 with throttle −1. Rock: segment 3 sits 3 × 2.2 behind the head, which is the rock centre, so distance 0 ≤ 3.4 + 1.0. Second prey: `latchedPreyId` is not null, so the latch start is skipped.
-- [ ] **Step 2:** `npx vitest run test/prey.test.ts`. Expected: FAIL, `stepLatch` is not exported.
-- [ ] **Step 3:** Implement.
-- [ ] **Step 4:** `npm test` → 85 passed. `npm run typecheck` → 0.
-- [ ] **Step 5:** Commit `feat(sandworm): prey latch wiggle and escape`.
+- [x] **Step 2:** `npx vitest run test/prey.test.ts`. Expected: FAIL, `stepLatch` is not exported.
+- [x] **Step 3:** Implement.
+- [x] **Step 4:** `npm test` → 85 passed. `npm run typecheck` → 0.
+- [x] **Step 5:** Commit `feat(sandworm): prey latch wiggle and escape`.
 
 ### Task 5: Render, sonar, HUD
 
@@ -536,7 +536,7 @@ export class PreyVisual {
 - `minimap.ts`: after the spawner loop (anchor `    // Uneaten food / spawners` block end), for each alive prey in view: polyline through `preyBodyPoints` mapped by `toX/toY`, stroke `#d9c38f` width 2, head dot radius 3 fill `#f2e6d0`.
 - `hud.ts`: in the action-text chain, as the **first** check: if `state.worm.latchedPreyId !== null`, `actionText = 'LATCHED, shake it off (brake hard or hit a rock)'`, `actionDanger = true`. Read the surrounding code (`hud.ts:102-112`) for the exact variable in scope. If the worm state is named differently there, use that name.
 
-- [ ] **Step 1: Failing test** append to `test/tick.test.ts`:
+- [x] **Step 1: Failing test** append to `test/tick.test.ts`:
 ```ts
 it('prey frozen after outcome', () => {
   const s = createInitialState();
@@ -546,20 +546,20 @@ it('prey frozen after outcome', () => {
   expect(s.prey[0]!.x).toBe(x0);
 });
 ```
-- [ ] **Step 2:** Run. This one passes already because of the early return in `stepSim`. Record `PASS (guard pre-exists)`. It is a regression pin, not TDD red.
-- [ ] **Step 3:** Implement render, minimap, HUD.
-- [ ] **Step 4:** `npm test` → 86 passed. `npm run typecheck` → 0. `npm run build` → ok.
-- [ ] **Step 5:** Commit `feat(sandworm): prey render, sonar and latch HUD`.
+- [x] **Step 2:** Run. This one passes already because of the early return in `stepSim`. Record `PASS (guard pre-exists)`. It is a regression pin, not TDD red.
+- [x] **Step 3:** Implement render, minimap, HUD.
+- [x] **Step 4:** `npm test` → 86 passed. `npm run typecheck` → 0. `npm run build` → ok.
+- [x] **Step 5:** Commit `feat(sandworm): prey render, sonar and latch HUD`.
 
 ### Task 6: Runtime checklist (owner or Claude observes; tests cannot tick)
 
 `npm run dev -- --port 5173`, open `http://localhost:5173/`, click the Drive monitor. Tick only when observed. Else write `PENDING: <reason>`. Gemini headless cannot see the screen: mark every item PENDING.
-- [ ] Prey visible as a pale sphere chain and flees when approached.
-- [ ] Nose-on chase lands a head bite: prey vanishes, mouth queue +5.
-- [ ] Body bite shortens the prey by 1 and it bolts.
-- [ ] Side-on pass gets latched: heading wobbles, momentum bleeds, HUD pill shows.
-- [ ] Hard brake or rock slam frees the latch.
-- [ ] F3 `Prey` folder values change behavior live.
+- [ ] Prey visible as a pale sphere chain and flees when approached. PENDING: headless, cannot observe screen
+- [ ] Nose-on chase lands a head bite: prey vanishes, mouth queue +5. PENDING: headless, cannot observe screen
+- [ ] Body bite shortens the prey by 1 and it bolts. PENDING: headless, cannot observe screen
+- [ ] Side-on pass gets latched: heading wobbles, momentum bleeds, HUD pill shows. PENDING: headless, cannot observe screen
+- [ ] Hard brake or rock slam frees the latch. PENDING: headless, cannot observe screen
+- [ ] F3 `Prey` folder values change behavior live. PENDING: headless, cannot observe screen
 
 ### Report format (Gemini returns this)
 
