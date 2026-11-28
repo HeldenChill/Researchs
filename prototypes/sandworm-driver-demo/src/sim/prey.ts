@@ -18,6 +18,22 @@ function wrapAngle(a: number): number {
 const LATCH_MIN_SEGMENT = 2;
 /** How far a latched prey's body swings either side of straight out, rad. */
 const LATCH_SWING = 0.6;
+/** Phase delay of the wiggle per link, rad: makes the thrash travel down the body. */
+const LATCH_WAVE_LAG = 0.7;
+/** How fast each latched link moves toward its pose, 1/s. Lower is floppier. */
+const LATCH_CHAIN_STIFF = 20;
+
+/** Hand the latched chain back to the trail so the body keeps its shape after letting go. */
+function releaseChain(p: PreyWorm): void {
+  const chain = p.latchBody;
+  if (chain.length === 0) return;
+  const tail = chain[chain.length - 1]!;
+  p.trail = createStraightTrail(tail.x, tail.y, p.heading, 0, SIM_CONFIG.trailSampleSpacing);
+  for (let k = chain.length - 2; k >= 0; k--) {
+    pushTrail(p.trail, chain[k]!.x, chain[k]!.y, SIM_CONFIG.trailSampleSpacing, (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing);
+  }
+  p.latchBody = [];
+}
 
 export function playerBodyPoints(state: SimState): Point[] {
   return segmentPositions(
@@ -30,6 +46,7 @@ export function playerBodyPoints(state: SimState): Point[] {
 }
 
 export function preyBodyPoints(p: PreyWorm): Point[] {
+  if (p.mode === 'latched' && p.latchBody.length > 0) return p.latchBody.slice(0, p.sections);
   return segmentPositions(
     p.trail,
     p.x,
@@ -156,6 +173,7 @@ export function stepPrey(state: SimState, dt: number): void {
         if (Math.hypot(p.x - pt.x, p.y - pt.y) <= latchReach) {
           p.mode = 'latched';
           p.latchSegment = j;
+          p.latchBody = [];
           // Side it hit from: sign of cross(our body tangent at j, prey offset).
           const prev = body[j - 1]!;
           const cross = (prev.x - pt.x) * (p.y - pt.y) - (prev.y - pt.y) * (p.x - pt.x);
@@ -206,6 +224,7 @@ export function bitePrey(state: SimState): void {
       p.modeTimer = SIM_CONFIG.preyBurstTime;
       recordImpact(w, 'gnaw', 0.5, p.x, p.y);
       if (w.latchedPreyId === p.id) {
+        releaseChain(p);
         w.latchedPreyId = null;
         p.latchSegment = -1;
       }
@@ -246,18 +265,31 @@ export function stepLatch(state: SimState, input: DriverInput, dt: number): void
   const seg = body[j] ?? { x: w.x, y: w.y };
   p.x = seg.x;
   p.y = seg.y;
-  // Lay the body straight out from ours on the side it bit, thrashing with the wiggle.
-  // Rebuilt each step: pushing the pinned head into its trail made the body follow our path and sink into us.
+  // Chain sticking out from our body on the side it bit. Each link eases toward a thrashing pose
+  // (wave travels down the body), then is held at segmentSpacing from the link before it.
+  // Not the trail: pushing the pinned head into its trail made the body follow our path and sink into us.
   const ahead = body[j - 1] ?? { x: w.x, y: w.y };
   const outward = Math.atan2(ahead.y - seg.y, ahead.x - seg.x) + p.latchSide * (Math.PI / 2);
-  p.heading = outward + Math.PI + LATCH_SWING * Math.sin(p.wigglePhase);
-  p.trail = createStraightTrail(
-    p.x,
-    p.y,
-    p.heading,
-    (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing,
-    SIM_CONFIG.trailSampleSpacing,
-  );
+  const sp = SIM_CONFIG.segmentSpacing;
+  if (p.latchBody.length !== p.sections) {
+    p.latchBody = Array.from({ length: p.sections }, (_, k) => ({
+      x: seg.x + Math.cos(outward) * sp * k,
+      y: seg.y + Math.sin(outward) * sp * k,
+    }));
+  }
+  const ease = 1 - Math.exp(-LATCH_CHAIN_STIFF * dt);
+  p.latchBody[0] = { x: seg.x, y: seg.y };
+  for (let k = 1; k < p.latchBody.length; k++) {
+    const prevLink = p.latchBody[k - 1]!;
+    const cur = p.latchBody[k]!;
+    const dir = outward + LATCH_SWING * Math.sin(p.wigglePhase - k * LATCH_WAVE_LAG);
+    const tx = cur.x + (prevLink.x + Math.cos(dir) * sp - cur.x) * ease;
+    const ty = cur.y + (prevLink.y + Math.sin(dir) * sp - cur.y) * ease;
+    const len = Math.hypot(tx - prevLink.x, ty - prevLink.y) || 1;
+    p.latchBody[k] = { x: prevLink.x + ((tx - prevLink.x) / len) * sp, y: prevLink.y + ((ty - prevLink.y) / len) * sp };
+  }
+  const link1 = p.latchBody[1] ?? { x: seg.x - Math.cos(outward), y: seg.y - Math.sin(outward) };
+  p.heading = Math.atan2(seg.y - link1.y, seg.x - link1.x); // head points into us
 
   p.latchTimer -= dt;
   const brakedOff =
@@ -269,6 +301,7 @@ export function stepLatch(state: SimState, input: DriverInput, dt: number): void
   );
 
   if (p.latchTimer <= 0 || brakedOff || rockHit) {
+    releaseChain(p);
     p.mode = 'recover';
     p.modeTimer = SIM_CONFIG.recoverTime;
     p.latchSegment = -1;

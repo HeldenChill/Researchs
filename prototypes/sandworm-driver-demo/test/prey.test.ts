@@ -258,3 +258,28 @@ describe('latched prey pose', () => {
     expect(Math.max(...angles) - Math.min(...angles)).toBeGreaterThan(0.6); // visible thrash
   });
 });
+
+describe('latched prey is a flexible chain', () => {
+  it('links keep spacing but bend like a chain, not a rigid stick', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    s.worm.x = 100; s.worm.y = -14; s.worm.heading = 0;
+    s.worm.trail = createStraightTrail(100, -14, 0, 20, SIM_CONFIG.trailSampleSpacing);
+    const seg3 = playerBodyPoints(s)[3]!;
+    p.x = seg3.x; p.y = seg3.y + 2; p.mode = 'lunge'; p.modeTimer = 1;
+    SIM_CONFIG.preySpeed = 0;
+    stepPrey(s, 1 / 60);
+    let maxBend = 0;
+    for (let i = 0; i < 60; i++) {
+      stepLatch(s, idle, 1 / 60);
+      const b = preyBodyPoints(p);
+      for (let k = 1; k < b.length; k++) {
+        expect(Math.hypot(b[k]!.x - b[k - 1]!.x, b[k]!.y - b[k - 1]!.y)).toBeCloseTo(SIM_CONFIG.segmentSpacing, 1);
+      }
+      const a1 = Math.atan2(b[1]!.y - b[0]!.y, b[1]!.x - b[0]!.x);
+      const a4 = Math.atan2(b[4]!.y - b[3]!.y, b[4]!.x - b[3]!.x);
+      maxBend = Math.max(maxBend, Math.abs(Math.atan2(Math.sin(a4 - a1), Math.cos(a4 - a1))));
+    }
+    expect(maxBend).toBeGreaterThan(0.3);
+  });
+});

@@ -1,4 +1,4 @@
-import type { PathTrail } from './trail.ts';
+import type { PathTrail, Point } from './trail.ts';
 
 export type HeartPreset = 'fast' | 'balanced' | 'bite';
 
@@ -52,6 +52,7 @@ export interface PreyWorm {
   wigglePhase: number;
   alive: boolean;
   aggressive: boolean;
+  latchBody: Point[];         // chain points while latched, head first; [] otherwise
   latchSide: number;          // +1 or -1: which side of our body it bit, so its body sticks out there        // hunts our body instead of only fleeing
 }
 
