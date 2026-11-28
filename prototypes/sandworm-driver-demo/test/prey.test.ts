@@ -161,3 +161,28 @@ describe('latch', () => {
     expect(s.worm.health).toBe(50);
   });
 });
+
+describe('latch segment floor', () => {
+  it('never latches at segment 1, where our head would auto-bite it', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    const seg1 = playerBodyPoints(s)[1]!;
+    SIM_CONFIG.preySpeed = 0;
+    p.mode = 'lunge'; p.modeTimer = 1; p.x = seg1.x; p.y = seg1.y;
+    stepPrey(s, 1 / 60);
+    expect(p.latchSegment).not.toBe(1);
+    bitePrey(s);
+    expect(p.alive).toBe(true); // latched prey sits beyond head bite reach
+  });
+
+  it('latches at segment 2 or later', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    const seg3 = playerBodyPoints(s)[3]!;
+    SIM_CONFIG.preySpeed = 0;
+    p.mode = 'lunge'; p.modeTimer = 1; p.x = seg3.x; p.y = seg3.y;
+    stepPrey(s, 1 / 60);
+    expect(p.mode).toBe('latched');
+    expect(p.latchSegment).toBeGreaterThanOrEqual(2);
+  });
+});

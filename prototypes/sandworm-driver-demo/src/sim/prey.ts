@@ -14,6 +14,9 @@ function wrapAngle(a: number): number {
   return a;
 }
 
+/** Segment 1 sits inside our head bite reach, so a prey latched there would be eaten next tick. */
+const LATCH_MIN_SEGMENT = 2;
+
 export function playerBodyPoints(state: SimState): Point[] {
   return segmentPositions(
     state.worm.trail,
@@ -89,9 +92,9 @@ export function stepPrey(state: SimState, dt: number): void {
       speed = 0.5 * SIM_CONFIG.preySpeed;
     } else if (p.mode === 'lunge') {
       const body = getBody();
-      let best = body[1] ?? body[0]!;
+      let best = body[LATCH_MIN_SEGMENT] ?? body[body.length - 1]!;
       let bestDist = Infinity;
-      for (let j = 1; j < body.length; j++) {
+      for (let j = LATCH_MIN_SEGMENT; j < body.length; j++) {
         const pt = body[j]!;
         const dj = Math.hypot(pt.x - p.x, pt.y - p.y);
         if (dj < bestDist) {
@@ -134,11 +137,13 @@ export function stepPrey(state: SimState, dt: number): void {
     if (p.mode === 'lunge' && w.latchedPreyId === null) {
       const body = getBody();
       const latchReach = SIM_CONFIG.preySegmentRadius + SIM_CONFIG.playerSegmentRadius;
-      for (let j = 1; j < body.length; j++) {
+      for (let j = LATCH_MIN_SEGMENT; j < body.length; j++) {
         const pt = body[j]!;
         if (Math.hypot(p.x - pt.x, p.y - pt.y) <= latchReach) {
           p.mode = 'latched';
           p.latchSegment = j;
+          p.x = pt.x; // snap onto our segment now, so bitePrey this tick sees it out of head reach
+          p.y = pt.y;
           p.latchTimer = SIM_CONFIG.latchDuration;
           p.latchMomentumStart = w.momentum;
           p.wigglePhase = 0;
