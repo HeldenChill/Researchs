@@ -1,7 +1,8 @@
 import { SIM_CONFIG } from './config.ts';
 import { recordImpact } from './impact.ts';
+import { MAX_NOSE_RATE } from './motion.ts';
 import { pushTrail, segmentPositions, type Point } from './trail.ts';
-import type { PreyWorm, SimState } from './types.ts';
+import type { DriverInput, PreyWorm, SimState } from './types.ts';
 
 function clamp(v: number, lo: number, hi: number): number {
   return v < lo ? lo : v > hi ? hi : v;
@@ -187,5 +188,71 @@ export function bitePrey(state: SimState): void {
       }
       return;
     }
+  }
+}
+
+export function stepLatch(state: SimState, input: DriverInput, dt: number): void {
+  const w = state.worm;
+  if (w.latchedPreyId === null) return;
+  const p = state.prey.find((item) => item.id === w.latchedPreyId && item.alive);
+  if (!p) {
+    w.latchedPreyId = null;
+    return;
+  }
+
+  const j = p.latchSegment;
+  const L = j / SIM_CONFIG.playerSegments;
+  const f = SIM_CONFIG.latchWiggleForce * Math.sin(p.wigglePhase);
+  p.wigglePhase += SIM_CONFIG.latchWiggleFreq * 2 * Math.PI * dt;
+
+  w.heading += clamp(
+    f * L * SIM_CONFIG.latchTurnGain * dt,
+    -MAX_NOSE_RATE * dt,
+    MAX_NOSE_RATE * dt,
+  );
+  w.momentum = Math.max(
+    0,
+    w.momentum - SIM_CONFIG.latchMomentumDrain * (1 - 0.5 * L) * dt,
+  );
+
+  if (Math.abs(f) >= 0.95 * SIM_CONFIG.latchWiggleForce && SIM_CONFIG.latchWiggleForce > 0) {
+    w.shakeImpulse = Math.max(w.shakeImpulse, 0.2);
+  }
+
+  const body = playerBodyPoints(state);
+  const seg = body[j] ?? { x: w.x, y: w.y };
+  p.x = seg.x;
+  p.y = seg.y;
+  pushTrail(
+    p.trail,
+    p.x,
+    p.y,
+    SIM_CONFIG.trailSampleSpacing,
+    (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing,
+  );
+
+  p.latchTimer -= dt;
+  const brakedOff =
+    input.throttle < 0 && p.latchMomentumStart - w.momentum >= SIM_CONFIG.shakeOffBrake;
+  const rockHit = state.obstacles.some(
+    (obs) =>
+      !obs.broken &&
+      Math.hypot(seg.x - obs.x, seg.y - obs.y) <= obs.radius + SIM_CONFIG.preySegmentRadius,
+  );
+
+  if (p.latchTimer <= 0 || brakedOff || rockHit) {
+    p.mode = 'recover';
+    p.modeTimer = SIM_CONFIG.recoverTime;
+    p.latchSegment = -1;
+    w.latchedPreyId = null;
+
+    const prev = body[j - 1] ?? seg;
+    const dx = seg.x - prev.x;
+    const dy = seg.y - prev.y;
+    const len = Math.hypot(dx, dy);
+    const nx = len === 0 ? 0 : -dy / len;
+    const ny = len === 0 ? 1 : dx / len;
+    p.x = seg.x + nx * 3;
+    p.y = clamp(seg.y + ny * 3, SIM_CONFIG.maxDepth, 0);
   }
 }

@@ -1,6 +1,6 @@
 import { HEART_PRESETS, SIM_CONFIG } from './config.ts';
 import { stepMotion } from './motion.ts';
-import { bitePrey, pushPlayerTrail, stepPrey } from './prey.ts';
+import { bitePrey, pushPlayerTrail, stepLatch, stepPrey } from './prey.ts';
 import { stepBite } from './bite.ts';
 import { stepInteriorAndBody } from './interior.ts';
 import type { DriverInput, MatchOutcome, SimState } from './types.ts';
@@ -23,6 +23,7 @@ export function stepSim(state: SimState, input: DriverInput, dt: number): void {
 
   state.time += dt;
   stepMotion(state, input, dt);
+  stepLatch(state, input, dt);
   pushPlayerTrail(state);
   stepPrey(state, dt);
   bitePrey(state);

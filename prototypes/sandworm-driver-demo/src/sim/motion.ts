@@ -4,7 +4,7 @@ import type { DriverInput, SimState, WormState } from './types.ts';
 
 const GNAW_BACKOUT_SPEED = 8;
 /** Fastest the drawn nose may swing, rad/s. */
-const MAX_NOSE_RATE = 5;
+export const MAX_NOSE_RATE = 5;
 
 const clamp = (v: number, lo: number, hi: number): number => Math.max(lo, Math.min(hi, v));
 const ease = (rate: number, dt: number): number => 1 - Math.exp(-rate * dt);
