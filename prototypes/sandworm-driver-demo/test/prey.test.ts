@@ -186,3 +186,51 @@ describe('latch segment floor', () => {
     expect(p.latchSegment).toBeGreaterThanOrEqual(2);
   });
 });
+
+describe('aggressive prey', () => {
+  function sideOn(aggressive: boolean, dy: number) {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    p.aggressive = aggressive;
+    s.worm.x = p.x; s.worm.y = p.y + dy; s.worm.heading = 0; // prey straight above or below: side-on
+    return { s, p };
+  }
+
+  it('stalks toward our body when side-on within stalkRadius', () => {
+    const { s, p } = sideOn(true, -15); // worm underground below prey
+    const nearBody = () => Math.min(...playerBodyPoints(s).slice(2).map((b) => Math.hypot(p.x - b.x, p.y - b.y)));
+    const d0 = nearBody();
+    stepPrey(s, 1 / 60);
+    expect(p.mode).toBe('stalk');
+    for (let i = 0; i < 60; i++) stepPrey(s, 1 / 60);
+    expect(['stalk', 'lunge', 'latched']).toContain(p.mode);
+    expect(nearBody()).toBeLessThan(d0 - 5);
+  });
+
+  it('flees instead when we face it', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    p.aggressive = true;
+    s.worm.x = p.x - 20; s.worm.y = p.y; s.worm.heading = 0; // nose on
+    stepPrey(s, 1 / 60);
+    expect(p.mode).toBe('flee');
+  });
+
+  it('timid prey never stalks', () => {
+    const { s, p } = sideOn(false, 20);
+    stepPrey(s, 1 / 60);
+    expect(p.mode).toBe('flee');
+  });
+
+  it('does not stalk while another prey is latched', () => {
+    const { s, p } = sideOn(true, 20);
+    s.worm.latchedPreyId = s.prey[1]!.id;
+    stepPrey(s, 1 / 60);
+    expect(p.mode).not.toBe('stalk');
+  });
+
+  it('every second prey spawns aggressive by default', () => {
+    const s = createInitialState();
+    expect(s.prey.slice(0, 4).map((q) => q.aggressive)).toEqual([true, false, true, false]);
+  });
+});

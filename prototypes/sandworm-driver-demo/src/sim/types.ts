@@ -33,7 +33,7 @@ export interface WormState {
   latchedPreyId: number | null;
 }
 
-export type PreyMode = 'wander' | 'flee' | 'lunge' | 'latched' | 'recover';
+export type PreyMode = 'wander' | 'flee' | 'stalk' | 'lunge' | 'latched' | 'recover';
 
 export interface PreyWorm {
   id: number;
@@ -51,6 +51,7 @@ export interface PreyWorm {
   latchMomentumStart: number;
   wigglePhase: number;
   alive: boolean;
+  aggressive: boolean;        // hunts our body instead of only fleeing
 }
 
 export type ImpactKind = 'none' | 'hit' | 'bump' | 'gnaw' | 'break' | 'land' | 'surface';

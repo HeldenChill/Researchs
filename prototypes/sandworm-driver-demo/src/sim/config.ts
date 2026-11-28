@@ -95,6 +95,10 @@ export const DEFAULT_SIM_CONFIG = Object.freeze({
   preyBurstTime: 1.0,
   preyCount: 4,
   preyYieldPerSection: 15,
+  preyAggressiveEvery: 2,
+  stalkRadius: 45,
+  stalkSpeedMult: 1.15,
+  stalkFearAngle: 0.45,
 });
 
 export type SimConfig = { -readonly [K in keyof typeof DEFAULT_SIM_CONFIG]: number };

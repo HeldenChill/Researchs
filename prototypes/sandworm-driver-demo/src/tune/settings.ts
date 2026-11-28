@@ -110,6 +110,10 @@ export const SETTINGS: SettingRow[] = [
   row('Prey', 'shakeOffBrake', 'Shake off brake', 1, 100, 1, 'Momentum drop while braking needed to shake off a latched prey.'),
   row('Prey', 'recoverTime', 'Prey recover time (s)', 0, 10, 0.1, 'Cooldown after escaping a latch before fleeing again.'),
   row('Prey', 'preyBurstTime', 'Prey burst time (s)', 0, 5, 0.1, 'Speed burst duration after losing a body section.'),
+  row('Prey', 'preyAggressiveEvery', 'Aggressive every Nth prey', 0, 6, 1, 'Every Nth prey hunts your body. 1 makes all aggressive, 0 none. Applies on restart.'),
+  row('Prey', 'stalkRadius', 'Stalk radius (m)', 5, 150, 1, 'Aggressive prey start hunting your body inside this distance when you are not facing them.'),
+  row('Prey', 'stalkSpeedMult', 'Stalk speed multiplier', 0.5, 3, 0.05, 'Stalking speed as a multiple of prey speed.'),
+  row('Prey', 'stalkFearAngle', 'Stalker fear cone (rad)', 0, 3.1, 0.05, 'A stalker gives up and flees only when your nose points within this angle of it.'),
   row('Prey', 'preyCount', 'Prey count', 0, 4, 1, 'Prey per 600 m block (repeats along the run). Only takes effect on restart.'),
   row('Prey', 'preyYieldPerSection', 'Prey hunger per section', 0, 50, 1, 'Hunger restored for each digested prey section.'),
 ];

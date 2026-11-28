@@ -66,13 +66,23 @@ export function stepPrey(state: SimState, dt: number): void {
     } else if (p.mode === 'lunge' && p.modeTimer === 0) {
       p.mode = 'flee';
     } else if (
-      (p.mode === 'wander' || p.mode === 'flee') &&
+      (p.mode === 'wander' || p.mode === 'flee' || p.mode === 'stalk') &&
       w.latchedPreyId === null &&
       d <= SIM_CONFIG.lungeRadius &&
       angleOff > SIM_CONFIG.lungeAngle
     ) {
       p.mode = 'lunge';
       p.modeTimer = SIM_CONFIG.lungeDuration;
+    } else if (
+      p.aggressive &&
+      (p.mode === 'wander' || p.mode === 'flee' || p.mode === 'stalk') &&
+      w.latchedPreyId === null &&
+      d <= SIM_CONFIG.stalkRadius &&
+      angleOff > SIM_CONFIG.stalkFearAngle
+    ) {
+      p.mode = 'stalk'; // not facing us: hunt our body
+    } else if (p.mode === 'stalk') {
+      p.mode = 'flee'; // we turned our mouth on it, someone else latched, or it lost us
     } else if (p.mode === 'wander' && d <= SIM_CONFIG.fleeRadius) {
       p.mode = 'flee';
     } else if (p.mode === 'flee' && d > SIM_CONFIG.fleeRadius * 1.5) {
@@ -90,11 +100,13 @@ export function stepPrey(state: SimState, dt: number): void {
     } else if (p.mode === 'recover') {
       targetH = p.heading;
       speed = 0.5 * SIM_CONFIG.preySpeed;
-    } else if (p.mode === 'lunge') {
+    } else if (p.mode === 'lunge' || p.mode === 'stalk') {
       const body = getBody();
-      let best = body[LATCH_MIN_SEGMENT] ?? body[body.length - 1]!;
+      // Stalkers aim at our tail so they come in from behind, away from our mouth.
+      // Lunges aim at the nearest segment we can latch onto.
+      let best = body[body.length - 1]!;
       let bestDist = Infinity;
-      for (let j = LATCH_MIN_SEGMENT; j < body.length; j++) {
+      for (let j = LATCH_MIN_SEGMENT; p.mode === 'lunge' && j < body.length; j++) {
         const pt = body[j]!;
         const dj = Math.hypot(pt.x - p.x, pt.y - p.y);
         if (dj < bestDist) {
@@ -103,7 +115,7 @@ export function stepPrey(state: SimState, dt: number): void {
         }
       }
       targetH = Math.atan2(best.y - p.y, best.x - p.x);
-      speed = 1.3 * SIM_CONFIG.preySpeed;
+      speed = (p.mode === 'stalk' ? SIM_CONFIG.stalkSpeedMult : 1.3) * SIM_CONFIG.preySpeed;
     }
 
     p.heading += clamp(

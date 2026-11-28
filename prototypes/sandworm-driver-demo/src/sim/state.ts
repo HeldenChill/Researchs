@@ -76,7 +76,7 @@ export function createInitialState(): SimState {
     },
     obstacles,
     spawners,
-    prey: tile(PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount)).map((row): PreyWorm => ({
+    prey: tile(PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount)).map((row, i): PreyWorm => ({
       id: row.id,
       x: row.x,
       y: row.y,
@@ -98,6 +98,7 @@ export function createInitialState(): SimState {
       latchMomentumStart: 0,
       wigglePhase: 0,
       alive: true,
+      aggressive: SIM_CONFIG.preyAggressiveEvery > 0 && i % SIM_CONFIG.preyAggressiveEvery === 0,
     })),
     interior: {
       mouthQueue: 0,
