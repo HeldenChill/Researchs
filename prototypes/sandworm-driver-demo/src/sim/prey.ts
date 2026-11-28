@@ -1,6 +1,7 @@
 import { SIM_CONFIG } from './config.ts';
 import { recordImpact } from './impact.ts';
-import { MAX_NOSE_RATE } from './motion.ts';
+import { MAX_NOSE_RATE, stepWormMotion } from './motion.ts';
+import { collideObstacles } from './bite.ts';
 import { createStraightTrail, pushTrail, segmentPositions, type Point } from './trail.ts';
 import type { DriverInput, PreyWorm, SimState } from './types.ts';
 
@@ -16,6 +17,8 @@ function wrapAngle(a: number): number {
 
 /** Segment 1 sits inside our head bite reach, so a prey latched there would be eaten next tick. */
 const LATCH_MIN_SEGMENT = 2;
+/** Prey AI steering: full key press when this many radians off target, or more. */
+const AI_STEER_GAIN = 3;
 /** How far a latched prey's body swings either side of straight out, rad. */
 const LATCH_SWING = 0.6;
 /** Phase delay of the wiggle per link, rad: makes the thrash travel down the body. */
@@ -108,17 +111,18 @@ export function stepPrey(state: SimState, dt: number): void {
       p.mode = 'wander';
     }
 
+    // AI picks a heading and keys, like a driver; shared physics does the rest (ground, air, rocks).
     let targetH = p.heading;
-    let speed = 0;
+    let throttle = 0;
+    let boost = false;
     if (p.mode === 'wander') {
-      targetH = 0.6 * Math.sin(state.time * 0.5 + p.id);
-      speed = 0.5 * SIM_CONFIG.preySpeed;
+      // Drift around home depth; jumps come from chasing and fleeing, not idling.
+      targetH = 0.3 * Math.sin(state.time * 0.5 + p.id) + clamp((p.homeY - p.y) * 0.15, -0.6, 0.6);
+      throttle = -1; // brake to idle slowly; free rolling would cruise near our speed
     } else if (p.mode === 'flee') {
       targetH = Math.atan2(p.y - w.y, p.x - w.x) + 0.4 * Math.sin(state.time * 1.7 + p.id);
-      speed = SIM_CONFIG.preySpeed * (p.modeTimer > 0 ? 1.4 : 1);
-    } else if (p.mode === 'recover') {
-      targetH = p.heading;
-      speed = 0.5 * SIM_CONFIG.preySpeed;
+      throttle = 1;
+      boost = p.modeTimer > 0; // burst after being bitten
     } else if (p.mode === 'lunge' || p.mode === 'stalk') {
       const body = getBody();
       // Stalkers aim at our tail so they come in from behind, away from our mouth.
@@ -134,28 +138,12 @@ export function stepPrey(state: SimState, dt: number): void {
         }
       }
       targetH = Math.atan2(best.y - p.y, best.x - p.x);
-      speed = (p.mode === 'stalk' ? SIM_CONFIG.stalkSpeedMult : 1.3) * SIM_CONFIG.preySpeed;
+      throttle = 1;
+      boost = true; // hunting: same boost we have
     }
-
-    p.heading += clamp(
-      wrapAngle(targetH - p.heading),
-      -SIM_CONFIG.preyTurnRate * dt,
-      SIM_CONFIG.preyTurnRate * dt,
-    );
-
-    p.vx = Math.cos(p.heading) * speed;
-    p.vy = Math.sin(p.heading) * speed;
-    p.x += p.vx * dt;
-    p.y += p.vy * dt;
-
-    if (p.y > 0) {
-      p.y = 0;
-      p.heading = -Math.abs(p.heading);
-    }
-    if (p.y < SIM_CONFIG.maxDepth) {
-      p.y = SIM_CONFIG.maxDepth;
-      p.heading = Math.abs(p.heading);
-    }
+    const steer = clamp(wrapAngle(targetH - p.heading) * AI_STEER_GAIN, -1, 1);
+    stepWormMotion(p, { throttle, steer, boost, ping: false, preset: null }, dt);
+    collideObstacles(p, state.obstacles, dt, SIM_CONFIG.preySegmentRadius);
 
     pushTrail(
       p.trail,

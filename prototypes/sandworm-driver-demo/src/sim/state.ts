@@ -1,6 +1,6 @@
 import { HEART_PRESETS, SIM_CONFIG } from './config.ts';
 import { createStraightTrail } from './trail.ts';
-import type { Obstacle, PreyWorm, SimState, Spawner } from './types.ts';
+import type { Obstacle, PreyWorm, SimState, Spawner, WormState } from './types.ts';
 
 const PREY_SPAWNS = [
   { id: 201, x: 120, y: -8 },
@@ -24,6 +24,36 @@ function tile<T extends { id: number; x: number }>(block: T[]): T[] {
   return out;
 }
 
+/** A fresh worm heading +x with a straight body behind it. Used for us and for prey. */
+function createWorm(x: number, y: number, speed: number, bodyLength: number): WormState {
+  return {
+    x,
+    y,
+    vx: speed,
+    vy: 0,
+    heading: 0,
+    speedScale: 1,
+    turnScale: 1,
+    health: SIM_CONFIG.maxHealth,
+    hunger: SIM_CONFIG.maxHunger,
+    momentum: 20,
+    heart: { ...HEART_PRESETS.balanced },
+    preset: 'balanced',
+    gnawTimer: 0,
+    activeObstacleId: null,
+    pingTimer: 0,
+    shakeImpulse: 0,
+    recoilTimer: 0,
+    blocked: false,
+    braking: false,
+    gnawProgress: 0,
+    gnawFrom: { x: 0, y: 0, nx: -1, ny: 0 },
+    impact: { seq: 0, kind: 'none', strength: 0, x: 0, y: 0 },
+    trail: createStraightTrail(x, y, 0, bodyLength, SIM_CONFIG.trailSampleSpacing),
+    latchedPreyId: null,
+  };
+}
+
 export function createInitialState(): SimState {
   const obstacles: Obstacle[] = tile([
     { id: 1, x: 95, y: 0, radius: 3.4, tier: 1, requiredBite: 2, broken: false },
@@ -44,53 +74,16 @@ export function createInitialState(): SimState {
 
   return {
     time: 0,
-    worm: {
-      x: 0,
-      y: -2,
-      vx: 14,
-      vy: 0,
-      heading: 0,
-      health: SIM_CONFIG.maxHealth,
-      hunger: SIM_CONFIG.maxHunger,
-      momentum: 20,
-      heart: { ...HEART_PRESETS.balanced },
-      preset: 'balanced',
-      gnawTimer: 0,
-      activeObstacleId: null,
-      pingTimer: 0,
-      shakeImpulse: 0,
-      recoilTimer: 0,
-      blocked: false,
-      braking: false,
-      gnawProgress: 0,
-      gnawFrom: { x: 0, y: 0, nx: -1, ny: 0 },
-      impact: { seq: 0, kind: 'none', strength: 0, x: 0, y: 0 },
-      trail: createStraightTrail(
-        0,
-        -2,
-        0,
-        (SIM_CONFIG.playerSegments + 1) * SIM_CONFIG.segmentSpacing,
-        SIM_CONFIG.trailSampleSpacing,
-      ),
-      latchedPreyId: null,
-    },
+    worm: createWorm(0, -2, 14, (SIM_CONFIG.playerSegments + 1) * SIM_CONFIG.segmentSpacing),
     obstacles,
     spawners,
     prey: tile(PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount)).map((row, i): PreyWorm => ({
+      ...createWorm(row.x, row.y, 10, (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing),
+      heart: { s: HEART_PRESETS.balanced.s, r: 0, b: 0 }, // bite 0: bounces off every rock
+      speedScale: SIM_CONFIG.preySpeedScale,
+      turnScale: SIM_CONFIG.preyTurnScale,
       id: row.id,
-      x: row.x,
-      y: row.y,
-      vx: 0,
-      vy: 0,
-      heading: 0,
       sections: SIM_CONFIG.preySegments,
-      trail: createStraightTrail(
-        row.x,
-        row.y,
-        0,
-        (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing,
-        SIM_CONFIG.trailSampleSpacing,
-      ),
       mode: 'wander',
       modeTimer: 0,
       latchSegment: -1,
@@ -100,6 +93,7 @@ export function createInitialState(): SimState {
       alive: true,
       latchBody: [],
       latchSide: 1,
+      homeY: row.y,
       aggressive: SIM_CONFIG.preyAggressiveEvery > 0 && i % SIM_CONFIG.preyAggressiveEvery === 0,
     })),
     interior: {

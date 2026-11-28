@@ -54,8 +54,9 @@ describe('prey bite', () => {
 
 describe('prey movement', () => {
   it('nose-on approach never lunges', () => {
-    SIM_CONFIG.preySpeed = 0;
+    SIM_CONFIG.preySpeedScale = 0;
     const s = createInitialState();
+    s.prey[0]!.vx = 0;
     const p = s.prey[0]!;
     s.worm.x = p.x - 6; s.worm.y = p.y; s.worm.heading = 0;
     for (let i = 0; i < 30; i++) {
@@ -167,7 +168,7 @@ describe('latch segment floor', () => {
     const s = createInitialState();
     const p = s.prey[0]!;
     const seg1 = playerBodyPoints(s)[1]!;
-    SIM_CONFIG.preySpeed = 0;
+    p.speedScale = 0; p.vx = 0; p.vy = 0; // hold prey still
     p.mode = 'lunge'; p.modeTimer = 1; p.x = seg1.x; p.y = seg1.y;
     stepPrey(s, 1 / 60);
     expect(p.latchSegment).not.toBe(1);
@@ -179,7 +180,7 @@ describe('latch segment floor', () => {
     const s = createInitialState();
     const p = s.prey[0]!;
     const seg3 = playerBodyPoints(s)[3]!;
-    SIM_CONFIG.preySpeed = 0;
+    p.speedScale = 0; p.vx = 0; p.vy = 0; // hold prey still
     p.mode = 'lunge'; p.modeTimer = 1; p.x = seg3.x; p.y = seg3.y;
     stepPrey(s, 1 / 60);
     expect(p.mode).toBe('latched');
@@ -243,7 +244,7 @@ describe('latched prey pose', () => {
     s.worm.trail = createStraightTrail(100, -14, 0, 20, SIM_CONFIG.trailSampleSpacing);
     const seg3 = playerBodyPoints(s)[3]!;
     p.x = seg3.x; p.y = seg3.y + 2; p.mode = 'lunge'; p.modeTimer = 1; // coming from above
-    SIM_CONFIG.preySpeed = 0;
+    p.speedScale = 0; p.vx = 0; p.vy = 0; // hold prey still
     stepPrey(s, 1 / 60);
     expect(p.mode).toBe('latched');
     const angles: number[] = [];
@@ -267,7 +268,7 @@ describe('latched prey is a flexible chain', () => {
     s.worm.trail = createStraightTrail(100, -14, 0, 20, SIM_CONFIG.trailSampleSpacing);
     const seg3 = playerBodyPoints(s)[3]!;
     p.x = seg3.x; p.y = seg3.y + 2; p.mode = 'lunge'; p.modeTimer = 1;
-    SIM_CONFIG.preySpeed = 0;
+    p.speedScale = 0; p.vx = 0; p.vy = 0; // hold prey still
     stepPrey(s, 1 / 60);
     let maxBend = 0;
     for (let i = 0; i < 60; i++) {
@@ -323,5 +324,60 @@ describe('latched prey head is buried in our body', () => {
     expect(p.sections).toBe(4);
     expect(s.interior.mouthQueue).toBe(1);
     expect(s.worm.latchedPreyId).toBeNull();
+  });
+});
+
+describe('prey uses our physics', () => {
+  it('can burst out of the sand into the air and fall back', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    p.y = -1.5; p.heading = 1.0; p.vx = Math.cos(1.0) * 22; p.vy = Math.sin(1.0) * 22;
+    p.mode = 'flee'; p.modeTimer = 0;
+    s.worm.x = p.x - 4; s.worm.y = p.y - 20; // below and behind: flee points up and away
+    let maxY = -Infinity; let landed = false;
+    for (let i = 0; i < 240; i++) {
+      stepPrey(s, 1 / 60);
+      maxY = Math.max(maxY, p.y);
+      if (maxY > 0 && p.y <= 0) landed = true;
+    }
+    expect(maxY).toBeGreaterThan(1);
+    expect(landed).toBe(true); // gravity pulls it back like us
+  });
+
+  it('bounces off a rock instead of passing through', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    const rock = s.obstacles[1]!; // tier 2 at x 215
+    p.x = rock.x - 8; p.y = rock.y; p.heading = 0; p.vx = 20; p.vy = 0;
+    p.mode = 'flee';
+    s.worm.x = p.x - 25; s.worm.y = p.y; // behind: flee straight at the rock
+    let maxX = -Infinity;
+    for (let i = 0; i < 90; i++) { stepPrey(s, 1 / 60); maxX = Math.max(maxX, p.x); }
+    expect(rock.broken).toBe(false);
+    expect(maxX).toBeLessThan(rock.x - rock.radius + 0.6); // never inside the rock past push-out slack
+  });
+
+  it('steers within its own turn rate, not instantly', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    p.mode = 'flee'; p.heading = 0; p.vx = 15;
+    s.worm.x = p.x + 10; s.worm.y = p.y; // we are ahead: flee wants to turn round
+    stepPrey(s, 1 / 60);
+    const maxTurn = SIM_CONFIG.turnRate * SIM_CONFIG.preyTurnScale / 60;
+    expect(Math.abs(Math.atan2(p.vy, p.vx))).toBeLessThanOrEqual(maxTurn + 1e-9);
+  });
+});
+
+describe('wandering prey', () => {
+  it('cruises near its home depth instead of breaching all the time', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!; // home depth -8
+    s.worm.x = p.x - 200; // far away: stays in wander
+    let maxY = -Infinity;
+    for (let i = 0; i < 600; i++) { stepPrey(s, 1 / 60); maxY = Math.max(maxY, p.y); }
+    expect(p.mode).toBe('wander');
+    expect(Math.hypot(p.vx, p.vy)).toBeLessThan(9); // idles slowly so we can catch up
+    expect(maxY).toBeLessThan(-2);
+    expect(Math.abs(p.y - -8)).toBeLessThan(4);
   });
 });

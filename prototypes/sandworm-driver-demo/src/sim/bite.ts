@@ -19,8 +19,13 @@ export function stepBite(state: SimState, dt: number): void {
     }
   }
 
+  collideObstacles(w, state.obstacles, dt, C.headRadius);
+}
+
+/** Rock contact for any worm: smash, gnaw or bounce by its bite points. Prey have bite 0, so they always bounce. */
+export function collideObstacles(w: WormState, obstacles: Obstacle[], dt: number, radius: number): void {
   // Obstacles: Bite gate (O4)
-  for (const obs of state.obstacles) {
+  for (const obs of obstacles) {
     if (obs.broken) continue;
     if (w.activeObstacleId === obs.id) {
       if (w.heart.b >= obs.requiredBite) {
@@ -34,7 +39,7 @@ export function stepBite(state: SimState, dt: number): void {
     }
 
     const dist = Math.hypot(w.x - obs.x, w.y - obs.y);
-    const reach = obs.radius + C.headRadius;
+    const reach = obs.radius + radius;
     if (dist > reach) continue;
     // Normal points from the rock to the worm.
     const nx = dist > 1e-6 ? (w.x - obs.x) / dist : -1;

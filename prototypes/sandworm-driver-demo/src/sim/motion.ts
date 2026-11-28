@@ -11,7 +11,11 @@ const ease = (rate: number, dt: number): number => 1 - Math.exp(-rate * dt);
 const wrapAngle = (a: number): number => Math.atan2(Math.sin(a), Math.cos(a));
 
 export function stepMotion(state: SimState, input: DriverInput, dt: number): void {
-  const w = state.worm;
+  stepWormMotion(state.worm, input, dt);
+}
+
+/** Movement for any worm, player or prey: same rules, scaled by the worm's speedScale and turnScale. */
+export function stepWormMotion(w: WormState, input: DriverInput, dt: number): void {
   const prevY = w.y;
   w.shakeImpulse = 0;
   w.braking = input.throttle < 0;
@@ -69,7 +73,7 @@ export function stepMotion(state: SimState, input: DriverInput, dt: number): voi
 function stepUnderground(w: WormState, input: DriverInput, dt: number): void {
   const boosting = input.boost && w.hunger > 5;
   const fill = w.momentum / C.momentumMax;
-  const top = (C.baseSpeed + w.heart.s * C.speedPerPoint) * C.topSpeedScale;
+  const top = (C.baseSpeed + w.heart.s * C.speedPerPoint) * C.topSpeedScale * w.speedScale;
   const cruise = top * C.cruiseFraction;
   let target = input.throttle < 0 ? cruise * C.brakeSpeedFraction : cruise + (top - cruise) * fill;
   if (boosting) target *= C.boostMultiplier;
@@ -85,7 +89,7 @@ function stepUnderground(w: WormState, input: DriverInput, dt: number): void {
   // Part of gravity still acts in loose sand: faster downhill, slower uphill.
   speed = Math.max(0, speed - Math.sin(angle) * C.gravity * C.slopeGravity * dt);
 
-  const maxTurn = C.turnRate * (1 - C.turnHeaviness * fill) * dt;
+  const maxTurn = C.turnRate * w.turnScale * (1 - C.turnHeaviness * fill) * dt;
   // Steering rotates the head, and the travel direction turns with it. No keys keeps both.
   angle = wrapAngle(angle + input.steer * maxTurn);
 
@@ -113,7 +117,7 @@ function addDigMomentum(w: WormState, dropped: number): void {
 function stepAir(w: WormState, input: DriverInput, dt: number): void {
   // Steering rotates the flight direction. Push and brake act along it.
   const speed = Math.max(0, Math.hypot(w.vx, w.vy) + input.throttle * C.airThrottle * dt);
-  const angle = Math.atan2(w.vy, w.vx) + input.steer * C.airTurnRate * dt;
+  const angle = Math.atan2(w.vy, w.vx) + input.steer * C.airTurnRate * w.turnScale * dt;
   w.vx = Math.cos(angle) * speed;
   w.vy = Math.sin(angle) * speed - C.gravity * dt;
   w.vx -= w.vx * C.airDrag * dt;

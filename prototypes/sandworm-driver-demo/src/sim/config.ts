@@ -79,8 +79,8 @@ export const DEFAULT_SIM_CONFIG = Object.freeze({
   playerSegmentRadius: 1.8,
   preySegments: 5,
   preySegmentRadius: 1.0,
-  preySpeed: 20,
-  preyTurnRate: 3.6,
+  preySpeedScale: 0.85,
+  preyTurnScale: 1.4,
   fleeRadius: 30,
   lungeRadius: 8,
   lungeAngle: 1.0,
@@ -97,7 +97,6 @@ export const DEFAULT_SIM_CONFIG = Object.freeze({
   preyYieldPerSection: 15,
   preyAggressiveEvery: 2,
   stalkRadius: 45,
-  stalkSpeedMult: 1.15,
   stalkFearAngle: 0.45,
 });
 

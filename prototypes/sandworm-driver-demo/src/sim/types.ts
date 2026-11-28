@@ -16,6 +16,8 @@ export interface WormState {
   heading: number; // radians, 0 = +x
   health: number;
   hunger: number;
+  speedScale: number; // 1 for us; prey is smaller and a bit slower
+  turnScale: number; // 1 for us; prey turns sharper
   momentum: number; // stored, 0..momentumMax. Sets speed and break power
   heart: HeartAllocation;
   preset: HeartPreset;
@@ -35,15 +37,10 @@ export interface WormState {
 
 export type PreyMode = 'wander' | 'flee' | 'stalk' | 'lunge' | 'latched' | 'recover';
 
-export interface PreyWorm {
+/** A prey is a full worm: same movement and rock rules as ours, driven by AI input. */
+export interface PreyWorm extends WormState {
   id: number;
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  heading: number;
   sections: number;          // 1..preySegments, segment 0 = head
-  trail: PathTrail;
   mode: PreyMode;
   modeTimer: number;         // seconds left in lunge, recover or flee burst
   latchSegment: number;      // player segment index while latched, else -1
@@ -51,9 +48,10 @@ export interface PreyWorm {
   latchMomentumStart: number;
   wigglePhase: number;
   alive: boolean;
-  aggressive: boolean;
+  homeY: number;              // cruising depth while wandering
+  aggressive: boolean;        // hunts our body instead of only fleeing
   latchBody: Point[];         // chain points while latched, head first; [] otherwise
-  latchSide: number;          // +1 or -1: which side of our body it bit, so its body sticks out there        // hunts our body instead of only fleeing
+  latchSide: number;          // +1 or -1: which side of our body it bit, so its body sticks out there
 }
 
 export type ImpactKind = 'none' | 'hit' | 'bump' | 'gnaw' | 'break' | 'land' | 'surface';
