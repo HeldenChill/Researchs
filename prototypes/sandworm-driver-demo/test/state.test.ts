@@ -19,7 +19,7 @@ describe('createInitialState', () => {
 
   it('spawns preyCount prey with full bodies and a player trail', () => {
     const s = createInitialState();
-    expect(s.prey.map((p) => p.id)).toEqual([201, 202, 203, 204]);
+    expect(s.prey.slice(0, 4).map((p) => p.id)).toEqual([201, 202, 203, 204]); // first 600 m block; level repeats it
     for (const p of s.prey) {
       expect(p.sections).toBe(5);
       expect(p.alive).toBe(true);

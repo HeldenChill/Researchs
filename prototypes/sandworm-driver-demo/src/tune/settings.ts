@@ -72,8 +72,12 @@ export const SETTINGS: SettingRow[] = [
 
   row('Visual feel', 'undergroundGlow', 'Worm light underground', 0, 3, 0.1, 'Strength of the warm light on the ground around the worm head. 0 turns it off.'),
 
-  row('Run', 'goalX', 'Goal distance (m)', 100, 3000, 50, 'Distance to the safe pocket. The beacon moves at once.'),
-  row('Run', 'apocalypseSpeed', 'Storm speed', 0, 50, 0.5, 'How fast the storm wall advances.'),
+  row('Run', 'goalX', 'Goal distance (m)', 100, 12000, 100, 'Distance to the safe pocket. Level content repeats every 600 m up to it; applies on restart.'),
+  row('Run', 'apocalypseSpeedStart', 'Storm speed, phase 1', 0, 50, 0.5, 'Storm speed while it is in the first part of the run.'),
+  row('Run', 'apocalypseSpeedMid', 'Storm speed, phase 2', 0, 50, 0.5, 'Storm speed in the middle part of the run.'),
+  row('Run', 'apocalypseSpeedEnd', 'Storm speed, phase 3', 0, 50, 0.5, 'Storm speed in the last part, near the goal.'),
+  row('Run', 'apocalypsePhase2At', 'Phase 2 starts at', 0, 1, 0.05, 'Share of the goal distance the storm must reach before phase 2.'),
+  row('Run', 'apocalypsePhase3At', 'Phase 3 starts at', 0, 1, 0.05, 'Share of the goal distance the storm must reach before phase 3.'),
   row('Run', 'apocalypseStartX', 'Storm start (m)', -300, -10, 5, 'Where the storm wall starts. Applies on restart.'),
 
   row('Body and crew', 'maxHealth', 'Max health', 10, 500, 10, 'Full health. Applies fully on restart.'),
@@ -106,7 +110,7 @@ export const SETTINGS: SettingRow[] = [
   row('Prey', 'shakeOffBrake', 'Shake off brake', 1, 100, 1, 'Momentum drop while braking needed to shake off a latched prey.'),
   row('Prey', 'recoverTime', 'Prey recover time (s)', 0, 10, 0.1, 'Cooldown after escaping a latch before fleeing again.'),
   row('Prey', 'preyBurstTime', 'Prey burst time (s)', 0, 5, 0.1, 'Speed burst duration after losing a body section.'),
-  row('Prey', 'preyCount', 'Prey count', 0, 4, 1, 'Number of prey spawned ahead. Only takes effect on restart.'),
+  row('Prey', 'preyCount', 'Prey count', 0, 4, 1, 'Prey per 600 m block (repeats along the run). Only takes effect on restart.'),
   row('Prey', 'preyYieldPerSection', 'Prey hunger per section', 0, 50, 1, 'Hunger restored for each digested prey section.'),
 ];
 

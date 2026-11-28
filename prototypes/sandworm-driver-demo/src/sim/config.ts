@@ -2,12 +2,17 @@ import type { HeartAllocation, HeartPreset } from './types.ts';
 
 export const DEFAULT_SIM_CONFIG = Object.freeze({
   // run
-  goalX: 600,
+  goalX: 6000,
   maxHealth: 100,
   maxHunger: 100,
   heartPoints: 6,
   apocalypseStartX: -65,
-  apocalypseSpeed: 13.5,
+  // storm phases, by storm position as a share of goalX
+  apocalypseSpeedStart: 9,
+  apocalypseSpeedMid: 13.5,
+  apocalypseSpeedEnd: 19,
+  apocalypsePhase2At: 0.4,
+  apocalypsePhase3At: 0.75,
 
   // speed
   baseSpeed: 18,

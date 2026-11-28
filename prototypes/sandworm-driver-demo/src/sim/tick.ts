@@ -5,6 +5,14 @@ import { stepBite } from './bite.ts';
 import { stepInteriorAndBody } from './interior.ts';
 import type { DriverInput, MatchOutcome, SimState } from './types.ts';
 
+/** Storm speed in three phases, chosen by how far the storm itself has advanced toward the goal. */
+export function apocalypseSpeedAt(stormX: number): number {
+  const f = stormX / SIM_CONFIG.goalX;
+  if (f >= SIM_CONFIG.apocalypsePhase3At) return SIM_CONFIG.apocalypseSpeedEnd;
+  if (f >= SIM_CONFIG.apocalypsePhase2At) return SIM_CONFIG.apocalypseSpeedMid;
+  return SIM_CONFIG.apocalypseSpeedStart;
+}
+
 export function checkOutcome(state: SimState): MatchOutcome {
   if (state.worm.x >= SIM_CONFIG.goalX) return 'win';
   if (state.worm.health <= 0) return 'loss_health';
@@ -31,7 +39,7 @@ export function stepSim(state: SimState, input: DriverInput, dt: number): void {
   stepInteriorAndBody(state, input, dt);
 
   // O25 Apocalypse wall advances steadily
-  state.apocalypseX += SIM_CONFIG.apocalypseSpeed * dt;
+  state.apocalypseX += apocalypseSpeedAt(state.apocalypseX) * dt;
 
   state.outcome = checkOutcome(state);
 }

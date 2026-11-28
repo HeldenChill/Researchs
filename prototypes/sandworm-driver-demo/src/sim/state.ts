@@ -9,15 +9,30 @@ const PREY_SPAWNS = [
   { id: 204, x: 500, y: -14 },
 ];
 
+/** Length of the hand-made content block; it repeats until goalX. */
+const BLOCK_LENGTH = 600;
+
+/** Copy a block's entities every BLOCK_LENGTH metres up to goalX, with unique ids. */
+function tile<T extends { id: number; x: number }>(block: T[]): T[] {
+  const out: T[] = [];
+  for (let k = 0; k * BLOCK_LENGTH < SIM_CONFIG.goalX; k++) {
+    for (const e of block) {
+      const x = e.x + k * BLOCK_LENGTH;
+      if (x < SIM_CONFIG.goalX) out.push({ ...e, id: e.id + k * 1000, x });
+    }
+  }
+  return out;
+}
+
 export function createInitialState(): SimState {
-  const obstacles: Obstacle[] = [
+  const obstacles: Obstacle[] = tile([
     { id: 1, x: 95, y: 0, radius: 3.4, tier: 1, requiredBite: 2, broken: false },
     { id: 2, x: 215, y: -1, radius: 3.8, tier: 2, requiredBite: 4, broken: false },
     { id: 3, x: 345, y: 0, radius: 3.4, tier: 1, requiredBite: 2, broken: false },
     { id: 4, x: 470, y: -1, radius: 4.0, tier: 2, requiredBite: 4, broken: false },
-  ];
+  ]);
 
-  const spawners: Spawner[] = [
+  const spawners: Spawner[] = tile([
     { id: 101, x: 45, y: 1.5, radius: 2.2, kind: 'small_meat', yieldHunger: 16, digestTime: 2.2, eaten: false },
     { id: 102, x: 140, y: -4.5, radius: 2.6, kind: 'large_meat', yieldHunger: 28, digestTime: 3.6, eaten: false },
     { id: 103, x: 185, y: 2.0, radius: 2.2, kind: 'small_meat', yieldHunger: 16, digestTime: 2.2, eaten: false },
@@ -25,7 +40,7 @@ export function createInitialState(): SimState {
     { id: 105, x: 310, y: 2.5, radius: 2.6, kind: 'large_meat', yieldHunger: 28, digestTime: 3.6, eaten: false },
     { id: 106, x: 410, y: -4.0, radius: 2.6, kind: 'large_meat', yieldHunger: 28, digestTime: 3.6, eaten: false },
     { id: 107, x: 520, y: 1.5, radius: 2.2, kind: 'small_meat', yieldHunger: 16, digestTime: 2.2, eaten: false },
-  ];
+  ]);
 
   return {
     time: 0,
@@ -61,7 +76,7 @@ export function createInitialState(): SimState {
     },
     obstacles,
     spawners,
-    prey: PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount).map((row): PreyWorm => ({
+    prey: tile(PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount)).map((row): PreyWorm => ({
       id: row.id,
       x: row.x,
       y: row.y,
