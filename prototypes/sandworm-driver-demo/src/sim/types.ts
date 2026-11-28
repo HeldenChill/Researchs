@@ -51,7 +51,8 @@ export interface PreyWorm {
   latchMomentumStart: number;
   wigglePhase: number;
   alive: boolean;
-  aggressive: boolean;        // hunts our body instead of only fleeing
+  aggressive: boolean;
+  latchSide: number;          // +1 or -1: which side of our body it bit, so its body sticks out there        // hunts our body instead of only fleeing
 }
 
 export type ImpactKind = 'none' | 'hit' | 'bump' | 'gnaw' | 'break' | 'land' | 'surface';

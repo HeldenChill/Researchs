@@ -98,6 +98,7 @@ export function createInitialState(): SimState {
       latchMomentumStart: 0,
       wigglePhase: 0,
       alive: true,
+      latchSide: 1,
       aggressive: SIM_CONFIG.preyAggressiveEvery > 0 && i % SIM_CONFIG.preyAggressiveEvery === 0,
     })),
     interior: {

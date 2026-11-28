@@ -1,7 +1,7 @@
 import { SIM_CONFIG } from './config.ts';
 import { recordImpact } from './impact.ts';
 import { MAX_NOSE_RATE } from './motion.ts';
-import { pushTrail, segmentPositions, type Point } from './trail.ts';
+import { createStraightTrail, pushTrail, segmentPositions, type Point } from './trail.ts';
 import type { DriverInput, PreyWorm, SimState } from './types.ts';
 
 function clamp(v: number, lo: number, hi: number): number {
@@ -16,6 +16,8 @@ function wrapAngle(a: number): number {
 
 /** Segment 1 sits inside our head bite reach, so a prey latched there would be eaten next tick. */
 const LATCH_MIN_SEGMENT = 2;
+/** How far a latched prey's body swings either side of straight out, rad. */
+const LATCH_SWING = 0.6;
 
 export function playerBodyPoints(state: SimState): Point[] {
   return segmentPositions(
@@ -154,6 +156,10 @@ export function stepPrey(state: SimState, dt: number): void {
         if (Math.hypot(p.x - pt.x, p.y - pt.y) <= latchReach) {
           p.mode = 'latched';
           p.latchSegment = j;
+          // Side it hit from: sign of cross(our body tangent at j, prey offset).
+          const prev = body[j - 1]!;
+          const cross = (prev.x - pt.x) * (p.y - pt.y) - (prev.y - pt.y) * (p.x - pt.x);
+          p.latchSide = cross < 0 ? -1 : 1;
           p.x = pt.x; // snap onto our segment now, so bitePrey this tick sees it out of head reach
           p.y = pt.y;
           p.latchTimer = SIM_CONFIG.latchDuration;
@@ -240,12 +246,17 @@ export function stepLatch(state: SimState, input: DriverInput, dt: number): void
   const seg = body[j] ?? { x: w.x, y: w.y };
   p.x = seg.x;
   p.y = seg.y;
-  pushTrail(
-    p.trail,
+  // Lay the body straight out from ours on the side it bit, thrashing with the wiggle.
+  // Rebuilt each step: pushing the pinned head into its trail made the body follow our path and sink into us.
+  const ahead = body[j - 1] ?? { x: w.x, y: w.y };
+  const outward = Math.atan2(ahead.y - seg.y, ahead.x - seg.x) + p.latchSide * (Math.PI / 2);
+  p.heading = outward + Math.PI + LATCH_SWING * Math.sin(p.wigglePhase);
+  p.trail = createStraightTrail(
     p.x,
     p.y,
-    SIM_CONFIG.trailSampleSpacing,
+    p.heading,
     (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing,
+    SIM_CONFIG.trailSampleSpacing,
   );
 
   p.latchTimer -= dt;

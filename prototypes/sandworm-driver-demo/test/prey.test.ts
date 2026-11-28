@@ -234,3 +234,27 @@ describe('aggressive prey', () => {
     expect(s.prey.slice(0, 4).map((q) => q.aggressive)).toEqual([true, false, true, false]);
   });
 });
+
+describe('latched prey pose', () => {
+  it('body sticks out from our body instead of lying on it, and thrashes', () => {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    s.worm.x = 100; s.worm.y = -14; s.worm.heading = 0;
+    s.worm.trail = createStraightTrail(100, -14, 0, 20, SIM_CONFIG.trailSampleSpacing);
+    const seg3 = playerBodyPoints(s)[3]!;
+    p.x = seg3.x; p.y = seg3.y + 2; p.mode = 'lunge'; p.modeTimer = 1; // coming from above
+    SIM_CONFIG.preySpeed = 0;
+    stepPrey(s, 1 / 60);
+    expect(p.mode).toBe('latched');
+    const angles: number[] = [];
+    for (let i = 0; i < 30; i++) {
+      stepLatch(s, idle, 1 / 60);
+      const tail = preyBodyPoints(p)[4]!;
+      const gap = Math.min(...playerBodyPoints(s).map((b) => Math.hypot(tail.x - b.x, tail.y - b.y)));
+      expect(gap).toBeGreaterThan(5);           // tail stands well clear of our body
+      expect(tail.y).toBeGreaterThan(p.y);      // on the side it came from (above)
+      angles.push(p.heading);
+    }
+    expect(Math.max(...angles) - Math.min(...angles)).toBeGreaterThan(0.6); // visible thrash
+  });
+});
