@@ -28,7 +28,9 @@ export function stepInteriorAndBody(state: SimState, input: DriverInput, dt: num
       if (intr.crewWorkTimer >= 1) {
         intr.crewWorkTimer = 0;
         intr.mouthQueue -= 1;
-        intr.acidSlots.push({ yieldHunger: 20, remaining: 2.6, total: 2.6 });
+        const fromPrey = intr.preySections > 0;
+        if (fromPrey) intr.preySections -= 1;
+        intr.acidSlots.push({ yieldHunger: fromPrey ? SIM_CONFIG.preyYieldPerSection : 20, remaining: 2.6, total: 2.6 });
       }
     }
   }
