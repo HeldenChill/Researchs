@@ -283,3 +283,45 @@ describe('latched prey is a flexible chain', () => {
     expect(maxBend).toBeGreaterThan(0.3);
   });
 });
+
+describe('latched prey head is buried in our body', () => {
+  function latched() {
+    const s = createInitialState();
+    const p = s.prey[0]!;
+    p.mode = 'latched'; p.latchSegment = 3; p.latchTimer = 4;
+    s.worm.latchedPreyId = p.id;
+    stepLatch(s, idle, 1 / 60); // builds the chain
+    return { s, p };
+  }
+
+  it('latched prey with only its head left cannot be eaten', () => {
+    const { s, p } = latched();
+    p.sections = 1;
+    const head = preyBodyPoints(p)[0]!;
+    s.worm.x = head.x; s.worm.y = head.y;
+    bitePrey(s);
+    expect(p.alive).toBe(true);
+    expect(s.interior.mouthQueue).toBe(0);
+    expect(s.worm.latchedPreyId).toBe(p.id);
+  });
+
+  it('cannot head-bite a latched prey', () => {
+    const { s, p } = latched();
+    const head = preyBodyPoints(p)[0]!;
+    s.worm.x = head.x; s.worm.y = head.y;
+    bitePrey(s);
+    expect(p.alive).toBe(true); // never eaten whole
+    // Our head here also touches link 1 (2.2 m out, inside 3 m reach): that is a body bite, at most 1 section.
+    expect(s.interior.mouthQueue).toBeLessThanOrEqual(1);
+  });
+
+  it('can still bite its sticking-out body for one section', () => {
+    const { s, p } = latched();
+    const tail = preyBodyPoints(p)[4]!;
+    s.worm.x = tail.x; s.worm.y = tail.y;
+    bitePrey(s);
+    expect(p.sections).toBe(4);
+    expect(s.interior.mouthQueue).toBe(1);
+    expect(s.worm.latchedPreyId).toBeNull();
+  });
+});

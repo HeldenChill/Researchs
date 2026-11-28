@@ -198,7 +198,9 @@ export function bitePrey(state: SimState): void {
   for (const p of state.prey) {
     if (!p.alive) continue;
     const pts = preyBodyPoints(p);
-    const headHit = Math.hypot(w.x - pts[0]!.x, w.y - pts[0]!.y) <= reach;
+    // A latched prey's head is buried in our body: only its sticking-out body can be bitten.
+    const buried = w.latchedPreyId === p.id;
+    const headHit = !buried && Math.hypot(w.x - pts[0]!.x, w.y - pts[0]!.y) <= reach;
     let bodyHit = false;
     for (let k = 1; k < pts.length; k++) {
       if (Math.hypot(w.x - pts[k]!.x, w.y - pts[k]!.y) <= reach) {
