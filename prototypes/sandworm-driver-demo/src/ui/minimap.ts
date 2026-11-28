@@ -1,4 +1,5 @@
 import { SIM_CONFIG } from '../sim/config.ts';
+import { preyBodyPoints } from '../sim/prey.ts';
 import type { SimState } from '../sim/types.ts';
 
 const LOOK_BEHIND_M = 30;
@@ -95,6 +96,27 @@ export class MinimapView {
       ctx.fillStyle = sp.kind === 'tyre' ? '#b4a48d' : '#69c98a';
       ctx.beginPath();
       ctx.arc(px, py, sp.kind === 'large_meat' ? 4 : 2.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Alive prey worms
+    for (const p of state.prey) {
+      if (!p.alive || p.x < xMin - 16 || p.x > xMax + 16) continue;
+      const pts = preyBodyPoints(p);
+      if (pts.length === 0) continue;
+      if (pts.length > 1) {
+        ctx.strokeStyle = '#d9c38f';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(toX(pts[0]!.x), toY(pts[0]!.y));
+        for (let i = 1; i < pts.length; i++) {
+          ctx.lineTo(toX(pts[i]!.x), toY(pts[i]!.y));
+        }
+        ctx.stroke();
+      }
+      ctx.fillStyle = '#f2e6d0';
+      ctx.beginPath();
+      ctx.arc(toX(pts[0]!.x), toY(pts[0]!.y), 3, 0, Math.PI * 2);
       ctx.fill();
     }
 

@@ -101,7 +101,10 @@ export class HudView {
     );
     let actionText = '';
     let actionDanger = false;
-    if (w.activeObstacleId !== null) {
+    if (w.latchedPreyId !== null) {
+      actionText = 'LATCHED, shake it off (brake hard or hit a rock)';
+      actionDanger = true;
+    } else if (w.activeObstacleId !== null) {
       actionText = `Grinding rock ${Math.round(w.gnawProgress * 100)}% (S to release)`;
     } else if (w.recoilTimer > 0) {
       actionText = 'Impact recoil';

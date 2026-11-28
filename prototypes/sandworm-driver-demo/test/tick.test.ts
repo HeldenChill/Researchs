@@ -31,4 +31,12 @@ describe('stepSim & boundary (Ω)', () => {
     stepSim(loseState, { throttle: 0, steer: 0, boost: false, ping: false, preset: null }, 0.05);
     expect(loseState.outcome).toBe('loss_apocalypse');
   });
+
+  it('prey frozen after outcome', () => {
+    const s = createInitialState();
+    s.outcome = 'win';
+    const x0 = s.prey[0]!.x;
+    for (let i = 0; i < 10; i++) stepSim(s, { throttle: 0, steer: 0, boost: false, ping: false, preset: null }, 1 / 60);
+    expect(s.prey[0]!.x).toBe(x0);
+  });
 });

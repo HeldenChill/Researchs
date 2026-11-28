@@ -3,6 +3,7 @@ import { lerp, smoothing } from '@hk/loop';
 import { SIM_CONFIG } from '../sim/config.ts';
 import type { SimState } from '../sim/types.ts';
 import { WormVisual } from './wormMesh.ts';
+import { PreyVisual } from './preyMesh.ts';
 import { Dust } from './dust.ts';
 import { Underground } from './underground.ts';
 import { CAMERA_LOOK_DROP, cameraTargetX, cameraTargetY } from './camera.ts';
@@ -30,6 +31,7 @@ export class WorldRenderer {
   private readonly scene = new THREE.Scene();
   private readonly camera: THREE.PerspectiveCamera;
   private readonly wormVisual = new WormVisual();
+  private readonly preyVisual = new PreyVisual();
   private readonly obstacleMeshes = new Map<number, THREE.Mesh>();
   private readonly spawnerMeshes = new Map<number, THREE.Mesh>();
   private readonly apocalypseMesh: THREE.Mesh;
@@ -58,6 +60,7 @@ export class WorldRenderer {
     const dir = new THREE.DirectionalLight(0xfff0d4, 1.4);
     dir.position.set(20, 40, 25);
     this.scene.add(hemi, dir);
+    this.scene.add(this.preyVisual.group);
 
     // Cutaway of the ground: surface, layers and bedrock
     this.scene.add(this.underground.mesh);
@@ -138,6 +141,7 @@ export class WorldRenderer {
     this.syncEntities(state);
     this.playImpact(state);
     this.wormVisual.update(state.worm, pose, dt);
+    this.preyVisual.update(state);
     this.animateGrind(state, pose, dt);
     this.updateHitboxes(state);
     this.dust.update(dt);
