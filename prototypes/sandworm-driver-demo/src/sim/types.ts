@@ -1,3 +1,5 @@
+import type { PathTrail } from './trail.ts';
+
 export type HeartPreset = 'fast' | 'balanced' | 'bite';
 
 export interface HeartAllocation {
@@ -27,6 +29,28 @@ export interface WormState {
   gnawProgress: number; // 0..1
   gnawFrom: { x: number; y: number; nx: number; ny: number }; // start point and rock normal
   impact: ImpactEvent;
+  trail: PathTrail;
+  latchedPreyId: number | null;
+}
+
+export type PreyMode = 'wander' | 'flee' | 'lunge' | 'latched' | 'recover';
+
+export interface PreyWorm {
+  id: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  heading: number;
+  sections: number;          // 1..preySegments, segment 0 = head
+  trail: PathTrail;
+  mode: PreyMode;
+  modeTimer: number;         // seconds left in lunge, recover or flee burst
+  latchSegment: number;      // player segment index while latched, else -1
+  latchTimer: number;
+  latchMomentumStart: number;
+  wigglePhase: number;
+  alive: boolean;
 }
 
 export type ImpactKind = 'none' | 'hit' | 'bump' | 'gnaw' | 'break' | 'land' | 'surface';
@@ -73,6 +97,7 @@ export interface InteriorState {
   crewStunTimer: number;
   crewWorkTimer: number;
   sealProgress: number;
+  preySections: number; // queued items that came from prey
 }
 
 export type MatchOutcome = 'playing' | 'win' | 'loss_health' | 'loss_hunger' | 'loss_apocalypse';
@@ -90,6 +115,7 @@ export interface SimState {
   worm: WormState;
   obstacles: Obstacle[];
   spawners: Spawner[];
+  prey: PreyWorm[];
   interior: InteriorState;
   apocalypseX: number;
   outcome: MatchOutcome;

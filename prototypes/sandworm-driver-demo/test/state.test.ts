@@ -16,4 +16,19 @@ describe('createInitialState', () => {
     expect(s1.spawners.length).toBeGreaterThan(0);
     expect(s1.outcome).toBe('playing');
   });
+
+  it('spawns preyCount prey with full bodies and a player trail', () => {
+    const s = createInitialState();
+    expect(s.prey.map((p) => p.id)).toEqual([201, 202, 203, 204]);
+    for (const p of s.prey) {
+      expect(p.sections).toBe(5);
+      expect(p.alive).toBe(true);
+      expect(p.y).toBeGreaterThanOrEqual(-28);
+      expect(p.y).toBeLessThanOrEqual(0);
+      expect(p.trail.arc[p.trail.arc.length - 1]!).toBeGreaterThanOrEqual(4 * 2.2);
+    }
+    expect(s.worm.latchedPreyId).toBeNull();
+    expect(s.worm.trail.pts[0]).toEqual({ x: 0, y: -2 });
+    expect(s.interior.preySections).toBe(0);
+  });
 });

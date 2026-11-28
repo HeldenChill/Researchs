@@ -1,5 +1,13 @@
 import { HEART_PRESETS, SIM_CONFIG } from './config.ts';
-import type { Obstacle, SimState, Spawner } from './types.ts';
+import { createStraightTrail } from './trail.ts';
+import type { Obstacle, PreyWorm, SimState, Spawner } from './types.ts';
+
+const PREY_SPAWNS = [
+  { id: 201, x: 120, y: -8 },
+  { id: 202, x: 250, y: -12 },
+  { id: 203, x: 380, y: -6 },
+  { id: 204, x: 500, y: -14 },
+];
 
 export function createInitialState(): SimState {
   const obstacles: Obstacle[] = [
@@ -42,9 +50,40 @@ export function createInitialState(): SimState {
       gnawProgress: 0,
       gnawFrom: { x: 0, y: 0, nx: -1, ny: 0 },
       impact: { seq: 0, kind: 'none', strength: 0, x: 0, y: 0 },
+      trail: createStraightTrail(
+        0,
+        -2,
+        0,
+        (SIM_CONFIG.playerSegments + 1) * SIM_CONFIG.segmentSpacing,
+        SIM_CONFIG.trailSampleSpacing,
+      ),
+      latchedPreyId: null,
     },
     obstacles,
     spawners,
+    prey: PREY_SPAWNS.slice(0, SIM_CONFIG.preyCount).map((row): PreyWorm => ({
+      id: row.id,
+      x: row.x,
+      y: row.y,
+      vx: 0,
+      vy: 0,
+      heading: 0,
+      sections: SIM_CONFIG.preySegments,
+      trail: createStraightTrail(
+        row.x,
+        row.y,
+        0,
+        (SIM_CONFIG.preySegments + 1) * SIM_CONFIG.segmentSpacing,
+        SIM_CONFIG.trailSampleSpacing,
+      ),
+      mode: 'wander',
+      modeTimer: 0,
+      latchSegment: -1,
+      latchTimer: 0,
+      latchMomentumStart: 0,
+      wigglePhase: 0,
+      alive: true,
+    })),
     interior: {
       mouthQueue: 0,
       acidSlots: [],
@@ -52,6 +91,7 @@ export function createInitialState(): SimState {
       crewStunTimer: 0,
       crewWorkTimer: 0,
       sealProgress: 0,
+      preySections: 0,
     },
     apocalypseX: SIM_CONFIG.apocalypseStartX,
     outcome: 'playing',

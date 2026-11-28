@@ -66,6 +66,30 @@ export const DEFAULT_SIM_CONFIG = Object.freeze({
   hungerBaseDrain: 1.2,
   hungerDrainPerSpeedPt: 0.25,
   regenPerPoint: 1.1,
+
+  // prey
+  trailSampleSpacing: 0.5,
+  segmentSpacing: 2.2,
+  playerSegments: 8,
+  playerSegmentRadius: 1.8,
+  preySegments: 5,
+  preySegmentRadius: 1.0,
+  preySpeed: 20,
+  preyTurnRate: 3.6,
+  fleeRadius: 30,
+  lungeRadius: 8,
+  lungeAngle: 1.0,
+  lungeDuration: 1.2,
+  latchDuration: 4,
+  latchWiggleForce: 1.0,
+  latchWiggleFreq: 2.5,
+  latchTurnGain: 1.2,
+  latchMomentumDrain: 18,
+  shakeOffBrake: 25,
+  recoverTime: 2.5,
+  preyBurstTime: 1.0,
+  preyCount: 4,
+  preyYieldPerSection: 15,
 });
 
 export type SimConfig = { -readonly [K in keyof typeof DEFAULT_SIM_CONFIG]: number };
